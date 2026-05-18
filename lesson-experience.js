@@ -133,14 +133,14 @@ function buildPostStoryFlow(lesson, context = {}) {
     critical: buildCriticalLensStep(lesson, title),
     challenge: buildChallengeStep(lesson),
     reward: {
-      kicker: "Recompensa",
-      title: "+40 XP",
+      kicker: "Artefacto desbloqueado",
+      title: "Memória guardada",
       text: `Guardaste uma chave de leitura sobre ${title}.`,
       artifact: intro.preview?.[0] || "Artefacto narrativo desbloqueado",
       previous: "challenge"
     },
     nextTeaser: {
-      kicker: "Proxima descoberta",
+      kicker: "Próxima porta temporal",
       title: nextLesson ? getLessonDisplayTitle(nextLesson.title) : "Rever a jornada",
       text: nextLesson
         ? buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title))
@@ -158,7 +158,7 @@ function buildReflectionStep(lesson, insight = "") {
     ? "O fogo nao mudou apenas a sobrevivencia. Mudou a forma como os humanos viviam juntos."
     : createPreview(insight || lesson.detail || buildLessonHeroLine(lesson), 150);
   return {
-    kicker: "Reflection Moment",
+    kicker: "Pausa de assimilação",
     title: "O que isto mudou?",
     text,
     previous: "story"
@@ -168,8 +168,8 @@ function buildReflectionStep(lesson, insight = "") {
 function buildAssimilationStep(lesson, blocks, title) {
   const prompts = blocks.slice(0, 3).map((block) => block.text);
   return {
-    kicker: "Mentor Historico",
-    title: "Vamos pensar sobre o que acabaste de descobrir?",
+    kicker: "Guia histórico",
+    title: "O que acabaste de descobrir?",
     text: `${title} fica mais claro quando separas descoberta, escolha e consequencia.`,
     prompts: prompts.length ? prompts : [
       "Que problema humano aparece aqui?",
@@ -194,7 +194,7 @@ function buildRealityBridgeStep(lesson, title) {
       ["Escolhas", "Cada avancar tambem cria dependencias e novos custos."]
     ];
   return {
-    kicker: "Reality Bridge",
+    kicker: "Ponte ao presente",
     title: "Do passado para hoje",
     text: `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`,
     cards,
@@ -208,7 +208,7 @@ function buildCriticalLensStep(lesson, title) {
     ? "O dominio do fogo foi apenas progresso?"
     : "Esta mudanca trouxe so beneficios?";
   return {
-    kicker: "Critical Lens",
+    kicker: "Lente crítica",
     title: question,
     text: "Olha para o mesmo momento por lentes diferentes.",
     perspectives: [
@@ -224,7 +224,7 @@ function buildChallengeStep(lesson) {
   const quizBank = getEraQuiz(lesson.eraKey);
   const quiz = quizBank[getRecommendedQuizIndex(lesson.eraKey, lesson.id)] || quizBank[0];
   return {
-    kicker: "Challenge",
+    kicker: "Desafio",
     title: quiz?.question || "Que escolha ajudaria melhor o grupo?",
     quiz,
     previous: "critical"
@@ -232,7 +232,7 @@ function buildChallengeStep(lesson) {
 }
 
 function buildNextTeaserLine(currentTitle, nextTitle) {
-  return `${currentTitle} abriu uma porta. A proxima licao mostra o que mudou a seguir: ${nextTitle}.`;
+  return `${currentTitle} abriu uma porta. A próxima lição mostra o que mudou a seguir: ${nextTitle}.`;
 }
 
 function renderScreenProgress(index, total) {
@@ -278,7 +278,7 @@ function renderAssimilationChatbot(step, lesson, index, total) {
           <h3>${escapeHtml(step.title)}</h3>
           <p>${escapeHtml(step.text)}</p>
         </div>
-        <div class="mentor-bubbles" aria-label="Pistas do Mentor Historico">
+        <div class="mentor-bubbles" aria-label="Pistas do guia histórico">
           ${step.prompts.map((prompt) => `<p class="mentor-bubble">${escapeHtml(prompt)}</p>`).join("")}
         </div>
       </div>
@@ -344,7 +344,7 @@ function renderChallengeScreen(step, lesson, index, total) {
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
         <h3>${escapeHtml(step.title)}</h3>
-        <p>${escapeHtml(answered ? `${correct ? "Boa leitura." : "Quase."} ${quiz.explanation}` : "Escolhe pela compreensao do contexto, nao por memoria.")}</p>
+        <p>${escapeHtml(answered ? `${correct ? "Boa leitura." : "Quase."} ${quiz.explanation}` : "Escolhe pelo contexto, não pela memória.")}</p>
       </div>
       <div class="lesson-quiz-options challenge-options">
         ${quiz.options.map((option, optionIndex) => `
@@ -371,7 +371,7 @@ function renderRewardScreen(step, lesson, index, total) {
         <small>${escapeHtml(step.artifact)}</small>
       </div>
       ${renderScreenProgress(index, total)}
-      ${renderPostStoryActions(step.previous, "Ver proxima")}
+      ${renderPostStoryActions(step.previous, "Ver próxima")}
     </article>
   `;
 }
@@ -390,7 +390,7 @@ function renderNextLessonTeaser(step, lesson, index, total) {
         <button type="button" data-lesson-action="${escapeHtml(step.previous)}">Voltar</button>
         <button type="button" data-lesson-action="timeline">Voltar à timeline</button>
         ${step.nextLessonId
-          ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}">Entrar na proxima</button>`
+          ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}">Entrar na próxima</button>`
           : `<button type="button" data-lesson-action="complete">Terminar</button>`}
       </div>
     </article>

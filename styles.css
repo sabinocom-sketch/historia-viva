@@ -27,6 +27,12 @@
   --ease-soft: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-exit: cubic-bezier(0.7, 0, 0.84, 0);
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+  --mobile-page-pad: clamp(18px, 5vw, 24px);
+  --thumb-zone: calc(78px + var(--safe-bottom));
   --asset-pre-historia: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/pre-historia.webp");
   --asset-paleolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/paleolitico.webp");
   --asset-mesolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/mesolitico.webp");
@@ -459,7 +465,7 @@ body.is-xp-awarded .mini-progress span {
 
 body {
   margin: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   background: #ece4d6;
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -511,7 +517,7 @@ button {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 0;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 0;
   background:
     linear-gradient(120deg, rgba(247, 242, 232, 0.95), rgba(214, 231, 228, 0.62)),
@@ -718,14 +724,14 @@ h2 {
   display: grid;
   align-content: start;
   min-width: 0;
-  min-height: 100svh;
+  min-height: 100dvh;
 }
 
 .screen-back-button {
   position: fixed;
   z-index: 40;
-  top: 18px;
-  left: 18px;
+  top: calc(12px + var(--safe-top));
+  left: calc(12px + var(--safe-left));
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -802,7 +808,7 @@ h2 {
 [data-experience="source"] .source-panel.active,
 [data-experience="mission"] .mission-panel.active,
 [data-experience="chat"] .chat-panel.active {
-  min-height: calc(100vh - 36px);
+  min-height: 100dvh;
 }
 
 [data-experience="quiz"] .quiz-panel.active {
@@ -851,7 +857,7 @@ h2 {
   position: relative;
   isolation: isolate;
   display: grid;
-  min-height: 100svh;
+  min-height: 100dvh;
   overflow: clip;
 }
 
@@ -883,7 +889,7 @@ h2 {
 .debates-panel,
 .mission-panel,
 .progress-panel {
-  min-height: 100vh;
+  min-height: 100dvh;
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -920,10 +926,14 @@ body[data-view="learn"] .categories-panel {
   grid-template-rows: auto minmax(260px, 1fr);
   align-content: stretch;
   gap: clamp(18px, 3vh, 34px);
-  height: 100vh;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   overflow: hidden;
-  padding: clamp(24px, 4vh, 52px) clamp(34px, 6vw, 76px) clamp(18px, 3vh, 34px);
+  padding:
+    calc(clamp(24px, 4vh, 52px) + var(--safe-top))
+    calc(clamp(34px, 6vw, 76px) + var(--safe-right))
+    calc(clamp(18px, 3vh, 34px) + var(--safe-bottom))
+    calc(clamp(34px, 6vw, 76px) + var(--safe-left));
   color: #fff8ea;
   background:
     radial-gradient(circle at 16% 18%, rgba(222, 158, 72, 0.22), transparent 30%),
@@ -970,11 +980,15 @@ body[data-view="lesson"] .categories-panel {
 .era-portal-screen {
   position: relative;
   isolation: isolate;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   align-items: end;
   overflow: hidden;
-  padding: clamp(42px, 7vw, 96px);
+  padding:
+    calc(clamp(42px, 7vw, 96px) + var(--safe-top))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-right))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-bottom))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-left));
   color: #fff8ea;
   background:
     linear-gradient(90deg, rgba(8, 11, 10, 0.82) 0%, rgba(8, 11, 10, 0.42) 46%, rgba(8, 11, 10, 0.08) 100%),
@@ -985,11 +999,15 @@ body[data-view="lesson"] .categories-panel {
 .subpath-portal-screen {
   position: relative;
   isolation: isolate;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   align-items: end;
   overflow: hidden;
-  padding: clamp(42px, 7vw, 96px);
+  padding:
+    calc(clamp(42px, 7vw, 96px) + var(--safe-top))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-right))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-bottom))
+    calc(clamp(42px, 7vw, 96px) + var(--safe-left));
   color: #fff8ea;
   background: #111615;
 }
@@ -1202,8 +1220,8 @@ body[data-view="lesson"] .categories-panel {
 .era-world-screen {
   display: grid;
   grid-template-rows: auto minmax(0, 1fr);
-  height: 100vh;
-  min-height: 100vh;
+  height: 100dvh;
+  min-height: 100dvh;
   overflow: hidden;
   color: #fff8ea;
   background:
@@ -1393,11 +1411,15 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .timeline-view-screen {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
   grid-template-rows: auto 1fr;
   gap: clamp(26px, 4vw, 46px);
-  padding: clamp(34px, 5vw, 68px) clamp(22px, 7vw, 108px) clamp(40px, 6vw, 82px);
+  padding:
+    calc(clamp(34px, 5vw, 68px) + var(--safe-top))
+    calc(clamp(22px, 7vw, 108px) + var(--safe-right))
+    calc(clamp(40px, 6vw, 82px) + var(--safe-bottom))
+    calc(clamp(22px, 7vw, 108px) + var(--safe-left));
   color: #fff8ea;
   background:
     radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.18), transparent 24%),
@@ -2618,9 +2640,9 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
 
 body[data-view="lesson"] .active-lesson-panel {
   gap: 0;
-  height: 100svh;
+  height: 100dvh;
   min-height: 0;
-  max-height: 100svh;
+  max-height: 100dvh;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -2635,9 +2657,9 @@ body[data-view="lesson"] .active-lesson-panel {
 }
 
 body[data-view="lesson"] .lesson-view {
-  height: 100svh;
+  height: 100dvh;
   min-height: 0;
-  max-height: 100svh;
+  max-height: 100dvh;
   background: #111615;
   overflow: hidden;
 }
@@ -2657,7 +2679,7 @@ body[data-view="lesson"] .lesson-hero {
   isolation: isolate;
   grid-template-columns: 1fr;
   align-content: end;
-  min-height: 100svh;
+  min-height: 100dvh;
   overflow: hidden;
   background: #1b1713;
   --lesson-accent: #e8732f;
@@ -2872,7 +2894,10 @@ body[data-view="lesson"] .lesson-hero-copy {
   width: min(980px, calc(100% - 40px));
   align-content: end;
   gap: clamp(10px, 1.5vw, 18px);
-  padding: clamp(72px, 10svh, 118px) 0 clamp(22px, 5svh, 54px);
+  padding:
+    calc(clamp(72px, 10dvh, 118px) + var(--safe-top))
+    0
+    calc(clamp(22px, 5dvh, 54px) + var(--safe-bottom));
   margin: 0 auto;
 }
 
@@ -2888,7 +2913,7 @@ body[data-view="lesson"] .lesson-hero-copy {
 
 body[data-view="lesson"] .lesson-hero-copy h3 {
   max-width: 15ch;
-  font-size: clamp(3rem, 6.2vw, 5.9rem);
+  font-size: clamp(2.55rem, 8dvh, 5.9rem);
   line-height: 0.92;
   text-shadow: 0 18px 44px rgba(0, 0, 0, 0.52);
 }
@@ -3094,7 +3119,7 @@ body[data-view="lesson"] .lesson-context-trail span.active {
 
 body[data-view="lesson"] .lesson-experience {
   width: 100%;
-  height: 100svh;
+  height: 100dvh;
   min-height: 0;
   margin: 0;
   overflow: hidden;
@@ -3111,8 +3136,12 @@ body[data-view="lesson"] .lesson-experience {
     "progress actions";
   align-items: center;
   gap: clamp(18px, 4vw, 54px);
-  min-height: 100svh;
-  padding: clamp(24px, 5vw, 62px);
+  min-height: 100dvh;
+  padding:
+    calc(clamp(24px, 5vw, 62px) + var(--safe-top))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-right))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-bottom))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-left));
   border-radius: 0;
   color: #fff8ea;
   background: #111615;
@@ -3329,8 +3358,12 @@ body[data-view="lesson"] .lesson-experience {
   grid-template-columns: minmax(0, 0.84fr) minmax(0, 1.16fr);
   gap: clamp(12px, 2vw, 18px);
   align-items: stretch;
-  min-height: 100svh;
-  padding: clamp(24px, 5vw, 62px);
+  min-height: 100dvh;
+  padding:
+    calc(clamp(24px, 5vw, 62px) + var(--safe-top))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-right))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-bottom))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-left));
   background:
     radial-gradient(circle at 18% 28%, var(--lesson-accent-soft, rgba(241, 199, 121, 0.22)), transparent 26%),
     linear-gradient(135deg, #101413 0%, #1f241f 52%, #2c241b 100%);
@@ -3383,7 +3416,7 @@ body[data-view="lesson"] .lesson-experience {
 }
 
 .post-story-flow {
-  min-height: 100svh;
+  min-height: 100dvh;
   color: #fff8ea;
   background: #101413;
 }
@@ -3399,9 +3432,13 @@ body[data-view="lesson"] .lesson-experience {
     "progress actions";
   align-items: center;
   gap: clamp(18px, 4vw, 56px);
-  min-height: 100svh;
-  height: 100svh;
-  padding: clamp(24px, 5vw, 62px);
+  min-height: 100dvh;
+  height: 100dvh;
+  padding:
+    calc(clamp(24px, 5vw, 62px) + var(--safe-top))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-right))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-bottom))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-left));
   animation: story-block-reveal 420ms ease both;
 }
 
@@ -3859,8 +3896,12 @@ body[data-view="lesson"] .lesson-mode-panel p {
   align-content: center;
   gap: 22px;
   width: min(720px, calc(100vw - 40px));
-  min-height: 100svh;
-  padding: clamp(28px, 7svh, 72px) 7vw;
+  min-height: 100dvh;
+  padding:
+    calc(clamp(28px, 7dvh, 72px) + var(--safe-top))
+    calc(7vw + var(--safe-right))
+    calc(clamp(28px, 7dvh, 72px) + var(--safe-bottom))
+    calc(7vw + var(--safe-left));
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -4241,7 +4282,7 @@ body[data-view="lesson"] .lesson-mode-panel p {
 }
 
 .chat-panel {
-  min-height: calc(100vh - 36px);
+  min-height: 100dvh;
 }
 
 .chat-window {
@@ -4249,7 +4290,7 @@ body[data-view="lesson"] .lesson-mode-panel p {
   align-content: start;
   gap: 12px;
   min-height: 360px;
-  max-height: calc(100vh - 190px);
+  max-height: calc(100dvh - 190px);
   overflow: auto;
   padding-right: 4px;
 }
@@ -5186,6 +5227,106 @@ blockquote {
     padding: 0;
   }
 
+  .screen-back-button {
+    min-height: 40px;
+    padding-right: 12px;
+  }
+
+  .screen-back-button span:last-child {
+    display: none;
+  }
+
+  .intro-panel {
+    align-content: end;
+    width: 100%;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(var(--thumb-zone) + 22px)
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .overview-view h2 {
+    max-width: 8.8ch;
+    font-size: clamp(3.05rem, 16vw, 4.85rem);
+  }
+
+  #era-summary {
+    max-width: 32ch;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .home-hero-actions {
+    position: fixed;
+    right: calc(var(--mobile-page-pad) + var(--safe-right));
+    bottom: calc(18px + var(--safe-bottom));
+    left: calc(var(--mobile-page-pad) + var(--safe-left));
+    z-index: 6;
+    margin-top: 0;
+  }
+
+  .home-hero-actions button {
+    width: 100%;
+    min-height: 56px;
+    justify-content: center;
+    border-radius: 999px;
+    box-shadow: 0 18px 48px rgba(8, 11, 10, 0.32);
+  }
+
+  body[data-view="learn"] .categories-panel {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 16px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(18px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header h2 {
+    max-width: 9ch;
+    font-size: clamp(2.35rem, 12.5vw, 3.7rem);
+    line-height: 0.92;
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header p:not(.eyebrow) {
+    max-width: 31ch;
+    margin-top: 10px;
+    font-size: 0.96rem;
+    line-height: 1.42;
+  }
+
+  body[data-view="learn"] .era-switcher {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78vw, 1fr);
+    grid-template-columns: none;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: calc(10px + var(--safe-bottom));
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  body[data-view="learn"] .era-switcher::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-view="learn"] .categories-panel .path-card {
+    min-height: 100%;
+    scroll-snap-align: center;
+  }
+
   .stat-grid,
   .path-grid,
   .quick-grid,
@@ -5255,18 +5396,30 @@ blockquote {
   }
 
   .timeline-view-screen {
-    min-height: 100vh;
-    padding: 28px 18px 44px;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(18px + var(--safe-right))
+      calc(44px + var(--safe-bottom))
+      calc(18px + var(--safe-left));
   }
 
   .era-portal-screen {
-    min-height: 100vh;
-    padding: 28px 20px 46px;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(46px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
   }
 
   .subpath-portal-screen {
-    min-height: 100vh;
-    padding: 28px 20px 46px;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(46px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
   }
 
   .era-portal-screen::after {
@@ -5327,13 +5480,17 @@ blockquote {
 
   body[data-view="lesson"] .lesson-experience {
     width: 100%;
-    height: 100svh;
+    height: 100dvh;
     min-height: 0;
   }
 
   .story-block {
-    min-height: 100svh;
-    padding: 28px 20px;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(20px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
     text-align: center;
   }
 
@@ -5347,7 +5504,7 @@ blockquote {
   }
 
   .story-block-copy p {
-    font-size: clamp(2rem, 11vw, 3.7rem);
+    font-size: clamp(1.78rem, 9.4vw, 3.15rem);
   }
 
   .story-block-progress,
@@ -5357,6 +5514,7 @@ blockquote {
 
   .story-block-actions {
     width: 100%;
+    padding-bottom: var(--safe-bottom);
   }
 
   .story-block-actions button {
@@ -5365,7 +5523,7 @@ blockquote {
   }
 
   .interactive-moment {
-    min-height: 100svh;
+    min-height: 100dvh;
     padding: 24px 18px;
     gap: 12px;
   }
@@ -5382,9 +5540,13 @@ blockquote {
       "actions";
     align-content: center;
     gap: 16px;
-    height: 100svh;
-    min-height: 100svh;
-    padding: 22px 18px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding:
+      calc(22px + var(--safe-top))
+      calc(18px + var(--safe-right))
+      calc(18px + var(--safe-bottom))
+      calc(18px + var(--safe-left));
     text-align: center;
   }
 
@@ -5470,6 +5632,7 @@ blockquote {
 
   .post-story-actions {
     width: 100%;
+    padding-bottom: var(--safe-bottom);
   }
 
   .timeline-year {

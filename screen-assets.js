@@ -7,12 +7,7 @@ const learnAssetUrls = [
   "idade-moderna.webp",
   "idade-contemporanea.webp",
   "historia-de-portugal.webp",
-  "grande-jornada-historica.webp",
-  "licao-descoberta-do-fogo.webp",
-  "licao-ferramentas-de-pedra.webp",
-  "licao-caca%20e-pesca.webp",
-  "licao-arte-rupestre.webp",
-  "licao-ritos-funerarios.webp"
+  "grande-jornada-historica.webp"
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
 const preloadCache = new Map();
