@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>História Viva</title>
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/pre-historia.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-antiga.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-media.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-moderna.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-contemporanea.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/historia-de-portugal.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/grande-jornada-historica.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-descoberta-do-fogo.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ferramentas-de-pedra.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-caca%20e-pesca.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-arte-rupestre.webp" />
+    <link rel="preload" as="image" href="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="is-booting" data-view="home" data-experience="home">
+    <main class="app-shell">
+      <section class="content-shell" aria-label="Área de trabalho">
+        <button class="screen-back-button" type="button" id="screen-back-button" aria-label="Voltar ao ecrã anterior">
+          <span aria-hidden="true">&larr;</span>
+          <span>Voltar</span>
+        </button>
+        <section class="feature-view active overview-view" data-view="overview" aria-label="Visão geral">
+          <div class="panel intro-panel">
+            <div>
+              <p class="eyebrow">História Viva</p>
+              <h2 id="era-title">História Viva</h2>
+              <p class="topic-kicker" id="era-range">Uma jornada cinematográfica pela humanidade</p>
+              <p id="era-summary">
+                Entra em mundos históricos, segue pistas, interpreta vestígios e descobre o que mudou a vida humana.
+              </p>
+              <div class="home-hero-actions">
+                <button type="button" data-route="learn">Começar Jornada</button>
+              </div>
+            </div>
+
+            <div class="stat-grid" aria-label="Resumo do período">
+              <div>
+                <span id="stat-one">4 focos</span>
+                <small>temas</small>
+              </div>
+              <div>
+                <span id="stat-two">3 fontes</span>
+                <small>para analisar</small>
+              </div>
+              <div>
+                <span id="stat-three">5 min</span>
+                <small>debate rápido</small>
+              </div>
+            </div>
+
+            <div class="progress-strip" aria-label="Progresso de aprendizagem">
+              <div>
+                <span id="overview-level">Nível 1</span>
+                <strong id="overview-progress-title">Aprendiz de História</strong>
+              </div>
+              <div class="mini-progress" aria-hidden="true"><span id="overview-progress-bar"></span></div>
+              <p id="overview-next-goal">Faz um quiz ou pergunta ao historiador para ganhar XP.</p>
+            </div>
+
+            <div class="journey-card" aria-label="Roteiro de aprendizagem">
+              <div>
+                <span>Continuar</span>
+                <strong id="journey-title">Continua o percurso guiado</strong>
+              </div>
+              <p class="next-lesson-label">Próxima lição</p>
+              <p id="journey-summary">Guerras Púnicas: entra no conflito que transformou Roma numa potência mediterrânica.</p>
+              <div class="journey-progress">
+                <span id="journey-progress-label">Progresso: 1/6 passos</span>
+                <div class="mini-progress" aria-hidden="true"><span id="journey-progress-bar"></span></div>
+              </div>
+              <div class="journey-actions">
+                <button type="button" data-flow-action="current" id="continue-journey">Continuar</button>
+                <button type="button" data-route="learn">Escolher percurso</button>
+              </div>
+            </div>
+
+            <section class="featured-paths" aria-label="Percursos em destaque">
+              <div class="home-section-header">
+                <span>Percursos recomendados</span>
+                <button type="button" data-route="learn">Ver todos</button>
+              </div>
+              <div class="path-grid">
+                <button type="button" data-flow-action="current">
+                  <strong>Ascensão e Queda de Roma</strong>
+                  <span>Médio · 6 passos · em curso</span>
+                </button>
+                <button type="button" data-route="learn">
+                  <strong>História de Portugal</strong>
+                  <span>Inicial · 8 lições · 0%</span>
+                </button>
+                <button type="button" data-route="explore">
+                  <strong>Revolução Francesa</strong>
+                  <span>Médio · 5 lições · bloqueado</span>
+                </button>
+              </div>
+            </section>
+
+            <section class="quick-discovery" aria-label="Descoberta rápida">
+              <div class="home-section-header">
+                <span>Descoberta rápida</span>
+              </div>
+              <div class="quick-grid">
+                <button type="button" data-route="home">Curiosidade do dia</button>
+                <button type="button" data-route="debate">Debate recomendado</button>
+                <button type="button" data-route="source">Fonte em destaque</button>
+              </div>
+            </section>
+
+            <div class="curiosity-card" aria-label="Curiosidade histórica">
+              <div>
+                <span>Curiosidade</span>
+                <strong id="curiosity-title">Sabias que?</strong>
+              </div>
+              <p id="curiosity-text"></p>
+              <button id="daily-curiosity" type="button">Curiosidade do dia</button>
+            </div>
+          </div>
+
+          <div class="hero-visual" aria-hidden="true">
+            <img src="https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/grande-jornada-historica.webp" alt="" />
+          </div>
+        </section>
+
+        <section class="feature-view panel categories-panel" data-view="categories" aria-label="Categorias históricas">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Portais históricos</p>
+              <h2>Escolhe uma era</h2>
+              <p>Cada porta abre um mundo com conflitos, descobertas, fontes e escolhas humanas.</p>
+            </div>
+          </div>
+          <div class="era-switcher" aria-label="Escolher percurso histórico">
+            <button class="era-button path-card" data-era="prehistoria"><span class="path-card-visual"></span><strong>Pré-História</strong><small>Fogo, ferramentas, arte rupestre e primeiras aldeias.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card active" data-era="antiga"><span class="path-card-visual"></span><strong>Idade Antiga</strong><small>Impérios, cidades, democracia, escravatura e Mediterrâneo antigo.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card" data-era="medieval"><span class="path-card-visual"></span><strong>Idade Média</strong><small>Castelos, manuscritos, Islão, cruzadas, cidades e poder local.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card" data-era="moderna"><span class="path-card-visual"></span><strong>Idade Moderna</strong><small>Caravelas, imprensa, impérios, ciência e revoluções atlânticas.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card" data-era="contemporanea"><span class="path-card-visual"></span><strong>Idade Contemporânea</strong><small>Industrialização, guerras, direitos, Guerra Fria e mundo global.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card" data-era="portugal"><span class="path-card-visual"></span><strong>História de Portugal</strong><small>Formação, expansão, liberalismo, ditadura, democracia e Europa.</small><span class="path-meta">Entrar neste mundo</span></button>
+            <button class="era-button path-card grand-journey" data-route="journey"><span class="path-card-visual"></span><strong>Grande Jornada Histórica</strong><small>Uma viagem transversal da humanidade, das primeiras aldeias ao presente.</small><span class="path-meta">Começar campanha</span></button>
+          </div>
+          <div class="category-map-header">
+            <div>
+              <p class="eyebrow">Hub da era</p>
+              <h2>Percursos, lições e timeline</h2>
+            </div>
+            <div class="timeline-controls" aria-label="Densidade das lições">
+              <button class="timeline-zoom active" type="button" data-zoom="compacto">Compacto</button>
+              <button class="timeline-zoom" type="button" data-zoom="detalhado">Detalhado</button>
+            </div>
+          </div>
+          <div class="category-sections" id="category-sections"></div>
+        </section>
+
+        <section class="feature-view panel chat-panel" data-view="chat" aria-label="Conversa histórica">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Mesa de conversa</p>
+              <h2>Pergunta ao historiador</h2>
+            </div>
+            <button class="icon-button" id="shuffle-question" title="Nova pergunta" aria-label="Nova pergunta">?</button>
+          </div>
+
+          <div class="chat-window" id="chat-window" aria-live="polite">
+            <article class="message assistant">
+              <strong>Historiador</strong>
+              <p id="assistant-message">
+                Escolhe um período e lança uma pergunta. Posso ajudar-te a comparar causas, atores, fontes e consequências.
+              </p>
+            </article>
+          </div>
+
+          <form class="question-form" id="question-form">
+            <input
+              id="question-input"
+              type="text"
+              autocomplete="off"
+              placeholder="Ex.: Porque é que Roma caiu?"
+              aria-label="Pergunta sobre História"
+            />
+            <button type="submit">Enviar</button>
+          </form>
+        </section>
+
+        <section class="feature-view panel explore-panel" data-view="explore" aria-label="Eventos, biografias e conceitos">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Explorar</p>
+              <h2 id="explore-heading">Eventos, biografias e conceitos</h2>
+            </div>
+          </div>
+          <div class="explore-tabs" role="tablist" aria-label="Tipo de conteúdo">
+            <button class="explore-tab active" type="button" data-explore="events">Eventos</button>
+            <button class="explore-tab" type="button" data-explore="biographies">Biografias</button>
+            <button class="explore-tab" type="button" data-explore="concepts">Conceitos</button>
+          </div>
+          <div class="explore-list" id="explore-list"></div>
+        </section>
+
+        <section class="feature-view panel source-panel" data-view="source" aria-label="Análise de fonte">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Oficina de fontes</p>
+              <h2>Analisar evidências</h2>
+            </div>
+          </div>
+          <blockquote id="source-text"></blockquote>
+          <div class="source-actions">
+            <button id="source-origin" type="button">Origem</button>
+            <button id="source-purpose" type="button">Intenção</button>
+            <button id="source-limits" type="button">Limites</button>
+          </div>
+          <p class="source-answer" id="source-answer"></p>
+        </section>
+
+        <section class="feature-view panel quiz-panel" data-view="quiz" aria-label="Quiz">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Desafio</p>
+              <h2>Quiz relâmpago</h2>
+            </div>
+            <span class="score" id="score">0/0</span>
+          </div>
+          <p class="quiz-question" id="quiz-question"></p>
+          <div class="quiz-options" id="quiz-options"></div>
+          <p class="quiz-feedback" id="quiz-feedback"></p>
+        </section>
+
+        <section class="feature-view panel debates-panel" data-view="debates" aria-label="Debates históricos">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Debates Históricos</p>
+              <h2>Argumentar com contexto</h2>
+            </div>
+          </div>
+
+          <div class="debate-picker" id="debate-picker" aria-label="Escolher debate"></div>
+
+          <article class="debate-stage">
+            <p class="topic-kicker" id="debate-context"></p>
+            <h3 id="debate-title"></h3>
+            <p id="debate-intro"></p>
+
+            <div class="debate-sides">
+              <section class="debate-side">
+                <span id="debate-side-a-label"></span>
+                <ul id="debate-side-a"></ul>
+              </section>
+              <section class="debate-side">
+                <span id="debate-side-b-label"></span>
+                <ul id="debate-side-b"></ul>
+              </section>
+            </div>
+
+            <div class="debate-actions" aria-label="Escolher posição">
+              <button id="choose-side-a" type="button"></button>
+              <button id="choose-side-b" type="button"></button>
+              <button id="choose-side-balance" type="button">Posição equilibrada</button>
+            </div>
+
+            <p class="debate-summary" id="debate-summary"></p>
+          </article>
+        </section>
+
+        <section class="feature-view panel mission-panel" data-view="mission" aria-label="Missão histórica">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Missão histórica</p>
+              <h2 id="mission-title">Entrar no contexto</h2>
+            </div>
+          </div>
+
+          <article class="mission-stage">
+            <p class="topic-kicker" id="mission-context"></p>
+            <p id="mission-brief"></p>
+            <div class="mission-choices" id="mission-choices"></div>
+            <p class="mission-result" id="mission-result">Escolhe uma decisão para veres a consequência histórica.</p>
+          </article>
+        </section>
+
+        <section class="feature-view panel progress-panel" data-view="progress" aria-label="Progresso">
+          <div class="panel-header">
+            <div>
+              <p class="eyebrow">Percurso</p>
+              <h2>Progresso e conquistas</h2>
+            </div>
+            <span class="score" id="progress-score">0 XP</span>
+          </div>
+
+          <div class="progress-dashboard">
+            <section class="progress-card">
+              <span id="progress-level">Nível 1</span>
+              <strong id="progress-title">Aprendiz de História</strong>
+              <div class="mini-progress" aria-hidden="true"><span id="progress-bar"></span></div>
+              <p id="progress-caption">Começa por escolher um período, fazer uma pergunta e responder ao quiz.</p>
+            </section>
+
+            <section class="progress-card">
+              <span>Streak</span>
+              <strong id="streak-count">0 dias</strong>
+              <p id="streak-caption">Hoje conta como o primeiro dia quando concluis uma ação.</p>
+            </section>
+          </div>
+
+          <div class="era-mastery" id="era-mastery" aria-label="Progresso por era"></div>
+          <div class="badge-grid" id="badge-grid" aria-label="Conquistas"></div>
+        </section>
+      </section>
+    </main>
+
+    <script src="bundle.js" defer></script>
+  </body>
+</html>

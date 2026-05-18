@@ -1,0 +1,17 @@
+{
+  "name": "new-project-5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build-bundle.js",
+  "scripts": {
+    "start": "node server.js",
+    "screenshot": "node scripts/screenshot.cjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "playwright": "^1.60.0"
+  }
+}

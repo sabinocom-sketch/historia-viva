@@ -1,2 +1,4 @@
 node_modules/
 screenshots/
+assets/*.png
+!assets/history-study.png
