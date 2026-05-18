@@ -106,6 +106,48 @@ The shell is minimal and context-aware. It should never compete with the histori
 - Secondary controls can sit at the top, away from the primary interaction area.
 - The app uses `100dvh` for cinematic screens and respects safe areas.
 
+## Responsive Runtime Architecture
+
+Historia Viva now separates the experience by viewport and orientation instead of treating mobile as a compressed desktop layout.
+
+### Desktop cinematic mode
+
+Applies from `@media (min-width: 769px)`.
+
+- Core journey screens use `100dvh`.
+- Body overflow is locked for Home, Learn, Portal, Era, Timeline, Journey, and Lesson views.
+- Hero, portal, timeline, story, and lesson scenes stay fullscreen and horizontally composed.
+- Backgrounds use landscape framing and avoid initial page scroll.
+
+### Mobile portrait storytelling mode
+
+Applies from `@media (max-width: 768px) and (orientation: portrait)`.
+
+- Body scroll is enabled so the app becomes a natural vertical journey.
+- Core screens use `min-height: 100svh`, `height: auto`, and no artificial max-height.
+- Era selection and era hub cards move from horizontal cinematic tracks into vertical story sections.
+- Typography uses `clamp()` tokens for titles, body copy, and buttons.
+- Primary actions stay large and thumb-friendly.
+- Backgrounds switch to portrait-safe framing with less aggressive cropping.
+
+### Mobile landscape mode
+
+Applies from `@media (max-width: 900px) and (orientation: landscape)`.
+
+- The app behaves closer to desktop: fullscreen, controlled overflow, and horizontal image framing.
+- Text and controls are compacted to avoid excessive vertical scroll on short screens.
+
+### Dual hero image system
+
+The Home hero is served through a responsive `<picture>` element:
+
+```text
+assets/hero-desktop.webp
+assets/hero-mobile.webp
+```
+
+The browser selects the portrait or landscape image through media queries. `screen-assets.js` mirrors that decision for preloading so the first meaningful visual is warmed without forcing every era asset into the initial load.
+
 ## 5. Home / Journey Entry
 
 ### Objective

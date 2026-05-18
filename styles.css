@@ -49,6 +49,17 @@
   --asset-licao-caca-pesca: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-caca%20e-pesca.webp");
   --asset-licao-arte-rupestre: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-arte-rupestre.webp");
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
+  --asset-hero-desktop: url("assets/hero-desktop.webp");
+  --asset-hero-mobile: url("assets/hero-mobile.webp");
+  --hero-image-active: var(--asset-hero-desktop);
+  --hero-object-position: center;
+  --cinematic-screen: 100dvh;
+  --story-screen: 100svh;
+  --responsive-page-pad: clamp(20px, 5vw, 72px);
+  --mobile-title-size: clamp(2.55rem, 13vw, 4.65rem);
+  --mobile-subtitle-size: clamp(1rem, 4.4vw, 1.18rem);
+  --mobile-body-size: clamp(0.94rem, 3.7vw, 1.06rem);
+  --mobile-button-size: clamp(0.94rem, 3.7vw, 1.04rem);
 }
 
 /* Motion language: cinematic, guided, historical */
@@ -5643,5 +5654,529 @@ blockquote {
 
   .timeline-content {
     grid-column: 2;
+  }
+}
+
+@media (min-width: 769px) {
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow: hidden;
+  }
+
+  .app-shell,
+  .content-shell,
+  .overview-view.active,
+  .categories-panel,
+  body[data-view="learn"] .categories-panel,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    height: var(--cinematic-screen);
+    min-height: var(--cinematic-screen);
+    max-height: var(--cinematic-screen);
+  }
+
+  .overview-view.active,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    overflow: hidden;
+  }
+
+  .overview-view h2,
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2,
+  body[data-view="lesson"] .lesson-hero-copy h3,
+  .story-block-copy p,
+  .post-story-copy h3 {
+    text-wrap: balance;
+  }
+
+  .hero-visual img,
+  .era-portal-screen::before,
+  .subpath-portal-screen::before,
+  body[data-view="lesson"] .lesson-hero-image {
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  :root {
+    --hero-image-active: var(--asset-hero-mobile);
+    --hero-object-position: center top;
+    --mobile-page-pad: clamp(20px, 5.6vw, 28px);
+    --thumb-zone: calc(88px + var(--safe-bottom));
+  }
+
+  html {
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body,
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+  }
+
+  .app-shell,
+  .content-shell,
+  .feature-view.active,
+  .overview-view.active,
+  .categories-panel,
+  body[data-view="learn"] .categories-panel,
+  body[data-view="lesson"] .categories-panel,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience {
+    height: auto;
+    min-height: var(--story-screen);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .overview-view.active,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    height: auto;
+    min-height: var(--story-screen);
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .overview-view.active {
+    align-items: stretch;
+  }
+
+  .intro-panel {
+    align-content: end;
+    gap: clamp(16px, 5vw, 28px);
+    min-height: var(--story-screen);
+    padding:
+      calc(clamp(54px, 12svh, 96px) + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(var(--thumb-zone) + 24px)
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .hero-visual {
+    min-height: var(--story-screen);
+    aspect-ratio: auto;
+  }
+
+  .hero-visual::after {
+    background:
+      linear-gradient(180deg, rgba(24, 32, 37, 0.08) 0%, rgba(24, 32, 37, 0.28) 38%, rgba(24, 32, 37, 0.84) 100%),
+      linear-gradient(90deg, rgba(24, 32, 37, 0.26), rgba(24, 32, 37, 0.04));
+  }
+
+  .hero-visual img {
+    object-position: var(--hero-object-position);
+  }
+
+  .overview-view h2 {
+    max-width: 9.5ch;
+    font-size: var(--mobile-title-size);
+    line-height: 0.94;
+  }
+
+  #era-summary,
+  .era-portal-content p:not(.eyebrow),
+  .subpath-portal-content p:not(.eyebrow),
+  .timeline-view-hero p:not(.eyebrow),
+  .era-world-hero p:not(.eyebrow),
+  body[data-view="lesson"] .lesson-hero-copy p:last-child,
+  .lesson-hero-line {
+    font-size: var(--mobile-body-size);
+    line-height: 1.55;
+  }
+
+  .home-hero-actions button,
+  .era-portal-cta,
+  .lesson-start-button,
+  .story-block-actions button,
+  .post-story-actions button,
+  .timeline-view-item,
+  .subpath-card,
+  .path-card {
+    font-size: var(--mobile-button-size);
+  }
+
+  body[data-view="learn"] .categories-panel {
+    display: grid;
+    gap: clamp(20px, 6vw, 34px);
+    padding:
+      calc(34px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(36px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="learn"] .era-switcher {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  body[data-view="learn"] .categories-panel .path-card {
+    min-height: clamp(170px, 44svh, 320px);
+    scroll-snap-align: none;
+  }
+
+  .era-portal-screen,
+  .subpath-portal-screen {
+    align-items: end;
+    padding:
+      calc(clamp(58px, 14svh, 112px) + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(clamp(42px, 10svh, 82px) + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-portal-screen::before,
+  .subpath-portal-screen::before {
+    inset: 0;
+    background-position: center top;
+    transform: none;
+  }
+
+  .era-portal-screen::after,
+  .subpath-portal-screen::after {
+    background:
+      radial-gradient(circle at 46% 24%, rgba(241, 199, 121, 0.16), transparent 28%),
+      linear-gradient(180deg, rgba(8, 11, 10, 0.04) 0%, rgba(8, 11, 10, 0.3) 36%, rgba(8, 11, 10, 0.9) 100%);
+  }
+
+  .era-portal-content,
+  .subpath-portal-content,
+  .timeline-view-hero {
+    max-width: 100%;
+  }
+
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2 {
+    max-width: 10.5ch;
+    font-size: var(--mobile-title-size);
+    line-height: 0.94;
+  }
+
+  .era-world-screen {
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow: visible;
+  }
+
+  .era-world-hero {
+    min-height: auto;
+    padding:
+      calc(76px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      22px
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-world-hero h2 {
+    max-width: 10ch;
+    font-size: clamp(2.25rem, 11vw, 3.7rem);
+  }
+
+  .era-world-screen .era-hub {
+    width: 100%;
+    min-height: auto;
+    overflow: visible;
+    padding:
+      0
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(36px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-world-screen .era-hub-header {
+    display: grid;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .era-world-screen .era-hub-header h3 {
+    white-space: normal;
+  }
+
+  .era-world-screen .subpath-grid {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+
+  .era-world-screen .subpath-card {
+    min-height: clamp(210px, 50svh, 360px);
+  }
+
+  .timeline-view-screen {
+    grid-template-rows: auto auto;
+    gap: clamp(22px, 7vw, 38px);
+    padding:
+      calc(76px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(42px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .timeline-view-stage {
+    margin-left: 0;
+  }
+
+  body[data-view="lesson"] .lesson-hero {
+    align-content: end;
+    min-height: var(--story-screen);
+  }
+
+  body[data-view="lesson"] .lesson-view[data-mode="intro"] .lesson-hero {
+    height: auto;
+    min-height: var(--story-screen);
+  }
+
+  body[data-view="lesson"] .lesson-hero::after {
+    background:
+      radial-gradient(circle at 54% 28%, var(--lesson-accent-soft), transparent 26%),
+      linear-gradient(180deg, rgba(7, 8, 8, 0.06) 0%, rgba(7, 8, 8, 0.36) 40%, rgba(7, 8, 8, 0.96) 100%);
+  }
+
+  body[data-view="lesson"] .lesson-hero-image,
+  body[data-view="lesson"] .lesson-view[data-mode="intro"][data-section] .lesson-hero-image {
+    background-position:
+      center,
+      center top;
+    background-size:
+      cover,
+      cover;
+    transform: none;
+  }
+
+  body[data-view="lesson"] .lesson-hero-copy {
+    width: 100%;
+    padding:
+      calc(82px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(44px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="lesson"] .lesson-hero-copy h3,
+  .story-block-copy p,
+  .post-story-copy h3 {
+    max-width: 11ch;
+    font-size: clamp(2.1rem, 11vw, 4rem);
+    line-height: 0.98;
+  }
+
+  .lesson-preview-list {
+    gap: 8px;
+  }
+
+  .lesson-preview-list span {
+    min-height: 38px;
+    padding: 8px 11px;
+    font-size: clamp(0.78rem, 3.2vw, 0.9rem);
+  }
+
+  .story-block {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "visual"
+      "copy"
+      "progress"
+      "actions";
+    align-content: center;
+    gap: clamp(18px, 6vw, 30px);
+    padding:
+      calc(70px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(28px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .story-block::after {
+    background:
+      linear-gradient(180deg, rgba(8, 10, 10, 0.2), rgba(8, 10, 10, 0.86)),
+      radial-gradient(circle at 50% 22%, rgba(255, 248, 234, 0.08), transparent 25%);
+  }
+
+  .story-block-actions,
+  .post-story-actions {
+    position: sticky;
+    bottom: calc(10px + var(--safe-bottom));
+    z-index: 4;
+  }
+
+  .post-story-screen {
+    height: auto;
+    min-height: var(--story-screen);
+    padding:
+      calc(70px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(28px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  :root {
+    --hero-image-active: var(--asset-hero-desktop);
+    --hero-object-position: center;
+  }
+
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow: hidden;
+  }
+
+  .overview-view.active,
+  .intro-panel,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    min-height: 100svh;
+    height: 100svh;
+    max-height: 100svh;
+  }
+
+  .intro-panel {
+    width: min(620px, 62vw);
+    padding:
+      calc(22px + var(--safe-top))
+      calc(7vw + var(--safe-right))
+      calc(20px + var(--safe-bottom))
+      calc(7vw + var(--safe-left));
+  }
+
+  .overview-view h2,
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2,
+  body[data-view="lesson"] .lesson-hero-copy h3 {
+    font-size: clamp(2.1rem, 8svh, 4rem);
+  }
+
+  #era-summary,
+  .era-portal-content p:not(.eyebrow),
+  .subpath-portal-content p:not(.eyebrow),
+  .timeline-view-hero p:not(.eyebrow),
+  body[data-view="lesson"] .lesson-hero-copy p:last-child {
+    font-size: clamp(0.86rem, 2.8svh, 1rem);
+    line-height: 1.38;
+  }
+
+  .home-hero-actions {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .home-hero-actions button,
+  .era-portal-cta,
+  .lesson-start-button {
+    min-height: 44px;
+    padding-inline: 18px;
+  }
+
+  body[data-view="learn"] .categories-panel {
+    height: 100svh;
+    min-height: 100svh;
+    padding:
+      calc(18px + var(--safe-top))
+      calc(26px + var(--safe-right))
+      calc(16px + var(--safe-bottom))
+      calc(26px + var(--safe-left));
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header h2 {
+    font-size: clamp(1.8rem, 7svh, 3rem);
+  }
+
+  body[data-view="learn"] .era-switcher {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(260px, 36vw);
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero-copy {
+    padding:
+      calc(48px + var(--safe-top))
+      calc(36px + var(--safe-right))
+      calc(24px + var(--safe-bottom))
+      calc(36px + var(--safe-left));
+  }
+
+  .era-world-hero {
+    min-height: auto;
+    padding: calc(42px + var(--safe-top)) 36px 12px;
+  }
+
+  .era-world-screen .era-hub {
+    width: calc(100% - 48px);
+    padding-bottom: 16px;
+  }
+
+  .era-world-screen .subpath-card {
+    min-height: 100%;
   }
 }

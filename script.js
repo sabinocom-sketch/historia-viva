@@ -12,7 +12,7 @@ import { state } from './state.js';
 import { createPreview, escapeHtml, getHistoricalDateOrder, normalizeText, pickFrom, questionSeed } from './utils.js';
 import { dom } from './dom.js';
 import { createProgressController } from './progress.js';
-import { afterNextPaint, preloadLearnAssets, waitForLearnAssets } from './screen-assets.js';
+import { afterNextPaint, preloadHeroAssets, preloadLearnAssets, waitForLearnAssets } from './screen-assets.js';
 import { createScreenController } from './screen-controller.js';
 import {
   buildLessonIntroFrame,
@@ -102,7 +102,21 @@ const screenController = createScreenController({
   views: featureViews
 });
 
-preloadLearnAssets();
+function getViewportOrientation() {
+  if (window.matchMedia?.("(orientation: portrait)").matches) return "portrait";
+  return "landscape";
+}
+
+function syncViewportOrientation() {
+  document.body.dataset.orientation = getViewportOrientation();
+}
+
+syncViewportOrientation();
+window.addEventListener("resize", syncViewportOrientation, { passive: true });
+window.addEventListener("orientationchange", syncViewportOrientation, { passive: true });
+
+preloadHeroAssets();
+window.setTimeout(preloadLearnAssets, 140);
 
 let routeMotionTimer = 0;
 let xpMotionTimer = 0;

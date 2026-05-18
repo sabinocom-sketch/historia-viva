@@ -2860,6 +2860,11 @@ const learnAssetUrls = [
   "grande-jornada-historica.webp"
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
+const heroAssetUrls = [
+  "assets/hero-desktop.webp",
+  "assets/hero-mobile.webp"
+];
+
 const preloadCache = new Map();
 
 function preloadImage(url) {
@@ -2890,6 +2895,12 @@ function timeout(ms) {
 
 function preloadLearnAssets() {
   return Promise.all(learnAssetUrls.map(preloadImage));
+}
+
+function preloadHeroAssets() {
+  const isPortraitMobile = window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches;
+  const [desktopHero, mobileHero] = heroAssetUrls;
+  return preloadImage(isPortraitMobile ? mobileHero : desktopHero);
 }
 
 function waitForLearnAssets(maxWaitMs = 900) {
@@ -3670,7 +3681,21 @@ const screenController = createScreenController({
   views: featureViews
 });
 
-preloadLearnAssets();
+function getViewportOrientation() {
+  if (window.matchMedia?.("(orientation: portrait)").matches) return "portrait";
+  return "landscape";
+}
+
+function syncViewportOrientation() {
+  document.body.dataset.orientation = getViewportOrientation();
+}
+
+syncViewportOrientation();
+window.addEventListener("resize", syncViewportOrientation, { passive: true });
+window.addEventListener("orientationchange", syncViewportOrientation, { passive: true });
+
+preloadHeroAssets();
+window.setTimeout(preloadLearnAssets, 140);
 
 let routeMotionTimer = 0;
 let xpMotionTimer = 0;

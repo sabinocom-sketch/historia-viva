@@ -10,6 +10,11 @@ const learnAssetUrls = [
   "grande-jornada-historica.webp"
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
+const heroAssetUrls = [
+  "assets/hero-desktop.webp",
+  "assets/hero-mobile.webp"
+];
+
 const preloadCache = new Map();
 
 function preloadImage(url) {
@@ -40,6 +45,12 @@ function timeout(ms) {
 
 export function preloadLearnAssets() {
   return Promise.all(learnAssetUrls.map(preloadImage));
+}
+
+export function preloadHeroAssets() {
+  const isPortraitMobile = window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches;
+  const [desktopHero, mobileHero] = heroAssetUrls;
+  return preloadImage(isPortraitMobile ? mobileHero : desktopHero);
 }
 
 export function waitForLearnAssets(maxWaitMs = 900) {
