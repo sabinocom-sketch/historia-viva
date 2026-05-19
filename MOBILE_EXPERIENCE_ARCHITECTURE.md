@@ -134,8 +134,37 @@ Applies from `@media (max-width: 768px) and (orientation: portrait)`.
 
 Applies from `@media (max-width: 900px) and (orientation: landscape)`.
 
-- The app behaves closer to desktop: fullscreen, controlled overflow, and horizontal image framing.
-- Text and controls are compacted to avoid excessive vertical scroll on short screens.
+- Mobile landscape is intentionally locked.
+- `.orientation-lock-overlay` appears fullscreen and asks the learner to rotate the phone.
+- `.app-root` is made non-interactive behind the overlay.
+- Do not force orientation through browser APIs; keep the lock declarative through CSS media queries.
+
+### Mobile scroll contract
+
+Mobile portrait scroll must work immediately on load, after navigation, and after browser back/forward. Avoid putting `overflow: hidden`, fixed heights, `touch-action: none`, transforms, or scale animations on root scroll containers.
+
+Scrollable mobile screens use:
+
+```text
+min-height: 100svh
+height: auto
+overflow-y: auto
+-webkit-overflow-scrolling: touch
+touch-action: pan-y
+```
+
+Animation should stay on internal elements, not on the scroll root.
+
+### Desktop Timeline fullscreen contract
+
+Timeline View is a desktop cinematic screen. On desktop, `body[data-view="timeline"]` and `body[data-view="journey"]` lock their root, active categories panel, and `.timeline-view-screen` to `100dvh`.
+
+The Timeline must:
+
+- fill the viewport exactly;
+- keep the background layer fullscreen;
+- avoid vertical page scroll;
+- keep all visible timeline steps inside common desktop heights such as `1366x768` and `1920x1080`.
 
 ### Dual hero image system
 

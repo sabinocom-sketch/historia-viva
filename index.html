@@ -2,14 +2,14 @@
 <html lang="pt">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <title>História Viva</title>
     <link rel="preload" as="image" href="assets/hero-mobile.webp" media="(max-width: 768px) and (orientation: portrait)" />
     <link rel="preload" as="image" href="assets/hero-desktop.webp" media="(min-width: 769px), (orientation: landscape)" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body class="is-booting" data-view="home" data-experience="home">
-    <main class="app-shell">
+    <main class="app-root app-shell">
       <section class="content-shell" aria-label="Área de trabalho">
         <button class="screen-back-button" type="button" id="screen-back-button" aria-label="Voltar ao ecrã anterior">
           <span aria-hidden="true">&larr;</span>
@@ -304,6 +304,12 @@
         </section>
       </section>
     </main>
+    <div class="orientation-lock-overlay" role="status" aria-live="polite">
+      <div>
+        <p class="eyebrow">História Viva</p>
+        <strong>Roda o telemóvel para continuar a jornada.</strong>
+      </div>
+    </div>
 
     <script src="bundle.js" defer></script>
   </body>

@@ -635,7 +635,7 @@ function renderTimelineView(eraKey) {
   const { lessons, title, summary } = getSubpathFrame(eraKey);
 
   return `
-    <section class="timeline-view-screen" data-era-world="${escapeHtml(eraKey)}" data-subpath-timeline="${escapeHtml(state.currentSubpathId || "")}">
+    <section class="timeline-view-screen desktop-fullscreen-screen mobile-scroll-screen" data-era-world="${escapeHtml(eraKey)}" data-subpath-timeline="${escapeHtml(state.currentSubpathId || "")}">
       <header class="timeline-view-hero">
         <p class="eyebrow">${escapeHtml(era.title)} · Mapa da jornada</p>
         <h2>${escapeHtml(title)}</h2>
@@ -653,7 +653,7 @@ function renderTimelineView(eraKey) {
 function renderGrandJourneyTimelineView() {
   const lessons = getGrandJourneyLessons();
   return `
-    <section class="timeline-view-screen grand-journey-screen" data-era-world="grand-journey" data-subpath-timeline="grand-journey">
+    <section class="timeline-view-screen grand-journey-screen desktop-fullscreen-screen mobile-scroll-screen" data-era-world="grand-journey" data-subpath-timeline="grand-journey">
       <header class="timeline-view-hero">
         <p class="eyebrow">Todas as eras · Grande campanha</p>
         <h2>Grande Jornada Histórica</h2>
