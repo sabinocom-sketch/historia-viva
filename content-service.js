@@ -30,20 +30,24 @@ export function getEraKeys() {
 export function getEraLessons(eraKey) {
   const era = getEra(eraKey);
   return era.timeline
-    .map(([date, title, category, detail], index) => ({
-      id: createContentId(eraKey, "lesson", title, index),
-      eraKey,
-      sectionId: resolveLessonSectionId(eraKey, title, detail, category),
-      type: "lesson",
-      index,
-      date,
-      title,
-      category,
-      detail,
-      question: buildLessonQuestion(title, category),
-      related: getRelatedTopics(eraKey, title, detail, category),
-      storyBlocks: buildStoryBlocksForLesson({ eraKey, title, category, detail, index })
-    }))
+    .map(([date, title, category, detail], index) => {
+      const id = createContentId(eraKey, "lesson", title, index);
+      const sectionId = resolveLessonSectionId(eraKey, title, detail, category);
+      return {
+        id,
+        eraKey,
+        sectionId,
+        type: "lesson",
+        index,
+        date,
+        title,
+        category,
+        detail,
+        question: buildLessonQuestion(title, category),
+        related: getRelatedTopics(eraKey, title, detail, category),
+        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, title, category, detail, index })
+      };
+    })
     .sort((a, b) => {
       const dateDelta = getHistoricalDateOrder(a.date) - getHistoricalDateOrder(b.date);
       return dateDelta || a.index - b.index;

@@ -24,16 +24,6 @@ const postStoryModeAliases = {
   consolidate: "reward"
 };
 
-const lessonHeroImageUrls = {
-  fire: "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-fogo.webp"
-};
-
-function getLessonHeroImageStyle(mood) {
-  const imageUrl = lessonHeroImageUrls[mood];
-  if (!imageUrl) return "";
-  return ` style="background-image: linear-gradient(90deg, rgba(7, 8, 8, 0.18), rgba(7, 8, 8, 0.08)), url('${imageUrl}'); background-position: center, center 48%; background-size: cover, cover; background-repeat: no-repeat;"`;
-}
-
 function getCurrentLessonMood() {
   const lesson = state.currentLessonId ? getLessonById(state.currentLessonId) : getEraLessons(state.currentEra)[0];
   if (!lesson) return "";
@@ -51,7 +41,7 @@ export function renderActiveLessonPanel() {
   return `
     <section class="active-lesson-panel lesson-view ${isSelected ? "is-active" : ""}" data-active-lesson="${escapeHtml(lesson.id)}" data-era="${escapeHtml(lesson.eraKey)}" data-section="${escapeHtml(lesson.sectionId || "")}" data-mood="${escapeHtml(lessonIntro.mood)}" data-mode="${escapeHtml(state.currentLessonMode)}" data-theme="${escapeHtml(lesson.category)}">
       ${isIntro ? `<div class="lesson-hero">
-        <span class="lesson-hero-image" aria-hidden="true"${getLessonHeroImageStyle(lessonIntro.mood)}></span>
+        <span class="lesson-hero-image" aria-hidden="true"></span>
         <span class="lesson-atmosphere" aria-hidden="true"></span>
         <div class="lesson-hero-copy">
           <p class="eyebrow">${escapeHtml(lessonIntro.kicker)}</p>
@@ -73,7 +63,7 @@ function renderLessonExperience(lesson, context = {}) {
     const index = clampStoryBlockIndex(blocks);
     return `
       <div class="lesson-experience" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" aria-label="Sequência narrativa da lição">
-        ${renderStoryBlock(blocks[index], index, blocks.length)}
+        ${renderStoryBlock(blocks[index], index, blocks.length, lesson)}
       </div>
     `;
   }
@@ -81,15 +71,17 @@ function renderLessonExperience(lesson, context = {}) {
   return renderPostStoryLessonFlow(lesson, context);
 }
 
-function renderStoryBlock(block, index, total) {
+function renderStoryBlock(block, index, total, lesson = {}) {
   const safeBlock = block || {
     id: "story",
     visualType: "spark",
     backgroundMood: "cave-dark",
     text: "Um pequeno momento começou a mudar a experiência humana."
   };
+  const eraKey = safeBlock.eraKey || lesson.eraKey || "";
+  const sectionId = safeBlock.sectionId || lesson.sectionId || "";
   return `
-    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(safeBlock.eraKey || "")}" data-section="${escapeHtml(safeBlock.sectionId || "")}">
+    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}">
       <span class="story-block-background" aria-hidden="true"></span>
       <span class="story-block-visual" aria-hidden="true"></span>
       <div class="story-block-copy">

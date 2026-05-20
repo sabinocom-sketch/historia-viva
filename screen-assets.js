@@ -2,13 +2,23 @@ const supabaseAssetBaseUrl = "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v
 
 const learnAssetUrls = [
   "pre-historia.webp",
+  "paleolitico.webp",
+  "mesolitico-portrait.webp",
+  "neolitico-portrait.webp",
+  "grande-jornada-pre-historica-portrait.webp",
   "idade-antiga.webp",
+  "antiguidade-portrait.webp",
   "idade-media.webp",
   "idade-moderna.webp",
+  "idade-moderna-portrait.webp",
   "idade-contemporanea.webp",
+  "idade-contemporanea-portrait.webp",
   "historia-de-portugal.webp",
+  "historia-de-portugal-portrait.webp",
   "grande-jornada-historica.webp",
-  "licao-fogo.webp"
+  "grande-jornada-historica-portrait.webp",
+  "licao-fogo.webp",
+  "arte-rupestre-portrait.webp"
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
 const heroAssetUrls = [
