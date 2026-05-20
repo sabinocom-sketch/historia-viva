@@ -5308,7 +5308,10 @@ const wheelScrollTimers = new WeakMap();
 const mobileTouchScroll = {
   active: false,
   lastX: 0,
-  lastY: 0
+  lastY: 0,
+  lastMoveAt: 0,
+  velocityY: 0,
+  momentumFrame: 0
 };
 
 function shouldUseMobileTouchScrollFallback() {
@@ -5324,7 +5327,33 @@ function canWindowScrollBy(deltaY) {
   return window.scrollY > 0;
 }
 
+function stopMobileScrollMomentum() {
+  if (!mobileTouchScroll.momentumFrame) return;
+  window.cancelAnimationFrame(mobileTouchScroll.momentumFrame);
+  mobileTouchScroll.momentumFrame = 0;
+}
+
+function startMobileScrollMomentum() {
+  stopMobileScrollMomentum();
+  let velocity = mobileTouchScroll.velocityY;
+  if (Math.abs(velocity) < 0.35) return;
+
+  const step = () => {
+    velocity *= 0.92;
+    if (Math.abs(velocity) < 0.28 || !canWindowScrollBy(velocity)) {
+      mobileTouchScroll.momentumFrame = 0;
+      return;
+    }
+
+    window.scrollBy({ top: velocity, left: 0, behavior: "auto" });
+    mobileTouchScroll.momentumFrame = window.requestAnimationFrame(step);
+  };
+
+  mobileTouchScroll.momentumFrame = window.requestAnimationFrame(step);
+}
+
 document.addEventListener("touchstart", (event) => {
+  stopMobileScrollMomentum();
   if (!shouldUseMobileTouchScrollFallback() || event.touches.length !== 1) {
     mobileTouchScroll.active = false;
     return;
@@ -5334,6 +5363,8 @@ document.addEventListener("touchstart", (event) => {
   mobileTouchScroll.active = true;
   mobileTouchScroll.lastX = touch.clientX;
   mobileTouchScroll.lastY = touch.clientY;
+  mobileTouchScroll.lastMoveAt = performance.now();
+  mobileTouchScroll.velocityY = 0;
 }, { passive: true, capture: true });
 
 document.addEventListener("touchmove", (event) => {
@@ -5345,22 +5376,30 @@ document.addEventListener("touchmove", (event) => {
   const touch = event.touches[0];
   const deltaX = mobileTouchScroll.lastX - touch.clientX;
   const deltaY = mobileTouchScroll.lastY - touch.clientY;
+  const now = performance.now();
+  const elapsed = Math.max(16, now - mobileTouchScroll.lastMoveAt);
   mobileTouchScroll.lastX = touch.clientX;
   mobileTouchScroll.lastY = touch.clientY;
+  mobileTouchScroll.lastMoveAt = now;
 
   if (Math.abs(deltaY) < 2 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
   if (!canWindowScrollBy(deltaY)) return;
 
-  window.scrollBy({ top: deltaY, left: 0, behavior: "auto" });
+  const scrollDelta = deltaY * 1.28;
+  mobileTouchScroll.velocityY = (scrollDelta / elapsed) * 16;
+  window.scrollBy({ top: scrollDelta, left: 0, behavior: "auto" });
   event.preventDefault();
 }, { passive: false, capture: true });
 
 document.addEventListener("touchend", () => {
+  const shouldStartMomentum = mobileTouchScroll.active;
   mobileTouchScroll.active = false;
+  if (shouldStartMomentum) startMobileScrollMomentum();
 }, { passive: true, capture: true });
 
 document.addEventListener("touchcancel", () => {
   mobileTouchScroll.active = false;
+  stopMobileScrollMomentum();
 }, { passive: true, capture: true });
 
 function getWheelScrollDelta(event, scroller) {
