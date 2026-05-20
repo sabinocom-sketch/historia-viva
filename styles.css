@@ -3901,6 +3901,8 @@ body[data-view="lesson"] .lesson-experience {
 
 .lesson-experience[data-section="paleolitico"] .story-block-background,
 .lesson-experience[data-section="paleolitico"] .post-story-background,
+.story-block[data-section="paleolitico"] .story-block-background,
+.post-story-screen[data-section="paleolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
   background:
@@ -3911,6 +3913,8 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-ba
 
 .lesson-experience[data-section="mesolitico"] .story-block-background,
 .lesson-experience[data-section="mesolitico"] .post-story-background,
+.story-block[data-section="mesolitico"] .story-block-background,
+.post-story-screen[data-section="mesolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-background {
   background:
@@ -3921,6 +3925,8 @@ body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-bac
 
 .lesson-experience[data-section="revolucao-neolitica"] .story-block-background,
 .lesson-experience[data-section="revolucao-neolitica"] .post-story-background,
+.story-block[data-section="revolucao-neolitica"] .story-block-background,
+.post-story-screen[data-section="revolucao-neolitica"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-story-background {
   background:

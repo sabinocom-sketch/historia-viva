@@ -3036,7 +3036,7 @@ function renderStoryBlock(block, index, total) {
     text: "Um pequeno momento começou a mudar a experiência humana."
   };
   return `
-    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}">
+    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(safeBlock.eraKey || "")}" data-section="${escapeHtml(safeBlock.sectionId || "")}">
       <span class="story-block-background" aria-hidden="true"></span>
       <span class="story-block-visual" aria-hidden="true"></span>
       <div class="story-block-copy">
@@ -3217,7 +3217,7 @@ function renderPostStoryActions(previous, nextLabel = "Continuar", disabled = fa
 
 function renderReflectionMoment(step, lesson, index, total) {
   return `
-    <article class="post-story-screen reflection-moment" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen reflection-moment" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
@@ -3232,7 +3232,7 @@ function renderReflectionMoment(step, lesson, index, total) {
 
 function renderAssimilationChatbot(step, lesson, index, total) {
   return `
-    <article class="post-story-screen assimilation-chatbot" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen assimilation-chatbot" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="mentor-panel">
         <span class="mentor-orb" aria-hidden="true"></span>
@@ -3253,7 +3253,7 @@ function renderAssimilationChatbot(step, lesson, index, total) {
 
 function renderRealityBridge(step, lesson, index, total) {
   return `
-    <article class="post-story-screen reality-bridge" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen reality-bridge" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
@@ -3276,7 +3276,7 @@ function renderRealityBridge(step, lesson, index, total) {
 
 function renderCriticalLens(step, lesson, index, total) {
   return `
-    <article class="post-story-screen critical-lens" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen critical-lens" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
@@ -3302,7 +3302,7 @@ function renderChallengeScreen(step, lesson, index, total) {
   const answered = state.currentLessonQuizChoice !== null;
   const correct = answered && state.currentLessonQuizChoice === quiz.answer;
   return `
-    <article class="post-story-screen challenge-screen" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen challenge-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
@@ -3324,7 +3324,7 @@ function renderChallengeScreen(step, lesson, index, total) {
 
 function renderRewardScreen(step, lesson, index, total) {
   return `
-    <article class="post-story-screen reward-screen" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen reward-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="reward-artifact" aria-hidden="true"></div>
       <div class="post-story-copy">
@@ -3341,7 +3341,7 @@ function renderRewardScreen(step, lesson, index, total) {
 
 function renderNextLessonTeaser(step, lesson, index, total) {
   return `
-    <article class="post-story-screen next-lesson-teaser" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen next-lesson-teaser" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
