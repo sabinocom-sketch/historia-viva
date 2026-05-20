@@ -49,6 +49,9 @@
   --asset-licao-caca-pesca: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-caca%20e-pesca.webp");
   --asset-licao-arte-rupestre: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-arte-rupestre.webp");
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
+  --asset-background-licao-paleolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-paleolitico.webp");
+  --asset-background-licao-mesolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-mesolitico.webp");
+  --asset-background-licao-neolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-neolitico.webp");
   --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
   --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
   --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-desktop);
@@ -3886,6 +3889,30 @@ body[data-view="lesson"] .lesson-experience {
   background:
     radial-gradient(circle at 22% 34%, rgba(241, 199, 121, 0.22), transparent 24%),
     linear-gradient(135deg, #101413 0%, #25251f 56%, #3d2a1d 100%);
+}
+
+body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--asset-background-licao-paleolitico) center / cover no-repeat;
+  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+}
+
+body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-background {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--asset-background-licao-mesolitico) center / cover no-repeat;
+  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+}
+
+body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-story-background {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--asset-background-licao-neolitico) center / cover no-repeat;
+  filter: saturate(1.08) contrast(1.06) brightness(0.84);
 }
 
 .assimilation-chatbot {
