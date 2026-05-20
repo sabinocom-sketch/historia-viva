@@ -79,8 +79,8 @@
   --asset-subpercurso-maias-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-maias-desktop.webp");
   --asset-subpercurso-maias-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-maias-portrait.webp");
   --asset-subpercurso-maias: var(--asset-subpercurso-maias-desktop);
-  --asset-hero-desktop: url("assets/hero-desktop.webp");
-  --asset-hero-mobile: url("assets/hero-mobile.webp");
+  --asset-hero-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/history-study.webp");
+  --asset-hero-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/history-study.webp");
   --hero-image-active: var(--asset-hero-desktop);
   --hero-object-position: center;
   --cinematic-screen: 100dvh;

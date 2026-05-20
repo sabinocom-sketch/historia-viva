@@ -11,8 +11,7 @@ const learnAssetUrls = [
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
 const heroAssetUrls = [
-  "assets/hero-desktop.webp",
-  "assets/hero-mobile.webp"
+  `${supabaseAssetBaseUrl}/history-study.webp`
 ];
 
 const preloadCache = new Map();
@@ -50,7 +49,7 @@ export function preloadLearnAssets() {
 export function preloadHeroAssets() {
   const isPortraitMobile = window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches;
   const [desktopHero, mobileHero] = heroAssetUrls;
-  return preloadImage(isPortraitMobile ? mobileHero : desktopHero);
+  return preloadImage(isPortraitMobile ? mobileHero || desktopHero : desktopHero);
 }
 
 export function waitForLearnAssets(maxWaitMs = 900) {
