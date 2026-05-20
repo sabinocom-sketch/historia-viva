@@ -492,7 +492,7 @@ function renderCategorySections() {
   const visibleSections = getVisibleCurriculumSections(eraKey, sections);
   categorySections.innerHTML = `
     ${state.currentView === "era" ? `
-    <section class="era-world-screen" data-era-world="${escapeHtml(eraKey)}">
+    <section class="era-world-screen mobile-scroll-screen" data-era-world="${escapeHtml(eraKey)}">
       <div class="era-world-hero">
         <div>
           <h2>${escapeHtml(era.title)}</h2>
@@ -619,7 +619,7 @@ function renderSubpathPortal(eraKey) {
   const frame = getSubpathFrame(eraKey);
 
   return `
-    <section class="subpath-portal-screen" data-era-world="${escapeHtml(eraKey)}" data-subpath-hero="${escapeHtml(state.currentSubpathId || "")}">
+    <section class="subpath-portal-screen mobile-scroll-screen" data-era-world="${escapeHtml(eraKey)}" data-subpath-hero="${escapeHtml(state.currentSubpathId || "")}">
       <div class="subpath-portal-content">
         <p class="eyebrow">${escapeHtml(era.title)} · Porta narrativa</p>
         <h2>${escapeHtml(frame.title)}</h2>
