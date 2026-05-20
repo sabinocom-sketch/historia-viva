@@ -5318,6 +5318,8 @@ function getWheelScrollDelta(event, scroller) {
 }
 
 document.addEventListener("wheel", (event) => {
+  if (window.matchMedia?.("(pointer: coarse)").matches) return;
+
   const scroller = event.target.closest(".era-switcher, .subpath-grid");
   if (!scroller || scroller.scrollWidth <= scroller.clientWidth) return;
 

@@ -6596,9 +6596,13 @@ blockquote {
   .app-root,
   .content-shell {
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: visible;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: auto;
+  }
+
+  body {
+    overflow-y: auto;
   }
 
   body[data-view="home"],
@@ -6686,6 +6690,15 @@ blockquote {
     touch-action: pan-y pinch-zoom;
   }
 
+  .app-root,
+  .content-shell,
+  .categories-panel.active,
+  .feature-view.active,
+  .mobile-scroll-screen {
+    overscroll-behavior-y: auto;
+    pointer-events: auto;
+  }
+
   .era-world-screen,
   .subpath-portal-screen,
   .timeline-view-screen,
@@ -6718,6 +6731,23 @@ blockquote {
   .era-world-screen .subpath-grid,
   .timeline-view-list {
     touch-action: pan-y pinch-zoom;
+  }
+
+  body[data-view="learn"] .era-switcher,
+  .era-world-screen .subpath-grid {
+    overscroll-behavior-x: auto;
+  }
+
+  .hero-visual,
+  .era-portal-screen::before,
+  .era-portal-screen::after,
+  .subpath-portal-screen::before,
+  .subpath-portal-screen::after,
+  .timeline-view-screen::before,
+  .timeline-view-screen::after,
+  .lesson-hero::before,
+  .lesson-hero::after {
+    pointer-events: none;
   }
 
   body[data-view="subpath"] .subpath-portal-screen {
