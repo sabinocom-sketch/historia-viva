@@ -49,9 +49,36 @@
   --asset-licao-caca-pesca: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-caca%20e-pesca.webp");
   --asset-licao-arte-rupestre: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-arte-rupestre.webp");
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
+  --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
+  --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
+  --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-desktop);
+  --asset-subpercurso-antiga-sumeria-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-sumeria-desktop.webp");
+  --asset-subpercurso-antiga-sumeria-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-sumeria-portrait.webp");
+  --asset-subpercurso-antiga-sumeria: var(--asset-subpercurso-antiga-sumeria-desktop);
+  --asset-subpercurso-antiga-babilonia-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-babilonia-desktop.webp");
+  --asset-subpercurso-antiga-babilonia-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-babilonia-portrait.webp");
+  --asset-subpercurso-antiga-babilonia: var(--asset-subpercurso-antiga-babilonia-desktop);
   --asset-subpercurso-antiga-assiria-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-assiria-desktop.webp");
   --asset-subpercurso-antiga-assiria-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-assiria-portrait.webp");
   --asset-subpercurso-antiga-assiria: var(--asset-subpercurso-antiga-assiria-desktop);
+  --asset-subpercurso-antiga-persia-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-persia-desktop.webp");
+  --asset-subpercurso-antiga-persia-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-persia-portrait.webp");
+  --asset-subpercurso-antiga-persia: var(--asset-subpercurso-antiga-persia-desktop);
+  --asset-subpercurso-antiga-china-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-china-desktop.webp");
+  --asset-subpercurso-antiga-china-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-china-portrait.webp");
+  --asset-subpercurso-antiga-china: var(--asset-subpercurso-antiga-china-desktop);
+  --asset-subpercurso-antiga-india-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-india-desktop.webp");
+  --asset-subpercurso-antiga-india-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-india-portrait.webp");
+  --asset-subpercurso-antiga-india: var(--asset-subpercurso-antiga-india-desktop);
+  --asset-subpercurso-antiga-roma-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-roma-desktop.webp");
+  --asset-subpercurso-antiga-roma-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-roma-portrait.webp");
+  --asset-subpercurso-antiga-roma: var(--asset-subpercurso-antiga-roma-desktop);
+  --asset-subpercurso-antiga-grecia-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-grecia-desktop.webp");
+  --asset-subpercurso-antiga-grecia-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antiga-grecia-portrait.webp");
+  --asset-subpercurso-antiga-grecia: var(--asset-subpercurso-antiga-grecia-desktop);
+  --asset-subpercurso-maias-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-maias-desktop.webp");
+  --asset-subpercurso-maias-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-maias-portrait.webp");
+  --asset-subpercurso-maias: var(--asset-subpercurso-maias-desktop);
   --asset-hero-desktop: url("assets/hero-desktop.webp");
   --asset-hero-mobile: url("assets/hero-mobile.webp");
   --hero-image-active: var(--asset-hero-desktop);
@@ -1126,8 +1153,44 @@ body[data-view="lesson"] .categories-panel {
   --subpath-portal-image: var(--asset-idade-antiga);
 }
 
+.subpath-portal-screen[data-subpath-hero="antigo-egipto"] {
+  --subpath-portal-image: var(--asset-subpercurso-antigo-egipto);
+}
+
+.subpath-portal-screen[data-subpath-hero="sumeria"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-sumeria);
+}
+
+.subpath-portal-screen[data-subpath-hero="babilonia"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-babilonia);
+}
+
 .subpath-portal-screen[data-subpath-hero="assiria"] {
   --subpath-portal-image: var(--asset-subpercurso-antiga-assiria);
+}
+
+.subpath-portal-screen[data-subpath-hero="persia"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-persia);
+}
+
+.subpath-portal-screen[data-subpath-hero="china-antiga"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-china);
+}
+
+.subpath-portal-screen[data-subpath-hero="india-antiga"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-india);
+}
+
+.subpath-portal-screen[data-subpath-hero="roma-antiga"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-roma);
+}
+
+.subpath-portal-screen[data-subpath-hero="grecia-antiga"] {
+  --subpath-portal-image: var(--asset-subpercurso-antiga-grecia);
+}
+
+.subpath-portal-screen[data-subpath-hero="maias"] {
+  --subpath-portal-image: var(--asset-subpercurso-maias);
 }
 
 .subpath-portal-screen[data-era-world="medieval"] {
@@ -1513,11 +1576,74 @@ body[data-view="lesson"] .categories-panel {
     linear-gradient(135deg, #202a2c 0%, #455458 44%, #9a8359 100%);
 }
 
+.timeline-view-screen[data-subpath-timeline="antigo-egipto"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antigo-egipto) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="sumeria"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-sumeria) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="babilonia"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-babilonia) center / cover no-repeat;
+}
+
 .timeline-view-screen[data-subpath-timeline="assiria"] {
   background:
     radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
     linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
     var(--asset-subpercurso-antiga-assiria) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="persia"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-persia) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="china-antiga"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-china) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="india-antiga"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-india) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="roma-antiga"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-roma) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="grecia-antiga"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-antiga-grecia) center / cover no-repeat;
+}
+
+.timeline-view-screen[data-subpath-timeline="maias"] {
+  background:
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-subpercurso-maias) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-era-world="medieval"] {
@@ -2332,11 +2458,92 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
     linear-gradient(135deg, #263339, #8a6a3c 55%, #b88b4c);
 }
 
+.subpath-card[data-subpath="antigo-egipto"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="antigo-egipto"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antigo-egipto) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="sumeria"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="sumeria"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-sumeria) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="babilonia"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="babilonia"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-babilonia) center / cover no-repeat;
+}
+
 .subpath-card[data-subpath="assiria"] .subpath-visual,
 .subpath-timeline-hero[data-subpath-hero="assiria"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
     var(--asset-subpercurso-antiga-assiria) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="persia"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="persia"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-persia) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="china-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="china-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-china) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="india-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="india-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-india) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="roma-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="roma-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-roma) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="grecia-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="grecia-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-grecia) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="maias"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="maias"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-maias) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="antigo-egipto"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antigo-egipto) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="sumeria"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-sumeria) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="babilonia"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-babilonia) center / cover no-repeat;
 }
 
 .era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="assiria"] .subpath-visual {
@@ -2349,6 +2556,12 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
   background:
     linear-gradient(90deg, transparent 0 28%, rgba(255, 250, 240, 0.82) 28% 34%, transparent 34% 62%, rgba(255, 250, 240, 0.72) 62% 68%, transparent 68%),
     linear-gradient(135deg, #2f5f68, #be9a56 58%, #6f4740);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="persia"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-persia) center / cover no-repeat;
 }
 
 .era-hub[data-era-hub="antiga"] .subpath-card:nth-child(6) .subpath-visual {
@@ -2379,6 +2592,36 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
   background:
     linear-gradient(90deg, rgba(23, 72, 55, 0.9) 0 28%, rgba(183, 121, 40, 0.95) 28% 48%, rgba(93, 60, 42, 0.95) 48% 70%, rgba(34, 42, 36, 0.9) 70%),
     linear-gradient(135deg, #174837, #b77928);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="china-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-china) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="india-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-india) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="roma-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-roma) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="grecia-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-grecia) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="maias"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-maias) center / cover no-repeat;
 }
 
 .era-hub[data-era-hub="medieval"] .subpath-card:nth-child(1) .subpath-visual {
@@ -5809,7 +6052,16 @@ blockquote {
   :root {
     --hero-image-active: var(--asset-hero-mobile);
     --hero-object-position: center top;
+    --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-mobile);
+    --asset-subpercurso-antiga-sumeria: var(--asset-subpercurso-antiga-sumeria-mobile);
+    --asset-subpercurso-antiga-babilonia: var(--asset-subpercurso-antiga-babilonia-mobile);
     --asset-subpercurso-antiga-assiria: var(--asset-subpercurso-antiga-assiria-mobile);
+    --asset-subpercurso-antiga-persia: var(--asset-subpercurso-antiga-persia-mobile);
+    --asset-subpercurso-antiga-china: var(--asset-subpercurso-antiga-china-mobile);
+    --asset-subpercurso-antiga-india: var(--asset-subpercurso-antiga-india-mobile);
+    --asset-subpercurso-antiga-roma: var(--asset-subpercurso-antiga-roma-mobile);
+    --asset-subpercurso-antiga-grecia: var(--asset-subpercurso-antiga-grecia-mobile);
+    --asset-subpercurso-maias: var(--asset-subpercurso-maias-mobile);
     --mobile-page-pad: clamp(20px, 5.6vw, 28px);
     --thumb-zone: calc(88px + var(--safe-bottom));
   }
