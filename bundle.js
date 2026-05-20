@@ -2981,6 +2981,12 @@ function getLessonHeroImageStyle(mood) {
   return ` style="background-image: linear-gradient(90deg, rgba(7, 8, 8, 0.18), rgba(7, 8, 8, 0.08)), url('${imageUrl}'); background-position: center, center 48%; background-size: cover, cover; background-repeat: no-repeat;"`;
 }
 
+function getCurrentLessonMood() {
+  const lesson = state.currentLessonId ? getLessonById(state.currentLessonId) : getEraLessons(state.currentEra)[0];
+  if (!lesson) return "";
+  return buildLessonIntroFrame(lesson).mood;
+}
+
 function renderActiveLessonPanel() {
   const lesson = state.currentLessonId ? getLessonById(state.currentLessonId) : getEraLessons(state.currentEra)[0];
   if (!lesson) return "";
@@ -3030,7 +3036,7 @@ function renderStoryBlock(block, index, total) {
     text: "Um pequeno momento começou a mudar a experiência humana."
   };
   return `
-    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}">
+    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}">
       <span class="story-block-background" aria-hidden="true"></span>
       <span class="story-block-visual" aria-hidden="true"></span>
       <div class="story-block-copy">

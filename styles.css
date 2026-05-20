@@ -3539,6 +3539,18 @@ body[data-view="lesson"] .lesson-experience {
     linear-gradient(135deg, #0f1211 0%, #211a15 48%, #673a21 100%);
 }
 
+.story-block[data-mood="fire"] .story-block-background {
+  background:
+    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.18)),
+    var(--asset-licao-fogo) center / cover no-repeat;
+  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+}
+
+.story-block[data-mood="fire"] .story-block-visual {
+  background:
+    radial-gradient(circle, rgba(241, 199, 121, 0.86) 0 18%, rgba(232, 115, 47, 0.28) 19% 48%, transparent 49%);
+}
+
 .story-block[data-background="earth-path"] .story-block-background,
 .story-block[data-background="quiet-earth"] .story-block-background {
   background:
