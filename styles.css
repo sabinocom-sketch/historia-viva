@@ -52,6 +52,14 @@
   --asset-background-licao-paleolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-paleolitico.webp");
   --asset-background-licao-mesolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-mesolitico.webp");
   --asset-background-licao-neolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-neolitico.webp");
+  --era-prehistoria-ink: #101413;
+  --era-prehistoria-surface: #2c241b;
+  --era-prehistoria-accent: #f1c779;
+  --era-prehistoria-accent-soft: rgba(241, 199, 121, 0.22);
+  --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
+  --era-prehistoria-story-overlay: linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2));
+  --era-prehistoria-story-filter: saturate(1.08) contrast(1.06) brightness(0.84);
+  --era-prehistoria-motion-duration: 10s;
   --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
   --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
   --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-desktop);
@@ -3153,7 +3161,7 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"][data-mood="fir
   background-size: 180px 180px, 230px 230px, 150px 150px, 100% 100%;
   opacity: 0.64;
   mix-blend-mode: screen;
-  animation: lesson-particles 10s var(--ease-soft) infinite alternate;
+  animation: lesson-particles var(--era-prehistoria-motion-duration, 10s) var(--ease-soft) infinite alternate;
 }
 
 .lesson-view[data-mood="stone"] .lesson-hero {
@@ -3891,28 +3899,34 @@ body[data-view="lesson"] .lesson-experience {
     linear-gradient(135deg, #101413 0%, #25251f 56%, #3d2a1d 100%);
 }
 
+.lesson-experience[data-section="paleolitico"] .story-block-background,
+.lesson-experience[data-section="paleolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
   background:
-    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--era-prehistoria-story-overlay),
     var(--asset-background-licao-paleolitico) center / cover no-repeat;
-  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+  filter: var(--era-prehistoria-story-filter);
 }
 
+.lesson-experience[data-section="mesolitico"] .story-block-background,
+.lesson-experience[data-section="mesolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-background {
   background:
-    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--era-prehistoria-story-overlay),
     var(--asset-background-licao-mesolitico) center / cover no-repeat;
-  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+  filter: var(--era-prehistoria-story-filter);
 }
 
+.lesson-experience[data-section="revolucao-neolitica"] .story-block-background,
+.lesson-experience[data-section="revolucao-neolitica"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-story-background {
   background:
-    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2)),
+    var(--era-prehistoria-story-overlay),
     var(--asset-background-licao-neolitico) center / cover no-repeat;
-  filter: saturate(1.08) contrast(1.06) brightness(0.84);
+  filter: var(--era-prehistoria-story-filter);
 }
 
 .assimilation-chatbot {

@@ -3019,7 +3019,7 @@ function renderLessonExperience(lesson, context = {}) {
     const blocks = getLessonStoryBlocks(lesson.id);
     const index = clampStoryBlockIndex(blocks);
     return `
-      <div class="lesson-experience" aria-label="Sequência narrativa da lição">
+      <div class="lesson-experience" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" aria-label="Sequência narrativa da lição">
         ${renderStoryBlock(blocks[index], index, blocks.length)}
       </div>
     `;
@@ -3073,7 +3073,7 @@ function renderPostStoryLessonFlow(lesson, context = {}) {
   const renderer = renderers[stepKey] || renderReflectionMoment;
 
   return `
-    <div class="lesson-experience lesson-experience-screen post-story-flow" data-post-story-step="${escapeHtml(stepKey)}" aria-label="ContinuaÃ§Ã£o narrativa da liÃ§Ã£o">
+    <div class="lesson-experience lesson-experience-screen post-story-flow" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-post-story-step="${escapeHtml(stepKey)}" aria-label="ContinuaÃ§Ã£o narrativa da liÃ§Ã£o">
       ${renderer(flow[stepKey], lesson, stepIndex, total)}
     </div>
   `;
