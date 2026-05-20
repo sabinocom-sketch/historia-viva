@@ -25,7 +25,7 @@ const postStoryModeAliases = {
 };
 
 const lessonHeroImageUrls = {
-  fire: "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-descoberta-do-fogo.webp"
+  fire: "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-fogo.webp"
 };
 
 function getLessonHeroImageStyle(mood) {
