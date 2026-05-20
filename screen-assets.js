@@ -7,7 +7,8 @@ const learnAssetUrls = [
   "idade-moderna.webp",
   "idade-contemporanea.webp",
   "historia-de-portugal.webp",
-  "grande-jornada-historica.webp"
+  "grande-jornada-historica.webp",
+  "licao-descoberta-do-fogo.webp"
 ].map((assetName) => `${supabaseAssetBaseUrl}/${assetName}`);
 
 const heroAssetUrls = [
