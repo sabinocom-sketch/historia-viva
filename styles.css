@@ -6589,14 +6589,17 @@ blockquote {
     min-height: 100%;
     height: auto;
     max-height: none;
-    touch-action: pan-y pinch-zoom;
+    touch-action: auto;
+  }
+
+  html {
+    overflow-y: auto;
   }
 
   body,
   .app-root,
   .content-shell {
-    overflow-x: hidden;
-    overflow-y: visible;
+    overflow: visible;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: auto;
   }
@@ -6649,10 +6652,9 @@ blockquote {
     min-height: 100svh;
     height: auto;
     max-height: none;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: visible;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y pinch-zoom;
+    touch-action: auto;
     overscroll-behavior-y: auto;
   }
 
@@ -6667,7 +6669,7 @@ blockquote {
     overflow-x: hidden;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y pinch-zoom;
+    touch-action: auto;
   }
 
   body[data-view="era"] .app-root,
@@ -6687,7 +6689,7 @@ blockquote {
     max-height: none;
     overflow: visible;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y pinch-zoom;
+    touch-action: auto;
   }
 
   .app-root,
@@ -6710,9 +6712,8 @@ blockquote {
     min-height: 100svh;
     height: auto;
     max-height: none;
-    overflow-x: hidden;
-    overflow-y: visible;
-    touch-action: pan-y pinch-zoom;
+    overflow: visible;
+    touch-action: auto;
   }
 
   body[data-view="era"] .era-world-screen {
@@ -6723,14 +6724,14 @@ blockquote {
   body[data-view="subpath"] .subpath-portal-screen,
   body[data-view="timeline"] .timeline-view-screen,
   body[data-view="journey"] .timeline-view-screen {
-    overflow-y: visible;
+    overflow: visible;
     -webkit-overflow-scrolling: touch;
   }
 
   body[data-view="learn"] .era-switcher,
   .era-world-screen .subpath-grid,
   .timeline-view-list {
-    touch-action: pan-y pinch-zoom;
+    touch-action: auto;
   }
 
   body[data-view="learn"] .era-switcher,
