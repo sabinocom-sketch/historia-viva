@@ -6758,7 +6758,7 @@ blockquote {
 
   body[data-view="timeline"] .timeline-view-screen,
   body[data-view="journey"] .timeline-view-screen {
-    min-height: auto;
+    min-height: calc(100svh + 220px);
     padding-bottom: calc(72px + var(--safe-bottom));
   }
 

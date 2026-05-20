@@ -1726,6 +1726,63 @@ window.addEventListener("hashchange", () => {
 });
 
 const wheelScrollTimers = new WeakMap();
+const mobileTouchScroll = {
+  active: false,
+  lastX: 0,
+  lastY: 0
+};
+
+function shouldUseMobileTouchScrollFallback() {
+  return window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches
+    && document.documentElement.scrollHeight > window.innerHeight + 1;
+}
+
+function canWindowScrollBy(deltaY) {
+  if (!deltaY) return false;
+  const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
+  if (maxScrollTop <= 0) return false;
+  if (deltaY > 0) return window.scrollY < maxScrollTop;
+  return window.scrollY > 0;
+}
+
+document.addEventListener("touchstart", (event) => {
+  if (!shouldUseMobileTouchScrollFallback() || event.touches.length !== 1) {
+    mobileTouchScroll.active = false;
+    return;
+  }
+
+  const touch = event.touches[0];
+  mobileTouchScroll.active = true;
+  mobileTouchScroll.lastX = touch.clientX;
+  mobileTouchScroll.lastY = touch.clientY;
+}, { passive: true, capture: true });
+
+document.addEventListener("touchmove", (event) => {
+  if (!mobileTouchScroll.active || event.touches.length !== 1 || !shouldUseMobileTouchScrollFallback()) {
+    mobileTouchScroll.active = false;
+    return;
+  }
+
+  const touch = event.touches[0];
+  const deltaX = mobileTouchScroll.lastX - touch.clientX;
+  const deltaY = mobileTouchScroll.lastY - touch.clientY;
+  mobileTouchScroll.lastX = touch.clientX;
+  mobileTouchScroll.lastY = touch.clientY;
+
+  if (Math.abs(deltaY) < 2 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
+  if (!canWindowScrollBy(deltaY)) return;
+
+  window.scrollBy({ top: deltaY, left: 0, behavior: "auto" });
+  event.preventDefault();
+}, { passive: false, capture: true });
+
+document.addEventListener("touchend", () => {
+  mobileTouchScroll.active = false;
+}, { passive: true, capture: true });
+
+document.addEventListener("touchcancel", () => {
+  mobileTouchScroll.active = false;
+}, { passive: true, capture: true });
 
 function getWheelScrollDelta(event, scroller) {
   const dominantDelta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
