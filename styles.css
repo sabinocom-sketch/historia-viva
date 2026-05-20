@@ -6804,6 +6804,26 @@ blockquote {
       calc(var(--mobile-page-pad) + var(--safe-left));
   }
 
+  body[data-view="timeline"] .timeline-view-screen::after,
+  body[data-view="journey"] .timeline-view-screen::after {
+    display: none;
+  }
+
+  body[data-view="timeline"] .timeline-view-stage,
+  body[data-view="journey"] .timeline-view-stage,
+  body[data-view="timeline"] .timeline-view-list,
+  body[data-view="journey"] .timeline-view-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  body[data-view="timeline"] .timeline-view-list::before,
+  body[data-view="journey"] .timeline-view-list::before {
+    left: 17px;
+  }
+
   body[data-view="timeline"] .timeline-view-list,
   body[data-view="journey"] .timeline-view-list {
     gap: 6px;
@@ -6816,8 +6836,22 @@ blockquote {
 
   body[data-view="timeline"] .timeline-view-item,
   body[data-view="journey"] .timeline-view-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
     min-height: clamp(86px, 13svh, 118px);
     align-items: center;
+  }
+
+  body[data-view="timeline"] .timeline-view-marker,
+  body[data-view="journey"] .timeline-view-marker {
+    width: 36px;
+    height: 36px;
+  }
+
+  body[data-view="timeline"] .timeline-view-copy,
+  body[data-view="journey"] .timeline-view-copy {
+    min-width: 0;
   }
 
   body[data-view="timeline"] .timeline-view-preview,
