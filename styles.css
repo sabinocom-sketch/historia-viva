@@ -76,10 +76,18 @@
   --era-prehistoria-accent: #f1c779;
   --era-prehistoria-accent-soft: rgba(241, 199, 121, 0.22);
   --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
-  --era-prehistoria-story-overlay: linear-gradient(90deg, rgba(7, 8, 8, 0.58), rgba(7, 8, 8, 0.1));
-  --era-prehistoria-story-filter: saturate(1.04) contrast(1.02) brightness(0.98);
+  --era-prehistoria-story-overlay:
+    radial-gradient(ellipse at center, rgba(255, 248, 234, 0.08) 0%, rgba(255, 248, 234, 0.03) 36%, transparent 62%),
+    radial-gradient(ellipse at center, transparent 44%, rgba(0, 0, 0, 0.28) 100%),
+    linear-gradient(90deg, rgba(7, 8, 8, 0.54) 0%, rgba(7, 8, 8, 0.14) 46%, rgba(7, 8, 8, 0.18) 100%);
+  --era-prehistoria-story-filter: saturate(1.04) contrast(1.06) brightness(1);
   --era-prehistoria-story-position: center;
   --era-prehistoria-story-size: 100% 100%;
+  --era-prehistoria-story-shadow: inset 0 0 118px rgba(0, 0, 0, 0.36), inset 0 0 28px rgba(255, 248, 234, 0.04);
+  --era-prehistoria-story-surface:
+    linear-gradient(116deg, transparent 0 46%, rgba(255, 248, 234, 0.035) 50%, transparent 56%),
+    radial-gradient(circle at 80% 18%, rgba(255, 248, 234, 0.05), transparent 18%),
+    radial-gradient(circle at 18% 84%, rgba(0, 0, 0, 0.2), transparent 22%);
   --era-prehistoria-motion-duration: 10s;
   --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
   --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
@@ -3573,6 +3581,28 @@ body[data-view="lesson"] .lesson-experience {
     linear-gradient(135deg, #101413 0%, #26231d 52%, #513821 100%);
 }
 
+.story-block[data-era="pre-historia"],
+.story-block[data-section="paleolitico"],
+.story-block[data-section="mesolitico"],
+.story-block[data-section="revolucao-neolitica"] {
+  box-shadow:
+    var(--era-prehistoria-story-shadow),
+    0 28px 80px rgba(24, 32, 37, 0.2);
+}
+
+.story-block[data-era="pre-historia"] .story-block-background::after,
+.story-block[data-section="paleolitico"] .story-block-background::after,
+.story-block[data-section="mesolitico"] .story-block-background::after,
+.story-block[data-section="revolucao-neolitica"] .story-block-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--era-prehistoria-story-surface);
+  mix-blend-mode: soft-light;
+  opacity: 0.62;
+  pointer-events: none;
+}
+
 .story-block::after {
   content: "";
   position: absolute;
@@ -3581,6 +3611,17 @@ body[data-view="lesson"] .lesson-experience {
   background:
     linear-gradient(90deg, rgba(8, 10, 10, 0.48), rgba(8, 10, 10, 0.08)),
     radial-gradient(circle at 78% 72%, rgba(255, 248, 234, 0.06), transparent 25%);
+  pointer-events: none;
+}
+
+.story-block[data-era="pre-historia"]::after,
+.story-block[data-section="paleolitico"]::after,
+.story-block[data-section="mesolitico"]::after,
+.story-block[data-section="revolucao-neolitica"]::after {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 248, 234, 0.07) 0%, rgba(255, 248, 234, 0.025) 42%, transparent 68%),
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(90deg, rgba(8, 10, 10, 0.42), rgba(8, 10, 10, 0.06) 48%, rgba(8, 10, 10, 0.12));
   pointer-events: none;
 }
 
@@ -3880,6 +3921,26 @@ body[data-view="lesson"] .lesson-experience {
     linear-gradient(135deg, #101413 0%, #242820 54%, #171615 100%);
 }
 
+.post-story-screen[data-era="pre-historia"],
+.post-story-screen[data-section="paleolitico"],
+.post-story-screen[data-section="mesolitico"],
+.post-story-screen[data-section="revolucao-neolitica"] {
+  box-shadow: var(--era-prehistoria-story-shadow);
+}
+
+.post-story-screen[data-era="pre-historia"] .post-story-background::after,
+.post-story-screen[data-section="paleolitico"] .post-story-background::after,
+.post-story-screen[data-section="mesolitico"] .post-story-background::after,
+.post-story-screen[data-section="revolucao-neolitica"] .post-story-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--era-prehistoria-story-surface);
+  mix-blend-mode: soft-light;
+  opacity: 0.58;
+  pointer-events: none;
+}
+
 .post-story-screen::after {
   content: "";
   position: absolute;
@@ -3888,6 +3949,18 @@ body[data-view="lesson"] .lesson-experience {
   background:
     linear-gradient(90deg, rgba(8, 10, 10, 0.48), rgba(8, 10, 10, 0.06)),
     linear-gradient(0deg, rgba(8, 10, 10, 0.2), transparent 42%);
+  pointer-events: none;
+}
+
+.post-story-screen[data-era="pre-historia"]::after,
+.post-story-screen[data-section="paleolitico"]::after,
+.post-story-screen[data-section="mesolitico"]::after,
+.post-story-screen[data-section="revolucao-neolitica"]::after {
+  background:
+    radial-gradient(ellipse at center, rgba(255, 248, 234, 0.07) 0%, rgba(255, 248, 234, 0.024) 42%, transparent 68%),
+    radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.3) 100%),
+    linear-gradient(90deg, rgba(8, 10, 10, 0.42), rgba(8, 10, 10, 0.05) 48%, rgba(8, 10, 10, 0.1)),
+    linear-gradient(0deg, rgba(8, 10, 10, 0.16), transparent 44%);
   pointer-events: none;
 }
 
@@ -6189,6 +6262,15 @@ blockquote {
     --asset-paleolitico-position: center top;
     --era-prehistoria-story-position: center;
     --era-prehistoria-story-size: 100% 100%;
+    --era-prehistoria-story-overlay:
+      radial-gradient(ellipse at center, rgba(255, 248, 234, 0.055) 0%, rgba(255, 248, 234, 0.02) 34%, transparent 58%),
+      radial-gradient(ellipse at center, transparent 42%, rgba(0, 0, 0, 0.24) 100%),
+      linear-gradient(180deg, rgba(7, 8, 8, 0.42) 0%, rgba(7, 8, 8, 0.1) 42%, rgba(7, 8, 8, 0.34) 100%);
+    --era-prehistoria-story-shadow: inset 0 0 76px rgba(0, 0, 0, 0.3), inset 0 0 18px rgba(255, 248, 234, 0.035);
+    --era-prehistoria-story-surface:
+      linear-gradient(116deg, transparent 0 46%, rgba(255, 248, 234, 0.026) 50%, transparent 56%),
+      radial-gradient(circle at 80% 18%, rgba(255, 248, 234, 0.035), transparent 18%),
+      radial-gradient(circle at 18% 84%, rgba(0, 0, 0, 0.15), transparent 22%);
     --asset-mesolitico: var(--asset-mesolitico-mobile);
     --asset-neolitico: var(--asset-neolitico-mobile);
     --asset-grande-jornada-pre-historica: var(--asset-grande-jornada-pre-historica-mobile);
