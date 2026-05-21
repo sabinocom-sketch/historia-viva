@@ -2021,6 +2021,8 @@ shuffleQuestion.addEventListener("click", () => {
 
 {
   renderEraData(state.currentEra);
-  navigateTo("home", {}, { replace: true });
+  hasUserNavigationIntent = true;
+  const initialRoute = getRouteFromHash();
+  navigateTo(initialRoute.view, initialRoute.params, { replace: true, preserveScroll: true });
   document.body.classList.remove("is-booting");
 }
