@@ -135,8 +135,8 @@
   --asset-subpercurso-italia-medieval-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-italia-medieval-desktop.webp");
   --asset-subpercurso-italia-medieval-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-italia-medieval-portrait.webp");
   --asset-subpercurso-italia-medieval: var(--asset-subpercurso-italia-medieval-desktop);
-  --asset-subpercurso-sacro-imperio-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-sacro-imperio-desktop.webp");
-  --asset-subpercurso-sacro-imperio-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-sacro-imperio-portrait.webp");
+  --asset-subpercurso-sacro-imperio-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-sacro-imperio-medieval-desktop.webp");
+  --asset-subpercurso-sacro-imperio-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-sacro-imperio-medieval-portrait.webp");
   --asset-subpercurso-sacro-imperio: var(--asset-subpercurso-sacro-imperio-desktop);
   --asset-subpercurso-russia-medieval-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-russia-medieval-desktop.webp");
   --asset-subpercurso-russia-medieval-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-russia-medieval-portrait.webp");
@@ -151,7 +151,7 @@
   --asset-subpercurso-india-medieval-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-india-medieval-portrait.webp");
   --asset-subpercurso-india-medieval: var(--asset-subpercurso-india-medieval-desktop);
   --asset-subpercurso-japao-medieval-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-japao-medieval-desktop.webp");
-  --asset-subpercurso-japao-medieval-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-japao-medieval-portrait.webp");
+  --asset-subpercurso-japao-medieval-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-japao.medieval-portrait.webp");
   --asset-subpercurso-japao-medieval: var(--asset-subpercurso-japao-medieval-desktop);
   --asset-subpercurso-imperio-bizantino-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-imperio-bizantino-desktop.webp");
   --asset-subpercurso-imperio-bizantino-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-imperio-bizantino-portrait.webp");
