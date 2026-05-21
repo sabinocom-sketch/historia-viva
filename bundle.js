@@ -2863,7 +2863,7 @@ const learnAssetUrls = [
   "idade-antiga.webp",
   "antiguidade-portrait.webp",
   "idade-media.webp",
-  "idade-media-portrait.webp",
+  "idade-media.portrait.webp",
   "subpercurso-invasoes-barbaras-desktop.webp",
   "subpercurso-invasoes-barbaras-portrait.webp",
   "subpercurso-franca-medieval-desktop.webp",

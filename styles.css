@@ -49,7 +49,7 @@
   --asset-idade-antiga-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/antiguidade-portrait.webp");
   --asset-idade-antiga: var(--asset-idade-antiga-desktop);
   --asset-idade-media-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-media.webp");
-  --asset-idade-media-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-media-portrait.webp");
+  --asset-idade-media-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-media.portrait.webp");
   --asset-idade-media: var(--asset-idade-media-desktop);
   --asset-idade-moderna-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-moderna.webp");
   --asset-idade-moderna-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/idade-moderna-portrait.webp");
