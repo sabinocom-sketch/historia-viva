@@ -3871,6 +3871,7 @@ body[data-view="lesson"] .lesson-experience {
   position: absolute;
   inset: 0;
   z-index: -2;
+  background-color: #101413;
   background:
     radial-gradient(circle at 18% 26%, var(--lesson-accent-soft, rgba(241, 199, 121, 0.22)), transparent 24%),
     radial-gradient(circle at 86% 74%, rgba(255, 248, 234, 0.08), transparent 22%),
@@ -3956,9 +3957,11 @@ body[data-view="lesson"] .lesson-experience {
 .post-story-screen[data-section="paleolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
+  background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-paleolitico) center / cover no-repeat;
+    var(--asset-background-licao-paleolitico) center / contain no-repeat,
+    #101413;
   filter: var(--era-prehistoria-story-filter);
 }
 
@@ -3968,9 +3971,11 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-ba
 .post-story-screen[data-section="mesolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-background {
+  background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-mesolitico) center / cover no-repeat;
+    var(--asset-background-licao-mesolitico) center / contain no-repeat,
+    #101413;
   filter: var(--era-prehistoria-story-filter);
 }
 
@@ -3980,9 +3985,11 @@ body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-bac
 .post-story-screen[data-section="revolucao-neolitica"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-story-background {
+  background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-neolitico) center / cover no-repeat;
+    var(--asset-background-licao-neolitico) center / contain no-repeat,
+    #101413;
   filter: var(--era-prehistoria-story-filter);
 }
 
