@@ -76,8 +76,8 @@
   --era-prehistoria-accent: #f1c779;
   --era-prehistoria-accent-soft: rgba(241, 199, 121, 0.22);
   --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
-  --era-prehistoria-story-overlay: linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.2));
-  --era-prehistoria-story-filter: saturate(1.08) contrast(1.06) brightness(0.84);
+  --era-prehistoria-story-overlay: linear-gradient(90deg, rgba(7, 8, 8, 0.58), rgba(7, 8, 8, 0.1));
+  --era-prehistoria-story-filter: saturate(1.04) contrast(1.02) brightness(0.98);
   --era-prehistoria-motion-duration: 10s;
   --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
   --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
@@ -580,6 +580,37 @@ body[data-view="progress"] {
 }
 
 body[data-view="lesson"] {
+  overflow: hidden;
+}
+
+body[data-view="lesson"],
+body[data-view="lesson"] .app-shell,
+body[data-view="lesson"] .content-shell,
+body[data-view="lesson"] .categories-panel,
+body[data-view="lesson"] .categories-panel.active,
+body[data-view="lesson"] .active-lesson-panel,
+body[data-view="lesson"] .lesson-view,
+body[data-view="lesson"] .lesson-experience,
+body[data-view="lesson"] .story-block,
+body[data-view="lesson"] .post-story-screen {
+  width: 100vw;
+  min-width: 100vw;
+  height: 100dvh;
+  min-height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  border-radius: 0;
+}
+
+body[data-view="lesson"] .app-shell,
+body[data-view="lesson"] .content-shell,
+body[data-view="lesson"] .categories-panel,
+body[data-view="lesson"] .categories-panel.active,
+body[data-view="lesson"] .active-lesson-panel,
+body[data-view="lesson"] .lesson-view,
+body[data-view="lesson"] .lesson-experience,
+body[data-view="lesson"] .story-block,
+body[data-view="lesson"] .post-story-screen {
   overflow: hidden;
 }
 
@@ -3546,8 +3577,8 @@ body[data-view="lesson"] .lesson-experience {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 10, 10, 0.72), rgba(8, 10, 10, 0.22)),
-    radial-gradient(circle at 78% 72%, rgba(255, 248, 234, 0.1), transparent 25%);
+    linear-gradient(90deg, rgba(8, 10, 10, 0.48), rgba(8, 10, 10, 0.08)),
+    radial-gradient(circle at 78% 72%, rgba(255, 248, 234, 0.06), transparent 25%);
   pointer-events: none;
 }
 
@@ -3852,8 +3883,8 @@ body[data-view="lesson"] .lesson-experience {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(90deg, rgba(8, 10, 10, 0.72), rgba(8, 10, 10, 0.18)),
-    linear-gradient(0deg, rgba(8, 10, 10, 0.42), transparent 42%);
+    linear-gradient(90deg, rgba(8, 10, 10, 0.48), rgba(8, 10, 10, 0.06)),
+    linear-gradient(0deg, rgba(8, 10, 10, 0.2), transparent 42%);
   pointer-events: none;
 }
 
@@ -6842,15 +6873,33 @@ blockquote {
   .subpath-portal-screen,
   .timeline-view-screen,
   .story-block,
-  .post-story-screen,
-  body[data-view="lesson"] .active-lesson-panel,
-  body[data-view="lesson"] .lesson-view,
-  body[data-view="lesson"] .lesson-experience {
+  .post-story-screen {
     min-height: 100svh;
     height: auto;
     max-height: none;
     overflow: visible;
     touch-action: auto;
+  }
+
+  body[data-view="lesson"],
+  body[data-view="lesson"] .app-shell,
+  body[data-view="lesson"] .content-shell,
+  body[data-view="lesson"] .categories-panel,
+  body[data-view="lesson"] .categories-panel.active,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience,
+  body[data-view="lesson"] .story-block,
+  body[data-view="lesson"] .post-story-screen {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0;
+    touch-action: pan-y;
   }
 
   body[data-view="era"] .era-world-screen {
