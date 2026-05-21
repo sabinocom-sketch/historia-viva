@@ -6589,7 +6589,7 @@ blockquote {
   body[data-view="lesson"] {
     overflow-x: hidden;
     overflow-y: auto;
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
   }
 
   .app-shell,
@@ -7359,7 +7359,7 @@ blockquote {
     gap: 6px;
     max-height: min(52svh, 460px);
     overflow-y: auto;
-    overscroll-behavior-y: contain;
+    overscroll-behavior-y: auto;
     padding-bottom: 14px;
     -webkit-overflow-scrolling: touch;
   }

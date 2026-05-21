@@ -1804,6 +1804,11 @@ document.addEventListener("touchmove", (event) => {
   mobileTouchScroll.lastMoveAt = now;
 
   if (Math.abs(deltaY) < 2 || Math.abs(deltaY) <= Math.abs(deltaX)) return;
+  if (deltaY < 0 && window.scrollY <= 0) {
+    mobileTouchScroll.active = false;
+    mobileTouchScroll.velocityY = 0;
+    return;
+  }
   if (!canWindowScrollBy(deltaY)) return;
 
   const scrollDelta = deltaY * 1.28;
