@@ -26,7 +26,6 @@ const learnAssetUrls = [
   "subpercurso-vikings-portrait.webp",
   "subpercurso-china-medieval-desktop.webp",
   "subpercurso-china-medieval-portrait.webp",
-  "subpercurso-india-medieval-desktop.webp",
   "subpercurso-india-medieval-portrait.webp",
   "subpercurso-japao-medieval-desktop.webp",
   "subpercurso-japao-medieval-portrait.webp",
