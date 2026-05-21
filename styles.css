@@ -78,6 +78,8 @@
   --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
   --era-prehistoria-story-overlay: linear-gradient(90deg, rgba(7, 8, 8, 0.58), rgba(7, 8, 8, 0.1));
   --era-prehistoria-story-filter: saturate(1.04) contrast(1.02) brightness(0.98);
+  --era-prehistoria-story-position: center;
+  --era-prehistoria-story-size: 100% 100%;
   --era-prehistoria-motion-duration: 10s;
   --asset-subpercurso-antigo-egipto-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-desktop.webp");
   --asset-subpercurso-antigo-egipto-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/subpercurso-antigo-egipto-portrait.webp");
@@ -3960,7 +3962,7 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-ba
   background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-paleolitico) center / contain no-repeat,
+    var(--asset-background-licao-paleolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
     #101413;
   filter: var(--era-prehistoria-story-filter);
 }
@@ -3974,7 +3976,7 @@ body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-bac
   background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-mesolitico) center / contain no-repeat,
+    var(--asset-background-licao-mesolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
     #101413;
   filter: var(--era-prehistoria-story-filter);
 }
@@ -3988,7 +3990,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
   background-color: #101413;
   background:
     var(--era-prehistoria-story-overlay),
-    var(--asset-background-licao-neolitico) center / contain no-repeat,
+    var(--asset-background-licao-neolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
     #101413;
   filter: var(--era-prehistoria-story-filter);
 }
@@ -6185,6 +6187,8 @@ blockquote {
     --hero-image-active: var(--asset-hero-mobile);
     --hero-object-position: center top;
     --asset-paleolitico-position: center top;
+    --era-prehistoria-story-position: center;
+    --era-prehistoria-story-size: 100% 100%;
     --asset-mesolitico: var(--asset-mesolitico-mobile);
     --asset-neolitico: var(--asset-neolitico-mobile);
     --asset-grande-jornada-pre-historica: var(--asset-grande-jornada-pre-historica-mobile);
