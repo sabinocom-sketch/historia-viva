@@ -11,6 +11,7 @@ export const state = {
   currentTimelineZoom: "compacto",
   currentTimelineLesson: 0,
   currentLessonId: "",
+  currentLessonEntryId: "",
   currentLessonMode: "intro",
   currentLessonStoryBlockIndex: 0,
   currentPostStoryStep: "reflection",

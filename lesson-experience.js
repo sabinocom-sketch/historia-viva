@@ -33,6 +33,13 @@ function getCurrentLessonMood() {
 export function renderActiveLessonPanel() {
   const lesson = state.currentLessonId ? getLessonById(state.currentLessonId) : getEraLessons(state.currentEra)[0];
   if (!lesson) return "";
+  if (state.currentLessonEntryId !== lesson.id) {
+    state.currentLessonEntryId = lesson.id;
+    state.currentLessonMode = "intro";
+    state.currentLessonStoryBlockIndex = 0;
+    state.currentPostStoryStep = "reflection";
+    state.currentLessonQuizChoice = null;
+  }
   const isSelected = state.currentLessonId === lesson.id;
   const lessonIntro = buildLessonIntroFrame(lesson);
   const curiosity = pickFrom(eras[lesson.eraKey].curiosities || [], lesson.index, "Cada vestígio histórico muda quando fazemos uma pergunta melhor.");

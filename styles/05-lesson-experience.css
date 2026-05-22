@@ -642,13 +642,6 @@ body[data-view="lesson"] .lesson-experience {
     linear-gradient(135deg, #0f1211 0%, #211a15 48%, #673a21 100%);
 }
 
-.story-block[data-mood="fire"] .story-block-background {
-  background:
-    linear-gradient(90deg, rgba(7, 8, 8, 0.78), rgba(7, 8, 8, 0.18)),
-    var(--asset-licao-fogo) center / cover no-repeat;
-  filter: saturate(1.08) contrast(1.06) brightness(0.84);
-}
-
 .story-block[data-mood="fire"] .story-block-visual {
   background:
     radial-gradient(circle, rgba(241, 199, 121, 0.86) 0 18%, rgba(232, 115, 47, 0.28) 19% 48%, transparent 49%);
@@ -1046,11 +1039,8 @@ body[data-view="lesson"] .lesson-experience {
   grid-area: actions;
 }
 
-.lesson-experience[data-section="paleolitico"] .story-block-background,
 .lesson-experience[data-section="paleolitico"] .post-story-background,
-.story-block[data-section="paleolitico"] .story-block-background,
 .post-story-screen[data-section="paleolitico"] .post-story-background,
-body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
   background-color: #101413;
   background:
@@ -1060,11 +1050,8 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-ba
   filter: var(--era-prehistoria-story-filter);
 }
 
-.lesson-experience[data-section="mesolitico"] .story-block-background,
 .lesson-experience[data-section="mesolitico"] .post-story-background,
-.story-block[data-section="mesolitico"] .story-block-background,
 .post-story-screen[data-section="mesolitico"] .post-story-background,
-body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-background {
   background-color: #101413;
   background:
@@ -1074,11 +1061,8 @@ body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .post-story-bac
   filter: var(--era-prehistoria-story-filter);
 }
 
-.lesson-experience[data-section="revolucao-neolitica"] .story-block-background,
 .lesson-experience[data-section="revolucao-neolitica"] .post-story-background,
-.story-block[data-section="revolucao-neolitica"] .story-block-background,
 .post-story-screen[data-section="revolucao-neolitica"] .post-story-background,
-body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background,
 body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-story-background {
   background-color: #101413;
   background:
@@ -1101,27 +1085,6 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
     radial-gradient(circle at 82% 72%, rgba(241, 199, 121, 0.16), transparent 24%),
     linear-gradient(135deg, #0f1717 0%, #1d2723 56%, #34291f 100%);
   filter: none;
-}
-
-.story-block[data-section="paleolitico"][data-background^="stone"] .story-block-background,
-body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block[data-background^="stone"] .story-block-background {
-  background:
-    radial-gradient(ellipse at center, rgba(255, 238, 188, 0.2) 0%, rgba(255, 238, 188, 0.08) 34%, transparent 58%),
-    radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.24) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.18), transparent 22% 78%, rgba(0, 0, 0, 0.16)),
-    var(--asset-licao-ferramentas-pedra) center / cover no-repeat,
-    #2f312b;
-  filter: saturate(1.06) contrast(1.04) brightness(1.16);
-}
-
-.story-block[data-section="paleolitico"][data-background^="stone"] .story-block-background::before,
-body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block[data-background^="stone"] .story-block-background::before {
-  display: none;
-}
-
-.story-block[data-section="paleolitico"][data-background^="stone"]::after,
-body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block[data-background^="stone"]::after {
-  background: none;
 }
 
 .assimilation-chatbot {

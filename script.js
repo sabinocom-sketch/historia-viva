@@ -1031,6 +1031,7 @@ function getNextLessonMode(mode) {
 }
 
 function resetLessonEntryState(mode = "intro") {
+  state.currentLessonEntryId = state.currentLessonId || "";
   state.currentLessonMode = mode;
   state.currentLessonStoryBlockIndex = 0;
   state.currentPostStoryStep = "reflection";
