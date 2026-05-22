@@ -14,7 +14,8 @@ The app is now split by responsibility:
 - `PRODUCT_EXPERIENCE.md` defines the commercial/product journey: positioning, core loop, user fantasy, retention hooks, and campaign model.
 - `VISUAL_SYSTEM.md` defines the reusable visual language: era palettes, materials, lighting, motion, asset levels, naming conventions, and performance rules.
 - `content-service.js` adapts raw data into app-ready records with stable IDs: lessons, explore entries, quizzes, sources, debate subsets, related topics, and related navigation targets.
-- `lesson-experience.js` owns the fullscreen lesson screens: intro handoff, Story Blocks, the modular PostStoryLessonFlow, and Story Block navigation helpers.
+- `lesson-summary.js` owns lightweight lesson labels, hero copy, moods, and preview metadata used by timelines and hubs without loading the full lesson experience.
+- `lesson-experience.js` is lazy-loaded only when a full lesson route or Story Block action needs it. It owns the fullscreen lesson screens: intro handoff, Story Blocks, the modular PostStoryLessonFlow, and Story Block navigation helpers.
 - `state.js` contains transient UI state such as the selected era, selected tab, quiz index, source index, curiosity index, debate index, and quiz streak.
 - `utils.js` contains pure helpers shared by the app, such as text normalisation, HTML escaping, deterministic seeds, list picking, and preview creation.
 - `dom.js` centralises DOM references so selectors are not repeated through the app.
@@ -24,7 +25,7 @@ The app is now split by responsibility:
 - `screen-controller.js` owns screen mounting: only the active `.feature-view` stays mounted in `.content-shell`; inactive screens are parked in a document fragment to reduce hidden DOM, layout work, and late visual re-entry.
 - `bootstrap.js` is the tiny startup layer. It shows Home immediately, loads the full app on deep routes, first meaningful interaction, or idle time, and replays the triggering click once the app is ready.
 - `script.js` contains the full application behaviour: section rendering, event handlers, conversation assembly, and navigation orchestration.
-- `bundle.js` is the generated browser-facing bootstrap. Heavier app code is generated into `chunks/`; do not edit generated JS directly.
+- `bundle.js` is the generated browser-facing bootstrap. Heavier app code is generated into hashed files in `chunks/`; do not edit generated JS directly.
 - `build-bundle.js` regenerates `bundle.js` and `chunks/` after module changes.
 - `styles/` contains the modular CSS source files. Edit those files and run `npm run build:css` to regenerate the browser-facing `styles.css`, which is still the only stylesheet linked from `index.html`.
 - `index.html` contains the app shell, the contextual back control, static screen templates that are mounted one at a time by `screen-controller.js`, and the `.orientation-lock-overlay` used to block mobile landscape interaction. The former fixed top navigation bar was removed so movement through the experience stays contextual.

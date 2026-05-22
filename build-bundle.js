@@ -18,7 +18,7 @@ async function build() {
     legalComments: "none",
     sourcemap: false,
     entryNames: "bundle",
-    chunkNames: "chunks/[name]",
+    chunkNames: "chunks/[name]-[hash]",
     logLevel: "info"
   });
 

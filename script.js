@@ -16,13 +16,7 @@ import { dom } from './dom.js';
 import { createProgressController } from './progress.js';
 import { afterNextPaint, preloadHeroAssets, preloadLearnAssets, waitForLearnAssets } from './screen-assets.js';
 import { createScreenController } from './screen-controller.js';
-import {
-  buildLessonIntroFrame,
-  getLessonDisplayTitle,
-  goToNextStoryBlock,
-  goToPreviousStoryBlock,
-  renderActiveLessonPanel
-} from './lesson-experience.js';
+import { buildLessonIntroFrame, getLessonDisplayTitle } from './lesson-summary.js';
 import {
   findRelatedTarget,
   getDebatesForEra,
@@ -103,6 +97,41 @@ const screenController = createScreenController({
   root: contentShell,
   views: featureViews
 });
+
+let lessonExperiencePromise;
+
+function getLessonExperience() {
+  if (!lessonExperiencePromise) lessonExperiencePromise = import('./lesson-experience.js');
+  return lessonExperiencePromise;
+}
+
+async function renderActiveLessonPanelHtml() {
+  const { renderActiveLessonPanel } = await getLessonExperience();
+  return renderActiveLessonPanel();
+}
+
+function renderLessonPreviewPanel() {
+  const lesson = state.currentLessonId ? getLessonById(state.currentLessonId) : getEraLessons(state.currentEra)[0];
+  if (!lesson) return "";
+  const lessonIntro = buildLessonIntroFrame(lesson);
+  return `
+    <section class="active-lesson-panel lesson-view" data-active-lesson="${escapeHtml(lesson.id)}" data-era="${escapeHtml(lesson.eraKey)}" data-section="${escapeHtml(lesson.sectionId || "")}" data-mood="${escapeHtml(lessonIntro.mood)}" data-mode="intro" data-theme="${escapeHtml(lesson.category)}">
+      <div class="lesson-hero">
+        <span class="lesson-hero-image" aria-hidden="true"></span>
+        <span class="lesson-atmosphere" aria-hidden="true"></span>
+        <div class="lesson-hero-copy">
+          <p class="eyebrow">${escapeHtml(lessonIntro.kicker)}</p>
+          <h3>${escapeHtml(lessonIntro.title)}</h3>
+          <p class="lesson-hero-line">${escapeHtml(lessonIntro.line)}</p>
+          <div class="lesson-preview-list" aria-label="Preview da lição">
+            ${lessonIntro.preview.map((item) => `<span>${escapeHtml(item)}</span>`).join("")}
+          </div>
+          <button type="button" data-route="lesson">Abrir lição</button>
+        </div>
+      </div>
+    </section>
+  `;
+}
 
 function getViewportOrientation() {
   if (window.matchMedia?.("(orientation: portrait)").matches) return "portrait";
@@ -463,7 +492,7 @@ async function openRelatedTopic(topic) {
   questionInput.focus();
 }
 
-function renderCategorySections() {
+async function renderCategorySections() {
   if (!categorySections) return;
   const eraKey = state.currentEra;
   const era = eras[eraKey];
@@ -472,7 +501,7 @@ function renderCategorySections() {
     return;
   }
   if (state.currentView === "lesson") {
-    categorySections.innerHTML = renderActiveLessonPanel();
+    categorySections.innerHTML = await renderActiveLessonPanelHtml();
     return;
   }
   if (state.currentView === "portal") {
@@ -493,6 +522,7 @@ function renderCategorySections() {
   }
   const sections = getEraCurriculumSections(eraKey);
   const visibleSections = getVisibleCurriculumSections(eraKey, sections);
+  const activeLessonPanel = state.currentSubpathId ? "" : renderLessonPreviewPanel();
   categorySections.innerHTML = `
     ${state.currentView === "era" ? `
     <section class="era-world-screen mobile-scroll-screen" data-era-world="${escapeHtml(eraKey)}">
@@ -519,7 +549,7 @@ function renderCategorySections() {
     `}
     ${state.currentView === "era" ? "" : `
     ${renderSubpathTimelineHeader(eraKey, visibleSections)}
-    ${state.currentSubpathId ? "" : renderActiveLessonPanel()}
+    ${activeLessonPanel}
     ${visibleSections
       .map((section) => {
         return `
@@ -902,7 +932,7 @@ function openLessonById(lessonId) {
   selectTimelineLesson(lesson.eraKey, lesson.index);
 }
 
-function runLessonAction(action, nextLessonId = "") {
+async function runLessonAction(action, nextLessonId = "") {
   const lesson = getLessonById(state.currentLessonId) || getEraLessons(state.currentEra)[0];
   if (!lesson) return;
 
@@ -920,11 +950,13 @@ function runLessonAction(action, nextLessonId = "") {
   }
 
   if (action === "story-next") {
+    const { goToNextStoryBlock } = await getLessonExperience();
     goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
     return;
   }
 
   if (action === "story-prev") {
+    const { goToPreviousStoryBlock } = await getLessonExperience();
     goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections });
     return;
   }
@@ -966,6 +998,7 @@ function runLessonAction(action, nextLessonId = "") {
 
   if (action === "next") {
     if (state.currentLessonMode === "story" || state.currentLessonMode === "understand") {
+      const { goToNextStoryBlock } = await getLessonExperience();
       goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
       return;
     }
@@ -1389,7 +1422,7 @@ async function navigateTo(view, params = {}, options = {}) {
 
   if (params.mode) state.currentLessonMode = params.mode;
   state.currentExperience = nextRoute.experience;
-  if (shouldRenderCategoryView) renderCategorySections();
+  if (shouldRenderCategoryView) await renderCategorySections();
   renderApp();
   markRouteMotion(previousView, nextView);
 
