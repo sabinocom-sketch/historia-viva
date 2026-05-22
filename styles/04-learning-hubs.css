@@ -1,0 +1,1176 @@
+body[data-view="learn"] .categories-panel .panel-header {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 0;
+}
+
+body[data-view="learn"] .categories-panel .panel-header .eyebrow {
+  color: #f1c779;
+}
+
+body[data-view="learn"] .categories-panel .panel-header h2 {
+  color: #fff8ea;
+  font-size: clamp(2.25rem, 4.6vw, 4.7rem);
+  line-height: 0.95;
+}
+
+body[data-view="learn"] .categories-panel .panel-header p:not(.eyebrow) {
+  max-width: 54ch;
+  margin: 10px auto 0;
+  color: rgba(255, 248, 234, 0.74);
+  font-size: clamp(0.98rem, 1.6vw, 1.14rem);
+}
+
+body[data-view="learn"] .era-switcher {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(310px, 390px);
+  grid-template-columns: none;
+  align-items: stretch;
+  align-content: start;
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  padding: 2px 4px 16px;
+  margin: 0 auto;
+  scroll-padding-left: 4px;
+  scroll-snap-type: x mandatory;
+}
+
+body[data-view="learn"] .era-switcher::-webkit-scrollbar,
+.era-world-screen .subpath-grid::-webkit-scrollbar {
+  height: 10px;
+}
+
+body[data-view="learn"] .era-switcher::-webkit-scrollbar-track,
+.era-world-screen .subpath-grid::-webkit-scrollbar-track {
+  background: rgba(255, 248, 234, 0.08);
+  border-radius: 999px;
+}
+
+body[data-view="learn"] .era-switcher::-webkit-scrollbar-thumb,
+.era-world-screen .subpath-grid::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(241, 199, 121, 0.46);
+}
+
+body[data-view="learn"] .era-switcher,
+.era-world-screen .subpath-grid {
+  scrollbar-color: rgba(241, 199, 121, 0.46) rgba(255, 248, 234, 0.08);
+  scrollbar-width: thin;
+}
+
+body[data-view="learn"] .era-switcher.is-wheel-scrolling,
+.era-world-screen .subpath-grid.is-wheel-scrolling {
+  scroll-snap-type: none;
+}
+
+body[data-view="learn"] .era-switcher.is-wheel-scrolling .path-card,
+.era-world-screen .subpath-grid.is-wheel-scrolling .subpath-card {
+  pointer-events: none;
+}
+
+body[data-view="learn"] .era-switcher.is-wheel-scrolling .path-card:hover,
+body[data-view="learn"] .era-switcher.is-wheel-scrolling .path-card:focus-visible,
+.era-world-screen .subpath-grid.is-wheel-scrolling .subpath-card:hover,
+.era-world-screen .subpath-grid.is-wheel-scrolling .subpath-card:focus-visible {
+  transform: none;
+}
+
+body[data-view="learn"] .era-switcher.is-wheel-scrolling .path-card:hover .path-card-visual,
+body[data-view="learn"] .era-switcher.is-wheel-scrolling .path-card:focus-visible .path-card-visual,
+.era-world-screen .subpath-grid.is-wheel-scrolling .subpath-card:hover .subpath-visual,
+.era-world-screen .subpath-grid.is-wheel-scrolling .subpath-card:focus-visible .subpath-visual {
+  transform: scale(1);
+  filter: none;
+}
+
+.categories-panel .era-switcher {
+  margin-bottom: 18px;
+}
+
+.categories-panel .era-button {
+  min-height: 72px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.categories-panel .path-card {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  overflow: hidden;
+  min-height: 236px;
+  align-content: start;
+  padding: 12px;
+  text-align: left;
+  user-select: none;
+}
+
+.path-card-visual {
+  display: block;
+  min-height: 88px;
+  border-radius: 8px;
+  background:
+    linear-gradient(145deg, rgba(24, 32, 37, 0.1), rgba(255, 255, 255, 0.18)),
+    var(--paper);
+}
+
+body[data-view="learn"] .categories-panel .path-card {
+  height: auto;
+  min-height: 100%;
+  align-content: end;
+  scroll-snap-align: start;
+  padding: clamp(18px, 2.6vw, 28px);
+  border: 1px solid rgba(255, 248, 234, 0.16);
+  border-radius: 10px;
+  color: #fff8ea;
+  background: rgba(255, 248, 234, 0.05);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+  transform: translateY(0);
+  transition:
+    transform var(--motion-standard) var(--ease-soft),
+    border-color var(--motion-standard) var(--ease-soft),
+    box-shadow var(--motion-standard) var(--ease-soft);
+}
+
+body[data-view="learn"] .categories-panel .path-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.42), transparent 58%);
+  pointer-events: none;
+}
+
+body[data-view="learn"] .categories-panel .path-card:hover,
+body[data-view="learn"] .categories-panel .path-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: rgba(241, 199, 121, 0.7);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.34), 0 0 0 1px rgba(241, 199, 121, 0.18);
+}
+
+body[data-view="learn"] .categories-panel .path-card .path-card-visual {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  min-height: 0;
+  border-radius: inherit;
+  transform: scale(1);
+  transition:
+    transform var(--motion-cinematic) var(--ease-cinematic),
+    filter var(--motion-standard) var(--ease-soft);
+}
+
+body[data-view="learn"] .categories-panel .path-card:hover .path-card-visual,
+body[data-view="learn"] .categories-panel .path-card:focus-visible .path-card-visual {
+  transform: scale(1.045);
+  filter: saturate(1.08) contrast(1.05);
+}
+
+body[data-view="learn"] .categories-panel .path-card strong,
+body[data-view="learn"] .categories-panel .path-card small,
+body[data-view="learn"] .categories-panel .path-card .path-meta {
+  position: relative;
+  z-index: 1;
+}
+
+.path-card strong {
+  font-size: 1.08rem;
+  line-height: 1.15;
+}
+
+body[data-view="learn"] .categories-panel .path-card strong {
+  max-width: 11ch;
+  color: #fff8ea;
+  font-size: clamp(1.65rem, 3vw, 2.65rem);
+  line-height: 0.95;
+  text-shadow: 0 12px 28px rgba(0, 0, 0, 0.58);
+}
+
+.path-card small {
+  color: var(--muted);
+  line-height: 1.38;
+}
+
+body[data-view="learn"] .categories-panel .path-card small {
+  max-width: 34ch;
+  color: rgba(255, 248, 234, 0.76);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  text-shadow: 0 8px 20px rgba(0, 0, 0, 0.55);
+}
+
+.path-card .path-meta {
+  align-self: end;
+  display: inline-flex;
+  width: fit-content;
+  border-radius: 999px;
+  padding: 5px 8px;
+  background: rgba(24, 32, 37, 0.08);
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 850;
+}
+
+body[data-view="learn"] .categories-panel .path-card .path-meta {
+  display: none;
+}
+
+.path-card.active {
+  background: #fffaf0;
+  color: var(--ink);
+  box-shadow: 0 18px 44px rgba(21, 111, 116, 0.18);
+}
+
+body[data-view="learn"] .categories-panel .path-card.active {
+  border-color: rgba(241, 199, 121, 0.86);
+  background: rgba(255, 248, 234, 0.06);
+  color: #fff8ea;
+  box-shadow: 0 32px 84px rgba(0, 0, 0, 0.36), 0 0 0 1px rgba(241, 199, 121, 0.28);
+}
+
+.path-card.active .path-meta {
+  background: var(--teal);
+  color: white;
+}
+
+body[data-view="learn"] .categories-panel .path-card.active .path-meta {
+  background: rgba(241, 199, 121, 0.2);
+  color: #fff8ea;
+}
+
+.path-card[data-era="prehistoria"] .path-card-visual {
+  background:
+    radial-gradient(circle at 28% 52%, rgba(183, 121, 40, 0.96) 0 12%, transparent 13%),
+    linear-gradient(135deg, #2d2924, #7c5a35 48%, #d5b177);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .path-card-visual {
+  background: var(--asset-pre-historia) center / cover no-repeat;
+}
+
+.path-card[data-era="antiga"] .path-card-visual {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 36%, rgba(255, 250, 240, 0.78) 36% 46%, transparent 46% 54%, rgba(255, 250, 240, 0.78) 54% 64%, transparent 64%),
+    linear-gradient(135deg, #5f6f74, #c4b08a);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-card-visual {
+  background: var(--asset-idade-antiga) center / cover no-repeat;
+}
+
+.path-card[data-era="medieval"] .path-card-visual {
+  background:
+    linear-gradient(90deg, transparent 0 16%, rgba(24, 32, 37, 0.75) 16% 28%, transparent 28% 46%, rgba(24, 32, 37, 0.75) 46% 58%, transparent 58%),
+    linear-gradient(135deg, #3f4950, #9b8d70);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="medieval"] .path-card-visual {
+  background: var(--asset-idade-media) center / cover no-repeat;
+}
+
+.path-card[data-era="moderna"] .path-card-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.9) 42% 48%, transparent 48%),
+    radial-gradient(circle at 74% 36%, rgba(255, 250, 240, 0.9) 0 13%, transparent 14%),
+    linear-gradient(135deg, #2f6a74, #d8b36d);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="moderna"] .path-card-visual {
+  background: var(--asset-idade-moderna) center / cover no-repeat;
+}
+
+.path-card[data-era="contemporanea"] .path-card-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.7) 0 9%, transparent 9% 16%, rgba(24, 32, 37, 0.62) 16% 24%, transparent 24%),
+    linear-gradient(135deg, #7f8d91, #d6e0de 54%, #9f3f36);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="contemporanea"] .path-card-visual {
+  background: var(--asset-idade-contemporanea) center / cover no-repeat;
+}
+
+.path-card[data-era="portugal"] .path-card-visual {
+  background:
+    linear-gradient(90deg, rgba(21, 111, 116, 0.95) 0 38%, rgba(183, 121, 40, 0.96) 38% 58%, rgba(159, 63, 54, 0.94) 58%),
+    linear-gradient(135deg, #155f58, #d7b36d);
+}
+
+body[data-view="learn"] .categories-panel .path-card[data-era="portugal"] .path-card-visual {
+  background: var(--asset-historia-portugal) center / cover no-repeat;
+}
+
+.path-card.grand-journey .path-card-visual {
+  background:
+    linear-gradient(90deg, #7c5a35 0 16%, #c4b08a 16% 32%, #3f4950 32% 48%, #2f6a74 48% 64%, #9f3f36 64% 80%, #156f74 80%),
+    var(--paper);
+}
+
+body[data-view="learn"] .categories-panel .path-card.grand-journey .path-card-visual {
+  background: var(--asset-grande-jornada-historica) center / cover no-repeat;
+}
+
+.category-preview {
+  margin-bottom: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--amber);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 250, 240, 0.48)),
+    rgba(255, 255, 255, 0.54);
+}
+
+.lesson-map-panel {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.74), rgba(232, 243, 241, 0.38)),
+    rgba(255, 255, 255, 0.58);
+}
+
+.category-preview h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.category-preview p:last-child {
+  margin: 12px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.category-map-header,
+.selected-era-overview,
+.category-section-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.category-map-header {
+  margin: 18px 0;
+  padding: 16px 0 4px;
+  border-top: 1px solid var(--line);
+}
+
+.category-map-header h2,
+.category-section-header h3 {
+  margin: 0;
+}
+
+.category-sections {
+  display: grid;
+  gap: 18px;
+}
+
+.selected-era-overview {
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--amber);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(255, 250, 240, 0.48)),
+    rgba(255, 255, 255, 0.62);
+}
+
+.selected-era-overview h3 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.selected-era-overview p:last-child {
+  max-width: 72ch;
+  margin: 10px 0 0;
+  color: var(--muted);
+  line-height: 1.55;
+}
+
+.era-hub {
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.76), rgba(232, 243, 241, 0.4)),
+    rgba(255, 255, 255, 0.58);
+}
+
+.era-hub[data-era-hub="prehistoria"] {
+  background:
+    linear-gradient(135deg, rgba(49, 43, 34, 0.08), rgba(183, 121, 40, 0.12)),
+    rgba(255, 250, 240, 0.62);
+}
+
+body[data-view="era"] .era-world-screen .era-hub {
+  display: grid;
+  gap: clamp(10px, 2vh, 18px);
+  width: min(1240px, calc(100% - 40px));
+  padding: 0 0 clamp(18px, 3vh, 34px);
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
+  background: transparent;
+}
+
+.era-hub-header {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.era-hub-header h3 {
+  margin: 0;
+}
+
+.era-hub-header button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0 12px;
+  background: var(--ink);
+  color: white;
+  font-weight: 820;
+}
+
+.subpath-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.subpath-card {
+  display: grid;
+  gap: 9px;
+  min-height: 202px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.64);
+  color: var(--ink);
+  text-align: left;
+}
+
+.subpath-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 30px rgba(24, 32, 37, 0.1);
+}
+
+.subpath-card.active {
+  border-color: rgba(183, 121, 40, 0.58);
+  background: rgba(255, 250, 240, 0.86);
+  box-shadow: 0 18px 42px rgba(183, 121, 40, 0.14);
+}
+
+.subpath-visual {
+  display: block;
+  min-height: 74px;
+  border-radius: 8px;
+  background:
+    linear-gradient(135deg, rgba(21, 111, 116, 0.88), rgba(183, 121, 40, 0.72)),
+    var(--paper);
+}
+
+.era-hub[data-era-hub="prehistoria"] .subpath-card:nth-child(1) .subpath-visual {
+  background: var(--asset-paleolitico) var(--asset-paleolitico-position) / cover no-repeat;
+}
+
+.era-hub[data-era-hub="prehistoria"] .subpath-card:nth-child(2) .subpath-visual {
+  background: var(--asset-mesolitico) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="prehistoria"] .subpath-card:nth-child(3) .subpath-visual {
+  background: var(--asset-neolitico) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="prehistoria"] .subpath-card:nth-child(4) .subpath-visual {
+  background: var(--asset-grande-jornada-pre-historica) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="toda-antiguidade"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="toda-antiguidade"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.26)),
+    var(--asset-idade-antiga) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="toda-idade-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="toda-idade-medieval"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
+    var(--asset-idade-media) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="toda-idade-moderna"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="toda-idade-moderna"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.24)),
+    var(--asset-idade-moderna) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="toda-idade-contemporanea"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="toda-idade-contemporanea"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.8), rgba(24, 32, 37, 0.22)),
+    var(--asset-idade-contemporanea) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="toda-historia-portugal"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="toda-historia-portugal"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.24)),
+    var(--asset-historia-portugal) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(1) .subpath-visual {
+  background:
+    radial-gradient(circle at 76% 32%, rgba(255, 250, 240, 0.86) 0 11%, transparent 12%),
+    linear-gradient(135deg, #b8904a 0 42%, #2f5b66 42% 60%, #d7bd7e 60%);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(2) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(255, 250, 240, 0.78) 0 10%, transparent 10% 18%, rgba(255, 250, 240, 0.72) 18% 28%, transparent 28%),
+    linear-gradient(135deg, #6f5a3e, #b68b4a 56%, #415d5f);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(3) .subpath-visual {
+  background:
+    linear-gradient(145deg, transparent 0 38%, rgba(255, 250, 240, 0.86) 38% 44%, transparent 44%),
+    linear-gradient(135deg, #5a3f73, #a87442 54%, #d6b273);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(4) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(18, 24, 27, 0.82) 0 16%, transparent 16% 34%, rgba(18, 24, 27, 0.7) 34% 48%, transparent 48%),
+    linear-gradient(135deg, #263339, #8a6a3c 55%, #b88b4c);
+}
+
+.subpath-card[data-subpath="antigo-egipto"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="antigo-egipto"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antigo-egipto) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="sumeria"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="sumeria"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-sumeria) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="babilonia"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="babilonia"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-babilonia) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="assiria"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="assiria"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-assiria) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="persia"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="persia"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-persia) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="china-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="china-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-china) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="india-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="india-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-india) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="roma-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="roma-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-roma) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="grecia-antiga"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="grecia-antiga"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-antiga-grecia) center / cover no-repeat;
+}
+
+.subpath-card[data-subpath="maias"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="maias"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.24)),
+    var(--asset-subpercurso-maias) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="antigo-egipto"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antigo-egipto) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="sumeria"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-sumeria) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="babilonia"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-babilonia) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="assiria"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-assiria) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(5) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 28%, rgba(255, 250, 240, 0.82) 28% 34%, transparent 34% 62%, rgba(255, 250, 240, 0.72) 62% 68%, transparent 68%),
+    linear-gradient(135deg, #2f5f68, #be9a56 58%, #6f4740);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="persia"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-persia) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(6) .subpath-visual {
+  background:
+    radial-gradient(circle at 72% 32%, rgba(177, 43, 32, 0.88) 0 9%, transparent 10%),
+    linear-gradient(135deg, #2d4137, #b78d41 50%, #d7c28a);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(7) .subpath-visual {
+  background:
+    radial-gradient(circle at 28% 34%, rgba(255, 250, 240, 0.78) 0 12%, transparent 13%),
+    linear-gradient(135deg, #5b3f7a, #c0774a 54%, #c5a45e);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(8) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 36%, rgba(255, 250, 240, 0.78) 36% 46%, transparent 46%),
+    linear-gradient(135deg, #6c2730, #9b7442 54%, #c2b07b);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(9) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 36%, rgba(255, 250, 240, 0.78) 36% 46%, transparent 46% 54%, rgba(255, 250, 240, 0.78) 54% 64%, transparent 64%),
+    linear-gradient(135deg, #5f6f74, #c4b08a);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card:nth-child(10) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(23, 72, 55, 0.9) 0 28%, rgba(183, 121, 40, 0.95) 28% 48%, rgba(93, 60, 42, 0.95) 48% 70%, rgba(34, 42, 36, 0.9) 70%),
+    linear-gradient(135deg, #174837, #b77928);
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="china-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-china) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="india-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-india) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="roma-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-roma) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="grecia-antiga"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-antiga-grecia) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="antiga"] .subpath-card[data-subpath="maias"] .subpath-visual {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--asset-subpercurso-maias) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(1) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.82) 0 16%, transparent 16% 34%, rgba(24, 32, 37, 0.72) 34% 52%, transparent 52%),
+    linear-gradient(135deg, #2c3130, #73533a 54%, #a98a5a);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(2) .subpath-visual {
+  background:
+    radial-gradient(circle at 72% 34%, rgba(255, 250, 240, 0.82) 0 10%, transparent 11%),
+    linear-gradient(135deg, #283f62, #8f7b4f 54%, #c8b171);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(3) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.82) 42% 48%, transparent 48%),
+    linear-gradient(135deg, #34404a, #7f3434 50%, #b9a06a);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(4) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(255, 250, 240, 0.78) 0 10%, transparent 10% 20%, rgba(255, 250, 240, 0.7) 20% 30%, transparent 30%),
+    linear-gradient(135deg, #4f6a5c, #b18f55 55%, #d2bf84);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(5) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.74) 18% 26%, transparent 26% 42%, rgba(255, 250, 240, 0.68) 42% 50%, transparent 50%),
+    linear-gradient(135deg, #30383e, #8e743f 56%, #bfa26b);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(6) .subpath-visual {
+  background:
+    radial-gradient(circle at 28% 38%, rgba(232, 243, 241, 0.82) 0 11%, transparent 12%),
+    linear-gradient(135deg, #405c6c, #6b5943 52%, #b99b64);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(7) .subpath-visual {
+  background:
+    linear-gradient(28deg, transparent 0 40%, rgba(232, 243, 241, 0.78) 40% 46%, transparent 46%),
+    radial-gradient(circle at 74% 34%, rgba(232, 243, 241, 0.72) 0 10%, transparent 11%),
+    linear-gradient(135deg, #263e4a, #6e5a3b 52%, #b28c54);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(8) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.72) 0 8%, transparent 8% 16%, rgba(24, 32, 37, 0.62) 16% 24%, transparent 24%),
+    linear-gradient(135deg, #30453c, #b48b42 52%, #d7c08a);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(9) .subpath-visual {
+  background:
+    radial-gradient(circle at 70% 34%, rgba(172, 38, 32, 0.9) 0 10%, transparent 11%),
+    linear-gradient(135deg, #2f3335, #75613a 54%, #c5a76c);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(10) .subpath-visual {
+  background:
+    radial-gradient(circle at 34% 42%, rgba(241, 199, 121, 0.8) 0 12%, transparent 13%),
+    linear-gradient(135deg, #273d5d, #7f5d8f 50%, #c1a66a);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(11) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 26%, rgba(255, 250, 240, 0.82) 26% 32%, transparent 32% 58%, rgba(255, 250, 240, 0.72) 58% 64%, transparent 64%),
+    linear-gradient(135deg, #164f55, #b98b43 56%, #6f5140);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(12) .subpath-visual {
+  background:
+    linear-gradient(45deg, transparent 0 38%, rgba(255, 250, 240, 0.78) 38% 44%, transparent 44%),
+    linear-gradient(135deg, #166054, #8f7c3f 52%, #c2a260);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card:nth-child(13) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 73, 55, 0.94) 0 32%, rgba(183, 121, 40, 0.94) 32% 52%, rgba(89, 50, 38, 0.94) 52% 72%, rgba(31, 39, 34, 0.94) 72%),
+    linear-gradient(135deg, #174837, #b77928);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="invasoes-barbaras"] .subpath-visual,
+.subpath-card[data-subpath="invasoes-barbaras"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="invasoes-barbaras"] {
+  --subpath-card-image: var(--asset-subpercurso-invasoes-barbaras);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="franca-medieval"] .subpath-visual,
+.subpath-card[data-subpath="franca-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="franca-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-franca-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="inglaterra-medieval"] .subpath-visual,
+.subpath-card[data-subpath="inglaterra-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="inglaterra-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-inglaterra-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="italia-medieval"] .subpath-visual,
+.subpath-card[data-subpath="italia-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="italia-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-italia-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="sacro-imperio"] .subpath-visual,
+.subpath-card[data-subpath="sacro-imperio"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="sacro-imperio"] {
+  --subpath-card-image: var(--asset-subpercurso-sacro-imperio);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="russia-medieval"] .subpath-visual,
+.subpath-card[data-subpath="russia-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="russia-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-russia-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="vikings"] .subpath-visual,
+.subpath-card[data-subpath="vikings"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="vikings"] {
+  --subpath-card-image: var(--asset-subpercurso-vikings);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="china-medieval"] .subpath-visual,
+.subpath-card[data-subpath="china-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="china-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-china-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="india-medieval"] .subpath-visual,
+.subpath-card[data-subpath="india-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="india-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-india-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="japao-medieval"] .subpath-visual,
+.subpath-card[data-subpath="japao-medieval"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="japao-medieval"] {
+  --subpath-card-image: var(--asset-subpercurso-japao-medieval);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="imperio-bizantino"] .subpath-visual,
+.subpath-card[data-subpath="imperio-bizantino"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="imperio-bizantino"] {
+  --subpath-card-image: var(--asset-subpercurso-imperio-bizantino);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="imperio-arabe"] .subpath-visual,
+.subpath-card[data-subpath="imperio-arabe"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="imperio-arabe"] {
+  --subpath-card-image: var(--asset-subpercurso-imperio-arabe);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="aztecas"] .subpath-visual,
+.subpath-card[data-subpath="aztecas"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="aztecas"] {
+  --subpath-card-image: var(--asset-subpercurso-aztecas);
+}
+
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="invasoes-barbaras"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="franca-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="inglaterra-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="italia-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="sacro-imperio"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="russia-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="vikings"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="china-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="india-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="japao-medieval"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="imperio-bizantino"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="imperio-arabe"] .subpath-visual,
+.era-hub[data-era-hub="medieval"] .subpath-card[data-subpath="aztecas"] .subpath-visual,
+.subpath-timeline-hero[data-subpath-hero="invasoes-barbaras"],
+.subpath-timeline-hero[data-subpath-hero="franca-medieval"],
+.subpath-timeline-hero[data-subpath-hero="inglaterra-medieval"],
+.subpath-timeline-hero[data-subpath-hero="italia-medieval"],
+.subpath-timeline-hero[data-subpath-hero="sacro-imperio"],
+.subpath-timeline-hero[data-subpath-hero="russia-medieval"],
+.subpath-timeline-hero[data-subpath-hero="vikings"],
+.subpath-timeline-hero[data-subpath-hero="china-medieval"],
+.subpath-timeline-hero[data-subpath-hero="india-medieval"],
+.subpath-timeline-hero[data-subpath-hero="japao-medieval"],
+.subpath-timeline-hero[data-subpath-hero="imperio-bizantino"],
+.subpath-timeline-hero[data-subpath-hero="imperio-arabe"],
+.subpath-timeline-hero[data-subpath-hero="aztecas"] {
+  background:
+    linear-gradient(180deg, rgba(8, 11, 10, 0.02) 0%, rgba(8, 11, 10, 0.18) 34%, rgba(8, 11, 10, 0.88) 100%),
+    var(--subpath-card-image) center / cover no-repeat;
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(1) .subpath-visual {
+  background:
+    radial-gradient(circle at 74% 36%, rgba(255, 250, 240, 0.82) 0 11%, transparent 12%),
+    linear-gradient(135deg, #294b64, #b89a58 54%, #7e3e3c);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(2) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(159, 63, 54, 0.94) 0 34%, rgba(183, 121, 40, 0.94) 34% 58%, rgba(255, 250, 240, 0.72) 58% 66%, transparent 66%),
+    linear-gradient(135deg, #7e3e3c, #c29b58);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(3) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.86) 42% 48%, transparent 48%),
+    linear-gradient(135deg, #263c53, #7b3c45 52%, #c3a160);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(4) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(183, 121, 40, 0.95) 0 18%, transparent 18% 32%, rgba(255, 250, 240, 0.72) 32% 40%, transparent 40%),
+    linear-gradient(135deg, #1f6264, #b77928 54%, #d6c08a);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(5) .subpath-visual {
+  background:
+    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 38%, rgba(255, 250, 240, 0.7) 38% 48%, transparent 48%),
+    linear-gradient(135deg, #49635e, #b58b4b 52%, #c9b778);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(6) .subpath-visual {
+  background:
+    radial-gradient(circle at 30% 36%, rgba(232, 243, 241, 0.78) 0 11%, transparent 12%),
+    linear-gradient(135deg, #394a56, #6c5947 52%, #b99762);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(7) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.74) 0 12%, transparent 12% 24%, rgba(24, 32, 37, 0.66) 24% 36%, transparent 36%),
+    linear-gradient(135deg, #3b4a44, #9b7b46 54%, #c8ad6b);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(8) .subpath-visual {
+  background:
+    radial-gradient(circle at 72% 36%, rgba(241, 199, 121, 0.82) 0 11%, transparent 12%),
+    linear-gradient(135deg, #164f55, #8a5a3f 54%, #be9655);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(9) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(177, 43, 32, 0.82) 0 12%, transparent 12% 28%, rgba(255, 250, 240, 0.72) 28% 36%, transparent 36%),
+    linear-gradient(135deg, #30453c, #b48b42 52%, #d7c08a);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(10) .subpath-visual {
+  background:
+    radial-gradient(circle at 70% 34%, rgba(172, 38, 32, 0.88) 0 10%, transparent 11%),
+    linear-gradient(135deg, #2f3335, #7d623b 54%, #c5a76c);
+}
+
+.era-hub[data-era-hub="moderna"] .subpath-card:nth-child(11) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 40%, rgba(255, 250, 240, 0.78) 40% 46%, transparent 46%),
+    linear-gradient(135deg, #5b3f7a, #bf7548 54%, #c5a45e);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(1) .subpath-visual {
+  background: linear-gradient(135deg, #8f3d36, #c0a15c 52%, #243844);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(2) .subpath-visual {
+  background: linear-gradient(135deg, #27486b, #b2473f 52%, #d6c28a);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(3) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.82) 42% 48%, transparent 48%),
+    linear-gradient(135deg, #263c53, #777f6a 52%, #c6a160);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(4) .subpath-visual {
+  background:
+    linear-gradient(90deg, #2f7b58 0 28%, rgba(255, 250, 240, 0.82) 28% 38%, #a9443c 38% 68%, #c9ad6b 68%),
+    linear-gradient(135deg, #2f7b58, #a9443c);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(5) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.8) 0 16%, transparent 16% 32%, rgba(24, 32, 37, 0.74) 32% 48%, transparent 48%),
+    linear-gradient(135deg, #2b3338, #8a3d34 54%, #b89655);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(6) .subpath-visual {
+  background:
+    radial-gradient(circle at 30% 36%, rgba(232, 243, 241, 0.78) 0 10%, transparent 11%),
+    linear-gradient(135deg, #3e4c56, #7d493f 52%, #b79b65);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(7) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(255, 250, 240, 0.78) 0 10%, transparent 10% 20%, rgba(255, 250, 240, 0.7) 20% 30%, transparent 30%),
+    linear-gradient(135deg, #45504d, #9b7746 54%, #c2aa6f);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(8) .subpath-visual {
+  background:
+    radial-gradient(circle at 72% 36%, rgba(241, 199, 121, 0.82) 0 11%, transparent 12%),
+    linear-gradient(135deg, #164f55, #8a5a3f 54%, #be9655);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(9) .subpath-visual {
+  background:
+    radial-gradient(circle at 28% 34%, rgba(255, 250, 240, 0.76) 0 11%, transparent 12%),
+    linear-gradient(135deg, #5b3f7a, #c0774a 54%, #c5a45e);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(10) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(177, 43, 32, 0.82) 0 12%, transparent 12% 28%, rgba(255, 250, 240, 0.72) 28% 36%, transparent 36%),
+    linear-gradient(135deg, #30453c, #b48b42 52%, #d7c08a);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(11) .subpath-visual {
+  background:
+    radial-gradient(circle at 70% 34%, rgba(172, 38, 32, 0.88) 0 10%, transparent 11%),
+    linear-gradient(135deg, #2f3335, #7d623b 54%, #c5a76c);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(12) .subpath-visual {
+  background:
+    linear-gradient(90deg, #1d4f3c 0 30%, #b77928 30% 52%, #6f3e32 52% 74%, #202824 74%),
+    linear-gradient(135deg, #1d4f3c, #b77928);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(13) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.8) 42% 48%, transparent 48%),
+    linear-gradient(135deg, #1f5670, #b13f3b 52%, #d2bc7a);
+}
+
+.era-hub[data-era-hub="contemporanea"] .subpath-card:nth-child(14) .subpath-visual {
+  background:
+    linear-gradient(90deg, #19705f 0 28%, #c19a45 28% 46%, #a7433a 46% 68%, #273038 68%),
+    linear-gradient(135deg, #19705f, #a7433a);
+}
+
+.era-hub[data-era-hub="portugal"] .subpath-card:nth-child(1) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(45, 41, 36, 0.9) 0 26%, rgba(102, 116, 61, 0.88) 26% 48%, rgba(183, 121, 40, 0.88) 48% 70%, rgba(24, 32, 37, 0.86) 70%),
+    linear-gradient(135deg, #2d2924, #66743d);
+}
+
+.era-hub[data-era-hub="portugal"] .subpath-card:nth-child(2) .subpath-visual {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.76) 0 14%, transparent 14% 30%, rgba(24, 32, 37, 0.68) 30% 44%, transparent 44%),
+    linear-gradient(135deg, #31505a, #8f753f 54%, #c0a36d);
+}
+
+.era-hub[data-era-hub="portugal"] .subpath-card:nth-child(3) .subpath-visual {
+  background:
+    linear-gradient(35deg, transparent 0 42%, rgba(255, 250, 240, 0.84) 42% 48%, transparent 48%),
+    linear-gradient(135deg, #156f74, #b77928 52%, #a7433a);
+}
+
+.era-hub[data-era-hub="portugal"] .subpath-card:nth-child(4) .subpath-visual {
+  background:
+    linear-gradient(90deg, #156f74 0 30%, #b77928 30% 48%, #a7433a 48% 72%, #273038 72%),
+    linear-gradient(135deg, #156f74, #a7433a);
+}
+
+.subpath-card strong {
+  line-height: 1.16;
+}
+
+.subpath-card small {
+  color: var(--muted);
+  line-height: 1.36;
+}
+
+.subpath-card > span:last-child {
+  color: var(--teal);
+  font-size: 0.76rem;
+  font-weight: 850;
+}
+
+.subpath-timeline-hero {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+  min-height: 220px;
+  padding: 22px;
+  border-radius: 8px;
+  color: #fff8ea;
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.88), rgba(24, 32, 37, 0.36)),
+    linear-gradient(135deg, #2d2924, #7c5a35 48%, #d6b273);
+  box-shadow: 0 20px 50px rgba(22, 28, 32, 0.14);
+}
+
+.subpath-timeline-hero[data-subpath-hero="paleolitico"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
+    var(--asset-paleolitico) var(--asset-paleolitico-position) / cover no-repeat;
+}
+
+.subpath-timeline-hero[data-subpath-hero="mesolitico"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
+    var(--asset-mesolitico) center / cover no-repeat;
+}
+
+.subpath-timeline-hero[data-subpath-hero="revolucao-neolitica"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.3)),
+    var(--asset-neolitico) center / cover no-repeat;
+}
+
+.subpath-timeline-hero[data-subpath-hero="toda-prehistoria"] {
+  background:
+    linear-gradient(90deg, rgba(24, 32, 37, 0.86), rgba(24, 32, 37, 0.32)),
+    var(--asset-grande-jornada-pre-historica) center / cover no-repeat;
+}
+
+.subpath-timeline-hero h3 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 3rem);
+}
+
+.subpath-timeline-hero p {
+  max-width: 58ch;
+  margin: 12px 0 0;
+  color: rgba(255, 248, 234, 0.82);
+  line-height: 1.55;
+}
+
+.subpath-timeline-hero .eyebrow {
+  color: #f1c779;
+}
+
+.subpath-hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: end;
+  gap: 8px;
+  min-width: 220px;
+}
+
+.subpath-hero-meta span {
+  border: 1px solid rgba(255, 248, 234, 0.28);
+  border-radius: 999px;
+  padding: 6px 10px;
+  background: rgba(255, 248, 234, 0.12);
+  font-size: 0.78rem;
+  font-weight: 850;
+}
+

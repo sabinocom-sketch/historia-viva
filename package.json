@@ -4,6 +4,7 @@
   "description": "",
   "main": "build-bundle.js",
   "scripts": {
+    "build:css": "node build-css.js",
     "start": "node server.js",
     "screenshot": "node scripts/screenshot.cjs"
   },

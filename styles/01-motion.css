@@ -1,0 +1,408 @@
+/* Motion language: cinematic, guided, historical */
+.is-route-entering {
+  animation-duration: var(--motion-route-enter);
+  animation-timing-function: var(--ease-cinematic);
+}
+
+.categories-panel.is-route-entering[data-motion-route="home-to-learn"],
+.era-portal-screen.is-route-entering[data-motion-route="learn-to-portal"] {
+  animation-duration: var(--motion-route-enter);
+  animation-name: archive-open-in;
+  animation-timing-function: var(--ease-cinematic);
+  animation-fill-mode: both;
+}
+
+.era-world-screen.is-route-entering,
+.timeline-view-screen.is-route-entering,
+.lesson-hero.is-route-entering {
+  animation: none;
+}
+
+.source-panel.is-route-entering[data-route-view="source"],
+.quiz-panel.is-route-entering[data-route-view="quiz"],
+.debates-panel.is-route-entering[data-route-view="debate"],
+.mission-panel.is-route-entering[data-route-view="mission"] {
+  animation-duration: var(--motion-route-enter);
+  animation-name: investigation-mode-in;
+  animation-timing-function: var(--ease-cinematic);
+  animation-fill-mode: both;
+}
+
+@keyframes archive-open-in {
+  from {
+    opacity: 0;
+    transform: scale(1.018);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes world-camera-in {
+  from {
+    opacity: 0.45;
+    transform: scale(1.13) translate3d(2.4%, 1.4%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes timeline-world-in {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(1.018);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes lesson-camera-in {
+  from {
+    transform: scale(1.085) translate3d(1.4%, 0.8%, 0);
+  }
+  to {
+    transform: scale(1) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes investigation-mode-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.992);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.source-panel.is-route-entering blockquote,
+.source-panel.is-route-entering .source-actions,
+.source-panel.is-route-entering .source-answer,
+.quiz-panel.is-route-entering .quiz-question,
+.quiz-panel.is-route-entering .quiz-options,
+.quiz-panel.is-route-entering .quiz-feedback,
+.debates-panel.is-route-entering .debate-stage > *,
+.mission-panel.is-route-entering .mission-stage > *,
+.progress-panel.is-route-entering .progress-dashboard,
+.progress-panel.is-route-entering .era-mastery,
+.progress-panel.is-route-entering .badge-grid {
+  animation: reveal-up var(--motion-route-enter) var(--ease-cinematic) both;
+}
+
+.debates-panel.is-route-entering .debate-stage > *:nth-child(2),
+.mission-panel.is-route-entering .mission-stage > *:nth-child(2) {
+  animation-delay: var(--motion-route-delay-sm);
+}
+
+.debates-panel.is-route-entering .debate-stage > *:nth-child(n+3),
+.mission-panel.is-route-entering .mission-stage > *:nth-child(n+3) {
+  animation-delay: var(--motion-route-delay-md);
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(var(--motion-rise-md));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.overview-view.active::before,
+.era-portal-screen .era-portal-content::before,
+.subpath-portal-screen .subpath-portal-content::before,
+.timeline-view-screen::after,
+body[data-view="lesson"] .lesson-hero::before {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.overview-view.active::before {
+  inset: -20%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 72%, rgba(241, 199, 121, 0.14), transparent 16%),
+    radial-gradient(circle at 74% 34%, rgba(255, 248, 234, 0.12), transparent 18%);
+  opacity: 0.62;
+  animation: atmosphere-drift var(--motion-contemplative) var(--ease-soft) infinite alternate;
+}
+
+.era-portal-screen .era-portal-content,
+.subpath-portal-screen .subpath-portal-content {
+  position: relative;
+}
+
+.era-portal-screen .era-portal-content::before,
+.subpath-portal-screen .subpath-portal-content::before {
+  inset: -18vh -18vw;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 34%, rgba(241, 199, 121, 0.18), transparent 10%),
+    linear-gradient(115deg, transparent 0 45%, rgba(255, 248, 234, 0.08) 48%, transparent 55%);
+  opacity: 0.68;
+  transform: translate3d(0, 0, 0);
+  animation: ember-haze 9s var(--ease-soft) infinite alternate;
+}
+
+.timeline-view-screen {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.timeline-view-screen::after {
+  inset: -12%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255, 248, 234, 0.08), transparent 12%),
+    radial-gradient(circle at 86% 76%, rgba(241, 199, 121, 0.12), transparent 15%);
+  opacity: 0.54;
+  animation: atmosphere-drift 12s var(--ease-soft) infinite alternate;
+}
+
+body[data-view="lesson"] .lesson-hero::before {
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, rgba(255, 248, 234, 0.05), transparent 18%),
+    radial-gradient(circle at 72% 30%, rgba(241, 199, 121, 0.12), transparent 22%);
+  mix-blend-mode: screen;
+  opacity: 0.62;
+  animation: torch-flicker 4.8s ease-in-out infinite alternate;
+}
+
+@keyframes atmosphere-drift {
+  from {
+    transform: translate3d(-0.8%, 0.4%, 0) scale(1);
+  }
+  to {
+    transform: translate3d(0.8%, -0.6%, 0) scale(1.018);
+  }
+}
+
+@keyframes ember-haze {
+  from {
+    opacity: 0.42;
+    transform: translate3d(-1%, 0.8%, 0);
+  }
+  to {
+    opacity: 0.72;
+    transform: translate3d(1.2%, -0.8%, 0);
+  }
+}
+
+@keyframes torch-flicker {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  42% {
+    opacity: 0.68;
+  }
+  67% {
+    opacity: 0.52;
+  }
+}
+
+@keyframes lesson-particles {
+  from {
+    opacity: 0.46;
+    transform: translate3d(-0.6%, 0.8%, 0) scale(1);
+  }
+  to {
+    opacity: 0.72;
+    transform: translate3d(0.8%, -0.6%, 0) scale(1.018);
+  }
+}
+
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card {
+  opacity: 0;
+  animation: card-reveal var(--motion-route-enter) var(--ease-cinematic) forwards;
+}
+
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(1) { animation-delay: 40ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(2) { animation-delay: 60ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(3) { animation-delay: 80ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(4) { animation-delay: 100ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(5) { animation-delay: 120ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(6) { animation-delay: 140ms; }
+.categories-panel.is-route-entering[data-route-view="learn"] .path-card:nth-child(7) { animation-delay: 160ms; }
+
+@keyframes card-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.era-button.is-being-selected,
+.subpath-card:active,
+.timeline-view-item:active,
+.era-portal-cta:active,
+.home-hero-actions button:active,
+.journey-actions button:active,
+.mission-next-actions button:active {
+  transform: translateY(1px) scale(0.992);
+}
+
+.quiz-options button,
+.lesson-quiz-options button,
+.debate-actions button,
+.mission-choices button,
+.home-hero-actions button,
+.journey-actions button,
+.mission-next-actions button {
+  transition:
+    transform var(--motion-fast) var(--ease-soft),
+    box-shadow var(--motion-fast) var(--ease-soft),
+    border-color var(--motion-fast) var(--ease-soft),
+    background var(--motion-fast) var(--ease-soft),
+    opacity var(--motion-fast) var(--ease-soft);
+}
+
+.quiz-options button.correct,
+.lesson-quiz-options button.correct {
+  animation: answer-confirm 520ms var(--ease-cinematic) both;
+}
+
+.quiz-options button.wrong,
+.lesson-quiz-options button.wrong {
+  animation: answer-reconsider 460ms var(--ease-soft) both;
+}
+
+@keyframes answer-confirm {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(21, 111, 116, 0);
+  }
+  48% {
+    transform: scale(1.012);
+    box-shadow: 0 0 0 8px rgba(21, 111, 116, 0.12);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 10px 24px rgba(21, 111, 116, 0.12);
+  }
+}
+
+@keyframes answer-reconsider {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-3px);
+  }
+  65% {
+    transform: translateX(3px);
+  }
+}
+
+.debates-panel[data-debate-choice="a"] .debate-side:first-child,
+.debates-panel[data-debate-choice="b"] .debate-side:nth-child(2) {
+  border-color: rgba(183, 121, 40, 0.48);
+  box-shadow: 0 18px 48px rgba(24, 32, 37, 0.12);
+  transform: translateY(-2px) scale(1.006);
+}
+
+.debates-panel[data-debate-choice="a"] .debate-side:nth-child(2),
+.debates-panel[data-debate-choice="b"] .debate-side:first-child {
+  opacity: 0.72;
+  transform: scale(0.992);
+}
+
+.debate-summary.is-updated,
+.mission-result.is-updated {
+  animation: result-reveal var(--motion-standard) var(--ease-soft) both;
+}
+
+@keyframes result-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: saturate(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: none;
+  }
+}
+
+.mission-choices button.is-selected {
+  border-color: rgba(102, 116, 61, 0.52);
+  background: rgba(102, 116, 61, 0.14);
+  box-shadow: 0 16px 42px rgba(24, 32, 37, 0.12);
+  transform: translateY(-2px);
+}
+
+.mission-choices button:not(.is-selected).is-muted {
+  opacity: 0.58;
+  transform: scale(0.992);
+}
+
+.mini-progress span,
+#progress-score,
+#score {
+  transition:
+    width var(--motion-cinematic) var(--ease-cinematic),
+    transform var(--motion-standard) var(--ease-soft),
+    background var(--motion-standard) var(--ease-soft);
+}
+
+body.is-xp-awarded #progress-score,
+body.is-xp-awarded #score,
+body.is-xp-awarded .mini-progress span {
+  animation: xp-glow 900ms var(--ease-cinematic) both;
+}
+
+@keyframes xp-glow {
+  0% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+  44% {
+    filter: brightness(1.16);
+    transform: scale(1.018);
+  }
+  100% {
+    filter: brightness(1);
+    transform: scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+
+  .is-route-entering,
+  .era-portal-screen::before,
+  .subpath-portal-screen::before,
+  body[data-view="lesson"] .lesson-hero::before,
+  body[data-view="lesson"] .lesson-atmosphere,
+  .overview-view.active::before,
+  .timeline-view-screen::after {
+    animation: none !important;
+  }
+}
+

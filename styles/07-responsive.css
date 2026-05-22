@@ -1,0 +1,1453 @@
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .era-switcher {
+    grid-template-columns: none;
+  }
+
+  .subpath-grid {
+    grid-template-columns: none;
+  }
+
+  .era-world-screen .subpath-grid {
+    grid-template-columns: none;
+  }
+
+  .timeline-view-stage {
+    margin-left: 0;
+  }
+
+  .era-portal-screen {
+    padding: clamp(32px, 7vw, 68px);
+  }
+
+  .subpath-portal-screen {
+    padding: clamp(32px, 7vw, 68px);
+  }
+
+  .timeline-view-preview {
+    left: min(360px, 58vw);
+  }
+
+  .overview-view.active {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-panel,
+  .hero-visual,
+  .lesson-hero,
+  .chat-panel {
+    min-height: auto;
+  }
+
+  .lesson-hero {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-hero-image {
+    min-height: 220px;
+  }
+
+  .hero-visual {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell {
+    padding: 0;
+  }
+
+  .screen-back-button {
+    min-height: 40px;
+    padding-right: 12px;
+  }
+
+  .screen-back-button span:last-child {
+    display: none;
+  }
+
+  .intro-panel {
+    align-content: end;
+    width: 100%;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(var(--thumb-zone) + 22px)
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .overview-view h2 {
+    max-width: 8.8ch;
+    font-size: clamp(3.05rem, 16vw, 4.85rem);
+  }
+
+  #era-summary {
+    max-width: 32ch;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .home-hero-actions {
+    position: fixed;
+    right: calc(var(--mobile-page-pad) + var(--safe-right));
+    bottom: calc(18px + var(--safe-bottom));
+    left: calc(var(--mobile-page-pad) + var(--safe-left));
+    z-index: 6;
+    margin-top: 0;
+  }
+
+  .home-hero-actions button {
+    width: 100%;
+    min-height: 56px;
+    justify-content: center;
+    border-radius: 999px;
+    box-shadow: 0 18px 48px rgba(8, 11, 10, 0.32);
+  }
+
+  body[data-view="learn"] .categories-panel {
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: 16px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(18px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header h2 {
+    max-width: 9ch;
+    font-size: clamp(2.35rem, 12.5vw, 3.7rem);
+    line-height: 0.92;
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header p:not(.eyebrow) {
+    max-width: 31ch;
+    margin-top: 10px;
+    font-size: 0.96rem;
+    line-height: 1.42;
+  }
+
+  body[data-view="learn"] .era-switcher {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(78vw, 1fr);
+    grid-template-columns: none;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-bottom: calc(10px + var(--safe-bottom));
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  body[data-view="learn"] .era-switcher::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-view="learn"] .categories-panel .path-card {
+    min-height: 100%;
+    scroll-snap-align: center;
+  }
+
+  .stat-grid,
+  .path-grid,
+  .quick-grid,
+  .category-map-header,
+  .era-hub-header,
+  .subpath-timeline-hero,
+  .selected-era-overview,
+  .category-section-header,
+  .lesson-flow,
+  .lesson-context-trail,
+  .story-block,
+  .post-story-screen,
+  .mentor-panel,
+  .reality-bridge-grid,
+  .critical-perspectives,
+  .interactive-moment,
+  .lesson-experience-grid,
+  .lesson-activity-grid,
+  .lesson-quiz-options,
+  .lesson-debate-grid,
+  .explore-tabs,
+  .source-actions,
+  .question-form,
+  .timeline-item,
+  .debate-picker,
+  .debate-sides,
+  .debate-actions,
+  .mission-choices,
+  .progress-dashboard,
+  .mastery-row,
+  .badge-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-controls {
+    width: 100%;
+  }
+
+  .category-section-stats {
+    justify-content: start;
+    min-width: 0;
+  }
+
+  .timeline-zoom {
+    flex: 1;
+  }
+
+  .timeline-item small {
+    grid-column: 1;
+  }
+
+  .timeline {
+    padding-left: 0;
+  }
+
+  .timeline::before {
+    left: 23px;
+  }
+
+  .timeline-item {
+    grid-template-columns: 50px minmax(0, 1fr);
+  }
+
+  .timeline-hover-card {
+    left: 56px;
+    width: min(250px, calc(100vw - 88px));
+  }
+
+  .timeline-view-screen {
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(18px + var(--safe-right))
+      calc(44px + var(--safe-bottom))
+      calc(18px + var(--safe-left));
+  }
+
+  .era-portal-screen {
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(46px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
+  }
+
+  .subpath-portal-screen {
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(46px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
+  }
+
+  .era-portal-screen::after {
+    background:
+      linear-gradient(180deg, rgba(8, 11, 10, 0.14) 0%, rgba(8, 11, 10, 0.82) 58%, rgba(8, 11, 10, 0.92) 100%);
+  }
+
+  .era-portal-content h2 {
+    font-size: clamp(3rem, 16vw, 4.7rem);
+  }
+
+  .subpath-portal-content h2 {
+    font-size: clamp(2.7rem, 14vw, 4.2rem);
+  }
+
+  .era-portal-content p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .subpath-portal-content p:not(.eyebrow) {
+    font-size: 1rem;
+  }
+
+  .timeline-view-hero h2 {
+    font-size: clamp(2.6rem, 15vw, 4.4rem);
+  }
+
+  .timeline-view-stage {
+    width: 100%;
+  }
+
+  .timeline-view-item {
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 16px;
+    min-height: 88px;
+  }
+
+  .timeline-view-list::before {
+    left: 21px;
+  }
+
+  .timeline-view-marker {
+    width: 44px;
+    height: 44px;
+  }
+
+  .timeline-view-preview {
+    left: 50px;
+    top: 72px;
+    width: min(276px, calc(100vw - 72px));
+    transform: translateY(8px) scale(0.98);
+  }
+
+  .timeline-view-item:hover .timeline-view-preview,
+  .timeline-view-item:focus-visible .timeline-view-preview {
+    transform: translateY(0) scale(1);
+  }
+
+  body[data-view="lesson"] .lesson-experience {
+    width: 100%;
+    height: 100dvh;
+    min-height: 0;
+  }
+
+  .story-block {
+    min-height: 100dvh;
+    padding:
+      calc(28px + var(--safe-top))
+      calc(20px + var(--safe-right))
+      calc(20px + var(--safe-bottom))
+      calc(20px + var(--safe-left));
+    text-align: center;
+  }
+
+  .story-block-visual {
+    width: clamp(86px, 28vw, 132px);
+  }
+
+  .story-block-copy {
+    justify-items: center;
+    max-width: 100%;
+  }
+
+  .story-block-copy p {
+    font-size: clamp(1.78rem, 9.4vw, 3.15rem);
+  }
+
+  .story-block-progress,
+  .story-block-actions {
+    justify-content: center;
+  }
+
+  .story-block-actions {
+    width: 100%;
+    padding-bottom: var(--safe-bottom);
+  }
+
+  .story-block-actions button {
+    flex: 1;
+    min-height: 52px;
+  }
+
+  .interactive-moment {
+    min-height: 100dvh;
+    padding: 24px 18px;
+    gap: 12px;
+  }
+
+  .lesson-experience-focused {
+    padding: 24px 18px;
+  }
+
+  .post-story-screen {
+    grid-template-areas:
+      "copy"
+      "visual"
+      "progress"
+      "actions";
+    align-content: center;
+    gap: 16px;
+    height: 100dvh;
+    min-height: 100dvh;
+    padding:
+      calc(22px + var(--safe-top))
+      calc(18px + var(--safe-right))
+      calc(18px + var(--safe-bottom))
+      calc(18px + var(--safe-left));
+    text-align: center;
+  }
+
+  .post-story-copy {
+    justify-items: center;
+    gap: 10px;
+  }
+
+  .post-story-copy h3 {
+    max-width: 12ch;
+    font-size: clamp(2rem, 10.6vw, 3.8rem);
+  }
+
+  .challenge-screen .post-story-copy h3 {
+    max-width: 15ch;
+    font-size: clamp(1.55rem, 8vw, 2.7rem);
+  }
+
+  .post-story-copy p {
+    max-width: 34ch;
+    font-size: 0.98rem;
+    line-height: 1.42;
+  }
+
+  .mentor-panel {
+    display: contents;
+  }
+
+  .mentor-orb {
+    grid-area: visual;
+    width: clamp(76px, 24vw, 108px);
+  }
+
+  .mentor-bubbles {
+    grid-area: visual;
+    align-self: end;
+    gap: 7px;
+    max-height: none;
+    width: 100%;
+    margin-top: 90px;
+  }
+
+  .mentor-bubble,
+  .reality-bridge-grid section,
+  .critical-perspectives section {
+    padding: 9px 11px;
+    font-size: 0.88rem;
+    line-height: 1.35;
+  }
+
+  .reality-bridge-grid,
+  .critical-perspectives,
+  .challenge-options {
+    justify-self: stretch;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .reality-bridge-grid p,
+  .critical-perspectives p {
+    font-size: 0.86rem;
+    line-height: 1.34;
+  }
+
+  .challenge-options {
+    max-height: none;
+  }
+
+  .challenge-options button {
+    min-height: 44px;
+    padding: 9px 12px;
+    font-size: 0.9rem;
+  }
+
+  .reward-artifact {
+    width: clamp(86px, 28vw, 122px);
+  }
+
+  .post-story-progress,
+  .post-story-actions {
+    justify-content: center;
+  }
+
+  .post-story-actions {
+    width: 100%;
+    padding-bottom: var(--safe-bottom);
+  }
+
+  .timeline-year {
+    grid-column: 2;
+    grid-row: 1;
+    margin-top: 0;
+  }
+
+  .timeline-content {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 769px) {
+  html,
+  body {
+    min-height: 100%;
+  }
+
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow: hidden;
+  }
+
+  .app-shell,
+  .content-shell,
+  .overview-view.active,
+  .categories-panel,
+  body[data-view="learn"] .categories-panel,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    height: var(--cinematic-screen);
+    min-height: var(--cinematic-screen);
+    max-height: var(--cinematic-screen);
+  }
+
+  .overview-view.active,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    overflow: hidden;
+  }
+
+  .overview-view h2,
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2,
+  body[data-view="lesson"] .lesson-hero-copy h3,
+  .story-block-copy p,
+  .post-story-copy h3 {
+    text-wrap: balance;
+  }
+
+  .hero-visual img,
+  .era-portal-screen::before,
+  .subpath-portal-screen::before,
+  body[data-view="lesson"] .lesson-hero-image {
+    background-position: center;
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  :root {
+    --hero-image-active: var(--asset-hero-mobile);
+    --hero-object-position: center top;
+    --asset-paleolitico-position: center top;
+    --era-prehistoria-story-position: center;
+    --era-prehistoria-story-size: 100% 100%;
+    --era-prehistoria-story-overlay:
+      radial-gradient(ellipse at 52% 38%, rgba(241, 199, 121, 0.12) 0%, rgba(241, 199, 121, 0.04) 32%, transparent 58%),
+      radial-gradient(ellipse at center, transparent 34%, rgba(0, 0, 0, 0.38) 100%),
+      linear-gradient(180deg, rgba(7, 8, 8, 0.52) 0%, rgba(7, 8, 8, 0.12) 42%, rgba(7, 8, 8, 0.46) 100%);
+    --era-prehistoria-story-shadow: inset 0 0 96px rgba(0, 0, 0, 0.46), inset 0 0 20px rgba(241, 199, 121, 0.055);
+    --era-prehistoria-story-surface:
+      linear-gradient(116deg, transparent 0 42%, rgba(255, 248, 234, 0.045) 48%, transparent 57%),
+      radial-gradient(circle at 80% 18%, rgba(255, 248, 234, 0.05), transparent 18%),
+      radial-gradient(circle at 18% 84%, rgba(0, 0, 0, 0.24), transparent 24%),
+      linear-gradient(0deg, rgba(0, 0, 0, 0.14), transparent 28%, rgba(255, 248, 234, 0.025) 54%, rgba(0, 0, 0, 0.16));
+    --asset-mesolitico: var(--asset-mesolitico-mobile);
+    --asset-neolitico: var(--asset-neolitico-mobile);
+    --asset-grande-jornada-pre-historica: var(--asset-grande-jornada-pre-historica-mobile);
+    --asset-licao-arte-rupestre: var(--asset-licao-arte-rupestre-mobile);
+    --asset-idade-antiga: var(--asset-idade-antiga-mobile);
+    --asset-idade-media: var(--asset-idade-media-mobile);
+    --asset-idade-moderna: var(--asset-idade-moderna-mobile);
+    --asset-idade-contemporanea: var(--asset-idade-contemporanea-mobile);
+    --asset-historia-portugal: var(--asset-historia-portugal-mobile);
+    --asset-grande-jornada-historica: var(--asset-grande-jornada-historica-mobile);
+    --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-mobile);
+    --asset-subpercurso-antiga-sumeria: var(--asset-subpercurso-antiga-sumeria-mobile);
+    --asset-subpercurso-antiga-babilonia: var(--asset-subpercurso-antiga-babilonia-mobile);
+    --asset-subpercurso-antiga-assiria: var(--asset-subpercurso-antiga-assiria-mobile);
+    --asset-subpercurso-antiga-persia: var(--asset-subpercurso-antiga-persia-mobile);
+    --asset-subpercurso-antiga-china: var(--asset-subpercurso-antiga-china-mobile);
+    --asset-subpercurso-antiga-india: var(--asset-subpercurso-antiga-india-mobile);
+    --asset-subpercurso-antiga-roma: var(--asset-subpercurso-antiga-roma-mobile);
+    --asset-subpercurso-antiga-grecia: var(--asset-subpercurso-antiga-grecia-mobile);
+    --asset-subpercurso-maias: var(--asset-subpercurso-maias-mobile);
+    --asset-subpercurso-invasoes-barbaras: var(--asset-subpercurso-invasoes-barbaras-mobile);
+    --asset-subpercurso-franca-medieval: var(--asset-subpercurso-franca-medieval-mobile);
+    --asset-subpercurso-inglaterra-medieval: var(--asset-subpercurso-inglaterra-medieval-mobile);
+    --asset-subpercurso-italia-medieval: var(--asset-subpercurso-italia-medieval-mobile);
+    --asset-subpercurso-sacro-imperio: var(--asset-subpercurso-sacro-imperio-mobile);
+    --asset-subpercurso-russia-medieval: var(--asset-subpercurso-russia-medieval-mobile);
+    --asset-subpercurso-vikings: var(--asset-subpercurso-vikings-mobile);
+    --asset-subpercurso-china-medieval: var(--asset-subpercurso-china-medieval-mobile);
+    --asset-subpercurso-india-medieval: var(--asset-subpercurso-india-medieval-mobile);
+    --asset-subpercurso-japao-medieval: var(--asset-subpercurso-japao-medieval-mobile);
+    --asset-subpercurso-imperio-bizantino: var(--asset-subpercurso-imperio-bizantino-mobile);
+    --asset-subpercurso-imperio-arabe: var(--asset-subpercurso-imperio-arabe-mobile);
+    --asset-subpercurso-aztecas: var(--asset-subpercurso-aztecas-mobile);
+    --mobile-page-pad: clamp(20px, 5.6vw, 28px);
+    --thumb-zone: calc(88px + var(--safe-bottom));
+  }
+
+  html {
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  body,
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+  }
+
+  .app-shell,
+  .content-shell,
+  .feature-view.active,
+  .overview-view.active,
+  .categories-panel,
+  body[data-view="learn"] .categories-panel,
+  body[data-view="lesson"] .categories-panel,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience {
+    height: auto;
+    min-height: var(--story-screen);
+    max-height: none;
+    overflow: visible;
+  }
+
+  .overview-view.active,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    height: auto;
+    min-height: var(--story-screen);
+    max-height: none;
+    overflow: hidden;
+  }
+
+  .overview-view.active {
+    align-items: stretch;
+  }
+
+  .intro-panel {
+    align-content: end;
+    gap: clamp(16px, 5vw, 28px);
+    min-height: var(--story-screen);
+    padding:
+      calc(clamp(54px, 12svh, 96px) + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(var(--thumb-zone) + 24px)
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .hero-visual {
+    min-height: var(--story-screen);
+    aspect-ratio: auto;
+  }
+
+  .hero-visual::after {
+    background:
+      linear-gradient(180deg, rgba(24, 32, 37, 0.08) 0%, rgba(24, 32, 37, 0.28) 38%, rgba(24, 32, 37, 0.84) 100%),
+      linear-gradient(90deg, rgba(24, 32, 37, 0.26), rgba(24, 32, 37, 0.04));
+  }
+
+  .hero-visual img {
+    object-position: var(--hero-object-position);
+  }
+
+  .overview-view h2 {
+    max-width: 9.5ch;
+    font-size: var(--mobile-title-size);
+    line-height: 0.94;
+  }
+
+  #era-summary,
+  .era-portal-content p:not(.eyebrow),
+  .subpath-portal-content p:not(.eyebrow),
+  .timeline-view-hero p:not(.eyebrow),
+  .era-world-hero p:not(.eyebrow),
+  body[data-view="lesson"] .lesson-hero-copy p:last-child,
+  .lesson-hero-line {
+    font-size: var(--mobile-body-size);
+    line-height: 1.55;
+  }
+
+  .home-hero-actions button,
+  .era-portal-cta,
+  .lesson-start-button,
+  .story-block-actions button,
+  .post-story-actions button,
+  .timeline-view-item,
+  .subpath-card,
+  .path-card {
+    font-size: var(--mobile-button-size);
+  }
+
+  body[data-view="learn"] .categories-panel {
+    display: grid;
+    gap: clamp(20px, 6vw, 34px);
+    padding:
+      calc(34px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(36px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="learn"] .era-switcher {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    overflow: visible;
+    padding-bottom: 0;
+    scroll-snap-type: none;
+  }
+
+  body[data-view="learn"] .categories-panel .path-card {
+    min-height: clamp(170px, 44svh, 320px);
+    scroll-snap-align: none;
+  }
+
+  .era-portal-screen,
+  .subpath-portal-screen {
+    align-items: end;
+    padding:
+      calc(clamp(58px, 14svh, 112px) + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(clamp(42px, 10svh, 82px) + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-portal-screen::before,
+  .subpath-portal-screen::before {
+    inset: 0;
+    background-position: center top;
+    transform: none;
+  }
+
+  .era-portal-screen::after,
+  .subpath-portal-screen::after {
+    background:
+      radial-gradient(circle at 46% 24%, rgba(241, 199, 121, 0.16), transparent 28%),
+      linear-gradient(180deg, rgba(8, 11, 10, 0.04) 0%, rgba(8, 11, 10, 0.3) 36%, rgba(8, 11, 10, 0.9) 100%);
+  }
+
+  .era-portal-content,
+  .subpath-portal-content,
+  .timeline-view-hero {
+    max-width: 100%;
+  }
+
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2 {
+    max-width: 10.5ch;
+    font-size: var(--mobile-title-size);
+    line-height: 0.94;
+  }
+
+  .era-world-screen {
+    display: grid;
+    grid-template-rows: auto auto;
+    overflow: visible;
+  }
+
+  .era-world-hero {
+    min-height: auto;
+    padding:
+      calc(76px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      22px
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-world-hero h2 {
+    max-width: 10ch;
+    font-size: clamp(2.25rem, 11vw, 3.7rem);
+  }
+
+  .era-world-screen .era-hub {
+    width: 100%;
+    min-height: auto;
+    overflow: visible;
+    padding:
+      0
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(36px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .era-world-screen .era-hub-header {
+    display: grid;
+    gap: 12px;
+    align-items: start;
+  }
+
+  .era-world-screen .era-hub-header h3 {
+    white-space: normal;
+  }
+
+  .era-world-screen .subpath-grid {
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow: visible;
+    padding: 0;
+    scroll-snap-type: none;
+  }
+
+  .era-world-screen .subpath-card {
+    min-height: clamp(210px, 50svh, 360px);
+  }
+
+  .timeline-view-screen {
+    grid-template-rows: auto auto;
+    gap: clamp(22px, 7vw, 38px);
+    padding:
+      calc(76px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(42px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .timeline-view-stage {
+    margin-left: 0;
+  }
+
+  body[data-view="lesson"] .lesson-hero {
+    align-content: end;
+    min-height: var(--story-screen);
+  }
+
+  body[data-view="lesson"] .lesson-view[data-mode="intro"] .lesson-hero {
+    height: auto;
+    min-height: var(--story-screen);
+  }
+
+  body[data-view="lesson"] .lesson-hero::after {
+    background:
+      radial-gradient(circle at 54% 28%, var(--lesson-accent-soft), transparent 26%),
+      linear-gradient(180deg, rgba(7, 8, 8, 0.06) 0%, rgba(7, 8, 8, 0.36) 40%, rgba(7, 8, 8, 0.96) 100%);
+  }
+
+  body[data-view="lesson"] .lesson-hero-image,
+  body[data-view="lesson"] .lesson-view[data-mode="intro"][data-section] .lesson-hero-image {
+    background-position:
+      center,
+      center top;
+    background-size:
+      cover,
+      cover;
+    transform: none;
+  }
+
+  body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .lesson-hero-image {
+    --lesson-hero-position: var(--asset-paleolitico-position);
+    background-position: var(--lesson-hero-position);
+  }
+
+  body[data-view="lesson"] .lesson-view[data-mode="intro"][data-section="paleolitico"][data-mood="fire"] .lesson-hero-image,
+  body[data-view="lesson"] .lesson-view[data-section="paleolitico"][data-mood="fire"] .lesson-hero-image {
+    --lesson-hero-image: var(--asset-licao-fogo);
+    background-image:
+      linear-gradient(180deg, rgba(7, 8, 8, 0.1) 0%, rgba(7, 8, 8, 0.46) 48%, rgba(7, 8, 8, 0.92) 100%),
+      var(--asset-licao-fogo);
+    background-position:
+      center,
+      center 48%;
+    background-repeat: no-repeat;
+    background-size:
+      cover,
+      cover;
+  }
+
+  body[data-view="lesson"] .lesson-hero-copy {
+    width: 100%;
+    padding:
+      calc(82px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(44px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="lesson"] .lesson-hero-copy h3,
+  .story-block-copy p,
+  .post-story-copy h3 {
+    max-width: 11ch;
+    font-size: clamp(2.1rem, 11vw, 4rem);
+    line-height: 0.98;
+  }
+
+  .lesson-preview-list {
+    gap: 8px;
+  }
+
+  .lesson-preview-list span {
+    min-height: 38px;
+    padding: 8px 11px;
+    font-size: clamp(0.78rem, 3.2vw, 0.9rem);
+  }
+
+  .story-block {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "visual"
+      "copy"
+      "progress"
+      "actions";
+    align-content: center;
+    gap: clamp(18px, 6vw, 30px);
+    padding:
+      calc(70px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(28px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  .story-block::after {
+    background:
+      linear-gradient(180deg, rgba(8, 10, 10, 0.2), rgba(8, 10, 10, 0.86)),
+      radial-gradient(circle at 50% 22%, rgba(255, 248, 234, 0.08), transparent 25%);
+  }
+
+  .story-block[data-background^="stone"]::after,
+  .story-block[data-background="cave-dark"]::after {
+    background:
+      radial-gradient(ellipse at 50% 30%, rgba(241, 199, 121, 0.035), transparent 34%),
+      linear-gradient(180deg, rgba(8, 10, 10, 0.04), rgba(8, 10, 10, 0.2)),
+      radial-gradient(ellipse at 6% 16%, rgba(0, 0, 0, 0.1), transparent 28%),
+      radial-gradient(ellipse at 96% 92%, rgba(0, 0, 0, 0.1), transparent 30%),
+      linear-gradient(128deg, transparent 0 34%, rgba(255, 248, 234, 0.035) 38%, transparent 45% 66%, rgba(0, 0, 0, 0.04) 72%, transparent 78%);
+  }
+
+  .story-block-actions,
+  .post-story-actions {
+    position: sticky;
+    bottom: calc(10px + var(--safe-bottom));
+    z-index: 4;
+  }
+
+  .post-story-screen {
+    height: auto;
+    min-height: var(--story-screen);
+    padding:
+      calc(70px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(28px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  :root {
+    --hero-image-active: var(--asset-hero-desktop);
+    --hero-object-position: center;
+  }
+
+  body[data-view="home"],
+  body[data-view="learn"],
+  body[data-view="portal"],
+  body[data-view="subpath"],
+  body[data-view="era"],
+  body[data-view="timeline"],
+  body[data-view="journey"],
+  body[data-view="lesson"] {
+    overflow: hidden;
+  }
+
+  .overview-view.active,
+  .intro-panel,
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .era-world-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero,
+  .story-block,
+  .post-story-screen {
+    min-height: 100svh;
+    height: 100svh;
+    max-height: 100svh;
+  }
+
+  .intro-panel {
+    width: min(620px, 62vw);
+    padding:
+      calc(22px + var(--safe-top))
+      calc(7vw + var(--safe-right))
+      calc(20px + var(--safe-bottom))
+      calc(7vw + var(--safe-left));
+  }
+
+  .overview-view h2,
+  .era-portal-content h2,
+  .subpath-portal-content h2,
+  .timeline-view-hero h2,
+  body[data-view="lesson"] .lesson-hero-copy h3 {
+    font-size: clamp(2.1rem, 8svh, 4rem);
+  }
+
+  #era-summary,
+  .era-portal-content p:not(.eyebrow),
+  .subpath-portal-content p:not(.eyebrow),
+  .timeline-view-hero p:not(.eyebrow),
+  body[data-view="lesson"] .lesson-hero-copy p:last-child {
+    font-size: clamp(0.86rem, 2.8svh, 1rem);
+    line-height: 1.38;
+  }
+
+  .home-hero-actions {
+    position: static;
+    margin-top: 16px;
+  }
+
+  .home-hero-actions button,
+  .era-portal-cta,
+  .lesson-start-button {
+    min-height: 44px;
+    padding-inline: 18px;
+  }
+
+  body[data-view="learn"] .categories-panel {
+    height: 100svh;
+    min-height: 100svh;
+    padding:
+      calc(18px + var(--safe-top))
+      calc(26px + var(--safe-right))
+      calc(16px + var(--safe-bottom))
+      calc(26px + var(--safe-left));
+  }
+
+  body[data-view="learn"] .categories-panel .panel-header h2 {
+    font-size: clamp(1.8rem, 7svh, 3rem);
+  }
+
+  body[data-view="learn"] .era-switcher {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(260px, 36vw);
+    grid-template-columns: none;
+    overflow-x: auto;
+    overflow-y: hidden;
+  }
+
+  .era-portal-screen,
+  .subpath-portal-screen,
+  .timeline-view-screen,
+  body[data-view="lesson"] .lesson-hero-copy {
+    padding:
+      calc(48px + var(--safe-top))
+      calc(36px + var(--safe-right))
+      calc(24px + var(--safe-bottom))
+      calc(36px + var(--safe-left));
+  }
+
+  .era-world-hero {
+    min-height: auto;
+    padding: calc(42px + var(--safe-top)) 36px 12px;
+  }
+
+  .era-world-screen .era-hub {
+    width: calc(100% - 48px);
+    padding-bottom: 16px;
+  }
+
+  .era-world-screen .subpath-card {
+    min-height: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  html:has(body[data-view="timeline"]),
+  html:has(body[data-view="journey"]) {
+    background: #161917;
+  }
+
+  body[data-view="timeline"],
+  body[data-view="journey"] {
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: #161917;
+  }
+
+  body[data-view="timeline"] .app-root.app-shell,
+  body[data-view="journey"] .app-root.app-shell {
+    background: #161917;
+  }
+
+  body[data-view="timeline"] .app-root,
+  body[data-view="timeline"] .content-shell,
+  body[data-view="timeline"] .categories-panel.active,
+  body[data-view="timeline"] .timeline-view-screen,
+  body[data-view="journey"] .app-root,
+  body[data-view="journey"] .content-shell,
+  body[data-view="journey"] .categories-panel.active,
+  body[data-view="journey"] .timeline-view-screen {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    max-height: none;
+    overflow: visible;
+  }
+
+  body[data-view="timeline"] .timeline-view-screen,
+  body[data-view="journey"] .timeline-view-screen {
+    grid-template-rows: auto auto;
+    align-content: start;
+    gap: clamp(28px, 5vh, 58px);
+    padding:
+      calc(clamp(44px, 6vh, 82px) + var(--safe-top))
+      calc(clamp(22px, 7vw, 108px) + var(--safe-right))
+      calc(clamp(54px, 8vh, 104px) + var(--safe-bottom))
+      calc(clamp(22px, 7vw, 108px) + var(--safe-left));
+    background-size: cover;
+    background-position: center;
+  }
+
+  body[data-view="timeline"] .timeline-view-hero h2,
+  body[data-view="journey"] .timeline-view-hero h2 {
+    font-size: clamp(3rem, 9.2vh, 7.2rem);
+  }
+
+  body[data-view="timeline"] .timeline-view-hero p:not(.eyebrow),
+  body[data-view="journey"] .timeline-view-hero p:not(.eyebrow) {
+    margin-top: clamp(8px, 1.6vh, 16px);
+    line-height: 1.48;
+  }
+
+  body[data-view="timeline"] .timeline-view-stage,
+  body[data-view="journey"] .timeline-view-stage {
+    min-height: auto;
+    overflow: visible;
+  }
+
+  body[data-view="timeline"] .timeline-view-list,
+  body[data-view="journey"] .timeline-view-list {
+    gap: clamp(10px, 1.8vh, 18px);
+    padding-block: clamp(10px, 2vh, 22px);
+  }
+
+  body[data-view="timeline"] .timeline-view-item,
+  body[data-view="journey"] .timeline-view-item {
+    min-height: clamp(66px, 10.5vh, 98px);
+    padding-block: clamp(5px, 1vh, 12px);
+  }
+}
+
+@media (max-width: 768px) and (orientation: portrait) {
+  html,
+  body,
+  .app-root,
+  .content-shell {
+    width: 100%;
+    min-height: 100%;
+    height: auto;
+    max-height: none;
+    touch-action: auto;
+  }
+
+  html {
+    overflow-y: auto;
+  }
+
+  body,
+  .app-root,
+  .content-shell {
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: auto;
+  }
+
+  body {
+    overflow-y: auto;
+  }
+
+  body[data-view="home"],
+  body[data-view="home"] .app-root,
+  body[data-view="home"] .content-shell,
+  body[data-view="home"] .overview-view.active,
+  body[data-view="home"] .intro-panel,
+  body[data-view="home"] .hero-visual {
+    width: 100%;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+  }
+
+  body[data-view="home"] {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  body[data-view="home"] .intro-panel {
+    padding:
+      calc(42px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(18px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="home"] .home-hero-actions {
+    position: static;
+    margin-top: clamp(18px, 4svh, 28px);
+  }
+
+  .feature-view.active,
+  .categories-panel.active,
+  body[data-view="learn"] .categories-panel,
+  body[data-view="era"] .categories-panel,
+  body[data-view="subpath"] .categories-panel,
+  body[data-view="timeline"] .categories-panel,
+  body[data-view="journey"] .categories-panel,
+  body[data-view="lesson"] .categories-panel,
+  .mobile-scroll-screen {
+    min-height: 100svh;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
+    touch-action: auto;
+    overscroll-behavior-y: auto;
+  }
+
+  body[data-view="era"],
+  body[data-view="subpath"],
+  body[data-view="timeline"],
+  body[data-view="journey"] {
+    position: static;
+    height: auto;
+    min-height: 100%;
+    max-height: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: auto;
+  }
+
+  body[data-view="era"] .app-root,
+  body[data-view="subpath"] .app-root,
+  body[data-view="timeline"] .app-root,
+  body[data-view="journey"] .app-root,
+  body[data-view="era"] .content-shell,
+  body[data-view="subpath"] .content-shell,
+  body[data-view="timeline"] .content-shell,
+  body[data-view="journey"] .content-shell,
+  body[data-view="era"] .categories-panel.active,
+  body[data-view="subpath"] .categories-panel.active,
+  body[data-view="timeline"] .categories-panel.active,
+  body[data-view="journey"] .categories-panel.active {
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
+    touch-action: auto;
+  }
+
+  .app-root,
+  .content-shell,
+  .categories-panel.active,
+  .feature-view.active,
+  .mobile-scroll-screen {
+    overscroll-behavior-y: auto;
+    pointer-events: auto;
+  }
+
+  .era-world-screen,
+  .subpath-portal-screen,
+  .timeline-view-screen,
+  .story-block,
+  .post-story-screen {
+    min-height: 100svh;
+    height: auto;
+    max-height: none;
+    overflow: visible;
+    touch-action: auto;
+  }
+
+  body[data-view="lesson"],
+  body[data-view="lesson"] .app-shell,
+  body[data-view="lesson"] .content-shell,
+  body[data-view="lesson"] .categories-panel,
+  body[data-view="lesson"] .categories-panel.active,
+  body[data-view="lesson"] .active-lesson-panel,
+  body[data-view="lesson"] .lesson-view,
+  body[data-view="lesson"] .lesson-experience,
+  body[data-view="lesson"] .story-block,
+  body[data-view="lesson"] .post-story-screen {
+    width: 100vw;
+    min-width: 100vw;
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 0;
+    touch-action: pan-y;
+  }
+
+  body[data-view="era"] .era-world-screen {
+    overflow: visible;
+    padding-bottom: calc(44px + var(--safe-bottom));
+  }
+
+  body[data-view="subpath"] .subpath-portal-screen,
+  body[data-view="timeline"] .timeline-view-screen,
+  body[data-view="journey"] .timeline-view-screen {
+    overflow: visible;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body[data-view="learn"] .era-switcher,
+  .era-world-screen .subpath-grid,
+  .timeline-view-list {
+    touch-action: auto;
+  }
+
+  body[data-view="learn"] .era-switcher,
+  .era-world-screen .subpath-grid {
+    overscroll-behavior-x: auto;
+  }
+
+  .hero-visual,
+  .era-portal-screen::before,
+  .era-portal-screen::after,
+  .subpath-portal-screen::before,
+  .subpath-portal-screen::after,
+  .timeline-view-screen::before,
+  .timeline-view-screen::after,
+  .lesson-hero::before,
+  .lesson-hero::after {
+    pointer-events: none;
+  }
+
+  body[data-view="subpath"] .subpath-portal-screen {
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    padding:
+      calc(72px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(34px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="timeline"] .timeline-view-screen,
+  body[data-view="journey"] .timeline-view-screen {
+    height: 100svh;
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow: hidden;
+    padding:
+      calc(64px + var(--safe-top))
+      calc(var(--mobile-page-pad) + var(--safe-right))
+      calc(24px + var(--safe-bottom))
+      calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="timeline"] .timeline-view-screen::after,
+  body[data-view="journey"] .timeline-view-screen::after {
+    display: none;
+  }
+
+  body[data-view="timeline"] .timeline-view-stage,
+  body[data-view="journey"] .timeline-view-stage,
+  body[data-view="timeline"] .timeline-view-list,
+  body[data-view="journey"] .timeline-view-list {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: hidden;
+  }
+
+  body[data-view="timeline"] .timeline-view-list::before,
+  body[data-view="journey"] .timeline-view-list::before {
+    left: 17px;
+  }
+
+  body[data-view="timeline"] .timeline-view-list,
+  body[data-view="journey"] .timeline-view-list {
+    gap: 6px;
+    max-height: min(52svh, 460px);
+    overflow-y: auto;
+    overscroll-behavior-y: auto;
+    padding-bottom: 14px;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body[data-view="timeline"] .timeline-view-item,
+  body[data-view="journey"] .timeline-view-item {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 14px;
+    width: 100%;
+    min-height: clamp(86px, 13svh, 118px);
+    align-items: center;
+  }
+
+  body[data-view="timeline"] .timeline-view-marker,
+  body[data-view="journey"] .timeline-view-marker {
+    width: 36px;
+    height: 36px;
+  }
+
+  body[data-view="timeline"] .timeline-view-copy,
+  body[data-view="journey"] .timeline-view-copy {
+    min-width: 0;
+  }
+
+  body[data-view="timeline"] .timeline-view-preview,
+  body[data-view="journey"] .timeline-view-preview {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+  html,
+  body,
+  .app-root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .orientation-lock-overlay {
+    display: flex;
+  }
+
+  .app-root {
+    pointer-events: none;
+    user-select: none;
+  }
+}
+
+@media (orientation: portrait) {
+  .orientation-lock-overlay {
+    display: none;
+  }
+}

@@ -24,7 +24,7 @@ The app is now split by responsibility:
 - `script.js` contains application behaviour: section rendering, event handlers, conversation assembly, and navigation orchestration.
 - `bundle.js` is the browser-ready classic script generated from the modules, so `index.html` also works when opened directly from the file system.
 - `build-bundle.js` regenerates `bundle.js` after module changes.
-- `styles.css` contains visual presentation only, including the responsive experience architecture: desktop cinematic fullscreen, mobile portrait vertical storytelling, and the mobile landscape orientation lock overlay.
+- `styles/` contains the modular CSS source files. Edit those files and run `npm run build:css` to regenerate the browser-facing `styles.css`, which is still the only stylesheet linked from `index.html`.
 - `index.html` contains the app shell, the contextual back control, static screen templates that are mounted one at a time by `screen-controller.js`, and the `.orientation-lock-overlay` used to block mobile landscape interaction. The former fixed top navigation bar was removed so movement through the experience stays contextual.
 
 When adding new period content, prefer editing `data/eras.js`.
@@ -49,7 +49,7 @@ After changing any JavaScript module, run `node build-bundle.js` so the browser 
 - Pre-History lessons are generated from `data/eras.js` timeline entries and assigned to curriculum sections by the `match` terms in `data/curriculum.js`.
 - The Pre-History MVP is intentionally scoped as three emotional phases: Paleolithic means survive, Mesolithic means adapt, and Neolithic Revolution means build.
 - The Paleolithic section is intentionally scoped to five lessons: discovery of fire, stone tools, hunting and fishing, rock art, and funerary rites.
-- Paleolithic lesson hero images are mapped in `styles.css` by `data-section="paleolitico"` plus the lesson `data-mood` values `fire`, `stone`, `hunt`, `art`, and `rites`; those five lesson images are also preloaded through `index.html` and `screen-assets.js`.
+- Paleolithic lesson hero images are mapped in `styles/05-lesson-experience.css` by `data-section="paleolitico"` plus the lesson `data-mood` values `fire`, `stone`, `hunt`, `art`, and `rites`; those five lesson images are also preloaded through `index.html` and `screen-assets.js`.
 - Lesson routes open in `currentLessonMode: "intro"` so the hero is a true fullscreen screen with no lower activity panel; `Iniciar Jornada` switches the lesson to `understand` and mounts the flow, context trail, activity grid, tabs, and actions.
 - Intro lesson heroes use `100svh` and lock page overflow while in `data-mode="intro"` so the first screen fits the viewport without vertical scroll; the hero background must render as one continuous image layer, not repeated panels or cropped duplicates.
 - `EXPERIENCE_NARRATIVE_DESIGN_SYSTEM.md` is the source of truth for UX, narrative tone, hook structure, lesson rhythm, debate/source/reward framing, and the cinematic discovery principles that should guide future screen changes.
@@ -60,6 +60,6 @@ After changing any JavaScript module, run `node build-bundle.js` so the browser 
 - The Mesolithic section is intentionally scoped to three lessons: end of the ice age, domestication of animals, and first permanent shelters.
 - The Neolithic Revolution section integrates Neolithic and Metal Ages into five lessons: agriculture, villages and community, mastery of metals, trade and exchange, and birth of civilizations.
 - Whole-era journey cards are configured in `script.js` through `wholeEraJourneyConfig`; each card reuses the era's lesson set and presents it as a chronological timeline.
-- Timeline lesson points must stay minimal: visible copy is only the historical date and short lesson title. Hover feedback carries the cinematic context, using `buildLessonIntroFrame()` for the hook line and `data-section`/`data-mood` in `styles.css` for the matching visual asset.
+- Timeline lesson points must stay minimal: visible copy is only the historical date and short lesson title. Hover feedback carries the cinematic context, using `buildLessonIntroFrame()` for the hook line and `data-section`/`data-mood` in the modular CSS source for the matching visual asset.
 - Story Blocks live in `data/story-blocks.js`, are exposed through `getLessonStoryBlocks()` in `content-service.js`, and are rendered by `lesson-experience.js`. Lesson routes move from intro into a fullscreen linear sequence: story blocks, Reflection Moment, Assimilation Chatbot, Reality Bridge, Critical Lens, Challenge, Reward, and Next Lesson Teaser. `currentLessonStoryBlockIndex` tracks the active story block and `currentPostStoryStep` tracks the post-story screen. These screens are the lesson structure itself and must not render dashboard chrome, tabs, grids, contextual trails, or scroll-heavy article layouts around them.
-- After any curriculum, timeline, or journey-card change, rebuild `bundle.js` with `node build-bundle.js`.
+- After any curriculum, timeline, or journey-card change, rebuild `bundle.js` with `node build-bundle.js`. After any modular CSS change, rebuild `styles.css` with `npm run build:css` or `node build-css.js`.
