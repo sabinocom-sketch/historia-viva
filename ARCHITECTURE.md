@@ -3,7 +3,8 @@
 The app is now split by responsibility:
 
 - `data.js` is a small public facade that re-exports the data modules.
-- `data/eras.js` contains the core historical period content and era-specific content packs.
+- `data/eras.js` contains lightweight era metadata and async loaders for full era content.
+- `data/eras/` contains the full per-era content chunks loaded on demand.
 - `data/timeline.js` contains timeline extensions, timeline taxonomy, and timeline enrichment.
 - `data/quiz.js` contains quiz extensions, quiz taxonomy, and quiz enrichment.
 - `data/debates.js` contains historical debate data.
@@ -21,9 +22,10 @@ The app is now split by responsibility:
 - `screen-assets.js` owns critical screen asset preloading and paint-readiness helpers, currently used to warm the era selection images before the first `learn` transition.
 - `screen-assets.js` also preloads the correct Home hero variant for the current breakpoint/orientation before warming heavier learning assets.
 - `screen-controller.js` owns screen mounting: only the active `.feature-view` stays mounted in `.content-shell`; inactive screens are parked in a document fragment to reduce hidden DOM, layout work, and late visual re-entry.
-- `script.js` contains application behaviour: section rendering, event handlers, conversation assembly, and navigation orchestration.
-- `bundle.js` is the browser-ready classic script generated from the modules, so `index.html` also works when opened directly from the file system.
-- `build-bundle.js` regenerates `bundle.js` after module changes.
+- `bootstrap.js` is the tiny startup layer. It shows Home immediately, loads the full app on deep routes, first meaningful interaction, or idle time, and replays the triggering click once the app is ready.
+- `script.js` contains the full application behaviour: section rendering, event handlers, conversation assembly, and navigation orchestration.
+- `bundle.js` is the generated browser-facing bootstrap. Heavier app code is generated into `chunks/`; do not edit generated JS directly.
+- `build-bundle.js` regenerates `bundle.js` and `chunks/` after module changes.
 - `styles/` contains the modular CSS source files. Edit those files and run `npm run build:css` to regenerate the browser-facing `styles.css`, which is still the only stylesheet linked from `index.html`.
 - `index.html` contains the app shell, the contextual back control, static screen templates that are mounted one at a time by `screen-controller.js`, and the `.orientation-lock-overlay` used to block mobile landscape interaction. The former fixed top navigation bar was removed so movement through the experience stays contextual.
 
@@ -42,7 +44,7 @@ When changing which screen assets must be warm before motion starts, update `scr
 When changing screen lifecycle, active-screen mounting, or how inactive screens are removed from layout, update `screen-controller.js`.
 When changing how a section renders or responds to clicks, use `script.js`.
 When adding generic string/list helpers, prefer `utils.js`.
-After changing any JavaScript module, run `node build-bundle.js` so the browser uses the latest code.
+After changing any JavaScript module, run `npm run build:js` or `node build-bundle.js` so the browser uses the latest generated code.
 
 ## Current curriculum notes
 
@@ -62,4 +64,4 @@ After changing any JavaScript module, run `node build-bundle.js` so the browser 
 - Whole-era journey cards are configured in `script.js` through `wholeEraJourneyConfig`; each card reuses the era's lesson set and presents it as a chronological timeline.
 - Timeline lesson points must stay minimal: visible copy is only the historical date and short lesson title. Hover feedback carries the cinematic context, using `buildLessonIntroFrame()` for the hook line and `data-section`/`data-mood` in the modular CSS source for the matching visual asset.
 - Story Blocks live in `data/story-blocks.js`, are exposed through `getLessonStoryBlocks()` in `content-service.js`, and are rendered by `lesson-experience.js`. Lesson routes move from intro into a fullscreen linear sequence: story blocks, Reflection Moment, Assimilation Chatbot, Reality Bridge, Critical Lens, Challenge, Reward, and Next Lesson Teaser. `currentLessonStoryBlockIndex` tracks the active story block and `currentPostStoryStep` tracks the post-story screen. These screens are the lesson structure itself and must not render dashboard chrome, tabs, grids, contextual trails, or scroll-heavy article layouts around them.
-- After any curriculum, timeline, or journey-card change, rebuild the minified `bundle.js` with `npm run build:js` or `node build-bundle.js`. After any modular CSS change, rebuild `styles.css` with `npm run build:css` or `node build-css.js`.
+- After any curriculum, timeline, journey-card, bootstrap, or app-module change, rebuild the generated JS with `npm run build:js` or `node build-bundle.js`. After any modular CSS change, rebuild `styles.css` with `npm run build:css` or `node build-css.js`.

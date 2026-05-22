@@ -1,5 +1,6 @@
 import {
   eras,
+  eraKeys,
   curriculum,
   debates,
   relatedRules,
@@ -24,7 +25,7 @@ export function getEra(eraKey) {
 }
 
 export function getEraKeys() {
-  return Object.keys(eras);
+  return eraKeys;
 }
 
 export function getEraLessons(eraKey) {

@@ -1,19 +1,24 @@
 const esbuild = require("esbuild");
+const fs = require("fs");
 const path = require("path");
 
 async function build() {
   const root = path.resolve(__dirname);
+  fs.rmSync(path.join(root, "chunks"), { recursive: true, force: true });
 
   await esbuild.build({
     absWorkingDir: root,
-    entryPoints: [path.join(root, "script.js")],
-    outfile: path.join(root, "bundle.js"),
+    entryPoints: [path.join(root, "bootstrap.js")],
+    outdir: root,
     bundle: true,
-    format: "iife",
-    target: ["es2019"],
+    splitting: true,
+    format: "esm",
+    target: ["es2022"],
     minify: true,
     legalComments: "none",
     sourcemap: false,
+    entryNames: "bundle",
+    chunkNames: "chunks/[name]",
     logLevel: "info"
   });
 

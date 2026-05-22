@@ -1,7 +1,7 @@
 // Public data facade for Historia Viva.
 // Heavy content lives in ./data/* so feature modules can stay small and focused.
 
-import { eras } from './data/eras.js';
+import { eras, eraKeys, ensureAllEraData, ensureEraData, isEraLoaded } from './data/eras.js';
 import { timelineExtensions, timelineCategoryLabels, timelineCategoryIcons } from './data/timeline.js';
 import { quizExtensions, quizTypeLabels } from './data/quiz.js';
 import { debates } from './data/debates.js';
@@ -12,6 +12,10 @@ import { storyBlockRules, defaultStoryBlockPattern, categoryStoryBlockPatterns }
 
 export {
   eras,
+  eraKeys,
+  ensureEraData,
+  ensureAllEraData,
+  isEraLoaded,
   curriculum,
   timelineExtensions,
   timelineCategoryLabels,

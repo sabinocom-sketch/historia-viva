@@ -6,7 +6,9 @@ import {
   eraEditorialFrames,
   insightRules,
   experienceFlows,
-  defaultExperienceFlowId
+  defaultExperienceFlowId,
+  ensureAllEraData,
+  ensureEraData
 } from './data.js';
 import { state } from './state.js';
 import { createPreview, escapeHtml, getHistoricalDateOrder, normalizeText, pickFrom, questionSeed } from './utils.js';
@@ -442,7 +444,8 @@ function buildQuizLens(quiz) {
   return `Foco crítico: esta pergunta treina ${quizTypeLabels[quiz.type]?.toLowerCase() || "interpretação histórica"} e obriga a distinguir facto, contexto e consequência.`;
 }
 
-function openRelatedTopic(topic) {
+async function openRelatedTopic(topic) {
+  await ensureAllEraData();
   const virtualPrompt = getVirtualRelatedPrompt(topic);
   const target = findRelatedTarget(topic);
 
@@ -1307,12 +1310,37 @@ function legacyShowSection(section) {
   }
 }
 
-function navigateTo(view, params = {}, options = {}) {
-  const nextView = normalizeView(view);
-  if (isGuardedBootNavigation(nextView)) {
-    navigateTo("home", {}, { replace: true, preserveScroll: true });
+function getEraKeyFromLessonId(lessonId = "") {
+  return Object.keys(eras).find((eraKey) => lessonId.startsWith(`${eraKey}-lesson-`)) || "";
+}
+
+async function ensureRouteData(view, params = {}) {
+  if (view === "journey") {
+    await ensureAllEraData();
     return;
   }
+
+  if (params.lessonId) {
+    const lessonEra = getEraKeyFromLessonId(params.lessonId);
+    if (lessonEra) {
+      await ensureEraData(lessonEra);
+      return;
+    }
+    await ensureAllEraData();
+    return;
+  }
+
+  const eraKey = params.era || state.currentEra;
+  if (eraKey && eras[eraKey]) await ensureEraData(eraKey);
+}
+
+async function navigateTo(view, params = {}, options = {}) {
+  const nextView = normalizeView(view);
+  if (isGuardedBootNavigation(nextView)) {
+    await navigateTo("home", {}, { replace: true, preserveScroll: true });
+    return;
+  }
+  await ensureRouteData(nextView, params);
   const nextRoute = routeConfig[nextView];
   const nextEra = params.era && eras[params.era] ? params.era : "";
   const nextLessonId = params.lessonId || "";
@@ -2025,9 +2053,12 @@ shuffleQuestion.addEventListener("click", () => {
 });
 
 {
-  renderEraData(state.currentEra);
   hasUserNavigationIntent = true;
   const initialRoute = getRouteFromHash();
-  navigateTo(initialRoute.view, initialRoute.params, { replace: true, preserveScroll: true });
+  const initialEra = initialRoute.params.era || getEraKeyFromLessonId(initialRoute.params.lessonId) || state.currentEra;
+  await ensureRouteData(initialRoute.view, initialRoute.params);
+  if (initialEra && eras[initialEra]) state.currentEra = initialEra;
+  renderEraData(state.currentEra);
+  await navigateTo(initialRoute.view, initialRoute.params, { replace: true, preserveScroll: true });
   document.body.classList.remove("is-booting");
 }
