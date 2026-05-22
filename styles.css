@@ -70,6 +70,9 @@
   --asset-licao-arte-rupestre-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/arte-rupestre-portrait.webp");
   --asset-licao-arte-rupestre: var(--asset-licao-arte-rupestre-desktop);
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
+  --asset-background-era-selection-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection.webp");
+  --asset-background-era-selection-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection-portrait.webp");
+  --asset-background-era-selection: var(--asset-background-era-selection-desktop);
   --asset-background-prehistoria-era-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-prehistoria-era-desktop.webp");
   --asset-background-prehistoria-era-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-prehistoria-era-portrait.webp");
   --asset-background-prehistoria-era: var(--asset-background-prehistoria-era-desktop);
@@ -1160,9 +1163,10 @@ body[data-view="learn"] .categories-panel {
     calc(clamp(34px, 6vw, 76px) + var(--safe-left));
   color: #fff8ea;
   background:
-    radial-gradient(circle at 16% 18%, rgba(222, 158, 72, 0.22), transparent 30%),
-    radial-gradient(circle at 84% 64%, rgba(21, 111, 116, 0.22), transparent 34%),
-    linear-gradient(135deg, #111615 0%, #23221d 48%, #172525 100%);
+    radial-gradient(circle at 16% 18%, rgba(222, 158, 72, 0.18), transparent 30%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.52) 44%, rgba(8, 11, 10, 0.2) 100%),
+    linear-gradient(180deg, rgba(8, 11, 10, 0.08) 0%, rgba(8, 11, 10, 0.74) 100%),
+    var(--asset-background-era-selection) center / cover no-repeat;
 }
 
 body[data-view="era"] .categories-panel {
@@ -2408,7 +2412,7 @@ body[data-view="learn"] .categories-panel .path-card.active .path-meta {
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .path-card-visual {
-  background: var(--asset-background-prehistoria-era) center / cover no-repeat;
+  background: var(--asset-pre-historia) center / cover no-repeat;
 }
 
 .path-card[data-era="antiga"] .path-card-visual {
@@ -2418,7 +2422,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .pa
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-card-visual {
-  background: var(--asset-background-antiguidade-era) center / cover no-repeat;
+  background: var(--asset-idade-antiga) center / cover no-repeat;
 }
 
 .path-card[data-era="medieval"] .path-card-visual {
@@ -2428,7 +2432,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-ca
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="medieval"] .path-card-visual {
-  background: var(--asset-background-idade-media-era) center / cover no-repeat;
+  background: var(--asset-idade-media) center / cover no-repeat;
 }
 
 .path-card[data-era="moderna"] .path-card-visual {
@@ -2661,14 +2665,14 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
 .subpath-timeline-hero[data-subpath-hero="toda-antiguidade"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.26)),
-    var(--asset-background-antiguidade-era) center / cover no-repeat;
+    var(--asset-idade-antiga) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-medieval"] .subpath-visual,
 .subpath-timeline-hero[data-subpath-hero="toda-idade-medieval"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
-    var(--asset-background-idade-media-era) center / cover no-repeat;
+    var(--asset-idade-media) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-moderna"] .subpath-visual,
@@ -5454,24 +5458,24 @@ body[data-view="lesson"] .lesson-mode-panel p {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(8, 11, 10, 0.05), rgba(8, 11, 10, 0.42)),
-    var(--timeline-hover-image, var(--asset-background-prehistoria-era)) center / cover no-repeat;
+    var(--timeline-hover-image, var(--asset-pre-historia)) center / cover no-repeat;
   box-shadow: inset 0 0 0 1px rgba(255, 248, 234, 0.24);
   overflow: hidden;
 }
 
 .timeline-view-item[data-era="prehistoria"],
 .timeline-item[data-era="prehistoria"] {
-  --timeline-hover-image: var(--asset-background-prehistoria-era);
+  --timeline-hover-image: var(--asset-pre-historia);
 }
 
 .timeline-view-item[data-era="antiga"],
 .timeline-item[data-era="antiga"] {
-  --timeline-hover-image: var(--asset-background-antiguidade-era);
+  --timeline-hover-image: var(--asset-idade-antiga);
 }
 
 .timeline-view-item[data-era="medieval"],
 .timeline-item[data-era="medieval"] {
-  --timeline-hover-image: var(--asset-background-idade-media-era);
+  --timeline-hover-image: var(--asset-idade-media);
 }
 
 .timeline-view-item[data-era="moderna"],
@@ -6660,6 +6664,7 @@ blockquote {
     --asset-idade-contemporanea: var(--asset-idade-contemporanea-mobile);
     --asset-historia-portugal: var(--asset-historia-portugal-mobile);
     --asset-grande-jornada-historica: var(--asset-grande-jornada-historica-mobile);
+    --asset-background-era-selection: var(--asset-background-era-selection-mobile);
     --asset-background-prehistoria-era: var(--asset-background-prehistoria-era-mobile);
     --asset-background-antiguidade-era: var(--asset-background-antiguidade-era-mobile);
     --asset-background-idade-media-era: var(--asset-background-idade-media-era-mobile);

@@ -561,9 +561,10 @@ body[data-view="learn"] .categories-panel {
     calc(clamp(34px, 6vw, 76px) + var(--safe-left));
   color: #fff8ea;
   background:
-    radial-gradient(circle at 16% 18%, rgba(222, 158, 72, 0.22), transparent 30%),
-    radial-gradient(circle at 84% 64%, rgba(21, 111, 116, 0.22), transparent 34%),
-    linear-gradient(135deg, #111615 0%, #23221d 48%, #172525 100%);
+    radial-gradient(circle at 16% 18%, rgba(222, 158, 72, 0.18), transparent 30%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.52) 44%, rgba(8, 11, 10, 0.2) 100%),
+    linear-gradient(180deg, rgba(8, 11, 10, 0.08) 0%, rgba(8, 11, 10, 0.74) 100%),
+    var(--asset-background-era-selection) center / cover no-repeat;
 }
 
 body[data-view="era"] .categories-panel {

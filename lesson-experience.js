@@ -448,28 +448,28 @@ function clampStoryBlockIndex(blocks) {
   return state.currentLessonStoryBlockIndex;
 }
 
-export function goToNextStoryBlock({ updateLessonProgress, renderCategorySections }) {
+export async function goToNextStoryBlock({ updateLessonProgress, renderCategorySections }) {
   const blocks = getLessonStoryBlocks(state.currentLessonId);
   const index = clampStoryBlockIndex(blocks);
   if (index < blocks.length - 1) {
     state.currentLessonStoryBlockIndex = index + 1;
     updateLessonProgress(state.currentLessonId, { viewed: true, storyBlockIndex: state.currentLessonStoryBlockIndex });
-    renderCategorySections();
+    await renderCategorySections();
     return;
   }
   state.currentLessonMode = "reflection";
   state.currentPostStoryStep = "reflection";
   state.currentLessonStoryBlockIndex = 0;
   updateLessonProgress(state.currentLessonId, { viewed: true, storyCompleted: true });
-  renderCategorySections();
+  await renderCategorySections();
 }
 
-export function goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections }) {
+export async function goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections }) {
   const blocks = getLessonStoryBlocks(state.currentLessonId);
   const index = clampStoryBlockIndex(blocks);
   state.currentLessonStoryBlockIndex = Math.max(0, index - 1);
   updateLessonProgress(state.currentLessonId, { viewed: true, storyBlockIndex: state.currentLessonStoryBlockIndex });
-  renderCategorySections();
+  await renderCategorySections();
 }
 
 export function buildLessonIntroFrame(lesson) {

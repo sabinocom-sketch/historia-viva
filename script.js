@@ -944,34 +944,34 @@ async function runLessonAction(action, nextLessonId = "") {
     if (postStoryModes.includes(state.currentLessonMode)) state.currentPostStoryStep = state.currentLessonMode;
     if (action === "challenge") state.currentLessonQuizChoice = null;
     if (state.currentLessonMode === "reflection") updateLessonProgress(lesson.id, { viewed: true, storyCompleted: true });
-    renderCategorySections();
+    await renderCategorySections();
     addXp(state.currentLessonMode === "story" ? 2 : 6, `Abriste ${state.currentLessonMode === "story" ? "a descoberta" : "uma etapa"} da lição ativa.`);
     return;
   }
 
   if (action === "story-next") {
     const { goToNextStoryBlock } = await getLessonExperience();
-    goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
+    await goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
     return;
   }
 
   if (action === "story-prev") {
     const { goToPreviousStoryBlock } = await getLessonExperience();
-    goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections });
+    await goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections });
     return;
   }
 
   if (action === "mission") {
     state.currentLessonMode = "mission";
     updateLessonProgress(lesson.id, { viewed: true, debated: true });
-    renderCategorySections();
+    await renderCategorySections();
     navigateTo("mission", { era: lesson.eraKey });
     return;
   }
 
   if (action === "complete") {
     updateLessonProgress(lesson.id, { viewed: true, completed: true });
-    renderCategorySections();
+    await renderCategorySections();
     addXp(24, "Concluíste uma lição.");
     navigateTo("progress");
     return;
@@ -979,7 +979,7 @@ async function runLessonAction(action, nextLessonId = "") {
 
   if (action === "timeline") {
     updateLessonProgress(lesson.id, { viewed: true, completed: true });
-    renderCategorySections();
+    await renderCategorySections();
     addXp(24, "Concluíste uma lição.");
     navigateTo("timeline", { era: lesson.eraKey, subpathId: state.currentSubpathId });
     return;
@@ -999,7 +999,7 @@ async function runLessonAction(action, nextLessonId = "") {
   if (action === "next") {
     if (state.currentLessonMode === "story" || state.currentLessonMode === "understand") {
       const { goToNextStoryBlock } = await getLessonExperience();
-      goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
+      await goToNextStoryBlock({ updateLessonProgress, renderCategorySections });
       return;
     }
     if (state.currentFlowId) {
@@ -1008,7 +1008,7 @@ async function runLessonAction(action, nextLessonId = "") {
         state.currentLessonMode = nextMode;
         if (postStoryModes.includes(nextMode)) state.currentPostStoryStep = nextMode;
         if (nextMode === "challenge") state.currentLessonQuizChoice = null;
-        renderCategorySections();
+        await renderCategorySections();
         return;
       }
       goToNextStep();
@@ -1019,7 +1019,7 @@ async function runLessonAction(action, nextLessonId = "") {
       state.currentLessonMode = nextMode;
       if (postStoryModes.includes(nextMode)) state.currentPostStoryStep = nextMode;
       if (nextMode === "challenge") state.currentLessonQuizChoice = null;
-      renderCategorySections();
+      await renderCategorySections();
       if (nextMode === "mission") navigateTo("mission", { era: lesson.eraKey });
       if (nextMode === "reward") navigateTo("lesson", { lessonId: lesson.id });
       return;
@@ -1927,7 +1927,7 @@ document.addEventListener("wheel", (event) => {
   }
 }, { passive: false });
 
-document.addEventListener("click", (event) => {
+document.addEventListener("click", async (event) => {
   const flowButton = event.target.closest("[data-flow-action]");
   if (flowButton) {
     markUserNavigationIntent();
@@ -1953,7 +1953,7 @@ document.addEventListener("click", (event) => {
   const lessonAction = event.target.closest("[data-lesson-action]");
   if (lessonAction) {
     markUserNavigationIntent();
-    runLessonAction(lessonAction.dataset.lessonAction, lessonAction.dataset.nextLesson);
+    await runLessonAction(lessonAction.dataset.lessonAction, lessonAction.dataset.nextLesson);
     return;
   }
 
