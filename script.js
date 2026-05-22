@@ -413,7 +413,7 @@ function getRouteFromHash() {
       era: eraParam && eras[eraParam] ? eraParam : "",
       lessonId: view === "lesson" ? decodeURIComponent(primaryParam || "") : "",
       subpathId: ["subpath", "timeline"].includes(view) ? decodeURIComponent(secondaryParam || "") : "",
-      mode: view === "lesson" ? secondaryParam || "" : ""
+      mode: ""
     }
   };
 }
@@ -819,8 +819,7 @@ function syncStepContext(step) {
     if (lesson) {
       state.currentLessonId = lesson.id;
       state.currentTimelineLesson = lesson.index;
-      state.currentLessonMode = "story";
-      state.currentLessonStoryBlockIndex = 0;
+      resetLessonEntryState("story");
       updateLessonProgress(lesson.id, { viewed: true });
       renderCategorySections();
     }
@@ -912,12 +911,9 @@ function selectTimelineLesson(eraKey, lessonIndex) {
   renderEra(eraKey);
   state.currentTimelineLesson = lessonIndex;
   state.currentLessonId = lesson?.id || "";
-  state.currentLessonStoryBlockIndex = 0;
+  resetLessonEntryState();
   const flowLessonStep = getExperienceFlow()?.steps.find((step) => step.lessonId === state.currentLessonId);
   if (flowLessonStep) state.currentStepId = flowLessonStep.id;
-  state.currentLessonMode = "intro";
-  state.currentPostStoryStep = "reflection";
-  state.currentLessonQuizChoice = null;
   updateLessonProgress(state.currentLessonId, { viewed: true });
   renderCategorySections();
   navigateTo("lesson", { lessonId: state.currentLessonId }, { replace: state.currentView === "lesson" });
@@ -987,10 +983,7 @@ async function runLessonAction(action, nextLessonId = "") {
   if (action === "next-lesson") {
     updateLessonProgress(lesson.id, { viewed: true, completed: true });
     addXp(24, "Concluíste uma lição.");
-    state.currentLessonMode = "intro";
-    state.currentPostStoryStep = "reflection";
-    state.currentLessonStoryBlockIndex = 0;
-    state.currentLessonQuizChoice = null;
+    resetLessonEntryState();
     openLessonById(nextLessonId || getNextLesson(lesson.eraKey, lesson.id)?.id);
     return;
   }
@@ -1024,10 +1017,7 @@ async function runLessonAction(action, nextLessonId = "") {
       return;
     }
     updateLessonProgress(lesson.id, { viewed: true, completed: true });
-    state.currentLessonMode = "story";
-    state.currentLessonStoryBlockIndex = 0;
-    state.currentPostStoryStep = "reflection";
-    state.currentLessonQuizChoice = null;
+    resetLessonEntryState("story");
     openLessonById(nextLessonId || getNextLesson(lesson.eraKey, lesson.id)?.id);
   }
 }
@@ -1040,6 +1030,13 @@ function getNextLessonMode(mode) {
   return flow[index + 1];
 }
 
+function resetLessonEntryState(mode = "intro") {
+  state.currentLessonMode = mode;
+  state.currentLessonStoryBlockIndex = 0;
+  state.currentPostStoryStep = "reflection";
+  state.currentLessonQuizChoice = null;
+}
+
 function renderEra(key, options = {}) {
   const changedEra = state.currentEra !== key;
   state.currentEra = key;
@@ -1050,10 +1047,7 @@ function renderEra(key, options = {}) {
   if (changedEra) state.currentSubpathId = "";
   if (changedEra) state.currentTimelineLesson = 0;
   if (changedEra) state.currentLessonId = "";
-  if (changedEra) state.currentLessonMode = "story";
-  if (changedEra) state.currentLessonStoryBlockIndex = 0;
-  if (changedEra) state.currentPostStoryStep = "reflection";
-  if (changedEra) state.currentLessonQuizChoice = null;
+  if (changedEra) resetLessonEntryState();
   eraButtons.forEach((button) => button.classList.toggle("active", button.dataset.era === key));
   if (state.currentView === "home") {
     eraRange.textContent = "Uma jornada cinematográfica pela humanidade";
@@ -1415,7 +1409,7 @@ async function navigateTo(view, params = {}, options = {}) {
       state.currentTimelineLesson = lesson.index;
       state.currentLessonId = lesson.id;
       updateLessonProgress(lesson.id, { viewed: true });
-      if (!params.mode) state.currentLessonMode = "intro";
+      if (!params.mode) resetLessonEntryState();
     }
   }
 

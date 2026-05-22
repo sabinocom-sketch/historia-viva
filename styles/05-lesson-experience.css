@@ -1046,12 +1046,6 @@ body[data-view="lesson"] .lesson-experience {
   grid-area: actions;
 }
 
-.reflection-moment .post-story-background {
-  background:
-    radial-gradient(circle at 22% 34%, rgba(241, 199, 121, 0.22), transparent 24%),
-    linear-gradient(135deg, #101413 0%, #25251f 56%, #3d2a1d 100%);
-}
-
 .lesson-experience[data-section="paleolitico"] .story-block-background,
 .lesson-experience[data-section="paleolitico"] .post-story-background,
 .story-block[data-section="paleolitico"] .story-block-background,
@@ -1092,6 +1086,21 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
     var(--asset-background-licao-neolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
     #101413;
   filter: var(--era-prehistoria-story-filter);
+}
+
+.reflection-moment .post-story-background {
+  background:
+    radial-gradient(circle at 22% 34%, rgba(241, 199, 121, 0.22), transparent 24%),
+    linear-gradient(135deg, #101413 0%, #25251f 56%, #3d2a1d 100%);
+  filter: none;
+}
+
+.assimilation-chatbot .post-story-background {
+  background:
+    radial-gradient(circle at 18% 28%, rgba(92, 198, 187, 0.18), transparent 24%),
+    radial-gradient(circle at 82% 72%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(135deg, #0f1717 0%, #1d2723 56%, #34291f 100%);
+  filter: none;
 }
 
 .story-block[data-section="paleolitico"][data-background^="stone"] .story-block-background,
