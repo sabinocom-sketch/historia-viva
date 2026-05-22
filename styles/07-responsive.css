@@ -572,6 +572,12 @@
     --asset-idade-contemporanea: var(--asset-idade-contemporanea-mobile);
     --asset-historia-portugal: var(--asset-historia-portugal-mobile);
     --asset-grande-jornada-historica: var(--asset-grande-jornada-historica-mobile);
+    --asset-background-prehistoria-era: var(--asset-background-prehistoria-era-mobile);
+    --asset-background-antiguidade-era: var(--asset-background-antiguidade-era-mobile);
+    --asset-background-idade-media-era: var(--asset-background-idade-media-era-mobile);
+    --asset-background-licao-paleolitico: var(--asset-background-licao-paleolitico-mobile);
+    --asset-background-licao-mesolitico: var(--asset-background-licao-mesolitico-mobile);
+    --asset-background-licao-neolitico: var(--asset-background-licao-neolitico-mobile);
     --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-mobile);
     --asset-subpercurso-antiga-sumeria: var(--asset-subpercurso-antiga-sumeria-mobile);
     --asset-subpercurso-antiga-babilonia: var(--asset-subpercurso-antiga-babilonia-mobile);

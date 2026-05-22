@@ -70,9 +70,24 @@
   --asset-licao-arte-rupestre-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/arte-rupestre-portrait.webp");
   --asset-licao-arte-rupestre: var(--asset-licao-arte-rupestre-desktop);
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
-  --asset-background-licao-paleolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-paleolitico.webp");
-  --asset-background-licao-mesolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-mesolitico.webp");
-  --asset-background-licao-neolitico: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-neolitico.webp");
+  --asset-background-prehistoria-era-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-prehistoria-era-desktop.webp");
+  --asset-background-prehistoria-era-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-prehistoria-era-portrait.webp");
+  --asset-background-prehistoria-era: var(--asset-background-prehistoria-era-desktop);
+  --asset-background-antiguidade-era-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-antiguidade-era-desktop.webp");
+  --asset-background-antiguidade-era-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-antiguidade-era-portrait.webp");
+  --asset-background-antiguidade-era: var(--asset-background-antiguidade-era-desktop);
+  --asset-background-idade-media-era-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-idade-media-era-desktop.webp");
+  --asset-background-idade-media-era-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-idade-media-era-portrait.webp");
+  --asset-background-idade-media-era: var(--asset-background-idade-media-era-desktop);
+  --asset-background-licao-paleolitico-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-paleolitico-desktop.webp");
+  --asset-background-licao-paleolitico-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-paleolitico-portrait.webp");
+  --asset-background-licao-paleolitico: var(--asset-background-licao-paleolitico-desktop);
+  --asset-background-licao-mesolitico-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-mesolitico-desktop.webp");
+  --asset-background-licao-mesolitico-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-mesolitico-portrait.webp");
+  --asset-background-licao-mesolitico: var(--asset-background-licao-mesolitico-desktop);
+  --asset-background-licao-neolitico-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-neolitico-desktop.webp");
+  --asset-background-licao-neolitico-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/background-licao-neolitico-portrait.webp");
+  --asset-background-licao-neolitico: var(--asset-background-licao-neolitico-desktop);
   --era-prehistoria-ink: #101413;
   --era-prehistoria-surface: #2c241b;
   --era-prehistoria-accent: #f1c779;
@@ -1243,7 +1258,7 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .subpath-portal-screen[data-era-world="prehistoria"] {
-  --subpath-portal-image: var(--asset-pre-historia);
+  --subpath-portal-image: var(--asset-background-prehistoria-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="paleolitico"] {
@@ -1264,7 +1279,7 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .subpath-portal-screen[data-era-world="antiga"] {
-  --subpath-portal-image: var(--asset-idade-antiga);
+  --subpath-portal-image: var(--asset-background-antiguidade-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="antigo-egipto"] {
@@ -1308,7 +1323,7 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .subpath-portal-screen[data-era-world="medieval"] {
-  --subpath-portal-image: var(--asset-idade-media);
+  --subpath-portal-image: var(--asset-background-idade-media-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="invasoes-barbaras"] {
@@ -1434,15 +1449,15 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .era-portal-screen[data-era-world="prehistoria"] {
-  --era-portal-image: var(--asset-pre-historia);
+  --era-portal-image: var(--asset-background-prehistoria-era);
 }
 
 .era-portal-screen[data-era-world="antiga"] {
-  --era-portal-image: var(--asset-idade-antiga);
+  --era-portal-image: var(--asset-background-antiguidade-era);
 }
 
 .era-portal-screen[data-era-world="medieval"] {
-  --era-portal-image: var(--asset-idade-media);
+  --era-portal-image: var(--asset-background-idade-media-era);
 }
 
 .era-portal-screen[data-era-world="moderna"] {
@@ -1534,7 +1549,22 @@ body[data-view="lesson"] .categories-panel {
 .era-world-screen[data-era-world="prehistoria"] {
   background:
     radial-gradient(circle at 24% 34%, rgba(232, 173, 77, 0.34), transparent 24%),
-    linear-gradient(115deg, #111412 0%, #211d18 38%, #5b4029 72%, #2b2118 100%);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.14) 100%),
+    var(--asset-background-prehistoria-era) center / cover no-repeat;
+}
+
+.era-world-screen[data-era-world="antiga"] {
+  background:
+    radial-gradient(circle at 74% 24%, rgba(241, 199, 121, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.48) 42%, rgba(8, 11, 10, 0.14) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
+}
+
+.era-world-screen[data-era-world="medieval"] {
+  background:
+    radial-gradient(circle at 72% 26%, rgba(218, 191, 121, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .era-world-hero {
@@ -1732,14 +1762,15 @@ body[data-view="lesson"] .categories-panel {
 .timeline-view-screen[data-era-world="prehistoria"] {
   background:
     radial-gradient(circle at 18% 24%, rgba(232, 173, 77, 0.24), transparent 24%),
-    radial-gradient(circle at 78% 48%, rgba(124, 90, 53, 0.5), transparent 30%),
-    linear-gradient(115deg, #111412 0%, #211d18 42%, #4b3524 78%, #1c1915 100%);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.18) 100%),
+    var(--asset-background-prehistoria-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-era-world="antiga"] {
   background:
-    linear-gradient(90deg, rgba(255, 250, 240, 0.08) 0 10%, transparent 10% 18%, rgba(255, 250, 240, 0.08) 18% 27%, transparent 27%),
-    linear-gradient(135deg, #202a2c 0%, #455458 44%, #9a8359 100%);
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-subpath-timeline="antigo-egipto"] {
@@ -1816,7 +1847,7 @@ body[data-view="lesson"] .categories-panel {
   background:
     radial-gradient(circle at 76% 22%, rgba(218, 191, 121, 0.16), transparent 24%),
     linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.16) 100%),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-subpath-timeline="invasoes-barbaras"] {
@@ -1875,7 +1906,7 @@ body[data-view="lesson"] .categories-panel {
   background:
     radial-gradient(circle at 76% 22%, rgba(218, 191, 121, 0.16), transparent 24%),
     linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
-    var(--timeline-view-image, var(--asset-idade-media)) center / cover no-repeat;
+    var(--timeline-view-image, var(--asset-background-idade-media-era)) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-era-world="moderna"] {
@@ -2377,7 +2408,7 @@ body[data-view="learn"] .categories-panel .path-card.active .path-meta {
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .path-card-visual {
-  background: var(--asset-pre-historia) center / cover no-repeat;
+  background: var(--asset-background-prehistoria-era) center / cover no-repeat;
 }
 
 .path-card[data-era="antiga"] .path-card-visual {
@@ -2387,7 +2418,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .pa
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-card-visual {
-  background: var(--asset-idade-antiga) center / cover no-repeat;
+  background: var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .path-card[data-era="medieval"] .path-card-visual {
@@ -2397,7 +2428,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-ca
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="medieval"] .path-card-visual {
-  background: var(--asset-idade-media) center / cover no-repeat;
+  background: var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .path-card[data-era="moderna"] .path-card-visual {
@@ -2630,14 +2661,14 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
 .subpath-timeline-hero[data-subpath-hero="toda-antiguidade"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.26)),
-    var(--asset-idade-antiga) center / cover no-repeat;
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-medieval"] .subpath-visual,
 .subpath-timeline-hero[data-subpath-hero="toda-idade-medieval"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-moderna"] .subpath-visual,
@@ -3548,14 +3579,14 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"][data-mood="fir
 
 .lesson-view[data-era="antiga"] .lesson-hero-image {
   background:
-    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 36%, rgba(255, 250, 240, 0.78) 36% 46%, transparent 46% 54%, rgba(255, 250, 240, 0.78) 54% 64%, transparent 64%),
-    linear-gradient(135deg, #5f6f74, #c4b08a);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.42) 44%, rgba(8, 11, 10, 0.12) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .lesson-view[data-era="medieval"] .lesson-hero-image {
   background:
     linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.42) 44%, rgba(8, 11, 10, 0.12) 100%),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .lesson-view[data-era="moderna"] .lesson-hero-image {
@@ -5423,24 +5454,24 @@ body[data-view="lesson"] .lesson-mode-panel p {
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(8, 11, 10, 0.05), rgba(8, 11, 10, 0.42)),
-    var(--timeline-hover-image, var(--asset-pre-historia)) center / cover no-repeat;
+    var(--timeline-hover-image, var(--asset-background-prehistoria-era)) center / cover no-repeat;
   box-shadow: inset 0 0 0 1px rgba(255, 248, 234, 0.24);
   overflow: hidden;
 }
 
 .timeline-view-item[data-era="prehistoria"],
 .timeline-item[data-era="prehistoria"] {
-  --timeline-hover-image: var(--asset-pre-historia);
+  --timeline-hover-image: var(--asset-background-prehistoria-era);
 }
 
 .timeline-view-item[data-era="antiga"],
 .timeline-item[data-era="antiga"] {
-  --timeline-hover-image: var(--asset-idade-antiga);
+  --timeline-hover-image: var(--asset-background-antiguidade-era);
 }
 
 .timeline-view-item[data-era="medieval"],
 .timeline-item[data-era="medieval"] {
-  --timeline-hover-image: var(--asset-idade-media);
+  --timeline-hover-image: var(--asset-background-idade-media-era);
 }
 
 .timeline-view-item[data-era="moderna"],
@@ -6629,6 +6660,12 @@ blockquote {
     --asset-idade-contemporanea: var(--asset-idade-contemporanea-mobile);
     --asset-historia-portugal: var(--asset-historia-portugal-mobile);
     --asset-grande-jornada-historica: var(--asset-grande-jornada-historica-mobile);
+    --asset-background-prehistoria-era: var(--asset-background-prehistoria-era-mobile);
+    --asset-background-antiguidade-era: var(--asset-background-antiguidade-era-mobile);
+    --asset-background-idade-media-era: var(--asset-background-idade-media-era-mobile);
+    --asset-background-licao-paleolitico: var(--asset-background-licao-paleolitico-mobile);
+    --asset-background-licao-mesolitico: var(--asset-background-licao-mesolitico-mobile);
+    --asset-background-licao-neolitico: var(--asset-background-licao-neolitico-mobile);
     --asset-subpercurso-antigo-egipto: var(--asset-subpercurso-antigo-egipto-mobile);
     --asset-subpercurso-antiga-sumeria: var(--asset-subpercurso-antiga-sumeria-mobile);
     --asset-subpercurso-antiga-babilonia: var(--asset-subpercurso-antiga-babilonia-mobile);

@@ -55,7 +55,7 @@
 }
 
 .subpath-portal-screen[data-era-world="prehistoria"] {
-  --subpath-portal-image: var(--asset-pre-historia);
+  --subpath-portal-image: var(--asset-background-prehistoria-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="paleolitico"] {
@@ -76,7 +76,7 @@
 }
 
 .subpath-portal-screen[data-era-world="antiga"] {
-  --subpath-portal-image: var(--asset-idade-antiga);
+  --subpath-portal-image: var(--asset-background-antiguidade-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="antigo-egipto"] {
@@ -120,7 +120,7 @@
 }
 
 .subpath-portal-screen[data-era-world="medieval"] {
-  --subpath-portal-image: var(--asset-idade-media);
+  --subpath-portal-image: var(--asset-background-idade-media-era);
 }
 
 .subpath-portal-screen[data-subpath-hero="invasoes-barbaras"] {
@@ -246,15 +246,15 @@
 }
 
 .era-portal-screen[data-era-world="prehistoria"] {
-  --era-portal-image: var(--asset-pre-historia);
+  --era-portal-image: var(--asset-background-prehistoria-era);
 }
 
 .era-portal-screen[data-era-world="antiga"] {
-  --era-portal-image: var(--asset-idade-antiga);
+  --era-portal-image: var(--asset-background-antiguidade-era);
 }
 
 .era-portal-screen[data-era-world="medieval"] {
-  --era-portal-image: var(--asset-idade-media);
+  --era-portal-image: var(--asset-background-idade-media-era);
 }
 
 .era-portal-screen[data-era-world="moderna"] {
@@ -346,7 +346,22 @@
 .era-world-screen[data-era-world="prehistoria"] {
   background:
     radial-gradient(circle at 24% 34%, rgba(232, 173, 77, 0.34), transparent 24%),
-    linear-gradient(115deg, #111412 0%, #211d18 38%, #5b4029 72%, #2b2118 100%);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.14) 100%),
+    var(--asset-background-prehistoria-era) center / cover no-repeat;
+}
+
+.era-world-screen[data-era-world="antiga"] {
+  background:
+    radial-gradient(circle at 74% 24%, rgba(241, 199, 121, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.48) 42%, rgba(8, 11, 10, 0.14) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
+}
+
+.era-world-screen[data-era-world="medieval"] {
+  background:
+    radial-gradient(circle at 72% 26%, rgba(218, 191, 121, 0.18), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .era-world-hero {
@@ -544,14 +559,15 @@
 .timeline-view-screen[data-era-world="prehistoria"] {
   background:
     radial-gradient(circle at 18% 24%, rgba(232, 173, 77, 0.24), transparent 24%),
-    radial-gradient(circle at 78% 48%, rgba(124, 90, 53, 0.5), transparent 30%),
-    linear-gradient(115deg, #111412 0%, #211d18 42%, #4b3524 78%, #1c1915 100%);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.18) 100%),
+    var(--asset-background-prehistoria-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-era-world="antiga"] {
   background:
-    linear-gradient(90deg, rgba(255, 250, 240, 0.08) 0 10%, transparent 10% 18%, rgba(255, 250, 240, 0.08) 18% 27%, transparent 27%),
-    linear-gradient(135deg, #202a2c 0%, #455458 44%, #9a8359 100%);
+    radial-gradient(circle at 78% 20%, rgba(241, 199, 121, 0.16), transparent 24%),
+    linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-subpath-timeline="antigo-egipto"] {
@@ -628,7 +644,7 @@
   background:
     radial-gradient(circle at 76% 22%, rgba(218, 191, 121, 0.16), transparent 24%),
     linear-gradient(90deg, rgba(8, 11, 10, 0.88) 0%, rgba(8, 11, 10, 0.5) 42%, rgba(8, 11, 10, 0.16) 100%),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-subpath-timeline="invasoes-barbaras"] {
@@ -687,7 +703,7 @@
   background:
     radial-gradient(circle at 76% 22%, rgba(218, 191, 121, 0.16), transparent 24%),
     linear-gradient(90deg, rgba(8, 11, 10, 0.9) 0%, rgba(8, 11, 10, 0.52) 42%, rgba(8, 11, 10, 0.16) 100%),
-    var(--timeline-view-image, var(--asset-idade-media)) center / cover no-repeat;
+    var(--timeline-view-image, var(--asset-background-idade-media-era)) center / cover no-repeat;
 }
 
 .timeline-view-screen[data-era-world="moderna"] {

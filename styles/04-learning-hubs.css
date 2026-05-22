@@ -253,7 +253,7 @@ body[data-view="learn"] .categories-panel .path-card.active .path-meta {
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .path-card-visual {
-  background: var(--asset-pre-historia) center / cover no-repeat;
+  background: var(--asset-background-prehistoria-era) center / cover no-repeat;
 }
 
 .path-card[data-era="antiga"] .path-card-visual {
@@ -263,7 +263,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="prehistoria"] .pa
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-card-visual {
-  background: var(--asset-idade-antiga) center / cover no-repeat;
+  background: var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .path-card[data-era="medieval"] .path-card-visual {
@@ -273,7 +273,7 @@ body[data-view="learn"] .categories-panel .path-card[data-era="antiga"] .path-ca
 }
 
 body[data-view="learn"] .categories-panel .path-card[data-era="medieval"] .path-card-visual {
-  background: var(--asset-idade-media) center / cover no-repeat;
+  background: var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .path-card[data-era="moderna"] .path-card-visual {
@@ -506,14 +506,14 @@ body[data-view="era"] .era-world-screen .era-hub[data-era-hub="prehistoria"] {
 .subpath-timeline-hero[data-subpath-hero="toda-antiguidade"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.82), rgba(24, 32, 37, 0.26)),
-    var(--asset-idade-antiga) center / cover no-repeat;
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-medieval"] .subpath-visual,
 .subpath-timeline-hero[data-subpath-hero="toda-idade-medieval"] {
   background:
     linear-gradient(90deg, rgba(24, 32, 37, 0.84), rgba(24, 32, 37, 0.28)),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .subpath-card[data-subpath="toda-idade-moderna"] .subpath-visual,

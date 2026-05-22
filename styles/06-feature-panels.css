@@ -700,24 +700,24 @@
   border-radius: 8px;
   background:
     linear-gradient(180deg, rgba(8, 11, 10, 0.05), rgba(8, 11, 10, 0.42)),
-    var(--timeline-hover-image, var(--asset-pre-historia)) center / cover no-repeat;
+    var(--timeline-hover-image, var(--asset-background-prehistoria-era)) center / cover no-repeat;
   box-shadow: inset 0 0 0 1px rgba(255, 248, 234, 0.24);
   overflow: hidden;
 }
 
 .timeline-view-item[data-era="prehistoria"],
 .timeline-item[data-era="prehistoria"] {
-  --timeline-hover-image: var(--asset-pre-historia);
+  --timeline-hover-image: var(--asset-background-prehistoria-era);
 }
 
 .timeline-view-item[data-era="antiga"],
 .timeline-item[data-era="antiga"] {
-  --timeline-hover-image: var(--asset-idade-antiga);
+  --timeline-hover-image: var(--asset-background-antiguidade-era);
 }
 
 .timeline-view-item[data-era="medieval"],
 .timeline-item[data-era="medieval"] {
-  --timeline-hover-image: var(--asset-idade-media);
+  --timeline-hover-image: var(--asset-background-idade-media-era);
 }
 
 .timeline-view-item[data-era="moderna"],

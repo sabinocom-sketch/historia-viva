@@ -248,14 +248,14 @@ body[data-view="lesson"] .lesson-view[data-section="paleolitico"][data-mood="fir
 
 .lesson-view[data-era="antiga"] .lesson-hero-image {
   background:
-    linear-gradient(90deg, transparent 0 18%, rgba(255, 250, 240, 0.78) 18% 28%, transparent 28% 36%, rgba(255, 250, 240, 0.78) 36% 46%, transparent 46% 54%, rgba(255, 250, 240, 0.78) 54% 64%, transparent 64%),
-    linear-gradient(135deg, #5f6f74, #c4b08a);
+    linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.42) 44%, rgba(8, 11, 10, 0.12) 100%),
+    var(--asset-background-antiguidade-era) center / cover no-repeat;
 }
 
 .lesson-view[data-era="medieval"] .lesson-hero-image {
   background:
     linear-gradient(90deg, rgba(8, 11, 10, 0.86) 0%, rgba(8, 11, 10, 0.42) 44%, rgba(8, 11, 10, 0.12) 100%),
-    var(--asset-idade-media) center / cover no-repeat;
+    var(--asset-background-idade-media-era) center / cover no-repeat;
 }
 
 .lesson-view[data-era="moderna"] .lesson-hero-image {
