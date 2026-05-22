@@ -147,7 +147,6 @@ window.addEventListener("resize", syncViewportOrientation, { passive: true });
 window.addEventListener("orientationchange", syncViewportOrientation, { passive: true });
 
 preloadHeroAssets();
-window.setTimeout(preloadLearnAssets, 140);
 
 let routeMotionTimer = 0;
 let xpMotionTimer = 0;
