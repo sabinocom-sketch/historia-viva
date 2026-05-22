@@ -1942,7 +1942,7 @@ document.addEventListener("click", async (event) => {
     const view = routeButton.dataset.route;
     const lesson = getLessonById(state.currentLessonId) || getEraLessons(state.currentEra)[0];
     const scopedRoutes = ["portal", "era", "explore", "quiz", "debate", "mission", "source"];
-    navigateTo(view, {
+    await navigateTo(view, {
       era: scopedRoutes.includes(view) ? state.currentEra : "",
       lessonId: view === "lesson" ? lesson?.id : "",
       subpathId: ["subpath", "timeline"].includes(view) ? state.currentSubpathId : ""

@@ -1,6 +1,7 @@
 const interactiveSelector = [
   "[data-route]",
   "[data-flow-action]",
+  "[data-lesson-action]",
   "[data-era]",
   "#daily-curiosity",
   "#shuffle-question",

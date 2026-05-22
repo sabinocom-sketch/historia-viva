@@ -4,7 +4,7 @@ const path = require("path");
 
 async function build() {
   const root = path.resolve(__dirname);
-  fs.rmSync(path.join(root, "chunks"), { recursive: true, force: true });
+  fs.mkdirSync(path.join(root, "chunks"), { recursive: true });
 
   await esbuild.build({
     absWorkingDir: root,
