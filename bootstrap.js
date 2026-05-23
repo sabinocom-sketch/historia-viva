@@ -9,6 +9,7 @@ const interactiveSelector = [
 ].join(",");
 
 let appPromise;
+let appLoaded = false;
 
 function isHomeRoute() {
   const hash = window.location.hash.replace(/^#\/?/, "").trim();
@@ -18,7 +19,12 @@ function isHomeRoute() {
 function loadApp() {
   if (!appPromise) {
     document.body.classList.add("is-app-loading");
-    appPromise = import("./script.js").finally(() => {
+    appPromise = import("./script.js").then((module) => {
+      appLoaded = true;
+      document.removeEventListener("click", replayInteraction, { capture: true });
+      document.removeEventListener("submit", replayInteraction, { capture: true });
+      return module;
+    }).finally(() => {
       document.body.classList.remove("is-app-loading");
     });
   }
@@ -26,6 +32,7 @@ function loadApp() {
 }
 
 function replayInteraction(event) {
+  if (appLoaded) return;
   const target = event.target?.closest?.(interactiveSelector);
   if (!target || target.dataset.bootstrapHandled === "true") return;
 
