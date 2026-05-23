@@ -14,7 +14,7 @@ import { state } from './state.js';
 import { createPreview, escapeHtml, getHistoricalDateOrder, normalizeText, pickFrom, questionSeed } from './utils.js';
 import { dom } from './dom.js';
 import { createProgressController } from './progress.js';
-import { afterNextPaint, preloadHeroAssets, preloadLearnAssets, waitForLearnAssets } from './screen-assets.js';
+import { afterNextPaint, preloadHeroAssets, preloadLearnAssets, waitForLearnAssets, waitForLessonBackgroundAssets } from './screen-assets.js';
 import { createScreenController } from './screen-controller.js';
 import { buildLessonIntroFrame, getLessonDisplayTitle } from './lesson-summary.js';
 import {
@@ -500,6 +500,8 @@ async function renderCategorySections() {
     return;
   }
   if (state.currentView === "lesson") {
+    const lesson = getLessonById(state.currentLessonId) || getEraLessons(state.currentEra)[0];
+    await waitForLessonBackgroundAssets(lesson?.sectionId, 700);
     categorySections.innerHTML = await renderActiveLessonPanelHtml();
     return;
   }

@@ -586,6 +586,39 @@ body[data-view="lesson"] .lesson-experience {
   pointer-events: none;
 }
 
+.lesson-experience[data-section="paleolitico"] .story-block-background,
+.story-block[data-section="paleolitico"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .story-block-background {
+  background-color: #101413;
+  background:
+    var(--era-prehistoria-story-overlay),
+    var(--asset-background-licao-paleolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
+    #101413;
+  filter: var(--era-prehistoria-story-filter);
+}
+
+.lesson-experience[data-section="mesolitico"] .story-block-background,
+.story-block[data-section="mesolitico"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="mesolitico"] .story-block-background {
+  background-color: #101413;
+  background:
+    var(--era-prehistoria-story-overlay),
+    var(--asset-background-licao-mesolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
+    #101413;
+  filter: var(--era-prehistoria-story-filter);
+}
+
+.lesson-experience[data-section="revolucao-neolitica"] .story-block-background,
+.story-block[data-section="revolucao-neolitica"] .story-block-background,
+body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story-block-background {
+  background-color: #101413;
+  background:
+    var(--era-prehistoria-story-overlay),
+    var(--asset-background-licao-neolitico) var(--era-prehistoria-story-position) / var(--era-prehistoria-story-size) no-repeat,
+    #101413;
+  filter: var(--era-prehistoria-story-filter);
+}
+
 .story-block::after {
   content: "";
   position: absolute;

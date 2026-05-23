@@ -3,6 +3,7 @@ import {
   eraKeys,
   curriculum,
   debates,
+  quizExtensions,
   relatedRules,
   virtualRelatedTopics,
   storyBlockRules,
@@ -18,6 +19,24 @@ const debateEraKeywords = {
   moderna: ["moderna", "expansão", "reforma", "revolução científica"],
   contemporanea: ["contemporâneo", "francesa", "industrial", "guerra fria"],
   portugal: ["portugal", "portuguesa", "português"]
+};
+
+const lessonQuizRecommendationRules = {
+  prehistoria: [
+    { lesson: ["descoberta do fogo", "fogo"], quiz: ["domínio do fogo", "controlo do fogo"] },
+    { lesson: ["ferramentas de pedra", "pedra"], quiz: ["fonte material", "vestígio físico"] },
+    { lesson: ["caça e pesca", "caca e pesca", "pesca"], quiz: ["caçadoras-recolectoras", "caça, recoleção"] },
+    { lesson: ["arte rupestre", "arte"], quiz: ["arte rupestre"] },
+    { lesson: ["ritos funerários", "ritos funerarios", "sepulturas"], quiz: ["sepulturas"] },
+    { lesson: ["fim da era glacial", "era glacial", "pós-glacial"], quiz: ["aquecimento pós-glacial"] },
+    { lesson: ["domesticação de animais", "domesticacao de animais", "animais"], quiz: ["domesticação de animais", "zooarqueologia"] },
+    { lesson: ["abrigos permanentes", "primeiros abrigos"], quiz: ["sedentarização"] },
+    { lesson: ["agricultura"], quiz: ["agricultura surgiu", "agricultura pôde"] },
+    { lesson: ["aldeias e comunidade", "aldeias"], quiz: ["acumulação de bens", "novas desigualdades"] },
+    { lesson: ["domínio dos metais", "dominio dos metais", "metais"], quiz: ["metalurgia"] },
+    { lesson: ["comércio e trocas", "comercio e trocas", "trocas"], quiz: ["cerâmica"] },
+    { lesson: ["nascimento das civilizações", "nascimento das civilizacoes", "civiliza"], quiz: ["construir o mundo"] }
+  ]
 };
 
 export function getEra(eraKey) {
@@ -108,10 +127,17 @@ export function getEraExploreEntries(eraKey, section) {
 }
 
 export function getEraQuiz(eraKey) {
-  return ensureArray(getEra(eraKey).quiz).map((quiz, index) => ({
+  const era = getEra(eraKey);
+  const quizBank = [
+    ...ensureArray(era.quiz).filter(Boolean),
+    ...(quizExtensions[eraKey] || [])
+  ];
+  return quizBank.map((quiz, index) => ({
     id: createContentId(eraKey, "quiz", quiz.question, index),
     eraKey,
-    type: "quiz",
+    type: quiz.type || "escolha_múltipla",
+    difficulty: quiz.difficulty || ["fácil", "média", "difícil"][index % 3],
+    explanation: quiz.explanation || `A resposta correta é “${quiz.options[quiz.answer]}”. Esta opção enquadra melhor o contexto de ${era.title} e evita uma leitura simplista do processo histórico.`,
     index,
     related: getRelatedTopics(eraKey, quiz.question, quiz.explanation, ...(quiz.options || [])),
     ...quiz
@@ -136,7 +162,10 @@ export function getRecommendedSourceIndex(eraKey, lessonId) {
 
 export function getRecommendedQuizIndex(eraKey, lessonId) {
   const lesson = getLessonById(lessonId);
-  return findBestMatchIndex(getEraQuiz(eraKey), lesson, ["question", "explanation"]);
+  const quiz = getEraQuiz(eraKey);
+  const recommendedIndex = findLessonQuizRuleIndex(eraKey, lesson, quiz);
+  if (recommendedIndex >= 0) return recommendedIndex;
+  return findBestMatchIndex(quiz, lesson, ["question", "explanation"]);
 }
 
 export function getDebatesForEra(eraKey) {
@@ -231,7 +260,22 @@ function findBestMatchIndex(items, lesson, fields) {
     return { index, score: relatedScore + wordScore };
   });
   scores.sort((a, b) => b.score - a.score);
+  if ((scores[0]?.score || 0) <= 0) return lesson.index % items.length;
   return scores[0]?.index || 0;
+}
+
+function findLessonQuizRuleIndex(eraKey, lesson, quiz) {
+  if (!lesson || !quiz.length) return -1;
+  const rules = lessonQuizRecommendationRules[eraKey] || [];
+  const lessonText = normalizeText(`${lesson.title} ${lesson.detail}`);
+  const rule = rules.find((item) =>
+    item.lesson.some((keyword) => lessonText.includes(normalizeText(keyword)))
+  );
+  if (!rule) return -1;
+  return quiz.findIndex((item) => {
+    const quizText = normalizeText(`${item.question} ${item.explanation || ""} ${(item.options || []).join(" ")}`);
+    return rule.quiz.some((keyword) => quizText.includes(normalizeText(keyword)));
+  });
 }
 
 function buildStoryBlocksForLesson(lesson) {

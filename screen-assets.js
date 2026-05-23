@@ -20,6 +20,21 @@ const heroAssetUrls = [
   `${supabaseAssetBaseUrl}/history-study.webp`
 ];
 
+const lessonBackgroundAssets = {
+  paleolitico: {
+    desktop: "background-licao-paleolitico-desktop.webp",
+    mobile: "background-licao-paleolitico-portrait.webp"
+  },
+  mesolitico: {
+    desktop: "background-licao-mesolitico-desktop.webp",
+    mobile: "background-licao-mesolitico-portrait.webp"
+  },
+  "revolucao-neolitica": {
+    desktop: "background-licao-neolitico-desktop.webp",
+    mobile: "background-licao-neolitico-portrait.webp"
+  }
+};
+
 const preloadCache = new Map();
 
 function preloadImage(url) {
@@ -57,6 +72,11 @@ function pickResponsiveAsset(asset) {
   return `${supabaseAssetBaseUrl}/${assetName}`;
 }
 
+function pickResponsiveBackground(asset) {
+  const assetName = shouldUsePortraitAssets() ? asset.mobile || asset.desktop : asset.desktop;
+  return `${supabaseBackgroundBaseUrl}/${assetName}`;
+}
+
 export function preloadLearnAssets() {
   const backgroundUrl = shouldUsePortraitAssets() ? eraSelectionBackground.mobile : eraSelectionBackground.desktop;
   const urls = [
@@ -71,9 +91,22 @@ export function preloadHeroAssets() {
   return preloadImage(shouldUsePortraitAssets() ? mobileHero || desktopHero : desktopHero);
 }
 
+export function preloadLessonBackgroundAssets(sectionId = "") {
+  const asset = lessonBackgroundAssets[sectionId];
+  if (!asset) return Promise.resolve([]);
+  return preloadImage(pickResponsiveBackground(asset));
+}
+
 export function waitForLearnAssets(maxWaitMs = 900) {
   return Promise.race([
     preloadLearnAssets(),
+    timeout(maxWaitMs)
+  ]);
+}
+
+export function waitForLessonBackgroundAssets(sectionId = "", maxWaitMs = 700) {
+  return Promise.race([
+    preloadLessonBackgroundAssets(sectionId),
     timeout(maxWaitMs)
   ]);
 }
