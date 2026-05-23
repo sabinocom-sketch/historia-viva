@@ -88,12 +88,16 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const eraKey = safeBlock.eraKey || lesson.eraKey || "";
   const sectionId = safeBlock.sectionId || lesson.sectionId || "";
   return `
-    <article class="story-block" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}">
+    <article class="story-block" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}">
       <span class="story-block-background" aria-hidden="true"></span>
       <span class="story-block-visual" aria-hidden="true"></span>
-      <div class="story-block-copy">
+      <div class="story-block-copy prehistory-stone-panel" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}">
         <span>Momento ${index + 1} de ${total}</span>
-        <p>${escapeHtml(safeBlock.text)}</p>
+        <p class="cave-paint-text" aria-label="${escapeHtml(safeBlock.text)}">
+          ${renderCaveRevealText(safeBlock.text)}
+        </p>
+        <span class="pigment-particles" aria-hidden="true"></span>
+        <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
       </div>
       <div class="story-block-progress" aria-label="Progresso dos story blocks">
         ${Array.from({ length: total }, (_, dotIndex) => `<span class="${dotIndex === index ? "active" : ""}" aria-hidden="true"></span>`).join("")}
@@ -104,6 +108,25 @@ function renderStoryBlock(block, index, total, lesson = {}) {
       </div>
     </article>
   `;
+}
+
+function getCaveRevealLines(text = "") {
+  const source = String(text || "").trim();
+  if (!source) return [""];
+  const phrases = source
+    .split(/(?<=[.!?])\s+|;\s+|,\s+(?=\S)/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  return phrases.length ? phrases : [source];
+}
+
+function renderCaveRevealText(text = "") {
+  return getCaveRevealLines(text)
+    .map((line, lineIndex) => `
+      <span class="cave-reveal-line" style="--cave-line-index: ${lineIndex}" aria-hidden="true">
+        ${escapeHtml(line)}
+      </span>
+    `).join("");
 }
 
 function renderPostStoryLessonFlow(lesson, context = {}) {

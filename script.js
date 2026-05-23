@@ -1924,6 +1924,12 @@ document.addEventListener("wheel", (event) => {
 }, { passive: false });
 
 document.addEventListener("click", async (event) => {
+  const revealAllButton = event.target.closest("[data-story-reveal-all]");
+  if (revealAllButton) {
+    revealAllButton.closest(".story-block")?.classList.add("is-cave-revealed");
+    return;
+  }
+
   const flowButton = event.target.closest("[data-flow-action]");
   if (flowButton) {
     markUserNavigationIntent();
