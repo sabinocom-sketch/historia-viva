@@ -8,6 +8,7 @@ import {
   getEraSources,
   getLessonById,
   getLessonStoryBlocks,
+  getLessonTextExperience,
   getNextLesson,
   getRecommendedQuizIndex,
   getRecommendedSourceIndex
@@ -189,17 +190,18 @@ function buildPostStoryFlow(lesson, context = {}) {
   const intro = buildLessonIntroFrame(lesson);
   const title = getLessonDisplayTitle(lesson.title);
   const blocks = getLessonStoryBlocks(lesson.id);
+  const textExperience = getLessonTextExperience(lesson);
   const nextLesson = getNextLesson(lesson.eraKey, lesson.id);
   return {
-    reflection: buildReflectionStep(lesson, context.insight),
-    assimilation: buildAssimilationStep(lesson, blocks, title),
-    reality: buildRealityBridgeStep(lesson, title),
-    critical: buildCriticalLensStep(lesson, title),
+    reflection: buildReflectionStep(lesson, context.insight, textExperience),
+    assimilation: buildAssimilationStep(lesson, blocks, title, textExperience),
+    reality: buildRealityBridgeStep(lesson, title, textExperience),
+    critical: buildCriticalLensStep(lesson, title, textExperience),
     challenge: buildChallengeStep(lesson),
     reward: {
       kicker: "Artefacto desbloqueado",
       title: "Memória guardada",
-      text: `Guardaste uma chave de leitura sobre ${title}.`,
+      text: textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`,
       artifact: intro.preview?.[0] || "Artefacto narrativo desbloqueado",
       previous: "challenge"
     },
@@ -215,12 +217,12 @@ function buildPostStoryFlow(lesson, context = {}) {
   };
 }
 
-function buildReflectionStep(lesson, insight = "") {
+function buildReflectionStep(lesson, insight = "", textExperience = {}) {
   const title = getLessonDisplayTitle(lesson.title);
   const normalizedTitle = normalizeText(title);
-  const text = normalizedTitle.includes("fogo")
+  const text = textExperience.reflection || (normalizedTitle.includes("fogo")
     ? "O fogo nao mudou apenas a sobrevivencia. Mudou a forma como os humanos viviam juntos."
-    : createPreview(insight || lesson.detail || buildLessonHeroLine(lesson), 150);
+    : createPreview(insight || lesson.detail || buildLessonHeroLine(lesson), 150));
   return {
     kicker: "Pausa de assimilação",
     title: "O que isto mudou?",
@@ -229,12 +231,16 @@ function buildReflectionStep(lesson, insight = "") {
   };
 }
 
-function buildAssimilationStep(lesson, blocks, title) {
-  const prompts = blocks.slice(0, 3).map((block) => block.text);
+function buildAssimilationStep(lesson, blocks, title, textExperience = {}) {
+  const evidencePrompts = [
+    ...(textExperience.evidence || []),
+    ...(textExperience.archaeology || [])
+  ];
+  const prompts = evidencePrompts.length ? evidencePrompts.slice(0, 3) : blocks.slice(0, 3).map((block) => block.text);
   return {
     kicker: "Guia histórico",
     title: "O que acabaste de descobrir?",
-    text: `${title} fica mais claro quando separas descoberta, escolha e consequencia.`,
+    text: textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`,
     prompts: prompts.length ? prompts : [
       "Que problema humano aparece aqui?",
       "Que decisao mudou a vida diaria?",
@@ -244,7 +250,7 @@ function buildAssimilationStep(lesson, blocks, title) {
   };
 }
 
-function buildRealityBridgeStep(lesson, title) {
+function buildRealityBridgeStep(lesson, title, textExperience = {}) {
   const normalized = normalizeText(title);
   const cards = normalized.includes("fogo")
     ? [
@@ -260,21 +266,21 @@ function buildRealityBridgeStep(lesson, title) {
   return {
     kicker: "Ponte ao presente",
     title: "Do passado para hoje",
-    text: `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`,
+    text: textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`,
     cards,
     previous: "assimilation"
   };
 }
 
-function buildCriticalLensStep(lesson, title) {
+function buildCriticalLensStep(lesson, title, textExperience = {}) {
   const normalized = normalizeText(title);
   const question = normalized.includes("fogo")
     ? "O dominio do fogo foi apenas progresso?"
     : "Esta mudanca trouxe so beneficios?";
   return {
     kicker: "Lente crítica",
-    title: question,
-    text: "Olha para o mesmo momento por lentes diferentes.",
+    title: textExperience.reflection || question,
+    text: textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.",
     perspectives: [
       ["Sobrevivencia", "Ajudou pessoas a resistir melhor ao mundo."],
       ["Vida social", "Mudou a forma como grupos se organizavam."],

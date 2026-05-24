@@ -83,7 +83,16 @@ export function getEraLessons(eraKey) {
       const storyText = lessonExtra.storyText || "";
       const id = createContentId(eraKey, "lesson", title, index);
       const sectionId = resolveLessonSectionId(eraKey, title, detail, category);
-      return {
+      const textExperience = normalizeTextExperience(
+        lessonExtra.textExperience || lessonExtra.lessonContent?.textExperience || lessonExtra.lessonContent,
+        { date, title, category, detail, storyText }
+      );
+      const lessonContent = {
+        status: lessonExtra.status || lessonExtra.lessonContent?.status || "draft",
+        sourceText: lessonExtra.sourceText || lessonExtra.lessonContent?.sourceText || storyText || detail || "",
+        textExperience
+      };
+      const lesson = {
         id,
         eraKey,
         sectionId,
@@ -94,9 +103,16 @@ export function getEraLessons(eraKey) {
         category,
         detail,
         storyText,
+        lessonContent,
+        textExperience,
         question: buildLessonQuestion(title, category),
-        related: getRelatedTopics(eraKey, title, detail, category),
-        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, date, title, category, detail, storyText, index })
+        related: getRelatedTopics(eraKey, title, detail, category)
+      };
+      return {
+        ...lesson,
+        storyBlocks: Array.isArray(lessonExtra.storyBlocks) && lessonExtra.storyBlocks.length
+          ? addLessonStoryBlockMetadata(lessonExtra.storyBlocks, lesson)
+          : buildStoryBlocksForLesson(lesson)
       };
     })
     .sort((a, b) => {
@@ -108,6 +124,11 @@ export function getEraLessons(eraKey) {
 export function getLessonStoryBlocks(lessonId) {
   const lesson = typeof lessonId === "string" ? getLessonById(lessonId) : lessonId;
   return ensureArray(lesson?.storyBlocks).length ? lesson.storyBlocks : buildStoryBlocksForLesson(lesson || {});
+}
+
+export function getLessonTextExperience(lessonId) {
+  const lesson = typeof lessonId === "string" ? getLessonById(lessonId) : lessonId;
+  return lesson?.textExperience || lesson?.lessonContent?.textExperience || normalizeTextExperience(null, lesson || {});
 }
 
 export function countWords(text) {
@@ -363,6 +384,19 @@ function findLessonQuizRuleIndex(eraKey, lesson, quiz) {
 function buildStoryBlocksForLesson(lesson) {
   const title = lesson?.title || "este momento histórico";
   const normalizedTitle = normalizeText(title);
+  const visualPattern = categoryStoryBlockPatterns[lesson?.category] || defaultStoryBlockPattern;
+  const experienceSource = getTextExperienceStorySource(lesson);
+  if (experienceSource) {
+    const generatedBlocks = generateStoryBlocksFromText(experienceSource, {
+      maxBlocks: 3,
+      visualTypes: visualPattern.map((block) => block.visualType).filter(Boolean),
+      backgroundMoods: visualPattern.map((block) => block.backgroundMood).filter(Boolean)
+    });
+    if (generatedBlocks.length) {
+      return addLessonStoryBlockMetadata(generatedBlocks, lesson);
+    }
+  }
+
   const matchedRule = storyBlockRules.find((rule) =>
     rule.match.some((keyword) => normalizedTitle.includes(normalizeText(keyword)))
   );
@@ -370,7 +404,6 @@ function buildStoryBlocksForLesson(lesson) {
     return addLessonStoryBlockMetadata(matchedRule.blocks, lesson);
   }
 
-  const visualPattern = categoryStoryBlockPatterns[lesson?.category] || defaultStoryBlockPattern;
   const generatedBlocks = generateStoryBlocksFromText(getLessonStorySource(lesson), {
     visualTypes: visualPattern.map((block) => block.visualType).filter(Boolean),
     backgroundMoods: visualPattern.map((block) => block.backgroundMood).filter(Boolean)
@@ -397,6 +430,7 @@ function addLessonStoryBlockMetadata(blocks, lesson = {}) {
 function getLessonStorySource(lesson = {}) {
   const explicitText = [
     lesson.storyText,
+    getTextExperienceStorySource(lesson),
     lesson.text,
     lesson.content,
     lesson.body
@@ -408,6 +442,37 @@ function getLessonStorySource(lesson = {}) {
 function normalizeLessonExtra(extra) {
   if (!extra || typeof extra !== "object" || Array.isArray(extra)) return {};
   return extra;
+}
+
+function normalizeTextExperience(source, fallback = {}) {
+  const safeSource = source && typeof source === "object" && !Array.isArray(source) ? source : {};
+  return {
+    introduction: safeSource.introduction || fallback.storyText || fallback.detail || "",
+    scene: safeSource.scene || "",
+    narrative: ensureArray(safeSource.narrative).filter(Boolean),
+    whatHappened: safeSource.whatHappened || safeSource.explanation || fallback.detail || "",
+    evidence: ensureArray(safeSource.evidence).filter(Boolean),
+    archaeology: ensureArray(safeSource.archaeology).filter(Boolean),
+    whyItMatters: safeSource.whyItMatters || safeSource.significance || "",
+    presentConnection: safeSource.presentConnection || safeSource.bridge || "",
+    curiosity: safeSource.curiosity || "",
+    reflection: safeSource.reflection || "",
+    keyTakeaway: safeSource.keyTakeaway || safeSource.takeaway || ""
+  };
+}
+
+function getTextExperienceStorySource(lesson = {}) {
+  const textExperience = lesson.textExperience || lesson.lessonContent?.textExperience;
+  if (!textExperience) return "";
+  return [
+    textExperience.scene,
+    ...ensureArray(textExperience.narrative),
+    textExperience.whatHappened,
+    ...ensureArray(textExperience.evidence),
+    ...ensureArray(textExperience.archaeology),
+    textExperience.whyItMatters,
+    textExperience.presentConnection
+  ].filter((value) => countWords(value) > 0).join("\n\n");
 }
 
 function getStoryBlockGenerationConfig(options = {}) {
