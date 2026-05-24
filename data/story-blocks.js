@@ -6,19 +6,19 @@ export const storyBlockRules = [
         id: "origem",
         visualType: "spark",
         backgroundMood: "cave-dark",
-        text: "Muito antes de saberem criar fogo, os grupos humanos viam chamas nascer de relâmpagos e incêndios. O fogo assustava, mas também dava luz, calor e proteção. Guardar uma brasa acesa podia significar passar a noite com menos medo."
+        text: "Depois de um relâmpago incendiar a paisagem, alguém aproximava-se das brasas com cuidado. A chama podia queimar, mas também dava luz, calor e proteção. Levar uma brasa acesa para o abrigo podia mudar uma noite inteira."
       },
       {
         id: "sobrevivencia",
         visualType: "charcoal",
         backgroundMood: "stone-warm",
-        text: "Quando conseguiam conservar o fogo, tinham de o alimentar com ramos secos e atenção constante. Uma chama apagada podia deixar o grupo no frio ou vulnerável aos animais. Por isso, cuidar do fogo tornou-se uma tarefa de todos."
+        text: "Durante a noite, era preciso juntar ramos secos antes que o brilho morresse. Se a última brasa se apagasse numa noite gelada, o grupo perdia calor, defesa e a possibilidade de cozinhar. Cuidar do fogo tornou-se uma responsabilidade partilhada."
       },
       {
         id: "comunidade",
         visualType: "embers",
         backgroundMood: "fire-circle",
-        text: "À volta das chamas, a noite deixou de ser apenas silêncio e perigo. As pessoas podiam cozinhar, aquecer-se e talvez contar histórias simples. Esse círculo de luz ajudou a aproximar famílias e a transformar o grupo numa comunidade."
+        text: "À volta das chamas, rostos antes escondidos pela escuridão ficavam visíveis. Ali cozinhavam, aqueciam-se e talvez repetissem histórias sobre caçadas e perigos. Hoje usamos energia em casas e cidades, mas essa capacidade de transformar o ambiente começou junto de fogueiras frágeis."
       }
     ]
   },
@@ -29,19 +29,19 @@ export const storyBlockRules = [
         id: "materia",
         visualType: "stone",
         backgroundMood: "stone-cool",
-        text: "No chão, uma pedra comum podia esconder uma ferramenta. Com paciência, era transformada em lâmina, raspador ou ponta afiada. Esse pequeno objeto ajudava a cortar carne, preparar peles e enfrentar dias difíceis com mais segurança."
+        text: "No chão frio, uma pedra comum podia esconder uma lâmina. Um artesão escolhia-a pelo peso, pela forma e pelo modo como partia. Depois de trabalhada, servia para cortar carne, raspar peles e atravessar dias difíceis com mais segurança."
       },
       {
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
-        text: "Fabricar uma ferramenta exigia olhar atento e mãos treinadas. Um golpe errado podia partir a pedra, mas cada erro ensinava alguma coisa. Assim, a técnica passava de pessoa para pessoa, como uma memória guardada nas mãos."
+        text: "Cada golpe exigia atenção: força a mais podia destruir a peça; força a menos não abria fio nenhum. Ao lado, alguém mais novo observava em silêncio. A técnica passava de mão em mão, como uma memória prática antes de existir escrita."
       },
       {
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
-        text: "Com as ferramentas certas, o corpo humano ganhou novas possibilidades. Uma mão podia raspar, furar, cortar e defender melhor o grupo. A pedra trabalhada mostra como a inteligência também nascia da necessidade e da observação diária."
+        text: "Com uma pedra afiada, uma mão pequena ganhava novas capacidades: cortar, furar, raspar, defender. A inteligência aparecia na resposta a problemas concretos. Hoje usamos máquinas e computadores, mas tudo começa nessa ideia simples: criar uma ferramenta para ampliar o corpo."
       }
     ]
   },
@@ -52,19 +52,19 @@ export const storyBlockRules = [
         id: "rastos",
         visualType: "tracks",
         backgroundMood: "earth-path",
-        text: "Caçar e pescar começava muito antes do momento de apanhar alimento. Era preciso observar pegadas, correntes de água, cheiros e estações. Quem lia bem esses sinais aumentava as hipóteses de alimentar o grupo e proteger os mais frágeis."
+        text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e a direção do vento diziam mais do que palavras. Quem lia bem esses sinais aumentava a hipótese de voltar ao acampamento com alimento para crianças, idosos e feridos."
       },
       {
         id: "grupo",
         visualType: "spear",
         backgroundMood: "forest-dusk",
-        text: "Na caça, um gesto precipitado podia assustar a presa e deixar todos sem comida. Por isso, o grupo aprendia a mover-se em silêncio e a confiar nos companheiros. A sobrevivência dependia tanto da coragem como da cooperação."
+        text: "Um ramo partido de repente podia assustar a presa e transformar o dia em fome. Por isso, o grupo movia-se em silêncio, esperando o gesto certo. A sobrevivência dependia da coragem, mas também da confiança entre pessoas que partilhavam o mesmo risco."
       },
       {
         id: "territorio",
         visualType: "map",
         backgroundMood: "river-cold",
-        text: "Rios, florestas e planícies eram conhecidos como páginas de um mapa vivo. Alguns lugares prometiam peixe ou caça, outros escondiam perigo. Com o tempo, cada grupo guardava histórias sobre onde ir, quando voltar e o que evitar."
+        text: "Rios, florestas e planícies eram lidos como um mapa vivo. Um remanso podia esconder peixe; uma encosta podia guardar perigo. Hoje ainda dependemos de mapas, previsões e dados, mas essa leitura do território começou com olhos atentos e memória coletiva."
       }
     ]
   },
@@ -75,19 +75,19 @@ export const storyBlockRules = [
         id: "parede",
         visualType: "pigment",
         backgroundMood: "cave-dark",
-        text: "Dentro das cavernas, algumas paredes tornaram-se lugares especiais. Com pigmentos de terra e carvão, mãos humanas deixaram figuras de animais e sinais. Essas imagens parecem guardar memórias, desejos e perguntas antigas."
+        text: "À luz instável de uma chama, alguém misturava terra, carvão e gordura para pintar na rocha. Bisontes, cavalos, mãos e sinais surgiam onde antes havia só pedra. Algumas destas imagens têm dezenas de milhares de anos e ainda nos obrigam a parar."
       },
       {
         id: "sinais",
         visualType: "hand",
         backgroundMood: "ochre-glow",
-        text: "Uma mão pintada na rocha podia dizer que alguém esteve ali. Animais desenhados com cuidado talvez lembrassem caçadas, medos ou sonhos. A arte aproximava o invisível e dava forma ao que o grupo sentia em noites de silêncio."
+        text: "Uma criança podia olhar para os animais desenhados e aprender quais eram fortes, rápidos ou perigosos. Talvez fossem memória de caça, ritual, sonho ou aviso. Os arqueólogos ainda discutem muitos destes símbolos, e esse mistério faz parte da sua força."
       },
       {
         id: "grupo",
         visualType: "symbol",
         backgroundMood: "fire-circle",
-        text: "Ao olhar para as imagens, as pessoas partilhavam algo maior do que o dia a dia. Podiam lembrar histórias, ensinar os mais novos ou sentir que pertenciam ao mesmo grupo. A arte tornou-se uma forma de memória coletiva e de união."
+        text: "Porque razão alguém entraria tão fundo numa gruta apenas para pintar uma parede? Talvez para ensinar, lembrar, pedir proteção ou unir o grupo. Hoje continuamos a usar imagens para contar quem somos; a diferença é que trocámos a rocha por ecrãs."
       }
     ]
   },
@@ -98,19 +98,19 @@ export const storyBlockRules = [
         id: "perda",
         visualType: "bone",
         backgroundMood: "quiet-earth",
-        text: "Quando alguém morria, alguns grupos não abandonavam simplesmente o corpo. Escolhiam um lugar, cavavam a terra e faziam um gesto de despedida. Esse cuidado mostra que a perda já era sentida como algo partilhado e profundamente humano."
+        text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso: havia cuidado, silêncio e despedida. Esse gesto mostra que a perda já era sentida como algo partilhado."
       },
       {
         id: "memoria",
         visualType: "offering",
         backgroundMood: "stone-cool",
-        text: "Em certas sepulturas, os arqueólogos encontraram objetos junto dos mortos. Podiam ser ferramentas, adornos ou pequenos sinais de afeto. Esses vestígios sugerem memória, respeito e uma ligação que continuava depois da morte."
+        text: "Em algumas sepulturas, os arqueólogos encontraram adornos, ferramentas ou pigmentos junto dos mortos. Não sabemos sempre se eram ofertas, sinais de estatuto ou lembranças afetivas. Mas cada objeto colocado ali sugere que aquela vida continuava a importar."
       },
       {
         id: "mistério",
         visualType: "circle",
         backgroundMood: "cave-dark",
-        text: "Os ritos funerários mostram que a morte levantava perguntas difíceis. O que acontecia a quem partia? Como devia o grupo lembrar essa pessoa? Mesmo sem respostas certas, esses gestos aproximavam os vivos diante do desconhecido."
+        text: "A morte levantava perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como devia o grupo lembrar essa pessoa? Ainda hoje fazemos rituais para atravessar a perda; nesses gestos antigos reconhecemos uma humanidade muito próxima."
       }
     ]
   }
@@ -121,19 +121,19 @@ export const defaultStoryBlockPattern = [
     id: "impacto",
     visualType: "spark",
     backgroundMood: "cave-dark",
-    text: "No início, podia parecer apenas um acontecimento pequeno, quase perdido no dia a dia. Mas ele tocou hábitos, decisões e formas de viver. Com o tempo, mostrou que uma mudança simples podia alterar a vida de muitas pessoas."
+    text: "No início, podia parecer apenas uma cena pequena: uma decisão tomada à pressa, uma porta aberta, uma multidão inquieta, uma invenção ainda frágil. Mas esse momento tocou hábitos e formas de viver. A História muitas vezes começa quando o quotidiano deixa de parecer seguro."
   },
   {
     id: "mudanca",
     visualType: "fragment",
     backgroundMood: "stone-warm",
-    text: "Quando a novidade começou a espalhar-se, nem todos reagiram da mesma maneira. Algumas pessoas viram oportunidade, outras sentiram medo ou resistência. É nessa tensão, sentida em escolhas pequenas, que a História costuma ganhar movimento."
+    text: "Quando a novidade se espalhava, alguém ganhava esperança e alguém sentia ameaça. Havia medo, interesse, resistência e escolhas difíceis. É nessa tensão, entre o que muda e o que se tenta proteger, que a História ganha movimento humano."
   },
   {
     id: "legado",
     visualType: "map",
     backgroundMood: "fire-circle",
-    text: "Depois do primeiro impacto, as consequências continuaram a crescer. Podiam mudar o trabalho, a família, o poder ou a maneira de imaginar o futuro. A pergunta importante é quem ganhou, quem perdeu e que marcas ficaram no quotidiano."
+    text: "Depois do impacto, as consequências entravam na vida diária: no trabalho, na família, no poder ou na forma de imaginar o futuro. A pergunta decisiva não é só o que aconteceu. É quem ganhou, quem perdeu e que marcas ainda reconhecemos hoje."
   }
 ];
 
@@ -143,19 +143,19 @@ export const categoryStoryBlockPatterns = {
       id: "poder",
       visualType: "symbol",
       backgroundMood: "stone-warm",
-      text: "Num certo momento, o poder deixou de funcionar como antes. Podia mudar de mãos, criar novas regras ou usar uma linguagem diferente para mandar. Para as pessoas comuns, isso podia significar esperança, medo ou novas obrigações."
+      text: "Numa praça, num palácio ou numa assembleia, alguém percebia que o poder já não funcionava como antes. Novas regras podiam trazer esperança, mas também impostos, vigilância ou obediência. Para as pessoas comuns, a política aparecia em decisões muito concretas."
     },
     {
       id: "tensao",
       visualType: "map",
       backgroundMood: "earth-path",
-      text: "Por trás de uma decisão política, quase sempre existiam interesses em conflito. Alguns grupos queriam participar mais, enquanto outros temiam perder privilégios. A tensão revelava quem podia falar e quem ficava de fora da decisão."
+      text: "Por trás de uma decisão política havia quase sempre vozes em conflito. Alguns queriam participar mais; outros protegiam privilégios antigos. Quem podia falar? Quem ficava à porta? Essas perguntas revelam tanto sobre uma sociedade como as suas leis."
     },
     {
       id: "consequencia",
       visualType: "circle",
       backgroundMood: "cave-dark",
-      text: "Quando uma nova ordem se instalava, prometia resolver problemas antigos. Mas também criava disputas, leis difíceis e novas formas de controlo. A política deixava marcas na vida diária, desde impostos até à liberdade de cada pessoa."
+      text: "Quando uma nova ordem se instalava, prometia resolver problemas antigos. Mas podia criar leis duras, disputas e novas formas de controlo. Ainda hoje sentimos a política em direitos, impostos e liberdade; por isso, estes conflitos continuam próximos."
     }
   ],
   guerra: [
@@ -163,19 +163,19 @@ export const categoryStoryBlockPatterns = {
       id: "ameaça",
       visualType: "spear",
       backgroundMood: "forest-dusk",
-      text: "A guerra raramente começa apenas no campo de batalha. Antes dela já existem medo, disputa por recursos, ambição e palavras que dividem. Quando a violência chega, muitas pessoas comuns já sentem que o mundo está a mudar à sua volta."
+      text: "Antes da batalha, já há rumores, fronteiras tensas, medo e palavras que dividem. Uma família pode ouvir que soldados se aproximam antes de ver qualquer exército. A guerra começa muitas vezes na insegurança que entra na vida comum."
     },
     {
       id: "choque",
       visualType: "strike",
       backgroundMood: "stone-warm",
-      text: "No choque entre exércitos ou grupos armados, não sofriam só os combatentes. Famílias fugiam, campos ficavam vazios e cidades ouviam notícias assustadoras. A guerra entrava nas casas e transformava escolhas simples em decisões de sobrevivência."
+      text: "Quando a violência chega, não sofrem apenas os combatentes. Campos ficam vazios, famílias fogem e cidades esperam notícias que podem destruir uma casa inteira. Uma escolha simples, ficar ou partir, torna-se uma decisão de sobrevivência."
     },
     {
       id: "marca",
       visualType: "fragment",
       backgroundMood: "quiet-earth",
-      text: "Quando a guerra terminava, os vencedores podiam redesenhar fronteiras e celebrar vitórias. Mas muitos voltavam a casa com perdas, fome ou lembranças difíceis. O legado da guerra ficava tanto nos mapas como na memória das pessoas."
+      text: "Quando a guerra termina, os vencedores podem redesenhar mapas e celebrar. Mas muitos regressam com fome, perdas ou memórias difíceis de contar. O legado da guerra fica nas fronteiras, nos corpos e nas histórias que as famílias continuam a repetir."
     }
   ],
   ciência: [
@@ -183,19 +183,19 @@ export const categoryStoryBlockPatterns = {
       id: "observacao",
       visualType: "spark",
       backgroundMood: "river-cold",
-      text: "A ciência muitas vezes começa com alguém a observar melhor o mundo. Um movimento, uma planta, uma estrela ou uma doença despertavam curiosidade. A pergunta simples era poderosa: será que podemos compreender e agir de outro modo?"
+      text: "A ciência pode começar com alguém a reparar num detalhe que outros ignoraram: uma estrela que se move, uma febre que volta, uma planta que cura. A pergunta é simples e poderosa: será que compreender melhor permite agir de outro modo?"
     },
     {
       id: "tecnica",
       visualType: "stone",
       backgroundMood: "stone-cool",
-      text: "Uma ideia só ganhava força quando podia ser testada e repetida. A técnica exigia prática, paciência e confiança nos resultados. Quando funcionava, ajudava pessoas a curar, construir, medir ou produzir de outra forma mais segura."
+      text: "Uma ideia só ganhava força quando resistia ao teste. Era preciso repetir, medir, falhar e tentar de novo. Quando funcionava, podia curar uma doença, construir com mais segurança ou produzir melhor. O conhecimento deixava de ser apenas opinião."
     },
     {
       id: "transformacao",
       visualType: "map",
       backgroundMood: "fire-circle",
-      text: "Quando o conhecimento circulava, deixava de pertencer a uma só pessoa. Podia mudar ofícios, viagens, armas, remédios e formas de ensinar. A ciência transformava o mundo material, mas também a imaginação sobre o que era possível."
+      text: "Quando o conhecimento circulava, deixava de pertencer a uma só pessoa. Mudava ofícios, viagens, remédios, armas e escolas. Hoje vivemos rodeados por essa herança: cada tecnologia nova prolonga a antiga curiosidade de perguntar como o mundo funciona."
     }
   ],
   cultura: [
@@ -203,19 +203,19 @@ export const categoryStoryBlockPatterns = {
       id: "voz",
       visualType: "pigment",
       backgroundMood: "ochre-glow",
-      text: "A cultura nasce quando uma ideia encontra uma forma de ser partilhada. Pode aparecer numa imagem, numa palavra, num gesto, numa música ou numa memória contada. Assim, algo pessoal passa a fazer parte da vida de muitos, por muito tempo."
+      text: "A cultura nasce quando uma ideia ganha forma diante dos outros: uma canção numa festa, uma imagem num muro, uma história repetida à noite. Algo pessoal passa a circular e deixa de pertencer apenas a quem o criou."
     },
     {
       id: "circulacao",
       visualType: "hand",
       backgroundMood: "stone-warm",
-      text: "Quando outras pessoas reconhecem essa forma, ela começa a viajar. Cada grupo pode acrescentar sentidos, adaptar detalhes ou discutir o seu valor. A cultura muda porque vive nas pessoas que a recebem e a transformam todos os dias."
+      text: "Quando outras pessoas reconhecem essa forma, ela começa a viajar. Cada grupo acrescenta sentidos, altera detalhes ou discute o seu valor. Por isso a cultura nunca fica parada: muda sempre que alguém a recebe e a transforma."
     },
     {
       id: "identidade",
       visualType: "symbol",
       backgroundMood: "cave-dark",
-      text: "Com o tempo, essas formas culturais ajudam uma comunidade a dizer quem é. Mostram valores, medos, festas, memórias e maneiras de pertencer. Por isso, estudar cultura é também perguntar como as pessoas se viam a si mesmas."
+      text: "Com o tempo, essas formas ajudam uma comunidade a dizer quem é. Mostram valores, medos, festas, memórias e maneiras de pertencer. Hoje também fazemos isso com músicas, filmes, memes e monumentos: cultura é identidade em movimento."
     }
   ],
   religião: [
@@ -223,19 +223,19 @@ export const categoryStoryBlockPatterns = {
       id: "crenca",
       visualType: "circle",
       backgroundMood: "cave-dark",
-      text: "A religião oferecia respostas para medos que pareciam maiores do que a vida comum. A morte, a doença, a colheita ou a tempestade podiam ganhar sentido através da crença. Para muitos, isso trazia esperança, ordem e consolo."
+      text: "Quando a tempestade destruía uma colheita ou a doença chegava sem aviso, a vida parecia depender de forças invisíveis. A religião dava linguagem a esses medos. Para muitos, oferecia esperança, ordem e consolo diante do que não podiam controlar."
     },
     {
       id: "ritual",
       visualType: "offering",
       backgroundMood: "fire-circle",
-      text: "Quando a crença era vivida em rituais, deixava de ser apenas interior. Cânticos, ofertas, festas ou regras juntavam pessoas no mesmo gesto. Esses momentos criavam comunidade, marcavam o ritmo da vida e davam sentido ao ano."
+      text: "Num ritual, a crença deixava de ser apenas interior. Cânticos, ofertas, festas e regras juntavam pessoas no mesmo gesto. Esses momentos marcavam o ano, aproximavam famílias e davam ao grupo uma forma comum de enfrentar incertezas."
     },
     {
       id: "poder",
       visualType: "symbol",
       backgroundMood: "quiet-earth",
-      text: "Quando a fé se aproximava do poder, podia orientar leis, reis e decisões públicas. Isso dava força a certas ideias, mas também podia excluir quem acreditava de outra forma. A religião passava a influenciar tanto a alma como a sociedade."
+      text: "Quando a fé se aproximava do poder, podia orientar leis, reis e decisões públicas. Isso fortalecia certas ideias, mas também podia excluir quem acreditava de outro modo. A religião influenciava a alma, a sociedade e debates que ainda hoje reconhecemos."
     }
   ]
 };
