@@ -39,6 +39,34 @@ const lessonQuizRecommendationRules = {
   ]
 };
 
+const storyBlockGenerationDefaults = {
+  depth: "normal",
+  preferredWordsPerBlock: 75,
+  minWordsPerBlock: 50,
+  maxWordsPerBlock: 100,
+  hardLimit: 40,
+  visualTypes: ["spark", "fragment", "map"],
+  backgroundMoods: ["cave-dark", "stone-warm", "fire-circle"]
+};
+
+const storyBlockDepthPresets = {
+  resumo: {
+    preferredWordsPerBlock: 100,
+    minWordsPerBlock: 60,
+    maxWordsPerBlock: 130
+  },
+  normal: {
+    preferredWordsPerBlock: 75,
+    minWordsPerBlock: 50,
+    maxWordsPerBlock: 100
+  },
+  aprofundado: {
+    preferredWordsPerBlock: 50,
+    minWordsPerBlock: 35,
+    maxWordsPerBlock: 70
+  }
+};
+
 export function getEra(eraKey) {
   return eras[eraKey];
 }
@@ -50,7 +78,9 @@ export function getEraKeys() {
 export function getEraLessons(eraKey) {
   const era = getEra(eraKey);
   return era.timeline
-    .map(([date, title, category, detail], index) => {
+    .map(([date, title, category, detail, extra], index) => {
+      const lessonExtra = normalizeLessonExtra(extra);
+      const storyText = lessonExtra.storyText || "";
       const id = createContentId(eraKey, "lesson", title, index);
       const sectionId = resolveLessonSectionId(eraKey, title, detail, category);
       return {
@@ -63,9 +93,10 @@ export function getEraLessons(eraKey) {
         title,
         category,
         detail,
+        storyText,
         question: buildLessonQuestion(title, category),
         related: getRelatedTopics(eraKey, title, detail, category),
-        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, date, title, category, detail, index })
+        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, date, title, category, detail, storyText, index })
       };
     })
     .sort((a, b) => {
@@ -77,6 +108,57 @@ export function getEraLessons(eraKey) {
 export function getLessonStoryBlocks(lessonId) {
   const lesson = typeof lessonId === "string" ? getLessonById(lessonId) : lessonId;
   return ensureArray(lesson?.storyBlocks).length ? lesson.storyBlocks : buildStoryBlocksForLesson(lesson || {});
+}
+
+export function countWords(text) {
+  return String(text || "")
+    .trim()
+    .split(/\s+/)
+    .filter((word) => /[\p{L}\p{N}]/u.test(word)).length;
+}
+
+export function generateStoryBlocksFromText(text, options = {}) {
+  const config = getStoryBlockGenerationConfig(options);
+  const paragraphs = splitStoryParagraphs(text);
+  const totalWords = countWords(paragraphs.join(" "));
+  if (totalWords < config.minWordsPerBlock) return [];
+
+  const blocks = [];
+  let currentSentences = [];
+  let currentWords = 0;
+
+  paragraphs.forEach((paragraph) => {
+    const sentences = splitStorySentences(paragraph);
+    sentences.forEach((sentence) => {
+      const sentenceWords = countWords(sentence);
+      const wouldExceed = currentWords + sentenceWords > config.maxWordsPerBlock;
+
+      if (currentSentences.length && wouldExceed && currentWords >= config.minWordsPerBlock) {
+        blocks.push(currentSentences.join(" "));
+        currentSentences = [];
+        currentWords = 0;
+      }
+
+      currentSentences.push(sentence);
+      currentWords += sentenceWords;
+    });
+
+    // Paragraph endings are natural pause points, so prefer closing a block there.
+    if (currentWords >= config.preferredWordsPerBlock) {
+      blocks.push(currentSentences.join(" "));
+      currentSentences = [];
+      currentWords = 0;
+    }
+  });
+
+  if (currentSentences.length) {
+    blocks.push(currentSentences.join(" "));
+  }
+
+  return applyStoryBlockVisuals(
+    enforceStoryBlockLimit(mergeShortStoryBlocks(blocks, config), config),
+    config
+  );
 }
 
 export function getLessonById(lessonId) {
@@ -284,80 +366,125 @@ function buildStoryBlocksForLesson(lesson) {
   const matchedRule = storyBlockRules.find((rule) =>
     rule.match.some((keyword) => normalizedTitle.includes(normalizeText(keyword)))
   );
-  const pattern = matchedRule?.blocks || categoryStoryBlockPatterns[lesson?.category] || defaultStoryBlockPattern;
-  return pattern.map((block, index) => ({
-    id: block.id || `story-${index + 1}`,
-    visualType: block.visualType || ["spark", "fragment", "map"][index % 3],
-    backgroundMood: block.backgroundMood || ["cave-dark", "stone-warm", "fire-circle"][index % 3],
-    text: matchedRule?.blocks ? block.text : buildLessonStoryText(lesson, index),
+  if (matchedRule?.blocks) {
+    return addLessonStoryBlockMetadata(matchedRule.blocks, lesson);
+  }
+
+  const visualPattern = categoryStoryBlockPatterns[lesson?.category] || defaultStoryBlockPattern;
+  const generatedBlocks = generateStoryBlocksFromText(getLessonStorySource(lesson), {
+    visualTypes: visualPattern.map((block) => block.visualType).filter(Boolean),
+    backgroundMoods: visualPattern.map((block) => block.backgroundMood).filter(Boolean)
+  });
+
+  return addLessonStoryBlockMetadata(
+    generatedBlocks.length ? generatedBlocks : defaultStoryBlockPattern,
+    lesson
+  );
+}
+
+function addLessonStoryBlockMetadata(blocks, lesson = {}) {
+  return blocks.map((block, index) => ({
+    id: block.id || `block-${index + 1}`,
+    visualType: block.visualType || storyBlockGenerationDefaults.visualTypes[index % storyBlockGenerationDefaults.visualTypes.length],
+    backgroundMood: block.backgroundMood || storyBlockGenerationDefaults.backgroundMoods[index % storyBlockGenerationDefaults.backgroundMoods.length],
+    text: block.text || "",
     lessonId: lesson?.id || "",
     eraKey: lesson?.eraKey || "",
     sectionId: lesson?.sectionId || ""
   }));
 }
 
-function buildLessonStoryText(lesson = {}, index) {
-  const subject = getStorySubject(lesson.title);
-  const subjectLower = subject.toLowerCase();
-  const dateIntro = lesson.date ? `Em ${lesson.date},` : "Nesse período,";
-  const detail = getShortStoryDetail(lesson.detail);
-  const focus = getCategoryStoryFocus(lesson.category);
-
-  if (index === 0) {
-    return `${dateIntro} a lição sobre ${subjectLower} ganha forma num mundo com limites próprios. ${detail} Para quem vivia esse tempo, não era apenas uma data: era uma mudança que podia tocar trabalho, família ou futuro.`;
-  }
-
-  if (index === 1) {
-    return `Em torno de ${subjectLower}, apareceram dúvidas e tensões. ${focus.tension} Algumas pessoas viram oportunidade, enquanto outras sentiram medo, perda ou pressão. É nessa mistura de escolhas que a História se torna humana.`;
-  }
-
-  return `Depois deste momento, as consequências continuaram a espalhar-se. ${focus.legacy} A história de ${subjectLower} pode ter ficado em leis, objetos, ideias ou memórias. A pergunta importante é simples: que marcas ficaram na vida comum?`;
+function getLessonStorySource(lesson = {}) {
+  const explicitText = [
+    lesson.storyText,
+    lesson.text,
+    lesson.content,
+    lesson.body
+  ].find((value) => countWords(value) > 0) || "";
+  if (explicitText) return explicitText;
+  return [lesson.title, lesson.detail].filter(Boolean).join("\n\n");
 }
 
-function getShortStoryDetail(detail) {
-  const value = String(detail || "").replace(/\s+/g, " ").trim();
-  if (!value) return "As pessoas tiveram de responder a novas necessidades, perigos e possibilidades.";
-  const clean = value.replace(/\.$/, "");
-  if (clean.length <= 135) return `${clean}.`;
-  const trimmed = clean.slice(0, 132).replace(/\s+\S*$/, "");
-  return `${trimmed}.`;
+function normalizeLessonExtra(extra) {
+  if (!extra || typeof extra !== "object" || Array.isArray(extra)) return {};
+  return extra;
 }
 
-function getCategoryStoryFocus(category) {
-  const focuses = {
-    política: {
-      tension: "O poder mudava de mãos, e cada decisão podia aproximar ou afastar comunidades inteiras.",
-      legacy: "As mudanças no poder ajudaram a criar novas regras, alianças e formas de obediência."
-    },
-    guerra: {
-      tension: "A violência obrigava famílias a escolher entre resistir, fugir, negociar ou sobreviver em silêncio.",
-      legacy: "Os conflitos deixaram fronteiras, perdas, lembranças dolorosas e novas formas de organizar a defesa."
-    },
-    ciência: {
-      tension: "Novas ideias nem sempre foram aceites de imediato, porque mexiam com crenças e costumes antigos.",
-      legacy: "O conhecimento abriu caminhos para novas técnicas, novas perguntas e mudanças na vida diária."
-    },
-    cultura: {
-      tension: "Costumes, imagens e palavras começaram a circular, mas nem todos lhes davam o mesmo significado.",
-      legacy: "A cultura guardou emoções, identidades e formas de contar o passado às gerações seguintes."
-    },
-    religião: {
-      tension: "A fé podia unir comunidades, mas também criar debates, medos e conflitos profundos.",
-      legacy: "As crenças deixaram marcas em festas, edifícios, rituais e formas de explicar o mundo."
+function getStoryBlockGenerationConfig(options = {}) {
+  const depthPreset = storyBlockDepthPresets[options.depth] || storyBlockDepthPresets.normal;
+  const config = {
+    ...storyBlockGenerationDefaults,
+    ...depthPreset,
+    ...options
+  };
+  const hardLimit = Math.max(1, Number(config.hardLimit) || storyBlockGenerationDefaults.hardLimit);
+  const maxBlocks = Number.isFinite(Number(config.maxBlocks)) ? Number(config.maxBlocks) : hardLimit;
+  return {
+    ...config,
+    minWordsPerBlock: Math.max(1, Number(config.minWordsPerBlock) || storyBlockGenerationDefaults.minWordsPerBlock),
+    preferredWordsPerBlock: Math.max(1, Number(config.preferredWordsPerBlock) || storyBlockGenerationDefaults.preferredWordsPerBlock),
+    maxWordsPerBlock: Math.max(1, Number(config.maxWordsPerBlock) || storyBlockGenerationDefaults.maxWordsPerBlock),
+    hardLimit,
+    blockLimit: Math.min(Math.max(1, maxBlocks), hardLimit),
+    visualTypes: ensureArray(config.visualTypes).filter(Boolean),
+    backgroundMoods: ensureArray(config.backgroundMoods).filter(Boolean)
+  };
+}
+
+function splitStoryParagraphs(text) {
+  return String(text || "")
+    .replace(/\r\n/g, "\n")
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.replace(/\s+/g, " ").trim())
+    .filter(Boolean);
+}
+
+function splitStorySentences(paragraph) {
+  const sentences = String(paragraph || "").match(/[^.!?…]+(?:[.!?…]+["”’»]?|$)/g) || [];
+  return sentences.map((sentence) => sentence.trim()).filter(Boolean);
+}
+
+function mergeShortStoryBlocks(blocks, config) {
+  const merged = [];
+
+  blocks.forEach((block) => {
+    const words = countWords(block);
+    const previous = merged[merged.length - 1];
+    if (previous && words < config.minWordsPerBlock) {
+      const combined = `${previous} ${block}`.trim();
+      const combinedWords = countWords(combined);
+      if (combinedWords <= config.maxWordsPerBlock || countWords(previous) < config.minWordsPerBlock) {
+        merged[merged.length - 1] = combined;
+        return;
+      }
     }
-  };
+    merged.push(block);
+  });
 
-  return focuses[category] || {
-    tension: "A transformação tocava necessidades concretas e obrigava as pessoas a tomar decisões difíceis.",
-    legacy: "A mudança alterou rotinas, relações sociais e maneiras de imaginar o que poderia vir a seguir."
-  };
+  if (merged.length > 1 && countWords(merged[0]) < config.minWordsPerBlock) {
+    merged[1] = `${merged[0]} ${merged[1]}`.trim();
+    merged.shift();
+  }
+
+  return merged;
 }
 
-function getStorySubject(title) {
-  return String(title || "Este momento")
-    .split(":")[0]
-    .trim()
-    .replace(/\.$/, "");
+function enforceStoryBlockLimit(blocks, config) {
+  const limited = [...blocks];
+  while (limited.length > config.blockLimit) {
+    const tail = limited.pop();
+    limited[limited.length - 1] = `${limited[limited.length - 1]} ${tail}`.trim();
+  }
+  return limited;
+}
+
+function applyStoryBlockVisuals(blocks, config) {
+  return blocks.map((text, index) => ({
+    id: `block-${index + 1}`,
+    visualType: config.visualTypes[index % config.visualTypes.length] || storyBlockGenerationDefaults.visualTypes[index % storyBlockGenerationDefaults.visualTypes.length],
+    backgroundMood: config.backgroundMoods[index % config.backgroundMoods.length] || storyBlockGenerationDefaults.backgroundMoods[index % storyBlockGenerationDefaults.backgroundMoods.length],
+    text
+  }));
 }
 
 function createContentId(eraKey, type, title, index) {

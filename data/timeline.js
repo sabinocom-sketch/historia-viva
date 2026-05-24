@@ -84,9 +84,9 @@ function buildTimelineDetail(era, event, category) {
 function enrichTimelines() {
   Object.entries(eras).forEach(([key, era]) => {
     const normalized = era.timeline.map((entry, index) => {
-      const [year, event, category, detail] = entry;
+      const [year, event, category, detail, extra] = entry;
       const resolvedCategory = category || inferTimelineCategory(event, index);
-      return [year, event, resolvedCategory, detail || buildTimelineDetail(era, event, resolvedCategory)];
+      return [year, event, resolvedCategory, detail || buildTimelineDetail(era, event, resolvedCategory), extra].filter((value) => value !== undefined);
     });
     era.timeline = [...normalized, ...(timelineExtensions[key] || [])];
   });
