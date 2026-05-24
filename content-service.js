@@ -65,7 +65,7 @@ export function getEraLessons(eraKey) {
         detail,
         question: buildLessonQuestion(title, category),
         related: getRelatedTopics(eraKey, title, detail, category),
-        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, title, category, detail, index })
+        storyBlocks: buildStoryBlocksForLesson({ id, eraKey, sectionId, date, title, category, detail, index })
       };
     })
     .sort((a, b) => {
@@ -289,18 +289,68 @@ function buildStoryBlocksForLesson(lesson) {
     id: block.id || `story-${index + 1}`,
     visualType: block.visualType || ["spark", "fragment", "map"][index % 3],
     backgroundMood: block.backgroundMood || ["cave-dark", "stone-warm", "fire-circle"][index % 3],
-    text: block.text || buildGenericStoryBlockText(title, index),
+    text: matchedRule?.blocks ? block.text : buildLessonStoryText(lesson, index),
     lessonId: lesson?.id || "",
     eraKey: lesson?.eraKey || "",
     sectionId: lesson?.sectionId || ""
   }));
 }
 
-function buildGenericStoryBlockText(title, index) {
-  const subject = getStorySubject(title);
-  if (index === 0) return `${subject} começou como uma mudança concreta na vida das pessoas.`;
-  if (index === 1) return "Essa mudança ganhou força porque tocou necessidades, medos e escolhas.";
-  return "O seu impacto continuou a abrir caminhos muito depois do primeiro momento.";
+function buildLessonStoryText(lesson = {}, index) {
+  const subject = getStorySubject(lesson.title);
+  const subjectLower = subject.toLowerCase();
+  const dateIntro = lesson.date ? `Em ${lesson.date},` : "Nesse período,";
+  const detail = getShortStoryDetail(lesson.detail);
+  const focus = getCategoryStoryFocus(lesson.category);
+
+  if (index === 0) {
+    return `${dateIntro} a lição sobre ${subjectLower} ganha forma num mundo com limites próprios. ${detail} Para quem vivia esse tempo, não era apenas uma data: era uma mudança que podia tocar trabalho, família ou futuro.`;
+  }
+
+  if (index === 1) {
+    return `Em torno de ${subjectLower}, apareceram dúvidas e tensões. ${focus.tension} Algumas pessoas viram oportunidade, enquanto outras sentiram medo, perda ou pressão. É nessa mistura de escolhas que a História se torna humana.`;
+  }
+
+  return `Depois deste momento, as consequências continuaram a espalhar-se. ${focus.legacy} A história de ${subjectLower} pode ter ficado em leis, objetos, ideias ou memórias. A pergunta importante é simples: que marcas ficaram na vida comum?`;
+}
+
+function getShortStoryDetail(detail) {
+  const value = String(detail || "").replace(/\s+/g, " ").trim();
+  if (!value) return "As pessoas tiveram de responder a novas necessidades, perigos e possibilidades.";
+  const clean = value.replace(/\.$/, "");
+  if (clean.length <= 135) return `${clean}.`;
+  const trimmed = clean.slice(0, 132).replace(/\s+\S*$/, "");
+  return `${trimmed}.`;
+}
+
+function getCategoryStoryFocus(category) {
+  const focuses = {
+    política: {
+      tension: "O poder mudava de mãos, e cada decisão podia aproximar ou afastar comunidades inteiras.",
+      legacy: "As mudanças no poder ajudaram a criar novas regras, alianças e formas de obediência."
+    },
+    guerra: {
+      tension: "A violência obrigava famílias a escolher entre resistir, fugir, negociar ou sobreviver em silêncio.",
+      legacy: "Os conflitos deixaram fronteiras, perdas, lembranças dolorosas e novas formas de organizar a defesa."
+    },
+    ciência: {
+      tension: "Novas ideias nem sempre foram aceites de imediato, porque mexiam com crenças e costumes antigos.",
+      legacy: "O conhecimento abriu caminhos para novas técnicas, novas perguntas e mudanças na vida diária."
+    },
+    cultura: {
+      tension: "Costumes, imagens e palavras começaram a circular, mas nem todos lhes davam o mesmo significado.",
+      legacy: "A cultura guardou emoções, identidades e formas de contar o passado às gerações seguintes."
+    },
+    religião: {
+      tension: "A fé podia unir comunidades, mas também criar debates, medos e conflitos profundos.",
+      legacy: "As crenças deixaram marcas em festas, edifícios, rituais e formas de explicar o mundo."
+    }
+  };
+
+  return focuses[category] || {
+    tension: "A transformação tocava necessidades concretas e obrigava as pessoas a tomar decisões difíceis.",
+    legacy: "A mudança alterou rotinas, relações sociais e maneiras de imaginar o que poderia vir a seguir."
+  };
 }
 
 function getStorySubject(title) {
