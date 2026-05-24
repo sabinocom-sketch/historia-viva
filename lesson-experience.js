@@ -87,27 +87,53 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   };
   const eraKey = safeBlock.eraKey || lesson.eraKey || "";
   const sectionId = safeBlock.sectionId || lesson.sectionId || "";
+  const isPrehistory = eraKey === "pre-historia" || ["paleolitico", "mesolitico", "revolucao-neolitica"].includes(sectionId);
+  const prehistoryArtifact = isPrehistory ? getPrehistoryArtifactType(safeBlock, lesson) : "";
+  const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
   return `
-    <article class="story-block" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}">
-      <span class="story-block-background" aria-hidden="true"></span>
-      <span class="story-block-visual" aria-hidden="true"></span>
-      <div class="story-block-copy prehistory-stone-panel" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}">
-        <span>Momento ${index + 1} de ${total}</span>
-        <p class="cave-paint-text" aria-label="${escapeHtml(safeBlock.text)}">
+    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
+      <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
+      <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true"></span>
+      <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}">
+        <span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>
+        ${narrativeTitle ? `<h3 class="prehistory-narrative-title">${escapeHtml(narrativeTitle)}</h3>` : ""}
+        <p class="cave-paint-text cave-painted-text" aria-label="${escapeHtml(safeBlock.text)}">
           ${renderCaveRevealText(safeBlock.text)}
         </p>
-        <span class="pigment-particles" aria-hidden="true"></span>
+        <span class="pigment-particles cave-pigment-particles" aria-hidden="true"></span>
         <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
       </div>
-      <div class="story-block-progress" aria-label="Progresso dos story blocks">
+      <div class="story-block-progress prehistory-progress" aria-label="Progresso dos story blocks">
         ${Array.from({ length: total }, (_, dotIndex) => `<span class="${dotIndex === index ? "active" : ""}" aria-hidden="true"></span>`).join("")}
       </div>
-      <div class="story-block-actions">
+      <div class="story-block-actions prehistory-actions">
         <button type="button" data-lesson-action="story-prev" ${index === 0 ? "disabled" : ""}>Voltar</button>
         <button type="button" data-lesson-action="story-next">${index === total - 1 ? "Avançar" : "Continuar"}</button>
       </div>
     </article>
   `;
+}
+
+function getPrehistoryNarrativeTitle(block = {}, lesson = {}) {
+  const source = normalizeText(`${lesson.title || ""} ${block.text || ""} ${block.visualType || ""}`);
+  const titles = [
+    { keywords: ["fogo", "chama", "fogueira", "aquecer", "cozinhar"], title: "A Descoberta do Fogo" },
+    { keywords: ["pedra", "ferramenta", "silex", "raspador", "cortar"], title: "A Pedra que se Tornou Ferramenta" },
+    { keywords: ["caca", "pesca", "animal", "rasto", "lanca"], title: "A Caça Pintada na Rocha" },
+    { keywords: ["abrigo", "gruta", "caverna"], title: "O Primeiro Abrigo" },
+    { keywords: ["arte", "rupestre", "pintura", "pigmento", "mao"], title: "A Memória na Parede" },
+    { keywords: ["aldeia", "agricultura", "sementes", "cultivo"], title: "Quando a Terra Virou Casa" }
+  ];
+  return titles.find((item) => item.keywords.some((keyword) => source.includes(keyword)))?.title || getLessonDisplayTitle(lesson.title || "Marca na Pedra");
+}
+
+function getPrehistoryArtifactType(block = {}, lesson = {}) {
+  const source = normalizeText(`${lesson.title || ""} ${block.text || ""} ${block.visualType || ""}`);
+  if (["fogo", "chama", "fogueira", "aquecer", "cozinhar", "spark", "embers"].some((keyword) => source.includes(keyword))) return "fire";
+  if (["caca", "pesca", "animal", "rasto", "lanca", "spear", "tracks"].some((keyword) => source.includes(keyword))) return "hunt";
+  if (["arte", "rupestre", "pintura", "pigmento", "mao", "hand"].some((keyword) => source.includes(keyword))) return "painting";
+  if (["abrigo", "gruta", "caverna"].some((keyword) => source.includes(keyword))) return "shelter";
+  return "flint";
 }
 
 function getCaveRevealLines(text = "") {

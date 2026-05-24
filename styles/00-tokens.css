@@ -97,13 +97,13 @@
   --era-prehistoria-accent-soft: rgba(241, 199, 121, 0.22);
   --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
   --era-prehistoria-story-overlay:
-    radial-gradient(ellipse at 54% 42%, rgba(241, 199, 121, 0.06) 0%, transparent 46%),
-    radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.08) 100%),
-    linear-gradient(90deg, rgba(7, 8, 8, 0.08) 0%, transparent 40%, rgba(7, 8, 8, 0.06) 100%);
-  --era-prehistoria-story-filter: sepia(0.08) saturate(1.18) contrast(1.1) brightness(1.55);
+    radial-gradient(ellipse at 24% 78%, rgba(232, 115, 47, 0.12) 0%, rgba(241, 199, 121, 0.028) 26%, transparent 54%),
+    radial-gradient(ellipse at center, transparent 68%, rgba(0, 0, 0, 0.08) 100%),
+    linear-gradient(90deg, rgba(7, 8, 8, 0.06) 0%, transparent 44%, rgba(7, 8, 8, 0.04) 100%);
+  --era-prehistoria-story-filter: sepia(0.1) saturate(1.08) contrast(1.02) brightness(1.52);
   --era-prehistoria-story-position: center;
   --era-prehistoria-story-size: 100% 100%;
-  --era-prehistoria-story-shadow: inset 0 0 160px rgba(0, 0, 0, 0.58), inset 0 0 34px rgba(241, 199, 121, 0.08);
+  --era-prehistoria-story-shadow: inset 0 0 86px rgba(0, 0, 0, 0.18), inset 0 0 34px rgba(232, 115, 47, 0.06);
   --era-prehistoria-story-surface:
     linear-gradient(116deg, transparent 0 42%, rgba(255, 248, 234, 0.07) 48%, transparent 57%),
     radial-gradient(circle at 80% 18%, rgba(255, 248, 234, 0.08), transparent 18%),
