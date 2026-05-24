@@ -4583,6 +4583,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 }
 
 .storyblock-prehistory .prehistory-actions {
+  position: absolute;
+  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
+  bottom: calc(clamp(24px, 5vw, 62px) + var(--safe-bottom));
+  z-index: 8;
   justify-self: end;
   gap: 12px;
 }
@@ -4781,6 +4785,9 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
 
   .storyblock-prehistory .prehistory-actions {
+    left: calc(var(--mobile-page-pad) + var(--safe-left));
+    right: calc(var(--mobile-page-pad) + var(--safe-right));
+    bottom: calc(18px + var(--safe-bottom));
     justify-self: stretch;
   }
 
