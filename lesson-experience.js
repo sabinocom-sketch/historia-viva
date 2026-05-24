@@ -140,7 +140,7 @@ function getCaveRevealLines(text = "") {
   const source = String(text || "").trim();
   if (!source) return [""];
   const phrases = source
-    .split(/(?<=[.!?])\s+|;\s+|,\s+(?=\S)/)
+    .split(/(?<=[.!?])\s+|;\s+/)
     .map((line) => line.trim())
     .filter(Boolean);
   return phrases.length ? phrases : [source];

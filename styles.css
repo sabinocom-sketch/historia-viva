@@ -3907,24 +3907,24 @@ body[data-view="lesson"] .lesson-experience {
   --cave-particle-opacity: 0.38;
   --cave-reading-glow: rgba(232, 115, 47, 0.24);
   --cave-texture-intensity: 0.28;
-  --prehistory-title-size: clamp(1.15rem, 2vw, 1.82rem);
-  --prehistory-text-size: clamp(1.38rem, 2.8vw, 2.7rem);
+  --prehistory-title-size: clamp(1rem, 1.38vw, 1.36rem);
+  --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
   --cave-paint-speed: 980ms;
-  --cave-hand-spacing: 0.035em;
+  --cave-hand-spacing: 0.018em;
   box-shadow:
     var(--era-prehistoria-story-shadow),
     0 28px 80px rgba(24, 32, 37, 0.2);
 }
 
 .storyblock-prehistory {
-  grid-template-columns: minmax(180px, 0.74fr) minmax(340px, 1fr);
+  grid-template-columns: minmax(220px, 0.84fr) minmax(380px, 1.16fr);
   grid-template-areas:
     "visual copy"
     "progress progress"
     "actions actions";
   align-items: center;
   justify-items: center;
-  gap: clamp(20px, 3.6vw, 48px);
+  gap: clamp(18px, 3vw, 42px);
 }
 
 .story-block[data-era="pre-historia"] .story-block-background::after,
@@ -4172,7 +4172,9 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="paleolitico"] .cave-visual-artifact,
 .story-block[data-section="mesolitico"] .cave-visual-artifact,
 .story-block[data-section="revolucao-neolitica"] .cave-visual-artifact {
-  width: clamp(130px, 20vw, 240px);
+  justify-self: end;
+  align-self: center;
+  width: clamp(118px, 14vw, 188px);
   border-radius: 32% 68% 58% 42%;
   color: rgba(86, 39, 24, 0.88);
   background: transparent;
@@ -4180,8 +4182,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   filter:
     drop-shadow(0 18px 26px rgba(0, 0, 0, 0.34))
     drop-shadow(0 0 18px rgba(221, 101, 40, 0.14));
-  opacity: 0.96;
-  transform: rotate(-12deg);
+  opacity: 0.9;
+  transform: translateY(2vh) rotate(-10deg);
   animation: prehistory-artifact-drift 5.8s ease-in-out infinite;
 }
 
@@ -4318,6 +4320,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   display: grid;
   justify-self: start;
   gap: clamp(8px, 1.2vw, 14px);
+  width: min(58ch, 100%);
   max-width: min(58ch, 100%);
   border: 0;
   border-radius: 0;
@@ -4332,7 +4335,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel::before {
   content: "";
   position: absolute;
-  inset: -24% -22% -20%;
+  inset: -18% -14% -14%;
   z-index: -1;
   border-radius: 46% 54% 42% 58% / 34% 24% 76% 66%;
   background:
@@ -4385,7 +4388,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: 2;
   max-width: 24ch;
   margin: 0;
-  color: #c06a32;
+  color: #a94f28;
   font-size: var(--prehistory-title-size);
   line-height: 1.02;
   font-weight: 900;
@@ -4403,13 +4406,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   position: relative;
   z-index: 2;
   display: grid;
-  gap: 0.12em;
+  gap: 0.28em;
   margin: 0;
   color: var(--cave-pigment-color);
   font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
   font-size: var(--prehistory-text-size);
   font-weight: 560;
-  line-height: 1.18;
+  line-height: 1.24;
   letter-spacing: var(--cave-hand-spacing);
   text-shadow:
     0.7px 0 rgba(86, 34, 18, 0.18),
@@ -4444,7 +4447,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="revolucao-neolitica"] .cave-reveal-line {
   display: block;
   position: relative;
-  width: min(100%, 15.8ch);
+  width: min(100%, 52ch);
   max-width: 100%;
   color: inherit;
   font-size: inherit;
@@ -4746,13 +4749,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @keyframes prehistory-artifact-drift {
   0%,
   100% {
-    transform: translate3d(0, 0, 0) rotate(-12deg);
+    transform: translate3d(0, 2vh, 0) rotate(-10deg);
     filter:
       drop-shadow(0 18px 26px rgba(0, 0, 0, 0.34))
       drop-shadow(0 0 15px rgba(221, 101, 40, 0.12));
   }
   50% {
-    transform: translate3d(0, -4px, 0) rotate(-10.8deg);
+    transform: translate3d(0, calc(2vh - 4px), 0) rotate(-9deg);
     filter:
       drop-shadow(0 20px 28px rgba(0, 0, 0, 0.34))
       drop-shadow(0 0 22px rgba(221, 101, 40, 0.18));
@@ -4775,7 +4778,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @media (max-width: 768px) {
   .storyblock-prehistory {
     --prehistory-title-size: clamp(1rem, 5vw, 1.3rem);
-    --prehistory-text-size: clamp(1.72rem, 7.6vw, 2.35rem);
+    --prehistory-text-size: clamp(1rem, 4.8vw, 1.42rem);
     grid-template-columns: 1fr;
     grid-template-areas:
       "visual"
@@ -4787,7 +4790,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
 
   .storyblock-prehistory .prehistory-artifact {
-    width: clamp(92px, 28vw, 126px);
+    justify-self: center;
+    width: clamp(78px, 22vw, 110px);
     margin-bottom: -4px;
   }
 
@@ -4808,11 +4812,11 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
     justify-items: center;
     font-size: var(--prehistory-text-size);
-    line-height: 1.04;
+    line-height: 1.28;
   }
 
   .storyblock-prehistory .cave-reveal-line {
-    width: min(100%, 13.5ch);
+    width: min(100%, 30ch);
   }
 
   .storyblock-prehistory .prehistory-progress {
@@ -7163,6 +7167,12 @@ blockquote {
     font-size: clamp(1.78rem, 9.4vw, 3.15rem);
   }
 
+  .storyblock-prehistory .story-block-copy p.cave-paint-text {
+    max-width: 30ch;
+    font-size: clamp(1rem, 4.8vw, 1.42rem);
+    line-height: 1.28;
+  }
+
   .story-block-progress,
   .story-block-actions {
     justify-content: center;
@@ -7730,6 +7740,12 @@ blockquote {
     max-width: 11ch;
     font-size: clamp(2.1rem, 11vw, 4rem);
     line-height: 0.98;
+  }
+
+  .storyblock-prehistory .story-block-copy p.cave-paint-text {
+    max-width: 30ch;
+    font-size: clamp(1rem, 4.8vw, 1.42rem);
+    line-height: 1.28;
   }
 
   .lesson-preview-list {
