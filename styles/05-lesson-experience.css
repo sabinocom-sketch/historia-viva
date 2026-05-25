@@ -569,12 +569,12 @@ body[data-view="lesson"] .lesson-experience {
   --cave-reveal-gap: 210ms;
   --cave-pigment-color: #87351f;
   --cave-pigment-soft: rgba(126, 52, 25, 0.32);
-  --cave-particle-opacity: 0.38;
-  --cave-reading-glow: rgba(232, 115, 47, 0.24);
+  --cave-particle-opacity: 0.48;
+  --cave-reading-glow: rgba(54, 30, 18, 0.34);
   --cave-texture-intensity: 0.28;
-  --cave-moment-fire: rgba(232, 102, 38, 0.18);
-  --cave-moment-center: rgba(229, 132, 60, 0.055);
-  --cave-moment-edge: rgba(0, 0, 0, 0.16);
+  --cave-moment-fire: rgba(232, 102, 38, 0.13);
+  --cave-moment-center: rgba(229, 132, 60, 0.024);
+  --cave-moment-edge: rgba(0, 0, 0, 0.24);
   --prehistory-title-size: clamp(1rem, 1.38vw, 1.36rem);
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
   --cave-paint-speed: 1120ms;
@@ -585,34 +585,34 @@ body[data-view="lesson"] .lesson-experience {
 }
 
 .storyblock-prehistory {
-  grid-template-columns: minmax(220px, 0.78fr) minmax(360px, 1fr);
+  grid-template-columns: minmax(280px, 0.92fr) minmax(340px, 0.94fr);
   grid-template-areas:
     "visual copy"
     "progress progress"
     "actions actions";
   align-items: center;
   justify-items: center;
-  gap: clamp(18px, 3vw, 42px);
+  gap: clamp(8px, 1.8vw, 28px);
 }
 
 .storyblock-prehistory[data-story-index="0"] {
-  --cave-reading-glow: rgba(221, 122, 55, 0.11);
-  --cave-moment-fire: rgba(198, 84, 34, 0.07);
-  --cave-moment-center: rgba(195, 118, 62, 0.016);
+  --cave-reading-glow: rgba(50, 28, 17, 0.46);
+  --cave-moment-fire: rgba(198, 84, 34, 0.052);
+  --cave-moment-center: rgba(195, 118, 62, 0.008);
 }
 
 .storyblock-prehistory[data-story-index="1"] {
-  --cave-reading-glow: rgba(241, 157, 72, 0.15);
+  --cave-reading-glow: rgba(54, 31, 18, 0.42);
   --cave-pigment-color: #7a2f1d;
-  --cave-moment-fire: rgba(238, 118, 42, 0.1);
-  --cave-moment-center: rgba(246, 173, 87, 0.03);
+  --cave-moment-fire: rgba(238, 118, 42, 0.072);
+  --cave-moment-center: rgba(246, 173, 87, 0.014);
 }
 
 .storyblock-prehistory[data-story-index="2"] {
-  --cave-reading-glow: rgba(247, 183, 91, 0.18);
+  --cave-reading-glow: rgba(58, 34, 18, 0.4);
   --cave-pigment-color: #632517;
-  --cave-moment-fire: rgba(244, 126, 43, 0.13);
-  --cave-moment-center: rgba(255, 193, 101, 0.043);
+  --cave-moment-fire: rgba(244, 126, 43, 0.092);
+  --cave-moment-center: rgba(255, 193, 101, 0.02);
   --cave-texture-intensity: 0.34;
 }
 
@@ -700,12 +700,28 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .story-block.storyblock-prehistory::after {
   background:
-    radial-gradient(ellipse at 20% 82%, var(--cave-moment-fire) 0%, rgba(205, 87, 31, 0.04) 22%, transparent 46%),
-    radial-gradient(ellipse at 52% 60%, var(--cave-moment-center) 0%, rgba(241, 161, 72, 0.014) 32%, transparent 64%),
+    radial-gradient(ellipse at 16% 84%, var(--cave-moment-fire) 0%, rgba(205, 87, 31, 0.026) 18%, transparent 38%),
+    radial-gradient(ellipse at 50% 58%, var(--cave-moment-center) 0%, rgba(241, 161, 72, 0.006) 24%, transparent 48%),
     radial-gradient(ellipse at 2% 2%, rgba(0, 0, 0, 0.08), transparent 22%),
     radial-gradient(ellipse at 98% 98%, rgba(0, 0, 0, 0.08), transparent 22%),
-    radial-gradient(ellipse at center, transparent 62%, var(--cave-moment-edge) 100%),
-    linear-gradient(90deg, rgba(12, 8, 5, 0.08), rgba(12, 8, 5, 0.01) 48%, rgba(8, 9, 8, 0.04));
+    radial-gradient(ellipse at center, transparent 48%, var(--cave-moment-edge) 100%),
+    linear-gradient(90deg, rgba(12, 8, 5, 0.14), rgba(12, 8, 5, 0.018) 38%, rgba(8, 9, 8, 0.1));
+}
+
+.story-block.storyblock-prehistory::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at 18% 72%, rgba(235, 114, 42, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 34% 62%, rgba(245, 183, 89, 0.08) 0 1px, transparent 2px),
+    radial-gradient(circle at 68% 40%, rgba(73, 43, 25, 0.22) 0 1px, transparent 2px),
+    linear-gradient(102deg, transparent 0 36%, rgba(8, 5, 4, 0.16) 50%, transparent 64%);
+  background-size: 31px 37px, 47px 43px, 53px 59px, 100% 100%;
+  opacity: var(--cave-particle-opacity);
+  mix-blend-mode: soft-light;
+  pointer-events: none;
 }
 
 .story-block[data-background="stone-warm"] .story-block-background {
@@ -978,7 +994,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
   isolation: isolate;
-  width: clamp(260px, 30vw, 440px);
+  width: clamp(300px, 34vw, 506px);
   aspect-ratio: 1.78;
   border-radius: 0;
   color: transparent;
@@ -992,7 +1008,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     drop-shadow(-7px 9px 18px rgba(16, 10, 7, 0.34))
     drop-shadow(-10px 7px 13px rgba(226, 109, 43, 0.18));
   opacity: 0;
-  transform: translate3d(-1vw, 2.5vh, 0) scale(0.92) rotate(-13deg);
+  transform: translate3d(1.2vw, 2.2vh, 0) scale(0.92) rotate(-13deg);
   animation: prehistory-flint-reveal 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
@@ -1076,13 +1092,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   isolation: isolate;
   display: grid;
   justify-self: start;
-  transform: translateX(clamp(-86px, -5.5vw, -44px));
+  transform: translateX(clamp(-118px, -7vw, -58px));
   gap: clamp(8px, 1.2vw, 14px);
   width: min(520px, 100%);
   max-width: min(520px, 100%);
   border: 0;
   border-radius: 0;
-  padding: clamp(10px, 2.2vw, 24px) clamp(10px, 2.4vw, 30px);
+  padding: clamp(12px, 2.2vw, 24px) clamp(14px, 2.4vw, 30px);
   background: transparent;
   box-shadow: none;
 }
@@ -1097,12 +1113,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: -1;
   border-radius: 46% 54% 42% 58% / 34% 24% 76% 66%;
   background:
-    radial-gradient(ellipse at 40% 44%, var(--cave-reading-glow), transparent 54%),
-    radial-gradient(ellipse at 54% 58%, rgba(255, 191, 103, 0.1), transparent 66%),
-    linear-gradient(118deg, transparent 0 34%, rgba(255, 166, 75, 0.05) 44%, transparent 58%);
-  filter: blur(18px);
-  mix-blend-mode: screen;
-  opacity: 0.82;
+    radial-gradient(ellipse at 42% 48%, var(--cave-reading-glow), rgba(28, 14, 8, 0.22) 46%, transparent 72%),
+    radial-gradient(ellipse at 54% 58%, rgba(255, 191, 103, 0.035), transparent 64%),
+    linear-gradient(118deg, transparent 0 34%, rgba(57, 30, 18, 0.18) 44%, transparent 62%);
+  filter: blur(16px);
+  mix-blend-mode: multiply;
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -1134,10 +1150,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: 2;
   width: fit-content;
   color: rgba(169, 89, 43, 0.8);
-  font-size: clamp(0.66rem, 1vw, 0.78rem);
+  font-size: clamp(0.72rem, 1.04vw, 0.84rem);
   text-shadow:
-    0 1px rgba(236, 173, 93, 0.16),
-    0 0 8px rgba(22, 10, 5, 0.26);
+    0 1px rgba(244, 184, 96, 0.24),
+    0 2px 4px rgba(17, 7, 3, 0.46);
 }
 
 .story-block[data-era="pre-historia"] .prehistory-narrative-title,
@@ -1148,16 +1164,16 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: 2;
   max-width: 24ch;
   margin: 0;
-  color: #cf5d2d;
+  color: #e2612d;
   font-size: var(--prehistory-title-size);
   line-height: 1.02;
   font-weight: 900;
   letter-spacing: 0;
   text-shadow:
     0 0 10px rgba(232, 115, 47, 0.2),
-    0 2px 3px rgba(20, 8, 4, 0.46),
-    0 6px 16px rgba(45, 22, 14, 0.34);
-  filter: saturate(1.02) contrast(1.18);
+    0 2px 2px rgba(20, 8, 4, 0.62),
+    0 7px 16px rgba(20, 9, 4, 0.48);
+  filter: saturate(1.08) contrast(1.24);
 }
 
 .story-block[data-era="pre-historia"] .cave-paint-text,
@@ -1169,18 +1185,18 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   display: grid;
   gap: 0.86em;
   margin: 0;
-  color: var(--cave-pigment-color);
+  color: #e8ae5f;
   font-family: "Segoe Print", "Bradley Hand ITC", "Comic Sans MS", cursive;
   font-size: var(--prehistory-text-size);
   font-weight: 560;
   line-height: 1.24;
   letter-spacing: var(--cave-hand-spacing);
   text-shadow:
-    0.8px 0 rgba(48, 18, 10, 0.28),
-    -0.45px 1px rgba(255, 180, 91, 0.16),
-    0 1px 1px rgba(30, 12, 7, 0.24),
-    0 0 8px rgba(238, 114, 48, 0.12);
-  filter: saturate(1.04) contrast(1.22);
+    0.9px 0 rgba(48, 18, 10, 0.42),
+    -0.55px 1px rgba(255, 205, 122, 0.26),
+    0 2px 3px rgba(10, 4, 2, 0.5),
+    0 0 7px rgba(238, 114, 48, 0.12);
+  filter: saturate(1.08) contrast(1.22);
 }
 
 .storyblock-prehistory .cave-reveal-paragraph {
@@ -1253,7 +1269,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="paleolitico"] .cave-reveal-line:nth-child(2n),
 .story-block[data-section="mesolitico"] .cave-reveal-line:nth-child(2n),
 .story-block[data-section="revolucao-neolitica"] .cave-reveal-line:nth-child(2n) {
-  color: #6a2d1b;
+  color: #b9552f;
   opacity: 0;
 }
 
@@ -1261,7 +1277,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="paleolitico"] .cave-reveal-line:nth-child(3n),
 .story-block[data-section="mesolitico"] .cave-reveal-line:nth-child(3n),
 .story-block[data-section="revolucao-neolitica"] .cave-reveal-line:nth-child(3n) {
-  color: #74301d;
+  color: #d58c4d;
 }
 
 .story-block[data-era="pre-historia"] .cave-reveal-line::before,
@@ -1360,20 +1376,20 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .storyblock-prehistory .prehistory-progress {
   justify-self: center;
-  gap: 12px;
-  padding: 8px 10px;
+  gap: 14px;
+  padding: 10px 12px;
 }
 
 .storyblock-prehistory .prehistory-progress span {
-  width: 46px;
-  height: 6px;
+  width: 54px;
+  height: 7px;
   border-radius: 999px;
   background:
-    linear-gradient(90deg, rgba(225, 176, 110, 0.34), rgba(114, 84, 56, 0.5));
+    linear-gradient(90deg, rgba(234, 190, 121, 0.46), rgba(120, 82, 48, 0.68));
   box-shadow:
     inset 0 0 0 1px rgba(244, 199, 132, 0.12),
     0 4px 12px rgba(0, 0, 0, 0.24);
-  opacity: 0.7;
+  opacity: 0.86;
 }
 
 .storyblock-prehistory .prehistory-progress span.active {
@@ -1395,19 +1411,20 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 }
 
 .storyblock-prehistory .prehistory-actions button {
-  border: 1px solid rgba(92, 63, 42, 0.46);
-  border-radius: 999px 44% 999px 46%;
-  color: #2b1c13;
+  border: 1px solid rgba(74, 45, 28, 0.58);
+  border-radius: 48% 42% 46% 52% / 54% 46% 50% 42%;
+  color: #24150d;
   background:
-    radial-gradient(circle at 24% 22%, rgba(255, 238, 189, 0.34) 0 1px, transparent 2px),
-    radial-gradient(circle at 72% 68%, rgba(86, 55, 33, 0.16) 0 1px, transparent 2px),
-    linear-gradient(112deg, #e8c98d, #c08a4d 58%, #f0c877);
-  background-size: 23px 21px, 31px 27px, 100% 100%;
+    radial-gradient(circle at 20% 24%, rgba(255, 232, 172, 0.3) 0 1px, transparent 2px),
+    radial-gradient(circle at 70% 62%, rgba(61, 35, 20, 0.22) 0 1px, transparent 2px),
+    linear-gradient(112deg, #d4a968, #9a6338 58%, #c98b4d);
+  background-size: 19px 17px, 29px 25px, 100% 100%;
   box-shadow:
-    inset 0 1px rgba(255, 246, 210, 0.38),
-    inset 0 -10px 18px rgba(78, 42, 23, 0.1),
-    0 12px 26px rgba(0, 0, 0, 0.26);
-  text-shadow: 0 1px rgba(255, 238, 184, 0.32);
+    inset 0 1px rgba(255, 236, 184, 0.3),
+    inset 0 -12px 18px rgba(56, 31, 19, 0.18),
+    0 10px 22px rgba(0, 0, 0, 0.34),
+    -8px 10px 18px rgba(63, 31, 16, 0.12);
+  text-shadow: 0 1px rgba(238, 193, 118, 0.28);
 }
 
 .storyblock-prehistory .prehistory-actions button:first-child {
@@ -1541,7 +1558,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @keyframes prehistory-flint-reveal {
   0% {
     opacity: 0;
-    transform: translate3d(-1vw, 2.5vh, 0) scale(0.92) rotate(-14deg);
+    transform: translate3d(1.2vw, 2.2vh, 0) scale(0.92) rotate(-14deg);
     filter:
       sepia(0.1)
       contrast(1.18)
@@ -1555,7 +1572,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
   100% {
     opacity: 0.96;
-    transform: translate3d(-1vw, 2.5vh, 0) scale(1) rotate(-10deg);
+    transform: translate3d(1.2vw, 2.2vh, 0) scale(1) rotate(-10deg);
     filter:
       sepia(0.1)
       contrast(1.18)
@@ -1601,8 +1618,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
 
   .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
-    width: clamp(236px, 68vw, 318px);
-    margin-bottom: -10px;
+    width: clamp(264px, 76vw, 366px);
+    margin-bottom: -16px;
     transform: translate3d(0, 0.5vh, 0) scale(0.92) rotate(-13deg);
   }
 
@@ -1614,7 +1631,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     transform: none;
     width: min(100%, 34ch);
     max-width: 34ch;
-    padding: clamp(10px, 3vw, 18px) 0;
+    padding: clamp(12px, 3vw, 18px) clamp(8px, 3vw, 14px);
     text-align: center;
   }
 
@@ -1632,12 +1649,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
 
   .storyblock-prehistory .prehistory-progress {
-    gap: 10px;
+    gap: 12px;
   }
 
   .storyblock-prehistory .prehistory-progress span {
-    width: 34px;
-    height: 5px;
+    width: 42px;
+    height: 6px;
   }
 
   .storyblock-prehistory .prehistory-actions {
@@ -1662,7 +1679,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
   .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
     opacity: 0.96;
-    transform: translate3d(-1vw, 2.5vh, 0) scale(1) rotate(-10deg);
+    transform: translate3d(1.2vw, 2.2vh, 0) scale(1) rotate(-10deg);
   }
 
   .storyblock-prehistory .prehistory-painted-text::before,
