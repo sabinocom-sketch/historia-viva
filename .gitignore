@@ -2,4 +2,5 @@ node_modules/
 screenshots/
 assets/*.png
 !assets/history-study.png
+!assets/silex-original.png
 !assets/silex-lascado-sprite.png
