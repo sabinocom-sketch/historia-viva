@@ -80,3 +80,13 @@ As telas pos-story usam, quando disponivel:
 - `keyTakeaway`
 
 Se a licao ainda nao tiver `textExperience`, a app continua a usar `storyText`, `detail` e os Story Blocks existentes.
+
+## Leitura Nos Story Blocks Pre-Historicos
+
+Os Story Blocks da Pre-Historia sao renderizados como micro-narrativas de parede de gruta em `lesson-experience.js`.
+
+- Texto longo e dividido automaticamente em grupos de frases para criar paragrafos visuais.
+- A animacao continua a revelar linha a linha, mas cada grupo cria uma pausa de leitura.
+- Cada bloco recebe `data-story-index` para variar subtilmente luz, pigmento e intensidade entre Momento 1, 2 e 3.
+- A largura do texto fica controlada no CSS para evitar paredes compactas, especialmente em telemovel.
+- O artefacto visual deve parecer integrado na cena com sombra, reflexo quente e movimento lento, nao como objeto flutuante isolado.

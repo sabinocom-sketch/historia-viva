@@ -91,11 +91,12 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const isPrehistory = eraKey === "pre-historia" || ["paleolitico", "mesolitico", "revolucao-neolitica"].includes(sectionId);
   const prehistoryArtifact = isPrehistory ? getPrehistoryArtifactType(safeBlock, lesson) : "";
   const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
+  const caveRevealLineCount = getCaveRevealLineCount(safeBlock.text);
   return `
-    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}" data-story-block="${escapeHtml(safeBlock.id)}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
+    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
       <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true"></span>
-      <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${getCaveRevealLines(safeBlock.text).length}">
+      <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
         <span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>
         ${narrativeTitle ? `<h3 class="prehistory-narrative-title">${escapeHtml(narrativeTitle)}</h3>` : ""}
         <p class="cave-paint-text cave-painted-text" aria-label="${escapeHtml(safeBlock.text)}">
@@ -147,11 +148,48 @@ function getCaveRevealLines(text = "") {
   return phrases.length ? phrases : [source];
 }
 
+function getCaveRevealParagraphs(text = "") {
+  const explicitParagraphs = String(text || "")
+    .trim()
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+  const sourceParagraphs = explicitParagraphs.length ? explicitParagraphs : [String(text || "").trim()];
+  const groupedParagraphs = [];
+
+  sourceParagraphs.forEach((paragraph) => {
+    const lines = getCaveRevealLines(paragraph);
+    if (lines.length <= 2) {
+      groupedParagraphs.push(lines);
+      return;
+    }
+
+    for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 2) {
+      groupedParagraphs.push(lines.slice(lineIndex, lineIndex + 2));
+    }
+  });
+
+  return groupedParagraphs.length ? groupedParagraphs : [[""]];
+}
+
+function getCaveRevealLineCount(text = "") {
+  return getCaveRevealParagraphs(text).reduce((count, paragraph) => count + paragraph.length, 0);
+}
+
 function renderCaveRevealText(text = "") {
-  return getCaveRevealLines(text)
-    .map((line, lineIndex) => `
-      <span class="cave-reveal-line" style="--cave-line-index: ${lineIndex}" aria-hidden="true">
-        ${escapeHtml(line)}
+  let lineIndex = 0;
+  return getCaveRevealParagraphs(text)
+    .map((paragraph, paragraphIndex) => `
+      <span class="cave-reveal-paragraph" style="--cave-paragraph-index: ${paragraphIndex}" aria-hidden="true">
+        ${paragraph.map((line) => {
+          const currentLineIndex = lineIndex;
+          lineIndex += 1;
+          return `
+            <span class="cave-reveal-line" style="--cave-line-index: ${currentLineIndex}" aria-hidden="true">
+              ${escapeHtml(line)}
+            </span>
+          `;
+        }).join("")}
       </span>
     `).join("");
 }
