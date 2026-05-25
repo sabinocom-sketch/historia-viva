@@ -70,6 +70,7 @@
   --asset-licao-arte-rupestre-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/arte-rupestre-portrait.webp");
   --asset-licao-arte-rupestre: var(--asset-licao-arte-rupestre-desktop);
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
+  --asset-silex-lascado: url("assets/silex-lascado-sprite.png");
   --asset-background-era-selection-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection.webp");
   --asset-background-era-selection-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection-portrait.webp");
   --asset-background-era-selection: var(--asset-background-era-selection-desktop);
@@ -97,10 +98,10 @@
   --era-prehistoria-accent-soft: rgba(241, 199, 121, 0.22);
   --era-prehistoria-shadow: rgba(241, 199, 121, 0.16);
   --era-prehistoria-story-overlay:
-    radial-gradient(ellipse at 24% 78%, rgba(232, 115, 47, 0.12) 0%, rgba(241, 199, 121, 0.028) 26%, transparent 54%),
+    radial-gradient(ellipse at 24% 78%, rgba(232, 115, 47, 0.08) 0%, rgba(241, 199, 121, 0.018) 26%, transparent 54%),
     radial-gradient(ellipse at center, transparent 68%, rgba(0, 0, 0, 0.08) 100%),
     linear-gradient(90deg, rgba(7, 8, 8, 0.06) 0%, transparent 44%, rgba(7, 8, 8, 0.04) 100%);
-  --era-prehistoria-story-filter: sepia(0.1) saturate(1.08) contrast(1.02) brightness(1.52);
+  --era-prehistoria-story-filter: sepia(0.1) saturate(1.06) contrast(1.04) brightness(1.34);
   --era-prehistoria-story-position: center;
   --era-prehistoria-story-size: 100% 100%;
   --era-prehistoria-story-shadow: inset 0 0 86px rgba(0, 0, 0, 0.18), inset 0 0 34px rgba(232, 115, 47, 0.06);
