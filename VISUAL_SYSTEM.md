@@ -125,6 +125,8 @@ Estado atual:
 
 - Pre-Historia e a era-piloto do sistema visual.
 - Paleolitico, Mesolitico e Revolucao Neolitica ja usam story backgrounds de subpercurso.
+- O Story Block de ferramentas usa um sprite PNG transparente de silex lascado (`assets/silex-lascado-sprite.png`) renderizado como `<img>` com `object-fit: contain`; o CSS especifico vive em `styles/05-lesson-experience.css` sob `data-prehistory-artifact="flint"`.
+- Artefactos pre-historicos realistas devem ter sombra de contacto, sombra projetada na parede, luz quente lateral e contraste mineral suficiente para mostrar lascas e fraturas; evitar shapes low-poly, icones abstratos ou pedra cinzenta uniforme.
 - A proxima evolucao deve extrair particulas, overlays e iluminacao para tokens reutilizaveis.
 
 ### Antiguidade

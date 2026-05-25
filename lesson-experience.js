@@ -95,7 +95,9 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   return `
     <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
-      <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true"></span>
+      <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
+        ${prehistoryArtifact === "flint" ? `<img class="prehistory-flint-sprite" src="assets/silex-lascado-sprite.png" alt="" loading="eager" />` : ""}
+      </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
         <span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>
         ${narrativeTitle ? `<h3 class="prehistory-narrative-title">${escapeHtml(narrativeTitle)}</h3>` : ""}

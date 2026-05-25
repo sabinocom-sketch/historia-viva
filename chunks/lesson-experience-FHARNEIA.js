@@ -21,7 +21,9 @@ import{B as T,D as A,H as V,a as h,d as C,h as I,k as E,l as n,m as Q,n as u,p a
     `}return W(e,a)}function H(e,a,o,r={}){let s=e||{id:"story",visualType:"spark",backgroundMood:"cave-dark",text:"Um pequeno momento come\xE7ou a mudar a experi\xEAncia humana."},i=s.eraKey||r.eraKey||"",c=s.sectionId||r.sectionId||"",l=i==="pre-historia"||["paleolitico","mesolitico","revolucao-neolitica"].includes(c),d=l?U(s,r):"",g=l?G(s,r):"",w=J(s.text);return`
     <article class="story-block ${l?"storyblock-prehistory cave-firelight":""}" style="--cave-line-count: ${w}" data-story-block="${t(s.id)}" data-story-index="${a%3}" data-visual="${t(s.visualType)}" data-background="${t(s.backgroundMood)}" data-mood="${t(N())}" data-era="${t(i)}" data-section="${t(c)}" data-prehistory-artifact="${t(d)}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
-      <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true"></span>
+      <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
+        ${d==="flint"?'<img class="prehistory-flint-sprite" src="assets/silex-lascado-sprite.png" alt="" loading="eager" />':""}
+      </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${w}">
         <span class="prehistory-moment-label">Momento ${a+1} de ${o}</span>
         ${g?`<h3 class="prehistory-narrative-title">${t(g)}</h3>`:""}
