@@ -125,8 +125,9 @@ Estado atual:
 
 - Pre-Historia e a era-piloto do sistema visual.
 - Paleolitico, Mesolitico e Revolucao Neolitica ja usam story backgrounds de subpercurso.
-- O Story Block de ferramentas usa um sprite PNG transparente de silex lascado (`assets/silex-lascado-sprite.png`) renderizado como `<img>` com `object-fit: contain`; o CSS especifico vive em `styles/05-lesson-experience.css` sob `data-prehistory-artifact="flint"`.
+- O Story Block de ferramentas usa sprites transparentes de silex lascado renderizados como `<picture>`/`<img>` com `object-fit: contain`; o CSS especifico vive em `styles/05-lesson-experience.css` sob `data-prehistory-artifact="flint"`.
 - A fotografia-fonte do silex fica versionada em `assets/silex-original.png` e o sprite deve ser regenerado com `scripts/build-flint-sprite.ps1`; nao editar o sprite manualmente nem substituir por imagem gerada quando a fonte fotografica existir.
+- Em runtime, o silex deve carregar por `<picture>`/`srcset` usando `assets/silex-lascado-sprite-mobile.webp` (512w) e `assets/silex-lascado-sprite-desktop.webp` (1024w); evitar servir o PNG lossless grande no Story Block.
 - Artefactos pre-historicos realistas devem ter sombra de contacto, sombra projetada curta na parede, luz quente lateral e contraste mineral suficiente para mostrar lascas e fraturas; evitar shapes low-poly, icones abstratos ou pedra cinzenta uniforme.
 - O silex deve ler como pedra lascada, nao como objeto escuro com textura aplicada: usar contraste local, reflexos frios/acinzentados nas faces partidas e um rim light quente vindo da fogueira inferior esquerda.
 - Sprites fotograficos precisam de integracao ambiental sem destruir fidelidade: preservar cor, nitidez, fraturas e microtextura no PNG; aplicar apenas sombras, luz ambiente e overlays suaves no CSS para parecerem objectos fisicos iluminados dentro da gruta, nao imagens sobrepostas.

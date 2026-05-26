@@ -32,9 +32,15 @@ const server = http.createServer((request, response) => {
       return;
     }
 
-    response.writeHead(200, {
+    const headers = {
       "Content-Type": mimeTypes[path.extname(filePath)] || "application/octet-stream"
-    });
+    };
+
+    if (relativePath.startsWith("assets/") || relativePath.startsWith("chunks/")) {
+      headers["Cache-Control"] = "public, max-age=31536000, immutable";
+    }
+
+    response.writeHead(200, headers);
     response.end(data);
   });
 });

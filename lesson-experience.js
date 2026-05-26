@@ -92,11 +92,16 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const prehistoryArtifact = isPrehistory ? getPrehistoryArtifactType(safeBlock, lesson) : "";
   const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
   const caveRevealLineCount = getCaveRevealLineCount(safeBlock.text);
+  const flintLoading = index === 0 ? "eager" : "lazy";
+  const flintFetchPriority = index === 0 ? "high" : "auto";
   return `
     <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
       <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
-        ${prehistoryArtifact === "flint" ? `<img class="prehistory-flint-sprite" src="assets/silex-lascado-sprite.png" alt="" loading="eager" />` : ""}
+        ${prehistoryArtifact === "flint" ? `<picture class="prehistory-flint-picture">
+          <source type="image/webp" srcset="assets/silex-lascado-sprite-mobile.webp?v=20260526 512w, assets/silex-lascado-sprite-desktop.webp?v=20260526 1024w" sizes="(max-width: 768px) 70vw, min(34vw, 506px)" />
+          <img class="prehistory-flint-sprite" src="assets/silex-lascado-sprite-desktop.webp?v=20260526" alt="" width="1024" height="525" loading="${flintLoading}" decoding="async" fetchpriority="${flintFetchPriority}" />
+        </picture>` : ""}
       </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
         <span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>
