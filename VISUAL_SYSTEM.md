@@ -131,6 +131,8 @@ Estado atual:
 - Artefactos pre-historicos realistas devem ter sombra de contacto, sombra projetada curta na parede, luz quente lateral e contraste mineral suficiente para mostrar lascas e fraturas; evitar shapes low-poly, icones abstratos ou pedra cinzenta uniforme.
 - O silex deve ler como pedra lascada, nao como objeto escuro com textura aplicada: usar contraste local, reflexos frios/acinzentados nas faces partidas e um rim light quente vindo da fogueira inferior esquerda.
 - Sprites fotograficos precisam de integracao ambiental sem destruir fidelidade: preservar cor, nitidez, fraturas e microtextura no PNG; aplicar apenas sombras, luz ambiente e overlays suaves no CSS para parecerem objectos fisicos iluminados dentro da gruta, nao imagens sobrepostas.
+- Texto narrativo pre-historico deve parecer pigmento aplicado na parede: usar cor ocre/barro, mascara irregular, sombras subtis, `mix-blend-mode` quando legivel e animacao de revelacao apenas no story block ativo.
+- O progresso dos Story Blocks deve representar a licao atual, com marcador curto tipo `1 de 3` e barra local; em mobile, manter o indicador acima dos CTAs para evitar conflito com toque e leitura.
 - Nos Story Blocks com artefacto, a hierarquia deve ser imediata: artefacto -> titulo -> texto -> acao. O halo central nao deve competir com o protagonista; a pedra pode ocupar mais peso visual desde que nao colida com o texto, e o bloco narrativo precisa de escurecimento ambiental suficiente para leitura em mobile.
 - A proxima evolucao deve extrair particulas, overlays e iluminacao para tokens reutilizaveis.
 

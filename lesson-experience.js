@@ -94,8 +94,9 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const caveRevealLineCount = getCaveRevealLineCount(safeBlock.text);
   const flintLoading = index === 0 ? "eager" : "lazy";
   const flintFetchPriority = index === 0 ? "high" : "auto";
+  const storyProgressPercent = total > 1 ? Math.round((index / (total - 1)) * 100) : 100;
   return `
-    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
+    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}; --story-progress-pct: ${storyProgressPercent}%" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
       <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
         ${prehistoryArtifact === "flint" ? `<picture class="prehistory-flint-picture">
@@ -112,8 +113,13 @@ function renderStoryBlock(block, index, total, lesson = {}) {
         <span class="pigment-particles cave-pigment-particles" aria-hidden="true"></span>
         <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
       </div>
-      <div class="story-block-progress prehistory-progress" aria-label="Progresso dos story blocks">
-        ${Array.from({ length: total }, (_, dotIndex) => `<span class="${dotIndex === index ? "active" : ""}" aria-hidden="true"></span>`).join("")}
+      <div class="story-block-progress prehistory-progress" aria-label="Story block ${index + 1} de ${total}">
+        <span class="story-progress-label">${index + 1} de ${total}</span>
+        <span class="story-progress-track" aria-hidden="true"><span class="story-progress-fill"></span></span>
+        <span class="story-progress-percent">${storyProgressPercent}%</span>
+        <span class="story-progress-segments" aria-hidden="true">
+          ${Array.from({ length: total }, (_, dotIndex) => `<span class="story-progress-segment ${dotIndex === index ? "active" : ""}"></span>`).join("")}
+        </span>
       </div>
       <div class="story-block-actions prehistory-actions">
         <button type="button" data-lesson-action="story-prev" ${index === 0 ? "disabled" : ""}>Voltar</button>
