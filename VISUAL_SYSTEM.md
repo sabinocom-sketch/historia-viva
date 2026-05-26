@@ -132,7 +132,9 @@ Estado atual:
 - O silex deve ler como pedra lascada, nao como objeto escuro com textura aplicada: usar contraste local, reflexos frios/acinzentados nas faces partidas e um rim light quente vindo da fogueira inferior esquerda.
 - Sprites fotograficos precisam de integracao ambiental sem destruir fidelidade: preservar cor, nitidez, fraturas e microtextura no PNG; aplicar apenas sombras, luz ambiente e overlays suaves no CSS para parecerem objectos fisicos iluminados dentro da gruta, nao imagens sobrepostas.
 - Texto narrativo pre-historico deve parecer pigmento aplicado na parede: usar cor ocre/barro, mascara irregular, sombras subtis, `mix-blend-mode` quando legivel e animacao de revelacao apenas no story block ativo.
-- O progresso dos Story Blocks deve representar a licao atual, com marcador curto tipo `1 de 3` e barra local; em mobile, manter o indicador acima dos CTAs para evitar conflito com toque e leitura.
+- A cor do texto pintado deve priorizar leitura antes do efeito: usar ocre claro/barro claro para o corpo, reservar vermelhos escuros apenas como variacao subtil, e validar contraste em desktop e mobile.
+- Luz de fogueira pode ter flicker e poeira/cinza discretos em pseudo-elementos, mas deve respeitar `prefers-reduced-motion` e animar apenas `opacity`, `transform` ou `background-position`.
+- O progresso dos Story Blocks deve representar a licao atual, com marcador curto tipo `1 de 3` e barras dos blocos; evitar percentagem redundante, sobretudo quando o primeiro bloco mostraria `0%`.
 - Nos Story Blocks com artefacto, a hierarquia deve ser imediata: artefacto -> titulo -> texto -> acao. O halo central nao deve competir com o protagonista; a pedra pode ocupar mais peso visual desde que nao colida com o texto, e o bloco narrativo precisa de escurecimento ambiental suficiente para leitura em mobile.
 - A proxima evolucao deve extrair particulas, overlays e iluminacao para tokens reutilizaveis.
 
