@@ -4580,7 +4580,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   line-height: 0.95;
   letter-spacing: 0.04em;
   color: #5a2a14;
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
+  background-image: url("assets/textures/ochre-texture.webp");
+  background-size: cover;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
   filter: saturate(1.08) contrast(1.14);
   mix-blend-mode: screen;
 }
