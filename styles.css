@@ -4574,13 +4574,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: 2;
   max-width: 24ch;
   margin: 0;
-  color: #4b2412;
   font-family: "Amatic SC", cursive;
-  font-size: var(--prehistory-title-size);
-  line-height: 1.02;
   font-weight: 700;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 1px rgba(255, 220, 160, 0.15);
+  font-size: clamp(2rem, 4vw, 4.5rem);
+  line-height: 0.95;
+  letter-spacing: 0.04em;
+  color: #5a2a14;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.18);
   filter: saturate(1.08) contrast(1.14);
   mix-blend-mode: screen;
 }
@@ -4594,13 +4594,11 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   display: grid;
   gap: 0.86em;
   margin: 0;
-  color: #4b2412;
   font-family: "Patrick Hand", cursive;
-  font-size: var(--prehistory-text-size);
-  font-weight: 400;
-  line-height: 1.32;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 1px rgba(255, 220, 160, 0.15);
+  font-size: clamp(1rem, 1.25vw, 1.35rem);
+  line-height: 1.45;
+  color: #eed3a0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   filter: saturate(1.04) contrast(1.12) blur(0.04px);
   opacity: 0.98;
 }
