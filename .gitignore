@@ -3,3 +3,5 @@ screenshots/
 assets/*.png
 !assets/history-study.png
 !assets/silex-original.png
+!assets/silex-desktop.png
+!assets/silex-mobile.png

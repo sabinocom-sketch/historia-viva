@@ -70,7 +70,7 @@
   --asset-licao-arte-rupestre-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/arte-rupestre-portrait.webp");
   --asset-licao-arte-rupestre: var(--asset-licao-arte-rupestre-desktop);
   --asset-licao-ritos-funerarios: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/Assets/licao-ritos-funerarios.webp");
-  --asset-silex-lascado: url("assets/silex-desktop.webp?v=20260527");
+  --asset-silex-lascado: url("assets/silex-desktop.png?v=20260527");
   --asset-background-era-selection-desktop: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection.webp");
   --asset-background-era-selection-mobile: url("https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/backgrounds/era-selection-portrait.webp");
   --asset-background-era-selection: var(--asset-background-era-selection-desktop);
