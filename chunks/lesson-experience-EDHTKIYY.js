@@ -23,8 +23,8 @@ import{B as T,D as A,H as N,a as h,d as C,h as I,k as O,l as i,m as V,n as u,p a
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
       <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
         ${d==="flint"?`<picture class="prehistory-flint-picture">
-          <source type="image/webp" srcset="assets/silex-lascado-sprite-mobile.webp?v=20260526 512w, assets/silex-lascado-sprite-desktop.webp?v=20260526 1024w" sizes="(max-width: 768px) 70vw, min(34vw, 506px)" />
-          <img class="prehistory-flint-sprite" src="assets/silex-lascado-sprite-desktop.webp?v=20260526" alt="" width="1024" height="525" loading="${j}" decoding="async" fetchpriority="${R}" />
+          <source type="image/webp" srcset="assets/silex-mobile.webp?v=20260527 512w, assets/silex-desktop.webp?v=20260527 1024w" sizes="(max-width: 768px) 70vw, min(34vw, 506px)" />
+          <img class="prehistory-flint-sprite" src="assets/silex-desktop.webp?v=20260527" alt="" width="1024" height="525" loading="${j}" decoding="async" fetchpriority="${R}" />
         </picture>`:""}
       </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${L}">
