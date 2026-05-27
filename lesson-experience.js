@@ -104,7 +104,7 @@ function renderStoryBlock(block, index, total, lesson = {}) {
         </picture>` : ""}
       </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
-        <span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>
+        ${isPrehistory ? "" : `<span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>`}
         ${narrativeTitle ? `<h3 class="prehistory-narrative-title">${escapeHtml(narrativeTitle)}</h3>` : ""}
         <p class="cave-paint-text cave-painted-text" aria-label="${escapeHtml(safeBlock.text)}">
           ${renderCaveRevealText(safeBlock.text)}

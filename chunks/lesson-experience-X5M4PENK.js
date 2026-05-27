@@ -28,7 +28,7 @@ import{B as T,D as A,H as N,a as h,d as C,h as I,k as O,l as i,m as V,n as u,p a
         </picture>`:""}
       </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${w}">
-        <span class="prehistory-moment-label">Momento ${a+1} de ${o}</span>
+        ${l?"":`<span class="prehistory-moment-label">Momento ${a+1} de ${o}</span>`}
         ${g?`<h3 class="prehistory-narrative-title">${t(g)}</h3>`:""}
         <p class="cave-paint-text cave-painted-text" aria-label="${t(s.text)}">
           ${Y(s.text)}
