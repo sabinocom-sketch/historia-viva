@@ -4575,9 +4575,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   max-width: 24ch;
   margin: 0;
   color: #e2612d;
+  font-family: "Patrick Hand", cursive;
   font-size: var(--prehistory-title-size);
   line-height: 1.02;
-  font-weight: 900;
+  font-weight: 700;
   letter-spacing: 0;
   text-shadow:
     0 0 10px rgba(232, 115, 47, 0.2),
