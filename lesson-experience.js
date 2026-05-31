@@ -49,6 +49,7 @@ export function renderActiveLessonPanel() {
   return `
     <section class="active-lesson-panel lesson-view ${isSelected ? "is-active" : ""}" data-active-lesson="${escapeHtml(lesson.id)}" data-era="${escapeHtml(lesson.eraKey)}" data-section="${escapeHtml(lesson.sectionId || "")}" data-mood="${escapeHtml(lessonIntro.mood)}" data-mode="${escapeHtml(state.currentLessonMode)}" data-theme="${escapeHtml(lesson.category)}">
       ${isIntro ? `<div class="lesson-hero">
+        ${renderLessonProgress(lesson, 0, "lesson-hero-progress")}
         <span class="lesson-hero-image" aria-hidden="true"></span>
         <span class="lesson-atmosphere" aria-hidden="true"></span>
         <div class="lesson-hero-copy">
@@ -112,12 +113,7 @@ function renderStoryBlock(block, index, total, lesson = {}) {
         <span class="pigment-particles cave-pigment-particles" aria-hidden="true"></span>
         <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
       </div>
-      <div class="story-block-progress prehistory-progress" aria-label="Story block ${index + 1} de ${total}">
-        <span class="story-progress-label">${index + 1} de ${total}</span>
-        <span class="story-progress-segments" aria-hidden="true">
-          ${Array.from({ length: total }, (_, dotIndex) => `<span class="story-progress-segment ${dotIndex === index ? "active" : ""}"></span>`).join("")}
-        </span>
-      </div>
+      ${renderLessonProgress(lesson, index, "prehistory-progress")}
       <div class="story-block-actions prehistory-actions">
         <button type="button" data-lesson-action="story-prev" ${index === 0 ? "disabled" : ""}>Voltar</button>
         <button type="button" data-lesson-action="story-next">${index === total - 1 ? "Avançar" : "Continuar"}</button>
@@ -353,7 +349,36 @@ function buildNextTeaserLine(currentTitle, nextTitle) {
   return `${currentTitle} abriu uma porta. A próxima lição mostra o que mudou a seguir: ${nextTitle}.`;
 }
 
-function renderScreenProgress(index, total) {
+function renderLessonProgress(lesson, currentStepIndex, extraClass = "") {
+  const storyStepCount = getLessonStoryBlocks(lesson.id).length;
+  const totalLessonSteps = Math.max(1, storyStepCount + postStoryStepOrder.length);
+  const boundedStepIndex = Math.min(Math.max(currentStepIndex, 0), totalLessonSteps - 1);
+  const progressPercent = totalLessonSteps <= 1
+    ? 100
+    : Math.round((boundedStepIndex / (totalLessonSteps - 1)) * 100);
+  return `
+    <div class="lesson-next-progress ${escapeHtml(extraClass)}" aria-label="Progresso até à próxima lição">
+      <div class="lesson-next-progress-label">Progresso até à próxima lição — ${progressPercent}%</div>
+      <div class="lesson-next-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progressPercent}" aria-label="Progresso até à próxima lição">
+        <span class="lesson-next-progress-fill" style="width: ${progressPercent}%"></span>
+      </div>
+      <div class="lesson-next-progress-scale" aria-hidden="true">
+        <span>0%</span>
+        <span>25%</span>
+        <span>50%</span>
+        <span>75%</span>
+        <span>100%</span>
+      </div>
+    </div>
+  `;
+}
+
+function renderScreenProgress(index, total, lesson) {
+  const storyStepCount = getLessonStoryBlocks(lesson.id).length;
+  return renderLessonProgress(lesson, storyStepCount + index, "post-story-progress");
+}
+
+function renderStorySegmentProgress(index, total) {
   return `
     <div class="story-block-progress post-story-progress" aria-label="Progresso da liÃ§Ã£o">
       ${Array.from({ length: total }, (_, dotIndex) => `<span class="${dotIndex === index ? "active" : ""}" aria-hidden="true"></span>`).join("")}
@@ -379,7 +404,7 @@ function renderReflectionMoment(step, lesson, index, total) {
         <h3>${escapeHtml(step.title)}</h3>
         <p>${escapeHtml(step.text)}</p>
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Continuar")}
     </article>
   `;
@@ -400,7 +425,7 @@ function renderAssimilationChatbot(step, lesson, index, total) {
           ${step.prompts.map((prompt) => `<p class="mentor-bubble">${escapeHtml(prompt)}</p>`).join("")}
         </div>
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Continuar")}
     </article>
   `;
@@ -423,7 +448,7 @@ function renderRealityBridge(step, lesson, index, total) {
           </section>
         `).join("")}
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Continuar")}
     </article>
   `;
@@ -446,7 +471,7 @@ function renderCriticalLens(step, lesson, index, total) {
           </section>
         `).join("")}
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Continuar")}
     </article>
   `;
@@ -471,7 +496,7 @@ function renderChallengeScreen(step, lesson, index, total) {
           </button>
         `).join("")}
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Ver recompensa", !answered)}
     </article>
   `;
@@ -488,7 +513,7 @@ function renderRewardScreen(step, lesson, index, total) {
         <p>${escapeHtml(step.text)}</p>
         <small>${escapeHtml(step.artifact)}</small>
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Ver próxima")}
     </article>
   `;
@@ -503,7 +528,7 @@ function renderNextLessonTeaser(step, lesson, index, total) {
         <h3>${escapeHtml(step.title)}</h3>
         <p>${escapeHtml(step.text)}</p>
       </div>
-      ${renderScreenProgress(index, total)}
+      ${renderScreenProgress(index, total, lesson)}
       <div class="story-block-actions lesson-screen-actions post-story-actions">
         <button type="button" data-lesson-action="${escapeHtml(step.previous)}">Voltar</button>
         <button type="button" data-lesson-action="timeline">Voltar à timeline</button>
