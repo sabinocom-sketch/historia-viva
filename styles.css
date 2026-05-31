@@ -4853,7 +4853,6 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   pointer-events: none;
 }
 
-.lesson-next-progress.lesson-hero-progress,
 .lesson-next-progress.prehistory-progress,
 .lesson-next-progress.post-story-progress {
   grid-area: auto;

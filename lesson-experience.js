@@ -49,7 +49,6 @@ export function renderActiveLessonPanel() {
   return `
     <section class="active-lesson-panel lesson-view ${isSelected ? "is-active" : ""}" data-active-lesson="${escapeHtml(lesson.id)}" data-era="${escapeHtml(lesson.eraKey)}" data-section="${escapeHtml(lesson.sectionId || "")}" data-mood="${escapeHtml(lessonIntro.mood)}" data-mode="${escapeHtml(state.currentLessonMode)}" data-theme="${escapeHtml(lesson.category)}">
       ${isIntro ? `<div class="lesson-hero">
-        ${renderLessonProgress(lesson, 0, "lesson-hero-progress")}
         <span class="lesson-hero-image" aria-hidden="true"></span>
         <span class="lesson-atmosphere" aria-hidden="true"></span>
         <div class="lesson-hero-copy">
