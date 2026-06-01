@@ -4995,6 +4995,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 }
 
 .storyblock-prehistory .prehistory-actions {
+  --prehistory-button-stone-texture: url("../assets/textures/progress-bar-texture.jpg");
+  --prehistory-button-radius: 44% 38% 47% 42% / 46% 52% 43% 50%;
+  --prehistory-button-texture-size: clamp(360px, 38vw, 560px) auto;
+  --prehistory-button-texture-position: 46% 52%;
   position: absolute;
   right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
   bottom: calc(clamp(24px, 5vw, 62px) + var(--safe-bottom));
@@ -5003,38 +5007,136 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   gap: 12px;
 }
 
+.prehistory-stone-button,
 .storyblock-prehistory .prehistory-actions button {
+  --prehistory-button-ink: #291509;
+  --prehistory-button-edge: rgba(86, 48, 24, 0.72);
+  --prehistory-button-fire-glow: rgba(239, 146, 47, 0.32);
+  --prehistory-button-face:
+    radial-gradient(ellipse at 22% 18%, rgba(255, 239, 183, 0.48), transparent 30%),
+    radial-gradient(ellipse at 78% 76%, rgba(92, 47, 20, 0.34), transparent 36%),
+    linear-gradient(104deg, rgba(231, 178, 93, 0.86), rgba(164, 94, 39, 0.62) 52%, rgba(239, 180, 89, 0.78)),
+    var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
   min-height: 48px;
-  min-width: 112px;
-  border: 1px solid rgba(74, 45, 28, 0.58);
-  border-radius: 48% 42% 46% 52% / 54% 46% 50% 42%;
-  color: #24150d;
-  background:
-    radial-gradient(circle at 20% 24%, rgba(255, 232, 172, 0.3) 0 1px, transparent 2px),
-    radial-gradient(circle at 70% 62%, rgba(61, 35, 20, 0.22) 0 1px, transparent 2px),
-    linear-gradient(112deg, #d4a968, #9a6338 58%, #c98b4d);
-  background-size: 19px 17px, 29px 25px, 100% 100%;
+  min-width: 116px;
+  border: 1px solid var(--prehistory-button-edge);
+  border-radius: var(--prehistory-button-radius);
+  color: var(--prehistory-button-ink);
+  background: var(--prehistory-button-face);
+  background-repeat: no-repeat;
+  background-position: center, center, center, var(--prehistory-button-texture-position);
+  background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
+  background-blend-mode: screen, multiply, color, normal;
   box-shadow:
-    inset 0 1px rgba(255, 236, 184, 0.3),
-    inset 0 -12px 18px rgba(56, 31, 19, 0.18),
-    0 10px 22px rgba(0, 0, 0, 0.34),
-    -8px 10px 18px rgba(63, 31, 16, 0.12);
-  text-shadow: 0 1px rgba(238, 193, 118, 0.28);
+    inset 0 2px 2px rgba(255, 239, 186, 0.42),
+    inset 0 -8px 13px rgba(58, 30, 14, 0.28),
+    inset 5px 0 10px rgba(255, 221, 144, 0.08),
+    inset -7px 0 12px rgba(56, 30, 15, 0.2),
+    0 2px 0 rgba(65, 36, 19, 0.84),
+    0 11px 20px rgba(0, 0, 0, 0.34),
+    0 0 18px var(--prehistory-button-fire-glow);
+  text-shadow:
+    0 1px rgba(255, 224, 154, 0.34),
+    0 0 8px rgba(255, 215, 127, 0.18);
+  transform: translateY(0);
+  transition:
+    filter 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
 }
 
+.prehistory-stone-button::before,
+.prehistory-stone-button::after,
+.storyblock-prehistory .prehistory-actions button::before,
+.storyblock-prehistory .prehistory-actions button::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.prehistory-stone-button::before,
+.storyblock-prehistory .prehistory-actions button::before {
+  background:
+    linear-gradient(180deg, rgba(255, 239, 178, 0.32) 0 2px, transparent 8px, transparent 68%, rgba(47, 24, 11, 0.24)),
+    radial-gradient(circle at 30% 44%, rgba(255, 228, 156, 0.24) 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 58%, rgba(68, 33, 14, 0.24) 0 1px, transparent 2px);
+  background-size: 100% 100%, 23px 19px, 31px 27px;
+  mix-blend-mode: screen;
+  opacity: 0.74;
+}
+
+.prehistory-stone-button::after,
+.storyblock-prehistory .prehistory-actions button::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 226, 159, 0.13),
+    inset 0 4px 5px rgba(255, 234, 178, 0.12),
+    inset 0 -5px 8px rgba(41, 21, 10, 0.34);
+  opacity: 0.92;
+}
+
+.prehistory-stone-button--secondary,
 .storyblock-prehistory .prehistory-actions button:first-child {
-  color: rgba(241, 221, 184, 0.84);
-  background:
-    radial-gradient(circle at 24% 22%, rgba(255, 238, 189, 0.12) 0 1px, transparent 2px),
-    linear-gradient(112deg, rgba(38, 34, 27, 0.78), rgba(64, 51, 38, 0.66));
-  border-color: rgba(236, 209, 164, 0.28);
+  --prehistory-button-ink: rgba(247, 226, 187, 0.9);
+  --prehistory-button-edge: rgba(206, 160, 99, 0.34);
+  --prehistory-button-fire-glow: rgba(186, 97, 36, 0.1);
+  --prehistory-button-face:
+    radial-gradient(ellipse at 26% 20%, rgba(255, 226, 160, 0.18), transparent 32%),
+    radial-gradient(ellipse at 80% 78%, rgba(22, 13, 8, 0.38), transparent 38%),
+    linear-gradient(106deg, rgba(76, 59, 42, 0.9), rgba(46, 37, 29, 0.86) 55%, rgba(91, 68, 45, 0.82)),
+    var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
   box-shadow:
-    inset 0 1px rgba(255, 236, 184, 0.12),
-    0 8px 18px rgba(0, 0, 0, 0.26);
+    inset 0 1px 2px rgba(255, 235, 181, 0.16),
+    inset 0 -8px 12px rgba(12, 7, 4, 0.24),
+    0 1px 0 rgba(45, 25, 13, 0.76),
+    0 8px 16px rgba(0, 0, 0, 0.28),
+    0 0 10px var(--prehistory-button-fire-glow);
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.76),
+    0 0 6px rgba(255, 203, 122, 0.12);
 }
 
-.storyblock-prehistory .prehistory-actions button:disabled {
-  opacity: 0.58;
+.prehistory-stone-button--primary,
+.storyblock-prehistory .prehistory-actions [data-lesson-action="story-next"] {
+  --prehistory-button-ink: #241105;
+  --prehistory-button-edge: rgba(112, 58, 20, 0.82);
+  filter: brightness(1.06) saturate(1.08);
+}
+
+.prehistory-stone-button:not(:disabled):hover,
+.storyblock-prehistory .prehistory-actions button:not(:disabled):hover {
+  filter: brightness(1.1) saturate(1.08);
+  box-shadow:
+    inset 0 2px 2px rgba(255, 244, 197, 0.46),
+    inset 0 -8px 13px rgba(58, 30, 14, 0.24),
+    inset 5px 0 10px rgba(255, 221, 144, 0.1),
+    inset -7px 0 12px rgba(56, 30, 15, 0.18),
+    0 3px 0 rgba(65, 36, 19, 0.82),
+    0 14px 24px rgba(0, 0, 0, 0.36),
+    0 0 22px var(--prehistory-button-fire-glow);
+  transform: translateY(-2px);
+}
+
+.prehistory-stone-button--secondary:not(:disabled):hover,
+.storyblock-prehistory .prehistory-actions button:first-child:not(:disabled):hover {
+  filter: brightness(1.08) saturate(1.03);
+}
+
+.prehistory-stone-button:not(:disabled):active,
+.storyblock-prehistory .prehistory-actions button:not(:disabled):active {
+  filter: brightness(0.96) saturate(1.02);
+  box-shadow:
+    inset 0 4px 8px rgba(20, 10, 5, 0.42),
+    inset 0 -3px 7px rgba(255, 221, 156, 0.08),
+    0 1px 0 rgba(43, 23, 12, 0.86),
+    0 5px 11px rgba(0, 0, 0, 0.26),
+    0 0 10px rgba(211, 109, 36, 0.14);
+  transform: translateY(1px);
 }
 
 .story-block[data-era="pre-historia"] .story-block-actions [data-lesson-action="story-next"],
@@ -5463,6 +5565,33 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block-actions button:disabled {
   cursor: not-allowed;
   opacity: 0.42;
+}
+
+.storyblock-prehistory .prehistory-actions button {
+  border-color: var(--prehistory-button-edge);
+  border-radius: var(--prehistory-button-radius);
+  color: var(--prehistory-button-ink);
+  background: var(--prehistory-button-face);
+  background-repeat: no-repeat;
+  background-position: center, center, center, var(--prehistory-button-texture-position);
+  background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
+  background-blend-mode: screen, multiply, color, normal;
+  backdrop-filter: none;
+}
+
+.storyblock-prehistory .prehistory-actions button:first-child {
+  color: var(--prehistory-button-ink);
+}
+
+.storyblock-prehistory .prehistory-actions [data-lesson-action="story-next"] {
+  color: var(--prehistory-button-ink);
+  background: var(--prehistory-button-face);
+}
+
+.storyblock-prehistory .prehistory-actions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  filter: brightness(0.84) saturate(0.88);
 }
 
 .interactive-moment {
