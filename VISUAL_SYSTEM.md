@@ -139,6 +139,7 @@ Estado atual:
 - A cor do texto pintado deve priorizar leitura antes do efeito: usar ocre claro/barro claro para o corpo, reservar vermelhos escuros apenas como variacao subtil, e validar contraste em desktop e mobile.
 - Luz de fogueira pode ter flicker e poeira/cinza discretos em pseudo-elementos, mas deve respeitar `prefers-reduced-motion` e animar apenas `opacity`, `transform` ou `background-position`.
 - O progresso dos Story Blocks deve representar a licao atual, com marcador curto tipo `1 de 3` e barras dos blocos; evitar percentagem redundante, sobretudo quando o primeiro bloco mostraria `0%`.
+- A barra de progresso ate a proxima licao nos Story Blocks pre-historicos usa `assets/textures/progress-bar-texture.jpg` como textura de pedra. A trilha deve parecer talhada na parede da gruta, manter fissuras visiveis e usar `background-size` ampliado para evitar repeticao evidente; o preenchimento reutiliza a mesma textura com sobreposicao ocre/dourada e brilho quente muito subtil de fogueira, preservando contraste com a percentagem.
 - Nos Story Blocks com artefacto, a hierarquia deve ser imediata: artefacto -> titulo -> texto -> acao. O halo central nao deve competir com o protagonista; a pedra pode ocupar mais peso visual desde que nao colida com o texto, e o bloco narrativo precisa de escurecimento ambiental suficiente para leitura em mobile.
 - A proxima evolucao deve extrair particulas, overlays e iluminacao para tokens reutilizaveis.
 
