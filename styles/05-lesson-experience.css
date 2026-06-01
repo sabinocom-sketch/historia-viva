@@ -1467,7 +1467,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .lesson-next-progress {
   --lesson-progress-stone-texture: url("../assets/textures/progress-bar-texture.jpg");
-  --lesson-progress-track-height: 15px;
+  --lesson-progress-track-height: 17px;
   --lesson-progress-radius: 6px;
   --lesson-progress-texture-width: clamp(560px, 62vw, 840px);
   position: absolute;
@@ -1519,22 +1519,22 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   isolation: isolate;
   overflow: hidden;
   height: var(--lesson-progress-track-height);
-  border: 1px solid rgba(97, 61, 35, 0.72);
+  border: 1px solid rgba(128, 83, 48, 0.78);
   border-radius: var(--lesson-progress-radius);
   contain: layout paint;
   background:
-    linear-gradient(180deg, rgba(3, 2, 1, 0.78) 0%, rgba(15, 10, 7, 0.48) 38%, rgba(112, 70, 37, 0.16) 56%, rgba(0, 0, 0, 0.74) 100%),
-    linear-gradient(90deg, rgba(12, 9, 7, 0.78), rgba(74, 50, 34, 0.34) 48%, rgba(16, 10, 7, 0.82)),
+    linear-gradient(180deg, rgba(2, 1, 1, 0.62) 0%, rgba(22, 15, 10, 0.3) 34%, rgba(150, 96, 48, 0.2) 58%, rgba(0, 0, 0, 0.58) 100%),
+    linear-gradient(90deg, rgba(19, 13, 9, 0.56), rgba(112, 78, 48, 0.2) 48%, rgba(22, 14, 9, 0.6)),
     var(--lesson-progress-stone-texture);
   background-repeat: no-repeat;
   background-position: center, center, 42% 48%;
   background-size: 100% 100%, 100% 100%, var(--lesson-progress-texture-width) auto;
   box-shadow:
-    inset 0 3px 6px rgba(0, 0, 0, 0.86),
-    inset 0 -2px 3px rgba(211, 139, 58, 0.14),
-    inset 8px 0 14px rgba(0, 0, 0, 0.36),
-    inset -8px 0 14px rgba(0, 0, 0, 0.34),
-    0 1px 0 rgba(255, 207, 133, 0.1),
+    inset 0 4px 7px rgba(0, 0, 0, 0.78),
+    inset 0 -3px 4px rgba(230, 148, 61, 0.2),
+    inset 9px 0 15px rgba(0, 0, 0, 0.3),
+    inset -9px 0 15px rgba(0, 0, 0, 0.3),
+    0 1px 0 rgba(255, 213, 143, 0.16),
     0 7px 18px rgba(0, 0, 0, 0.24);
 }
 
@@ -1551,17 +1551,18 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .lesson-next-progress-track::before {
   background:
-    radial-gradient(ellipse at 12% 50%, rgba(255, 164, 63, 0.18), transparent 32%),
-    linear-gradient(180deg, rgba(255, 212, 132, 0.12) 0 1px, transparent 3px, transparent 68%, rgba(0, 0, 0, 0.28));
+    radial-gradient(ellipse at 10% 52%, rgba(255, 174, 74, 0.22), transparent 34%),
+    radial-gradient(ellipse at 50% 45%, rgba(255, 221, 153, 0.1), transparent 62%),
+    linear-gradient(180deg, rgba(255, 218, 148, 0.18) 0 1px, transparent 4px, transparent 70%, rgba(0, 0, 0, 0.24));
   mix-blend-mode: screen;
-  opacity: 0.72;
+  opacity: 0.78;
 }
 
 .lesson-next-progress-track::after {
   box-shadow:
-    inset 0 0 0 1px rgba(255, 215, 142, 0.05),
-    inset 0 0 15px rgba(0, 0, 0, 0.78),
-    inset 0 2px 2px rgba(0, 0, 0, 0.76);
+    inset 0 0 0 1px rgba(255, 218, 150, 0.08),
+    inset 0 0 13px rgba(0, 0, 0, 0.68),
+    inset 0 3px 3px rgba(0, 0, 0, 0.7);
 }
 
 .lesson-next-progress-fill {
@@ -1572,18 +1573,18 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   height: 100%;
   border-radius: inherit;
   background:
-    linear-gradient(90deg, rgba(101, 45, 17, 0.66), rgba(169, 91, 29, 0.7) 44%, rgba(218, 142, 54, 0.74)),
-    linear-gradient(180deg, rgba(255, 224, 139, 0.24) 0%, rgba(150, 75, 26, 0.18) 48%, rgba(37, 16, 8, 0.24) 100%),
+    linear-gradient(90deg, rgba(137, 62, 20, 0.78), rgba(196, 108, 33, 0.82) 44%, rgba(239, 162, 61, 0.88)),
+    linear-gradient(180deg, rgba(255, 229, 150, 0.38) 0%, rgba(180, 89, 27, 0.24) 48%, rgba(62, 27, 10, 0.22) 100%),
     var(--lesson-progress-stone-texture);
   background-repeat: no-repeat;
   background-position: center, center, 58% 48%;
   background-size: 100% 100%, 100% 100%, var(--lesson-progress-texture-width) auto;
   background-blend-mode: color, overlay, normal;
   box-shadow:
-    inset 0 1px rgba(255, 225, 154, 0.26),
-    inset 0 -2px rgba(64, 28, 12, 0.42),
-    inset 0 0 7px rgba(93, 35, 11, 0.38),
-    0 0 12px rgba(230, 132, 44, 0.24);
+    inset 0 1px rgba(255, 232, 165, 0.36),
+    inset 0 -2px rgba(76, 31, 10, 0.38),
+    inset 0 0 7px rgba(111, 42, 10, 0.34),
+    0 0 13px rgba(239, 144, 48, 0.34);
   transition: width 300ms ease;
 }
 
@@ -1592,11 +1593,11 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   inset: 0;
   border-radius: inherit;
   background:
-    radial-gradient(ellipse at 92% 48%, rgba(255, 195, 91, 0.26), transparent 30%),
-    linear-gradient(180deg, rgba(255, 226, 150, 0.12), transparent 54%);
+    radial-gradient(ellipse at 92% 48%, rgba(255, 207, 105, 0.34), transparent 32%),
+    linear-gradient(180deg, rgba(255, 232, 157, 0.18), transparent 56%);
   content: "";
   mix-blend-mode: screen;
-  opacity: 0.58;
+  opacity: 0.68;
   pointer-events: none;
 }
 
