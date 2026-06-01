@@ -1623,8 +1623,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .storyblock-prehistory .prehistory-actions {
   --prehistory-button-stone-texture: url("../assets/textures/progress-bar-texture.jpg");
   --prehistory-button-radius: 44% 38% 47% 42% / 46% 52% 43% 50%;
-  --prehistory-button-texture-size: clamp(360px, 38vw, 560px) auto;
-  --prehistory-button-texture-position: 46% 52%;
+  --prehistory-button-texture-size: clamp(520px, 54vw, 760px) auto;
+  --prehistory-button-texture-position: 48% 50%;
   position: absolute;
   right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
   bottom: calc(clamp(24px, 5vw, 62px) + var(--safe-bottom));
@@ -1636,12 +1636,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .prehistory-stone-button,
 .storyblock-prehistory .prehistory-actions button {
   --prehistory-button-ink: #291509;
-  --prehistory-button-edge: rgba(86, 48, 24, 0.72);
-  --prehistory-button-fire-glow: rgba(239, 146, 47, 0.32);
+  --prehistory-button-edge: rgba(114, 61, 21, 0.74);
+  --prehistory-button-fire-glow: rgba(244, 154, 46, 0.38);
   --prehistory-button-face:
-    radial-gradient(ellipse at 22% 18%, rgba(255, 239, 183, 0.48), transparent 30%),
-    radial-gradient(ellipse at 78% 76%, rgba(92, 47, 20, 0.34), transparent 36%),
-    linear-gradient(104deg, rgba(231, 178, 93, 0.86), rgba(164, 94, 39, 0.62) 52%, rgba(239, 180, 89, 0.78)),
+    radial-gradient(ellipse at 24% 18%, rgba(255, 238, 176, 0.5), transparent 34%),
+    radial-gradient(ellipse at 78% 76%, rgba(102, 48, 15, 0.2), transparent 42%),
+    linear-gradient(104deg, rgba(236, 178, 83, 0.96), rgba(193, 112, 34, 0.9) 54%, rgba(242, 178, 80, 0.94)),
     var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
   position: relative;
   isolation: isolate;
@@ -1655,18 +1655,21 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   background-repeat: no-repeat;
   background-position: center, center, center, var(--prehistory-button-texture-position);
   background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
-  background-blend-mode: screen, multiply, color, normal;
+  background-blend-mode: screen, multiply, normal, soft-light;
   box-shadow:
-    inset 0 2px 2px rgba(255, 239, 186, 0.42),
-    inset 0 -8px 13px rgba(58, 30, 14, 0.28),
-    inset 5px 0 10px rgba(255, 221, 144, 0.08),
-    inset -7px 0 12px rgba(56, 30, 15, 0.2),
-    0 2px 0 rgba(65, 36, 19, 0.84),
+    inset 0 2px 2px rgba(255, 242, 196, 0.48),
+    inset 0 -8px 13px rgba(72, 35, 10, 0.23),
+    inset 5px 0 10px rgba(255, 226, 147, 0.1),
+    inset -7px 0 12px rgba(75, 35, 12, 0.16),
+    0 2px 0 rgba(71, 38, 16, 0.82),
     0 11px 20px rgba(0, 0, 0, 0.34),
     0 0 18px var(--prehistory-button-fire-glow);
+  font-weight: 950;
   text-shadow:
-    0 1px rgba(255, 224, 154, 0.34),
-    0 0 8px rgba(255, 215, 127, 0.18);
+    0 1px rgba(255, 229, 158, 0.42),
+    0 -1px rgba(77, 35, 8, 0.22),
+    0 0 6px rgba(255, 220, 130, 0.18);
+  -webkit-text-stroke: 0.15px rgba(42, 17, 4, 0.32);
   transform: translateY(0);
   transition:
     filter 180ms ease,
@@ -1689,12 +1692,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .prehistory-stone-button::before,
 .storyblock-prehistory .prehistory-actions button::before {
   background:
-    linear-gradient(180deg, rgba(255, 239, 178, 0.32) 0 2px, transparent 8px, transparent 68%, rgba(47, 24, 11, 0.24)),
-    radial-gradient(circle at 30% 44%, rgba(255, 228, 156, 0.24) 0 1px, transparent 2px),
-    radial-gradient(circle at 66% 58%, rgba(68, 33, 14, 0.24) 0 1px, transparent 2px);
-  background-size: 100% 100%, 23px 19px, 31px 27px;
+    linear-gradient(180deg, rgba(255, 242, 190, 0.34) 0 2px, transparent 9px, transparent 68%, rgba(49, 23, 8, 0.2)),
+    radial-gradient(circle at 30% 44%, rgba(255, 233, 169, 0.16) 0 1px, transparent 2px),
+    radial-gradient(circle at 66% 58%, rgba(76, 35, 11, 0.16) 0 1px, transparent 2px);
+  background-size: 100% 100%, 32px 27px, 42px 36px;
   mix-blend-mode: screen;
-  opacity: 0.74;
+  opacity: 0.62;
 }
 
 .prehistory-stone-button::after,
@@ -1708,40 +1711,45 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .prehistory-stone-button--secondary,
 .storyblock-prehistory .prehistory-actions button:first-child {
-  --prehistory-button-ink: rgba(247, 226, 187, 0.9);
-  --prehistory-button-edge: rgba(206, 160, 99, 0.34);
-  --prehistory-button-fire-glow: rgba(186, 97, 36, 0.1);
+  --prehistory-button-ink: rgba(255, 239, 205, 0.96);
+  --prehistory-button-edge: rgba(198, 175, 135, 0.32);
+  --prehistory-button-fire-glow: rgba(125, 84, 48, 0.06);
   --prehistory-button-face:
-    radial-gradient(ellipse at 26% 20%, rgba(255, 226, 160, 0.18), transparent 32%),
-    radial-gradient(ellipse at 80% 78%, rgba(22, 13, 8, 0.38), transparent 38%),
-    linear-gradient(106deg, rgba(76, 59, 42, 0.9), rgba(46, 37, 29, 0.86) 55%, rgba(91, 68, 45, 0.82)),
+    radial-gradient(ellipse at 26% 20%, rgba(255, 237, 190, 0.12), transparent 34%),
+    radial-gradient(ellipse at 80% 78%, rgba(20, 14, 10, 0.22), transparent 42%),
+    linear-gradient(106deg, rgba(96, 91, 81, 0.94), rgba(55, 52, 47, 0.94) 55%, rgba(103, 96, 83, 0.9)),
     var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
   box-shadow:
-    inset 0 1px 2px rgba(255, 235, 181, 0.16),
-    inset 0 -8px 12px rgba(12, 7, 4, 0.24),
-    0 1px 0 rgba(45, 25, 13, 0.76),
-    0 8px 16px rgba(0, 0, 0, 0.28),
+    inset 0 1px 2px rgba(255, 243, 207, 0.14),
+    inset 0 -8px 12px rgba(13, 10, 7, 0.2),
+    0 1px 0 rgba(35, 29, 23, 0.76),
+    0 8px 15px rgba(0, 0, 0, 0.24),
     0 0 10px var(--prehistory-button-fire-glow);
   text-shadow:
-    0 1px 3px rgba(0, 0, 0, 0.76),
-    0 0 6px rgba(255, 203, 122, 0.12);
+    0 1px 3px rgba(0, 0, 0, 0.86),
+    0 0 5px rgba(255, 226, 178, 0.12);
+  -webkit-text-stroke: 0.12px rgba(20, 14, 9, 0.48);
 }
 
 .prehistory-stone-button--primary,
 .storyblock-prehistory .prehistory-actions [data-lesson-action="story-next"] {
-  --prehistory-button-ink: #241105;
+  --prehistory-button-ink: #1b0b02;
   --prehistory-button-edge: rgba(112, 58, 20, 0.82);
-  filter: brightness(1.06) saturate(1.08);
+  filter: brightness(1.15) contrast(1.06) saturate(1.08);
+  text-shadow:
+    0 1px rgba(255, 233, 168, 0.52),
+    0 -1px rgba(74, 30, 7, 0.3),
+    0 0 7px rgba(255, 214, 118, 0.24);
 }
 
 .prehistory-stone-button:not(:disabled):hover,
 .storyblock-prehistory .prehistory-actions button:not(:disabled):hover {
-  filter: brightness(1.1) saturate(1.08);
+  filter: brightness(1.2) contrast(1.07) saturate(1.08);
   box-shadow:
-    inset 0 2px 2px rgba(255, 244, 197, 0.46),
-    inset 0 -8px 13px rgba(58, 30, 14, 0.24),
+    inset 0 2px 2px rgba(255, 246, 202, 0.5),
+    inset 0 -8px 13px rgba(67, 31, 10, 0.2),
     inset 5px 0 10px rgba(255, 221, 144, 0.1),
-    inset -7px 0 12px rgba(56, 30, 15, 0.18),
+    inset -7px 0 12px rgba(56, 30, 15, 0.14),
     0 3px 0 rgba(65, 36, 19, 0.82),
     0 14px 24px rgba(0, 0, 0, 0.36),
     0 0 22px var(--prehistory-button-fire-glow);
@@ -1750,7 +1758,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .prehistory-stone-button--secondary:not(:disabled):hover,
 .storyblock-prehistory .prehistory-actions button:first-child:not(:disabled):hover {
-  filter: brightness(1.08) saturate(1.03);
+  filter: brightness(0.92) contrast(1.04) saturate(0.86);
 }
 
 .prehistory-stone-button:not(:disabled):active,
@@ -2201,7 +2209,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   background-repeat: no-repeat;
   background-position: center, center, center, var(--prehistory-button-texture-position);
   background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
-  background-blend-mode: screen, multiply, color, normal;
+  background-blend-mode: screen, multiply, normal, soft-light;
   backdrop-filter: none;
 }
 
@@ -2216,8 +2224,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .storyblock-prehistory .prehistory-actions button:disabled {
   cursor: not-allowed;
-  opacity: 0.72;
-  filter: brightness(0.84) saturate(0.88);
+  opacity: 0.78;
+  filter: brightness(0.78) contrast(1.02) saturate(0.78);
 }
 
 .interactive-moment {
