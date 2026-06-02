@@ -358,9 +358,12 @@ function renderLessonProgress(lesson, currentStepIndex, extraClass = "") {
   return `
     <div class="lesson-next-progress ${escapeHtml(extraClass)}" aria-label="Progresso até à próxima lição">
       <div class="lesson-next-progress-label">Progresso até à próxima lição — ${progressPercent}%</div>
-      <div class="lesson-next-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progressPercent}" aria-label="Progresso até à próxima lição">
-        <!-- Stone and firelight layers are CSS-only; progress math remains unchanged above. -->
-        <span class="lesson-next-progress-fill" style="width: ${progressPercent}%"></span>
+      <div class="lesson-next-progress-meter">
+        <div class="lesson-next-progress-track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${progressPercent}" aria-label="Progresso até à próxima lição">
+          <!-- Stone and firelight layers are CSS-only; progress math remains unchanged above. -->
+          <span class="lesson-next-progress-fill" style="width: ${progressPercent}%"></span>
+        </div>
+        <span class="lesson-next-progress-percent" aria-hidden="true">${progressPercent}%</span>
       </div>
       <div class="lesson-next-progress-scale" aria-hidden="true">
         <span>0%</span>

@@ -1550,6 +1550,14 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     0 7px 18px rgba(0, 0, 0, 0.24);
 }
 
+.lesson-next-progress-meter {
+  display: contents;
+}
+
+.lesson-next-progress-percent {
+  display: none;
+}
+
 /* Carved edge lighting keeps the fissures visible and makes the track read as a groove in the cave wall. */
 .lesson-next-progress-track::before,
 .lesson-next-progress-track::after {

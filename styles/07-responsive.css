@@ -1474,11 +1474,31 @@
     --lesson-progress-track-height: 10px;
     top: calc(18px + var(--safe-top));
     gap: 0;
-    width: min(460px, calc(100vw - 28px - var(--safe-left) - var(--safe-right)));
+    width: min(410px, calc(100vw - 48px - var(--safe-left) - var(--safe-right)));
+  }
+
+  body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-meter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-label {
     display: none;
+  }
+
+  body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-percent {
+    display: inline-block;
+    min-width: 3ch;
+    color: rgba(255, 234, 190, 0.94);
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    font-weight: 900;
+    line-height: 1;
+    text-align: right;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.78),
+      0 0 7px rgba(70, 34, 13, 0.58);
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-scale {
@@ -1521,6 +1541,74 @@
   body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
     bottom: calc(42px + var(--safe-bottom));
     gap: 14px;
+  }
+
+  @media (max-height: 820px) {
+    body[data-view="lesson"] .story-block {
+      gap: clamp(8px, 1.6svh, 14px);
+      padding:
+        calc(42px + var(--safe-top))
+        calc(var(--mobile-page-pad) + var(--safe-right))
+        calc(112px + var(--safe-bottom))
+        calc(var(--mobile-page-pad) + var(--safe-left));
+    }
+
+    body[data-view="lesson"] .story-block-copy {
+      gap: 8px;
+    }
+
+    body[data-view="lesson"] .story-block-copy p {
+      max-width: min(100%, 34ch);
+      font-size: clamp(1.18rem, 5.6vw, 1.72rem);
+      line-height: 1.08;
+    }
+
+    body[data-view="lesson"] .story-block-actions {
+      bottom: calc(24px + var(--safe-bottom));
+    }
+
+    body[data-view="lesson"] .storyblock-prehistory {
+      --prehistory-title-size: clamp(0.88rem, 4.2vw, 1.12rem);
+      --prehistory-text-size: clamp(0.78rem, 3.55vw, 0.98rem);
+      gap: clamp(2px, 0.9svh, 8px);
+      padding:
+        calc(42px + var(--safe-top))
+        calc(14px + var(--safe-right))
+        calc(112px + var(--safe-bottom))
+        calc(14px + var(--safe-left));
+    }
+
+    body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
+      width: clamp(146px, 44vw, 198px);
+      margin-bottom: 0;
+      transform: translate3d(calc(-3vw - 8px), calc(0.3svh + 6px), 0) scale(0.84) rotate(-14deg);
+    }
+
+    body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
+    body[data-view="lesson"] .story-block[data-section="paleolitico"] .prehistory-stone-panel,
+    body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
+    body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
+      max-width: min(50ch, calc(100vw - 48px));
+      padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
+    }
+
+    body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-narrative-title,
+    body[data-view="lesson"] .story-block[data-section="paleolitico"] .prehistory-narrative-title,
+    body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-narrative-title,
+    body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
+      margin-bottom: clamp(7px, 1.4svh, 12px);
+    }
+
+    body[data-view="lesson"] .story-block[data-era="pre-historia"] .cave-paint-text,
+    body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
+    body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
+    body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
+      line-height: 1.12;
+    }
+
+    body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
+      bottom: calc(34px + var(--safe-bottom));
+    }
   }
 }
 
