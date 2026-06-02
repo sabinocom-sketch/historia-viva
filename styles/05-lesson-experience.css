@@ -2253,6 +2253,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   opacity: 0.42;
 }
 
+body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data-lesson-action]) .screen-back-button {
+  display: none;
+}
+
 .storyblock-prehistory .prehistory-actions button {
   border-color: var(--prehistory-button-edge);
   border-radius: var(--prehistory-button-radius);

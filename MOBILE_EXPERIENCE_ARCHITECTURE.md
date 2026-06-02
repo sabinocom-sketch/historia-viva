@@ -139,6 +139,7 @@ Prehistory story screens should preserve the immersive cave identity while prior
 - Treat the artefact and title as one narrative group, with the artefact close enough to anchor the title but not touching the progress bar.
 - Give the reading column enough width to avoid excessive line breaks while keeping a centred, cave-wall reading rhythm.
 - Keep bottom lesson actions above Android navigation/safe-area pressure, with the primary action still in thumb reach.
+- Hide the global top-back control when the active lesson scene already includes a bottom `Voltar` action.
 - Preserve the existing cave, flint, fire, ochre, and rock-painting visual language when adjusting spacing.
 
 ### Mobile landscape mode
