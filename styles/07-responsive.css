@@ -1458,29 +1458,27 @@
   }
 
   body[data-view="lesson"] .storyblock-prehistory {
-    --prehistory-title-size: clamp(1.06rem, 5vw, 1.38rem);
-    --prehistory-text-size: clamp(0.98rem, 4.45vw, 1.28rem);
+    --prehistory-title-size: clamp(1rem, 4.8vw, 1.32rem);
+    --prehistory-text-size: clamp(0.94rem, 4.15vw, 1.2rem);
     align-content: start;
     grid-template-rows: auto auto 1fr auto;
     gap: clamp(4px, 1.6svh, 12px);
     padding:
-      calc(82px + var(--safe-top))
+      calc(52px + var(--safe-top))
       calc(14px + var(--safe-right))
-      calc(82px + var(--safe-bottom))
+      calc(96px + var(--safe-bottom))
       calc(14px + var(--safe-left));
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress {
     --lesson-progress-track-height: 10px;
-    top: calc(16px + var(--safe-top));
-    gap: 4px;
+    top: calc(18px + var(--safe-top));
+    gap: 0;
     width: min(460px, calc(100vw - 28px - var(--safe-left) - var(--safe-right)));
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-label {
-    padding: 4px 10px;
-    border-radius: 8px;
-    font-size: clamp(0.68rem, 3vw, 0.78rem);
+    display: none;
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress .lesson-next-progress-scale {
@@ -1488,9 +1486,9 @@
   }
 
   body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
-    width: clamp(226px, 64vw, 304px);
-    margin-bottom: -18px;
-    transform: translate3d(calc(-5vw - 18px), calc(1.8svh + 54px), 0) scale(1.04) rotate(-14deg);
+    width: clamp(188px, 52vw, 246px);
+    margin-bottom: 2px;
+    transform: translate3d(calc(-4vw - 12px), calc(0.8svh + 14px), 0) scale(0.9) rotate(-14deg);
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
@@ -1513,7 +1511,7 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-    line-height: 1.23;
+    line-height: 1.2;
   }
 
   body[data-view="lesson"] .storyblock-prehistory .cave-reveal-line {
@@ -1521,7 +1519,7 @@
   }
 
   body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
-    bottom: calc(46px + var(--safe-bottom));
+    bottom: calc(42px + var(--safe-bottom));
     gap: 14px;
   }
 }

@@ -134,10 +134,11 @@ Applies from `@media (max-width: 768px) and (orientation: portrait)`.
 
 Prehistory story screens should preserve the immersive cave identity while prioritising composition before new visual effects.
 
-- Keep the progress indicator compact at the top and avoid dense scale marks on mobile.
+- Keep the progress indicator compact at the top; on mobile story scenes, show the bar only and remove the textual progress label.
 - Maintain clear separation between progress, artefact, title, narrative copy, and actions.
 - Treat the artefact and title as one narrative group, with the artefact close enough to anchor the title but not touching the progress bar.
 - Give the reading column enough width to avoid excessive line breaks while keeping a centred, cave-wall reading rhythm.
+- Ensure the artefact never overlaps the title and the narrative copy never runs underneath the bottom actions.
 - Keep bottom lesson actions above Android navigation/safe-area pressure, with the primary action still in thumb reach.
 - Hide the global top-back control when the active lesson scene already includes a bottom `Voltar` action.
 - Preserve the existing cave, flint, fire, ochre, and rock-painting visual language when adjusting spacing.
