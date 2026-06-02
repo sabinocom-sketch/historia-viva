@@ -540,6 +540,7 @@ body[data-view="lesson"] .lesson-experience {
   position: absolute;
   inset: 0;
   z-index: -2;
+  pointer-events: none;
   background:
     radial-gradient(circle at 24% 38%, rgba(241, 199, 121, 0.22), transparent 24%),
     linear-gradient(135deg, #101413 0%, #26231d 52%, #513821 100%);
@@ -1635,13 +1636,14 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .prehistory-stone-button,
 .storyblock-prehistory .prehistory-actions button {
-  --prehistory-button-ink: #291509;
-  --prehistory-button-edge: rgba(114, 61, 21, 0.74);
-  --prehistory-button-fire-glow: rgba(244, 154, 46, 0.38);
+  --prehistory-button-ink: #241105;
+  --prehistory-button-edge: rgba(106, 58, 24, 0.76);
+  --prehistory-button-fire-glow: rgba(240, 139, 38, 0.28);
+  --prehistory-button-polish: rgba(255, 237, 174, 0.22);
   --prehistory-button-face:
-    radial-gradient(ellipse at 24% 18%, rgba(255, 238, 176, 0.5), transparent 34%),
-    radial-gradient(ellipse at 78% 76%, rgba(102, 48, 15, 0.2), transparent 42%),
-    linear-gradient(104deg, rgba(236, 178, 83, 0.96), rgba(193, 112, 34, 0.9) 54%, rgba(242, 178, 80, 0.94)),
+    radial-gradient(ellipse at 24% 16%, rgba(255, 237, 176, 0.46), transparent 34%),
+    radial-gradient(ellipse at 78% 76%, rgba(94, 42, 13, 0.18), transparent 42%),
+    linear-gradient(107deg, rgba(226, 166, 76, 0.98), rgba(178, 98, 31, 0.94) 54%, rgba(229, 160, 68, 0.96)),
     var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
   position: relative;
   isolation: isolate;
@@ -1655,25 +1657,28 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   background-repeat: no-repeat;
   background-position: center, center, center, var(--prehistory-button-texture-position);
   background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
-  background-blend-mode: screen, multiply, normal, soft-light;
+  background-blend-mode: screen, multiply, normal, overlay;
   box-shadow:
-    inset 0 2px 2px rgba(255, 242, 196, 0.48),
-    inset 0 -8px 13px rgba(72, 35, 10, 0.23),
-    inset 5px 0 10px rgba(255, 226, 147, 0.1),
-    inset -7px 0 12px rgba(75, 35, 12, 0.16),
-    0 2px 0 rgba(71, 38, 16, 0.82),
-    0 11px 20px rgba(0, 0, 0, 0.34),
-    0 0 18px var(--prehistory-button-fire-glow);
-  font-weight: 950;
+    inset 0 1px 0 rgba(255, 245, 203, 0.52),
+    inset 0 5px 10px rgba(255, 223, 151, 0.12),
+    inset 0 -10px 15px rgba(58, 27, 9, 0.29),
+    inset 6px 0 11px rgba(255, 221, 143, 0.1),
+    inset -8px 0 13px rgba(65, 30, 10, 0.18),
+    0 2px 0 rgba(64, 34, 14, 0.88),
+    0 12px 21px rgba(0, 0, 0, 0.34),
+    0 0 16px var(--prehistory-button-fire-glow);
+  font-weight: 980;
   text-shadow:
-    0 1px rgba(255, 229, 158, 0.42),
-    0 -1px rgba(77, 35, 8, 0.22),
-    0 0 6px rgba(255, 220, 130, 0.18);
+    0 1px 0 rgba(255, 231, 158, 0.5),
+    0 -1px 0 rgba(64, 28, 7, 0.28),
+    0 2px 4px rgba(39, 17, 5, 0.18),
+    0 0 5px rgba(255, 214, 118, 0.16);
   -webkit-text-stroke: 0.15px rgba(42, 17, 4, 0.32);
   transform: translateY(0);
   transition:
     filter 180ms ease,
     box-shadow 180ms ease,
+    text-shadow 180ms ease,
     transform 180ms ease;
 }
 
@@ -1692,85 +1697,109 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .prehistory-stone-button::before,
 .storyblock-prehistory .prehistory-actions button::before {
   background:
-    linear-gradient(180deg, rgba(255, 242, 190, 0.34) 0 2px, transparent 9px, transparent 68%, rgba(49, 23, 8, 0.2)),
-    radial-gradient(circle at 30% 44%, rgba(255, 233, 169, 0.16) 0 1px, transparent 2px),
-    radial-gradient(circle at 66% 58%, rgba(76, 35, 11, 0.16) 0 1px, transparent 2px);
-  background-size: 100% 100%, 32px 27px, 42px 36px;
+    linear-gradient(180deg, rgba(255, 242, 190, 0.26) 0 2px, transparent 8px, transparent 69%, rgba(45, 22, 9, 0.23)),
+    radial-gradient(ellipse at 42% 28%, var(--prehistory-button-polish), transparent 48%),
+    radial-gradient(circle at 31% 43%, rgba(255, 232, 166, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 67% 58%, rgba(72, 33, 11, 0.14) 0 1px, transparent 2px);
+  background-size: 100% 100%, 100% 100%, 34px 29px, 46px 39px;
   mix-blend-mode: screen;
-  opacity: 0.62;
+  opacity: 0.7;
 }
 
 .prehistory-stone-button::after,
 .storyblock-prehistory .prehistory-actions button::after {
   box-shadow:
     inset 0 0 0 1px rgba(255, 226, 159, 0.13),
-    inset 0 4px 5px rgba(255, 234, 178, 0.12),
-    inset 0 -5px 8px rgba(41, 21, 10, 0.34);
-  opacity: 0.92;
+    inset 0 2px 2px rgba(255, 246, 205, 0.24),
+    inset 0 7px 11px rgba(255, 225, 162, 0.08),
+    inset 0 -7px 11px rgba(36, 18, 8, 0.36),
+    inset 8px 0 13px rgba(255, 225, 160, 0.06),
+    inset -9px 0 13px rgba(33, 18, 10, 0.22);
+  opacity: 0.96;
 }
 
 .prehistory-stone-button--secondary,
 .storyblock-prehistory .prehistory-actions button:first-child {
-  --prehistory-button-ink: rgba(255, 239, 205, 0.96);
-  --prehistory-button-edge: rgba(198, 175, 135, 0.32);
-  --prehistory-button-fire-glow: rgba(125, 84, 48, 0.06);
+  --prehistory-button-ink: rgba(255, 244, 220, 0.98);
+  --prehistory-button-edge: rgba(211, 190, 150, 0.36);
+  --prehistory-button-fire-glow: rgba(150, 96, 52, 0.08);
+  --prehistory-button-polish: rgba(255, 240, 196, 0.1);
   --prehistory-button-face:
-    radial-gradient(ellipse at 26% 20%, rgba(255, 237, 190, 0.12), transparent 34%),
-    radial-gradient(ellipse at 80% 78%, rgba(20, 14, 10, 0.22), transparent 42%),
-    linear-gradient(106deg, rgba(96, 91, 81, 0.94), rgba(55, 52, 47, 0.94) 55%, rgba(103, 96, 83, 0.9)),
+    radial-gradient(ellipse at 26% 18%, rgba(255, 238, 198, 0.15), transparent 34%),
+    radial-gradient(ellipse at 80% 78%, rgba(12, 9, 7, 0.25), transparent 42%),
+    linear-gradient(108deg, rgba(104, 99, 89, 0.96), rgba(57, 54, 49, 0.96) 55%, rgba(112, 105, 91, 0.92)),
     var(--prehistory-button-stone-texture, url("../assets/textures/progress-bar-texture.jpg"));
   box-shadow:
-    inset 0 1px 2px rgba(255, 243, 207, 0.14),
-    inset 0 -8px 12px rgba(13, 10, 7, 0.2),
-    0 1px 0 rgba(35, 29, 23, 0.76),
-    0 8px 15px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255, 246, 216, 0.2),
+    inset 0 5px 9px rgba(255, 239, 202, 0.06),
+    inset 0 -9px 13px rgba(12, 9, 7, 0.28),
+    inset 6px 0 10px rgba(255, 236, 198, 0.04),
+    inset -7px 0 12px rgba(12, 9, 7, 0.18),
+    0 1px 0 rgba(35, 29, 23, 0.8),
+    0 8px 15px rgba(0, 0, 0, 0.25),
     0 0 10px var(--prehistory-button-fire-glow);
   text-shadow:
     0 1px 3px rgba(0, 0, 0, 0.86),
-    0 0 5px rgba(255, 226, 178, 0.12);
+    0 0 5px rgba(255, 226, 178, 0.16);
   -webkit-text-stroke: 0.12px rgba(20, 14, 9, 0.48);
 }
 
 .prehistory-stone-button--primary,
 .storyblock-prehistory .prehistory-actions [data-lesson-action="story-next"] {
   --prehistory-button-ink: #1b0b02;
-  --prehistory-button-edge: rgba(112, 58, 20, 0.82);
-  filter: brightness(1.15) contrast(1.06) saturate(1.08);
+  --prehistory-button-edge: rgba(119, 61, 19, 0.84);
+  --prehistory-button-fire-glow: rgba(247, 145, 34, 0.36);
+  --prehistory-button-polish: rgba(255, 236, 166, 0.28);
+  filter: brightness(1.14) contrast(1.08) saturate(1.08);
   text-shadow:
-    0 1px rgba(255, 233, 168, 0.52),
-    0 -1px rgba(74, 30, 7, 0.3),
+    0 1px 0 rgba(255, 235, 169, 0.56),
+    0 -1px 0 rgba(70, 29, 7, 0.32),
+    0 2px 4px rgba(55, 22, 5, 0.2),
     0 0 7px rgba(255, 214, 118, 0.24);
 }
 
 .prehistory-stone-button:not(:disabled):hover,
 .storyblock-prehistory .prehistory-actions button:not(:disabled):hover {
-  filter: brightness(1.2) contrast(1.07) saturate(1.08);
+  animation: none;
+  filter: brightness(1.2) contrast(1.08) saturate(1.08);
   box-shadow:
-    inset 0 2px 2px rgba(255, 246, 202, 0.5),
-    inset 0 -8px 13px rgba(67, 31, 10, 0.2),
-    inset 5px 0 10px rgba(255, 221, 144, 0.1),
-    inset -7px 0 12px rgba(56, 30, 15, 0.14),
+    inset 0 1px 0 rgba(255, 248, 209, 0.58),
+    inset 0 6px 11px rgba(255, 226, 154, 0.14),
+    inset 0 -10px 15px rgba(55, 26, 9, 0.24),
+    inset 6px 0 11px rgba(255, 224, 149, 0.12),
+    inset -8px 0 13px rgba(54, 27, 12, 0.16),
     0 3px 0 rgba(65, 36, 19, 0.82),
     0 14px 24px rgba(0, 0, 0, 0.36),
-    0 0 22px var(--prehistory-button-fire-glow);
-  transform: translateY(-2px);
+    0 0 22px var(--prehistory-button-fire-glow),
+    0 0 34px rgba(228, 104, 31, 0.11);
+  transform: translateY(-1px) scale(1.012);
 }
 
 .prehistory-stone-button--secondary:not(:disabled):hover,
 .storyblock-prehistory .prehistory-actions button:first-child:not(:disabled):hover {
-  filter: brightness(0.92) contrast(1.04) saturate(0.86);
+  filter: brightness(1.04) contrast(1.08) saturate(0.92);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 246, 216, 0.24),
+    inset 0 5px 9px rgba(255, 239, 202, 0.08),
+    inset 0 -9px 13px rgba(12, 9, 7, 0.26),
+    0 2px 0 rgba(35, 29, 23, 0.78),
+    0 10px 18px rgba(0, 0, 0, 0.28),
+    0 0 14px rgba(174, 109, 52, 0.1);
 }
 
 .prehistory-stone-button:not(:disabled):active,
 .storyblock-prehistory .prehistory-actions button:not(:disabled):active {
-  filter: brightness(0.96) saturate(1.02);
+  animation: none;
+  filter: brightness(0.94) contrast(1.04) saturate(1.01);
   box-shadow:
-    inset 0 4px 8px rgba(20, 10, 5, 0.42),
-    inset 0 -3px 7px rgba(255, 221, 156, 0.08),
-    0 1px 0 rgba(43, 23, 12, 0.86),
-    0 5px 11px rgba(0, 0, 0, 0.26),
-    0 0 10px rgba(211, 109, 36, 0.14);
-  transform: translateY(1px);
+    inset 0 5px 10px rgba(20, 10, 5, 0.5),
+    inset 0 -2px 5px rgba(255, 219, 151, 0.06),
+    inset 6px 0 10px rgba(24, 13, 7, 0.16),
+    inset -6px 0 10px rgba(24, 13, 7, 0.18),
+    0 0 0 rgba(43, 23, 12, 0),
+    0 3px 8px rgba(0, 0, 0, 0.24),
+    0 0 8px rgba(211, 109, 36, 0.1);
+  transform: translateY(2px) scale(0.992);
 }
 
 .story-block[data-era="pre-historia"] .story-block-actions [data-lesson-action="story-next"],
