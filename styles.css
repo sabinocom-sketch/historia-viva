@@ -3952,7 +3952,7 @@ body[data-view="lesson"] .lesson-experience {
   --cave-moment-edge: rgba(0, 0, 0, 0.24);
   --prehistory-title-size: clamp(1.14rem, 1.64vw, 1.62rem);
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
-  --prehistory-reading-color: #dcc7a4;
+  --prehistory-reading-color: #d9c5a0;
   --cave-paint-speed: 980ms;
   --cave-hand-spacing: 0.018em;
   box-shadow:
@@ -4615,8 +4615,9 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   z-index: 2;
   display: grid;
   gap: 0.74em;
-  margin: 0;
+  margin: -10px 0 0;
   font-family: "Patrick Hand", cursive;
+  font-weight: 500;
   font-size: clamp(1rem, 1.25vw, 1.35rem);
   line-height: 1.6;
   color: var(--prehistory-reading-color);
