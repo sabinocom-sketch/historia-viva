@@ -130,6 +130,17 @@ Applies from `@media (max-width: 768px) and (orientation: portrait)`.
 - Primary actions stay large and thumb-friendly.
 - Backgrounds switch to portrait-safe framing with less aggressive cropping.
 
+### Mobile lesson composition contract
+
+Prehistory story screens should preserve the immersive cave identity while prioritising composition before new visual effects.
+
+- Keep the progress indicator compact at the top and avoid dense scale marks on mobile.
+- Maintain clear separation between progress, artefact, title, narrative copy, and actions.
+- Treat the artefact and title as one narrative group, with the artefact close enough to anchor the title but not touching the progress bar.
+- Give the reading column enough width to avoid excessive line breaks while keeping a centred, cave-wall reading rhythm.
+- Keep bottom lesson actions above Android navigation/safe-area pressure, with the primary action still in thumb reach.
+- Preserve the existing cave, flint, fire, ochre, and rock-painting visual language when adjusting spacing.
+
 ### Mobile landscape mode
 
 Applies from `@media (max-width: 900px) and (orientation: landscape)`.

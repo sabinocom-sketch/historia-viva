@@ -2029,7 +2029,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @keyframes prehistory-flint-reveal-mobile {
   0% {
     opacity: 0;
-    transform: translate3d(calc(-7vw - 24px), calc(1vh + 18px), 0) scale(1.08) rotate(-14deg);
+    transform: translate3d(calc(-5vw - 18px), calc(1.2svh + 42px), 0) scale(0.98) rotate(-14deg);
     filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
   }
   58% {
@@ -2037,7 +2037,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
   100% {
     opacity: 0.96;
-    transform: translate3d(calc(-7vw - 24px), calc(1vh + 18px), 0) scale(1.2) rotate(-14deg);
+    transform: translate3d(calc(-5vw - 18px), calc(1.8svh + 54px), 0) scale(1.04) rotate(-14deg);
     filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
   }
 }
