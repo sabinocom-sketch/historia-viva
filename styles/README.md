@@ -20,3 +20,4 @@ npm run build:css
 ## Lesson action notes
 
 - Prehistory story-next buttons start hidden while cave text reveals. Keep their hover and focus-visible states explicitly visible and clickable (`opacity: 1`, `pointer-events: auto`) so disabling the reveal animation on hover does not hide the Continue action.
+- Prehistory narrative titles should stay slightly smaller than hero-scale text but visually heavier than body copy. Use ochre texture, dark handmade shadowing, and tighter vertical spacing so the title reads as pigment painted into cave stone.
