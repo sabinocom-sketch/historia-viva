@@ -5149,6 +5149,18 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   transform: translateY(-1px) scale(1.012);
 }
 
+.story-block[data-era="pre-historia"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):hover,
+.story-block[data-section="paleolitico"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):hover,
+.story-block[data-section="mesolitico"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):hover,
+.story-block[data-section="revolucao-neolitica"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):hover,
+.story-block[data-era="pre-historia"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):focus-visible,
+.story-block[data-section="paleolitico"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):focus-visible,
+.story-block[data-section="mesolitico"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):focus-visible,
+.story-block[data-section="revolucao-neolitica"] .story-block-actions [data-lesson-action="story-next"]:not(:disabled):focus-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
 .prehistory-stone-button--secondary:not(:disabled):hover,
 .storyblock-prehistory .prehistory-actions button:first-child:not(:disabled):hover {
   filter: brightness(1.04) contrast(1.08) saturate(0.92);

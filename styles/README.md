@@ -16,3 +16,7 @@ npm run build:css
 - `05-lesson-experience.css`: lesson intro, story blocks, post-story flow, lesson actions.
 - `06-feature-panels.css`: home, chat, timeline list, explore, quiz, debate, mission, progress panels.
 - `07-responsive.css`: viewport, mobile portrait, desktop, and orientation-specific rules.
+
+## Lesson action notes
+
+- Prehistory story-next buttons start hidden while cave text reveals. Keep their hover and focus-visible states explicitly visible and clickable (`opacity: 1`, `pointer-events: auto`) so disabling the reveal animation on hover does not hide the Continue action.
