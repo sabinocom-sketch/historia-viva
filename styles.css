@@ -8543,11 +8543,80 @@ blockquote {
   .post-story-screen {
     height: auto;
     min-height: var(--story-screen);
+    align-content: center;
+    gap: clamp(10px, 2svh, 16px);
     padding:
       calc(70px + var(--safe-top))
       calc(var(--mobile-page-pad) + var(--safe-right))
       calc(28px + var(--safe-bottom))
       calc(var(--mobile-page-pad) + var(--safe-left));
+  }
+
+  body[data-view="lesson"] .post-story-copy {
+    gap: 7px;
+  }
+
+  body[data-view="lesson"] .post-story-kicker {
+    font-size: clamp(0.66rem, 2.8vw, 0.76rem);
+  }
+
+  body[data-view="lesson"] .post-story-copy h3 {
+    max-width: 10.5ch;
+    font-size: clamp(1.72rem, 8.4vw, 2.75rem);
+    line-height: 1;
+  }
+
+  body[data-view="lesson"] .challenge-screen .post-story-copy h3 {
+    max-width: 15ch;
+    font-size: clamp(1.28rem, 6.2vw, 2rem);
+  }
+
+  body[data-view="lesson"] .post-story-copy p {
+    max-width: 29ch;
+    font-size: clamp(0.84rem, 3.45vw, 0.94rem);
+    line-height: 1.35;
+  }
+
+  body[data-view="lesson"] .mentor-bubbles,
+  body[data-view="lesson"] .reality-bridge-grid,
+  body[data-view="lesson"] .critical-perspectives {
+    gap: 7px;
+  }
+
+  body[data-view="lesson"] .mentor-bubble,
+  body[data-view="lesson"] .reality-bridge-grid section,
+  body[data-view="lesson"] .critical-perspectives section {
+    padding: 8px 10px;
+    font-size: clamp(0.78rem, 3.15vw, 0.88rem);
+    line-height: 1.28;
+  }
+
+  body[data-view="lesson"] .mentor-bubble,
+  body[data-view="lesson"] .reality-bridge-grid p,
+  body[data-view="lesson"] .critical-perspectives p {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  body[data-view="lesson"] .post-story-progress {
+    width: min(260px, calc(100vw - 96px));
+    gap: 0;
+  }
+
+  body[data-view="lesson"] .post-story-progress .lesson-next-progress-label,
+  body[data-view="lesson"] .post-story-progress .lesson-next-progress-percent,
+  body[data-view="lesson"] .post-story-progress .lesson-next-progress-scale {
+    display: none;
+  }
+
+  body[data-view="lesson"] .post-story-actions {
+    gap: 9px;
+  }
+
+  body[data-view="lesson"] .next-lesson-teaser .post-story-actions {
+    grid-template-columns: 1fr;
   }
 }
 

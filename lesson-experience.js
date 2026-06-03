@@ -91,7 +91,8 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const isPrehistory = eraKey === "pre-historia" || ["paleolitico", "mesolitico", "revolucao-neolitica"].includes(sectionId);
   const prehistoryArtifact = isPrehistory ? getPrehistoryArtifactType(safeBlock, lesson) : "";
   const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
-  const caveRevealLineCount = getCaveRevealLineCount(safeBlock.text);
+  const readingText = getStoryBlockReadingText(safeBlock.text);
+  const caveRevealLineCount = getCaveRevealLineCount(readingText);
   const flintLoading = index === 0 ? "eager" : "lazy";
   const flintFetchPriority = index === 0 ? "high" : "auto";
   return `
@@ -106,8 +107,8 @@ function renderStoryBlock(block, index, total, lesson = {}) {
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
         ${isPrehistory ? "" : `<span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>`}
         ${narrativeTitle ? `<h3 class="prehistory-narrative-title">${escapeHtml(narrativeTitle)}</h3>` : ""}
-        <p class="cave-paint-text cave-painted-text" aria-label="${escapeHtml(safeBlock.text)}">
-          ${renderCaveRevealText(safeBlock.text)}
+        <p class="cave-paint-text cave-painted-text" aria-label="${escapeHtml(readingText)}">
+          ${renderCaveRevealText(readingText)}
         </p>
         <span class="pigment-particles cave-pigment-particles" aria-hidden="true"></span>
         <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
@@ -244,7 +245,7 @@ function buildPostStoryFlow(lesson, context = {}) {
     reward: {
       kicker: "Artefacto desbloqueado",
       title: "Memória guardada",
-      text: textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`,
+      text: createWordPreview(textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`, 20),
       artifact: intro.preview?.[0] || "Artefacto narrativo desbloqueado",
       previous: "challenge"
     },
@@ -252,12 +253,27 @@ function buildPostStoryFlow(lesson, context = {}) {
       kicker: "Próxima porta temporal",
       title: nextLesson ? getLessonDisplayTitle(nextLesson.title) : "Rever a jornada",
       text: nextLesson
-        ? buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title))
+        ? createWordPreview(buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title)), 20)
         : "A viagem continua quando voltares ao mapa da era.",
       nextLessonId: nextLesson?.id || "",
       previous: "reward"
     }
   };
+}
+
+function createWordPreview(text = "", maxWords = 24) {
+  const words = String(text || "").trim().split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return String(text || "").trim();
+  return `${words.slice(0, maxWords).join(" ")}...`;
+}
+
+function isMobilePortraitLessonScreen() {
+  return typeof window !== "undefined"
+    && window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches;
+}
+
+function getStoryBlockReadingText(text = "") {
+  return createWordPreview(text, isMobilePortraitLessonScreen() ? 32 : 42);
 }
 
 function buildReflectionStep(lesson, insight = "", textExperience = {}) {
@@ -269,7 +285,7 @@ function buildReflectionStep(lesson, insight = "", textExperience = {}) {
   return {
     kicker: "Pausa de assimilação",
     title: "O que isto mudou?",
-    text,
+    text: createWordPreview(text, 24),
     previous: "story"
   };
 }
@@ -279,16 +295,15 @@ function buildAssimilationStep(lesson, blocks, title, textExperience = {}) {
     ...(textExperience.evidence || []),
     ...(textExperience.archaeology || [])
   ];
-  const prompts = evidencePrompts.length ? evidencePrompts.slice(0, 3) : blocks.slice(0, 3).map((block) => block.text);
+  const prompts = evidencePrompts.length ? evidencePrompts.slice(0, 2) : blocks.slice(0, 2).map((block) => block.text);
   return {
     kicker: "Guia histórico",
-    title: "O que acabaste de descobrir?",
-    text: textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`,
-    prompts: prompts.length ? prompts : [
+    title: "O essencial",
+    text: createWordPreview(textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`, 22),
+    prompts: (prompts.length ? prompts : [
       "Que problema humano aparece aqui?",
-      "Que decisao mudou a vida diaria?",
       "Que consequencia veio depois?"
-    ],
+    ]).map((prompt) => createWordPreview(prompt, 14)),
     previous: "reflection"
   };
 }
@@ -309,8 +324,8 @@ function buildRealityBridgeStep(lesson, title, textExperience = {}) {
   return {
     kicker: "Ponte ao presente",
     title: "Do passado para hoje",
-    text: textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`,
-    cards,
+    text: createWordPreview(textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`, 22),
+    cards: cards.slice(0, 2).map(([label, text]) => [label, createWordPreview(text, 14)]),
     previous: "assimilation"
   };
 }
@@ -323,12 +338,12 @@ function buildCriticalLensStep(lesson, title, textExperience = {}) {
   return {
     kicker: "Lente crítica",
     title: textExperience.reflection || question,
-    text: textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.",
+    text: createWordPreview(textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.", 20),
     perspectives: [
       ["Sobrevivencia", "Ajudou pessoas a resistir melhor ao mundo."],
       ["Vida social", "Mudou a forma como grupos se organizavam."],
       ["Custo", "Tambem criou novas pressoes sobre recursos e ambiente."]
-    ],
+    ].slice(0, 2).map(([label, text]) => [label, createWordPreview(text, 14)]),
     previous: "reality"
   };
 }
