@@ -1544,7 +1544,7 @@
 
   body[data-view="lesson"] .storyblock-prehistory {
     --prehistory-title-size: clamp(1rem, 4.8vw, 1.32rem);
-    --prehistory-text-size: clamp(0.94rem, 4.15vw, 1.2rem);
+    --prehistory-text-size: clamp(1.05rem, 4.65vw, 1.34rem);
     align-content: start;
     grid-template-rows: auto auto 1fr auto;
     gap: clamp(4px, 1.6svh, 12px);
@@ -1592,9 +1592,9 @@
 
   body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
     justify-self: center;
-    width: clamp(282px, 80vw, 358px);
+    width: min(clamp(333px, 94.4vw, 422px), calc(100vw - 20px));
     margin-bottom: 2px;
-    transform: translate3d(0, calc(0.8svh + 84px), 0) scale(1) rotate(-14deg);
+    transform: translate3d(0, calc(0.8svh + 119px), 0) scale(1);
     filter:
       brightness(0.98)
       saturate(0.96)
@@ -1624,6 +1624,7 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
+    font-weight: 600;
     line-height: 1.2;
   }
 
@@ -1665,7 +1666,7 @@
 
     body[data-view="lesson"] .storyblock-prehistory {
       --prehistory-title-size: clamp(0.88rem, 4.2vw, 1.12rem);
-      --prehistory-text-size: clamp(0.78rem, 3.55vw, 0.98rem);
+      --prehistory-text-size: clamp(0.87rem, 3.98vw, 1.1rem);
       gap: clamp(2px, 0.9svh, 8px);
       padding:
         calc(42px + var(--safe-top))
@@ -1676,9 +1677,9 @@
 
     body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
       justify-self: center;
-      width: clamp(235px, 67.5vw, 282px);
+      width: min(clamp(277px, 79.65vw, 333px), calc(100vw - 28px));
       margin-bottom: 0;
-      transform: translate3d(0, calc(0.3svh + 76px), 0) scale(0.94) rotate(-14deg);
+      transform: translate3d(0, calc(0.3svh + 111px), 0) scale(0.94);
       filter:
         brightness(0.98)
         saturate(0.96)
@@ -1691,7 +1692,7 @@
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
       max-width: min(50ch, calc(100vw - 48px));
-      margin-top: clamp(116px, 17svh, 134px);
+      margin-top: clamp(146px, 21svh, 164px);
       padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
       transform: none;
     }

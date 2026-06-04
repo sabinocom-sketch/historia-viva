@@ -540,6 +540,7 @@ Use for:
 - In Pre-History Story Blocks, preserve a deliberately generous upper composition zone around the artefact by lowering the narrative title and text together with real layout spacing rather than a visual transform; use the available space above the fixed actions, and reduce this spacing on short screens so the copy and actions remain comfortably separated.
 - Centre the primary artefact within the mobile screen's usable lateral margins, including throughout its entrance animation, and scale it generously without touching the edges or narrative copy.
 - For the mobile flint composition, favour roughly 25% more scale and a downward offset near 70px while preserving at least 24px before the narrative title; the artefact lighting and shadow must move with the animated image and remain clear of the progress bar.
+- Once the flint is established as the focal element, a final mobile-only refinement may add roughly 18% more scale and 35px of downward movement while keeping it fully visible; raise the narrative body size by about 12% with medium-bold weight so the copy remains legible beside the stronger artefact.
 
 ### Interaction
 
