@@ -427,7 +427,8 @@ Story Block
 ### Text Rules
 
 - 18 to 42 words per block.
-- On mobile portrait, prefer 14 to 32 words per block.
+- On mobile portrait, prefer 14 to 30 words per screen.
+- Word limits are soft boundaries: story text is paginated only between complete sentences, and every sentence remains available in the lesson sequence.
 - 2 to 4 lines where possible.
 - One idea per block.
 - Avoid textbook density.

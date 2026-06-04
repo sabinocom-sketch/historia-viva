@@ -67,7 +67,7 @@ export function renderActiveLessonPanel() {
 
 function renderLessonExperience(lesson, context = {}) {
   if (state.currentLessonMode === "story" || state.currentLessonMode === "understand") {
-    const blocks = getLessonStoryBlocks(lesson.id);
+    const blocks = getReadingStoryBlocks(lesson.id);
     const index = clampStoryBlockIndex(blocks);
     return `
       <div class="lesson-experience" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" aria-label="Sequência narrativa da lição">
@@ -91,7 +91,7 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const isPrehistory = eraKey === "pre-historia" || ["paleolitico", "mesolitico", "revolucao-neolitica"].includes(sectionId);
   const prehistoryArtifact = isPrehistory ? getPrehistoryArtifactType(safeBlock, lesson) : "";
   const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
-  const readingText = getStoryBlockReadingText(safeBlock.text);
+  const readingText = safeBlock.text;
   const caveRevealLineCount = getCaveRevealLineCount(readingText);
   const flintLoading = index === 0 ? "eager" : "lazy";
   const flintFetchPriority = index === 0 ? "high" : "auto";
@@ -245,7 +245,7 @@ function buildPostStoryFlow(lesson, context = {}) {
     reward: {
       kicker: "Artefacto desbloqueado",
       title: "Memória guardada",
-      text: createWordPreview(textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`, 20),
+      text: createSentencePreview(textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`, 20),
       artifact: intro.preview?.[0] || "Artefacto narrativo desbloqueado",
       previous: "challenge"
     },
@@ -253,7 +253,7 @@ function buildPostStoryFlow(lesson, context = {}) {
       kicker: "Próxima porta temporal",
       title: nextLesson ? getLessonDisplayTitle(nextLesson.title) : "Rever a jornada",
       text: nextLesson
-        ? createWordPreview(buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title)), 20)
+        ? createSentencePreview(buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title)), 20)
         : "A viagem continua quando voltares ao mapa da era.",
       nextLessonId: nextLesson?.id || "",
       previous: "reward"
@@ -261,10 +261,10 @@ function buildPostStoryFlow(lesson, context = {}) {
   };
 }
 
-function createWordPreview(text = "", maxWords = 24) {
-  const words = String(text || "").trim().split(/\s+/).filter(Boolean);
-  if (words.length <= maxWords) return String(text || "").trim();
-  return `${words.slice(0, maxWords).join(" ")}...`;
+function splitCompleteSentences(text = "") {
+  const source = String(text || "").replace(/\s+/g, " ").trim();
+  if (!source) return [];
+  return source.match(/[^.!?…]+(?:[.!?…]+["”’»]?|$)/g)?.map((sentence) => sentence.trim()).filter(Boolean) || [source];
 }
 
 function isMobilePortraitLessonScreen() {
@@ -272,8 +272,55 @@ function isMobilePortraitLessonScreen() {
     && window.matchMedia?.("(max-width: 768px) and (orientation: portrait)").matches;
 }
 
-function getStoryBlockReadingText(text = "") {
-  return createWordPreview(text, isMobilePortraitLessonScreen() ? 32 : 42);
+function countTextWords(text = "") {
+  return String(text || "").trim().split(/\s+/).filter(Boolean).length;
+}
+
+function createSentencePreview(text = "", maxWords = 24) {
+  const sentences = splitCompleteSentences(text);
+  if (!sentences.length) return "";
+
+  const selected = [];
+  let selectedWords = 0;
+  for (const sentence of sentences) {
+    const sentenceWords = countTextWords(sentence);
+    if (selected.length && selectedWords + sentenceWords > maxWords) break;
+    selected.push(sentence);
+    selectedWords += sentenceWords;
+    if (selectedWords >= maxWords) break;
+  }
+  return selected.join(" ");
+}
+
+function splitStoryBlockForReading(block, maxWords) {
+  const sentences = splitCompleteSentences(block?.text);
+  if (!sentences.length) return [block];
+
+  const segments = [];
+  let current = [];
+  let currentWords = 0;
+  sentences.forEach((sentence) => {
+    const sentenceWords = countTextWords(sentence);
+    if (current.length && currentWords + sentenceWords > maxWords) {
+      segments.push(current.join(" "));
+      current = [];
+      currentWords = 0;
+    }
+    current.push(sentence);
+    currentWords += sentenceWords;
+  });
+  if (current.length) segments.push(current.join(" "));
+
+  return segments.map((text, index) => ({
+    ...block,
+    id: `${block.id || "story"}-${index + 1}`,
+    text
+  }));
+}
+
+function getReadingStoryBlocks(lessonId) {
+  const maxWords = isMobilePortraitLessonScreen() ? 30 : 42;
+  return getLessonStoryBlocks(lessonId).flatMap((block) => splitStoryBlockForReading(block, maxWords));
 }
 
 function buildReflectionStep(lesson, insight = "", textExperience = {}) {
@@ -285,7 +332,7 @@ function buildReflectionStep(lesson, insight = "", textExperience = {}) {
   return {
     kicker: "Pausa de assimilação",
     title: "O que isto mudou?",
-    text: createWordPreview(text, 24),
+    text: createSentencePreview(text, 24),
     previous: "story"
   };
 }
@@ -299,11 +346,11 @@ function buildAssimilationStep(lesson, blocks, title, textExperience = {}) {
   return {
     kicker: "Guia histórico",
     title: "O essencial",
-    text: createWordPreview(textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`, 22),
+    text: createSentencePreview(textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`, 22),
     prompts: (prompts.length ? prompts : [
       "Que problema humano aparece aqui?",
       "Que consequencia veio depois?"
-    ]).map((prompt) => createWordPreview(prompt, 14)),
+    ]).map((prompt) => createSentencePreview(prompt, 14)),
     previous: "reflection"
   };
 }
@@ -324,8 +371,8 @@ function buildRealityBridgeStep(lesson, title, textExperience = {}) {
   return {
     kicker: "Ponte ao presente",
     title: "Do passado para hoje",
-    text: createWordPreview(textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`, 22),
-    cards: cards.slice(0, 2).map(([label, text]) => [label, createWordPreview(text, 14)]),
+    text: createSentencePreview(textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`, 22),
+    cards: cards.slice(0, 2).map(([label, text]) => [label, createSentencePreview(text, 14)]),
     previous: "assimilation"
   };
 }
@@ -338,12 +385,12 @@ function buildCriticalLensStep(lesson, title, textExperience = {}) {
   return {
     kicker: "Lente crítica",
     title: textExperience.reflection || question,
-    text: createWordPreview(textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.", 20),
+    text: createSentencePreview(textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.", 20),
     perspectives: [
       ["Sobrevivencia", "Ajudou pessoas a resistir melhor ao mundo."],
       ["Vida social", "Mudou a forma como grupos se organizavam."],
       ["Custo", "Tambem criou novas pressoes sobre recursos e ambiente."]
-    ].slice(0, 2).map(([label, text]) => [label, createWordPreview(text, 14)]),
+    ].slice(0, 2).map(([label, text]) => [label, createSentencePreview(text, 14)]),
     previous: "reality"
   };
 }
@@ -364,7 +411,7 @@ function buildNextTeaserLine(currentTitle, nextTitle) {
 }
 
 function renderLessonProgress(lesson, currentStepIndex, extraClass = "") {
-  const storyStepCount = getLessonStoryBlocks(lesson.id).length;
+  const storyStepCount = getReadingStoryBlocks(lesson.id).length;
   const totalLessonSteps = Math.max(1, storyStepCount + postStoryStepOrder.length);
   const boundedStepIndex = Math.min(Math.max(currentStepIndex, 0), totalLessonSteps - 1);
   const progressPercent = totalLessonSteps <= 1
@@ -392,7 +439,7 @@ function renderLessonProgress(lesson, currentStepIndex, extraClass = "") {
 }
 
 function renderScreenProgress(index, total, lesson) {
-  const storyStepCount = getLessonStoryBlocks(lesson.id).length;
+  const storyStepCount = getReadingStoryBlocks(lesson.id).length;
   return renderLessonProgress(lesson, storyStepCount + index, "post-story-progress");
 }
 
@@ -602,7 +649,7 @@ function clampStoryBlockIndex(blocks) {
 }
 
 export async function goToNextStoryBlock({ updateLessonProgress, renderCategorySections }) {
-  const blocks = getLessonStoryBlocks(state.currentLessonId);
+  const blocks = getReadingStoryBlocks(state.currentLessonId);
   const index = clampStoryBlockIndex(blocks);
   if (index < blocks.length - 1) {
     state.currentLessonStoryBlockIndex = index + 1;
@@ -618,7 +665,7 @@ export async function goToNextStoryBlock({ updateLessonProgress, renderCategoryS
 }
 
 export async function goToPreviousStoryBlock({ updateLessonProgress, renderCategorySections }) {
-  const blocks = getLessonStoryBlocks(state.currentLessonId);
+  const blocks = getReadingStoryBlocks(state.currentLessonId);
   const index = clampStoryBlockIndex(blocks);
   state.currentLessonStoryBlockIndex = Math.max(0, index - 1);
   updateLessonProgress(state.currentLessonId, { viewed: true, storyBlockIndex: state.currentLessonStoryBlockIndex });
