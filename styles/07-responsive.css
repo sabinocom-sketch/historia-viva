@@ -1626,7 +1626,7 @@
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.4;
     transform: translateY(-22px);
   }
 
@@ -1710,7 +1710,7 @@
     body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-      line-height: 1.12;
+      line-height: 1.4;
     }
 
     body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {

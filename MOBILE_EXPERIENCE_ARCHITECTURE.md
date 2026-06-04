@@ -429,6 +429,7 @@ Story Block
 - 18 to 42 words per block.
 - On mobile portrait, prefer 14 to 30 words per screen.
 - Word limits are soft boundaries: story text is paginated only between complete sentences, and every sentence remains available in the lesson sequence.
+- Within each story screen, render the preserved text as one continuous paragraph with `line-height: 1.4` on desktop and mobile; sentence-level reveal effects must not create separate visual paragraphs or change the word count.
 - 2 to 4 lines where possible.
 - One idea per block.
 - Avoid textbook density.

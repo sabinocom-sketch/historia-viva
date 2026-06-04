@@ -154,50 +154,18 @@ function getCaveRevealLines(text = "") {
   return phrases.length ? phrases : [source];
 }
 
-function getCaveRevealParagraphs(text = "") {
-  const explicitParagraphs = String(text || "")
-    .trim()
-    .split(/\n{2,}/)
-    .map((paragraph) => paragraph.trim())
-    .filter(Boolean);
-  const sourceParagraphs = explicitParagraphs.length ? explicitParagraphs : [String(text || "").trim()];
-  const groupedParagraphs = [];
-
-  sourceParagraphs.forEach((paragraph) => {
-    const lines = getCaveRevealLines(paragraph);
-    if (lines.length <= 2) {
-      groupedParagraphs.push(lines);
-      return;
-    }
-
-    for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 2) {
-      groupedParagraphs.push(lines.slice(lineIndex, lineIndex + 2));
-    }
-  });
-
-  return groupedParagraphs.length ? groupedParagraphs : [[""]];
-}
-
 function getCaveRevealLineCount(text = "") {
-  return getCaveRevealParagraphs(text).reduce((count, paragraph) => count + paragraph.length, 0);
+  return getCaveRevealLines(text).length;
 }
 
 function renderCaveRevealText(text = "") {
-  let lineIndex = 0;
-  return getCaveRevealParagraphs(text)
-    .map((paragraph, paragraphIndex) => `
-      <span class="cave-reveal-paragraph" style="--cave-paragraph-index: ${paragraphIndex}" aria-hidden="true">
-        ${paragraph.map((line) => {
-          const currentLineIndex = lineIndex;
-          lineIndex += 1;
-          return `
-            <span class="cave-reveal-line" style="--cave-line-index: ${currentLineIndex}" aria-hidden="true">
-              ${escapeHtml(line)}
-            </span>
-          `;
-        }).join("")}
-      </span>
-    `).join("");
+  return `
+    <span class="cave-reveal-paragraph" aria-hidden="true">
+      ${getCaveRevealLines(text).map((line, lineIndex) => `
+        <span class="cave-reveal-line" style="--cave-line-index: ${lineIndex}" aria-hidden="true">${escapeHtml(line)}</span>
+      `).join(" ")}
+    </span>
+  `;
 }
 
 function renderPostStoryLessonFlow(lesson, context = {}) {

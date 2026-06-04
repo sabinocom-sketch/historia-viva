@@ -85,10 +85,10 @@ Se a licao ainda nao tiver `textExperience`, a app continua a usar `storyText`, 
 
 Os Story Blocks da Pre-Historia sao renderizados como micro-narrativas de parede de gruta em `lesson-experience.js`.
 
-- Texto longo e dividido automaticamente em grupos de frases para criar paragrafos visuais.
+- Cada ecra apresenta o texto narrativo como um unico paragrafo continuo em desktop e mobile, preservando exatamente a paginacao e o numero de palavras definidos para esse formato.
 - Cada ecra termina numa frase completa; o texto restante continua em novos ecras narrativos em vez de ser truncado.
 - No mobile, os ecras narrativos usam segmentos menores do que no desktop sem remover frases da licao.
-- A animacao continua a revelar linha a linha, mas cada grupo cria uma pausa de leitura.
+- A animacao pode continuar a revelar frase a frase, mas os fragmentos fluem inline e formam um unico paragrafo com `line-height: 1.4`.
 - Cada bloco recebe `data-story-index` para variar subtilmente luz, pigmento e intensidade entre Momento 1, 2 e 3.
 - A largura do texto fica controlada no CSS para evitar paredes compactas, especialmente em telemovel.
 - O artefacto visual deve parecer integrado na cena com sombra, reflexo quente e movimento lento, nao como objeto flutuante isolado.

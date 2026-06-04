@@ -4619,7 +4619,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   font-family: "Patrick Hand", cursive;
   font-weight: 500;
   font-size: clamp(1rem, 1.25vw, 1.35rem);
-  line-height: 1.6;
+  line-height: 1.4;
   color: var(--prehistory-reading-color);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.35);
   filter: saturate(1.04) contrast(1.12) blur(0.04px);
@@ -4627,8 +4627,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 }
 
 .storyblock-prehistory .cave-reveal-paragraph {
-  display: grid;
-  gap: 0.22em;
+  display: block;
   color: var(--prehistory-reading-color);
   font: inherit;
   letter-spacing: inherit;
@@ -4658,10 +4657,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="paleolitico"] .cave-reveal-line,
 .story-block[data-section="mesolitico"] .cave-reveal-line,
 .story-block[data-section="revolucao-neolitica"] .cave-reveal-line {
-  display: block;
+  display: inline;
   position: relative;
-  width: min(100%, 52ch);
-  max-width: 100%;
+  width: auto;
+  max-width: none;
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -9191,7 +9190,7 @@ blockquote {
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.4;
     transform: translateY(-22px);
   }
 
@@ -9275,7 +9274,7 @@ blockquote {
     body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-      line-height: 1.12;
+      line-height: 1.4;
     }
 
     body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
