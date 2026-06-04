@@ -979,8 +979,24 @@
   .story-block-actions,
   .post-story-actions {
     position: sticky;
-    bottom: calc(10px + var(--safe-bottom));
+    bottom: calc(6px + var(--safe-bottom));
     z-index: 4;
+  }
+
+  body[data-view="lesson"] .story-block-actions,
+  body[data-view="lesson"] .post-story-actions {
+    position: fixed;
+    top: calc(100svh - 20px - var(--safe-bottom));
+    right: calc(var(--mobile-page-pad) + var(--safe-right));
+    bottom: auto;
+    left: calc(var(--mobile-page-pad) + var(--safe-left));
+    width: auto;
+    padding-bottom: 0;
+    grid-area: unset;
+    justify-self: stretch;
+    align-self: auto;
+    transform: translateY(-100%);
+    z-index: 12;
   }
 
   .post-story-screen {
@@ -1608,7 +1624,10 @@
   }
 
   body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
-    bottom: calc(42px + var(--safe-bottom));
+    right: calc(14px + var(--safe-right));
+    bottom: auto;
+    left: calc(14px + var(--safe-left));
+    width: auto;
     gap: 14px;
   }
 
@@ -1633,7 +1652,7 @@
     }
 
     body[data-view="lesson"] .story-block-actions {
-      bottom: calc(24px + var(--safe-bottom));
+      top: calc(100svh - 18px - var(--safe-bottom));
     }
 
     body[data-view="lesson"] .storyblock-prehistory {
@@ -1676,7 +1695,7 @@
     }
 
     body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
-      bottom: calc(34px + var(--safe-bottom));
+      bottom: auto;
     }
   }
 }

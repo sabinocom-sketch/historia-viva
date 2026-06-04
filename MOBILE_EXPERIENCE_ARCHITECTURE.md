@@ -1443,6 +1443,7 @@ The current app implementation should follow these concrete decisions:
 - On small mobile screens, the Home primary CTA is fixed in the bottom thumb zone.
 - Era Selection becomes a horizontal, swipeable set of large destination cards on mobile.
 - Lesson intro, story blocks, and post-story steps stay fullscreen and avoid dashboard chrome.
+- During lessons, story-block and post-story actions stay fixed in the bottom thumb zone, respect safe-area and page gutters, and move slightly upward on short screens so the primary action remains reachable without covering system UI.
 - Post-story labels use narrative language such as `Pausa de assimilação`, `Ponte ao presente`, `Lente crítica`, and `Artefacto desbloqueado`.
 - Initial asset preloading is limited to Home/Learn entry imagery; lesson-specific images should load when the learner approaches the relevant lesson.
 - Browser validation can use Edge as a local Playwright fallback when the Playwright-managed Chromium binary is unavailable.
