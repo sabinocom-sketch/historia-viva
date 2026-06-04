@@ -1603,6 +1603,7 @@
     width: min(100%, calc(100vw - 56px));
     max-width: min(48ch, calc(100vw - 56px));
     padding: clamp(12px, 2.4svh, 18px) clamp(6px, 2.8vw, 12px);
+    transform: translateY(clamp(32px, 5.5svh, 48px));
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-narrative-title,
@@ -1678,6 +1679,7 @@
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
       max-width: min(50ch, calc(100vw - 48px));
       padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
+      transform: translateY(clamp(28px, 4.2svh, 34px));
     }
 
     body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-narrative-title,
