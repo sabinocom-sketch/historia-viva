@@ -9183,6 +9183,7 @@ blockquote {
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-narrative-title,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
     margin-bottom: clamp(12px, 2.2svh, 18px);
+    transform: translateY(-25px);
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .cave-paint-text,
