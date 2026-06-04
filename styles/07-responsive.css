@@ -342,9 +342,10 @@
   }
 
   .storyblock-prehistory .story-block-copy p.cave-paint-text {
+    width: min(75%, 30ch);
     max-width: 30ch;
     font-size: clamp(1rem, 4.8vw, 1.42rem);
-    line-height: 1.28;
+    line-height: 1.4;
   }
 
   .story-block-progress,
@@ -917,9 +918,10 @@
   }
 
   .storyblock-prehistory .story-block-copy p.cave-paint-text {
+    width: min(75%, 30ch);
     max-width: 30ch;
     font-size: clamp(1rem, 4.8vw, 1.42rem);
-    line-height: 1.28;
+    line-height: 1.4;
   }
 
   .lesson-preview-list {
@@ -1625,13 +1627,18 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
+    justify-self: center;
+    width: min(75%, 30ch);
+    max-width: 30ch;
     font-weight: 600;
     line-height: 1.4;
+    text-align: center;
     transform: translateY(-22px);
   }
 
   body[data-view="lesson"] .storyblock-prehistory .cave-reveal-line {
-    width: min(100%, 36ch);
+    width: auto;
+    max-width: none;
   }
 
   body[data-view="lesson"] .storyblock-prehistory .prehistory-actions {
