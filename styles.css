@@ -5411,7 +5411,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @keyframes prehistory-flint-reveal-mobile {
   0% {
     opacity: 0;
-    transform: translate3d(calc(-4vw - 12px), calc(0.6svh + 8px), 0) scale(0.84) rotate(-14deg);
+    transform: translate3d(0, calc(0.6svh + 8px), 0) scale(0.94) rotate(-14deg);
     filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
   }
   58% {
@@ -5419,7 +5419,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
   100% {
     opacity: 0.96;
-    transform: translate3d(calc(-4vw - 12px), calc(0.8svh + 14px), 0) scale(0.9) rotate(-14deg);
+    transform: translate3d(0, calc(0.8svh + 14px), 0) scale(1) rotate(-14deg);
     filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
   }
 }
@@ -9148,9 +9148,10 @@ blockquote {
   }
 
   body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
-    width: clamp(188px, 52vw, 246px);
+    justify-self: center;
+    width: clamp(226px, 64vw, 286px);
     margin-bottom: 2px;
-    transform: translate3d(calc(-4vw - 12px), calc(0.8svh + 14px), 0) scale(0.9) rotate(-14deg);
+    transform: translate3d(0, calc(0.8svh + 14px), 0) scale(1) rotate(-14deg);
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
@@ -9226,9 +9227,10 @@ blockquote {
     }
 
     body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
-      width: clamp(146px, 44vw, 198px);
+      justify-self: center;
+      width: clamp(188px, 54vw, 226px);
       margin-bottom: 0;
-      transform: translate3d(calc(-3vw - 8px), calc(0.3svh + 6px), 0) scale(0.84) rotate(-14deg);
+      transform: translate3d(0, calc(0.3svh + 6px), 0) scale(0.94) rotate(-14deg);
     }
 
     body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
