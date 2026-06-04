@@ -9159,8 +9159,9 @@ blockquote {
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
     width: min(100%, calc(100vw - 56px));
     max-width: min(48ch, calc(100vw - 56px));
+    margin-top: clamp(88px, 15svh, 132px);
     padding: clamp(12px, 2.4svh, 18px) clamp(6px, 2.8vw, 12px);
-    transform: translateY(clamp(32px, 5.5svh, 48px));
+    transform: none;
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-narrative-title,
@@ -9235,8 +9236,9 @@ blockquote {
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
       max-width: min(50ch, calc(100vw - 48px));
+      margin-top: clamp(64px, 10svh, 78px);
       padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
-      transform: translateY(clamp(28px, 4.2svh, 34px));
+      transform: none;
     }
 
     body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-narrative-title,
