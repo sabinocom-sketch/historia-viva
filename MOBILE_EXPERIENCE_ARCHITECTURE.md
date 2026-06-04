@@ -537,7 +537,7 @@ Use for:
 - Use `85dvh` for lighter narrative moments.
 - Keep CTA in the bottom safe area.
 - Keep primary text away from notches and edges.
-- In Pre-History Story Blocks, preserve a clear upper composition zone around the artefact by lowering the narrative title and text together with real layout spacing rather than a visual transform; reduce this spacing on short screens so the copy and actions remain comfortably separated.
+- In Pre-History Story Blocks, preserve a deliberately generous upper composition zone around the artefact by lowering the narrative title and text together with real layout spacing rather than a visual transform; use the available space above the fixed actions, and reduce this spacing on short screens so the copy and actions remain comfortably separated.
 
 ### Interaction
 
