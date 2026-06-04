@@ -1592,9 +1592,14 @@
 
   body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
     justify-self: center;
-    width: clamp(226px, 64vw, 286px);
+    width: clamp(282px, 80vw, 358px);
     margin-bottom: 2px;
-    transform: translate3d(0, calc(0.8svh + 14px), 0) scale(1) rotate(-14deg);
+    transform: translate3d(0, calc(0.8svh + 84px), 0) scale(1) rotate(-14deg);
+    filter:
+      brightness(0.98)
+      saturate(0.96)
+      drop-shadow(0 14px 18px rgba(0, 0, 0, 0.3))
+      drop-shadow(-10px 8px 24px rgba(205, 91, 35, 0.14));
   }
 
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
@@ -1671,9 +1676,14 @@
 
     body[data-view="lesson"] .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
       justify-self: center;
-      width: clamp(188px, 54vw, 226px);
+      width: clamp(235px, 67.5vw, 282px);
       margin-bottom: 0;
-      transform: translate3d(0, calc(0.3svh + 6px), 0) scale(0.94) rotate(-14deg);
+      transform: translate3d(0, calc(0.3svh + 76px), 0) scale(0.94) rotate(-14deg);
+      filter:
+        brightness(0.98)
+        saturate(0.96)
+        drop-shadow(0 12px 16px rgba(0, 0, 0, 0.3))
+        drop-shadow(-8px 7px 20px rgba(205, 91, 35, 0.14));
     }
 
     body[data-view="lesson"] .story-block[data-era="pre-historia"] .prehistory-stone-panel,
@@ -1681,7 +1691,7 @@
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
       max-width: min(50ch, calc(100vw - 48px));
-      margin-top: clamp(86px, 13svh, 102px);
+      margin-top: clamp(116px, 17svh, 134px);
       padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
       transform: none;
     }

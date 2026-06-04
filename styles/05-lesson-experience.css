@@ -2037,16 +2037,24 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 @keyframes prehistory-flint-reveal-mobile {
   0% {
     opacity: 0;
-    transform: translate3d(0, calc(0.6svh + 8px), 0) scale(0.94) rotate(-14deg);
-    filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
+    transform: translate3d(0, calc(0.6svh + 68px), 0) scale(0.94) rotate(-14deg);
+    filter:
+      brightness(0.98)
+      saturate(0.96)
+      drop-shadow(0 14px 18px rgba(0, 0, 0, 0.3))
+      drop-shadow(-10px 8px 24px rgba(205, 91, 35, 0.14));
   }
   58% {
     opacity: 0.86;
   }
   100% {
     opacity: 0.96;
-    transform: translate3d(0, calc(0.8svh + 14px), 0) scale(1) rotate(-14deg);
-    filter: brightness(0.96) saturate(0.92) drop-shadow(0 8px 12px rgba(0, 0, 0, 0.18));
+    transform: translate3d(0, calc(0.8svh + 84px), 0) scale(1) rotate(-14deg);
+    filter:
+      brightness(0.98)
+      saturate(0.96)
+      drop-shadow(0 14px 18px rgba(0, 0, 0, 0.3))
+      drop-shadow(-10px 8px 24px rgba(205, 91, 35, 0.14));
   }
 }
 
