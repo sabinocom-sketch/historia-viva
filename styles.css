@@ -9192,6 +9192,7 @@ blockquote {
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
     font-weight: 600;
     line-height: 1.2;
+    transform: translateY(-22px);
   }
 
   body[data-view="lesson"] .storyblock-prehistory .cave-reveal-line {

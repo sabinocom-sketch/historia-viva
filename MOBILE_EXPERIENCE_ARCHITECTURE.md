@@ -542,6 +542,7 @@ Use for:
 - For the mobile flint composition, favour roughly 25% more scale and a downward offset near 70px while preserving at least 24px before the narrative title; the artefact lighting and shadow must move with the animated image and remain clear of the progress bar.
 - Once the flint is established as the focal element, a final mobile-only refinement may add roughly 18% more scale and 35px of downward movement while keeping it fully visible; raise the narrative body size by about 12% with medium-bold weight so the copy remains legible beside the stronger artefact.
 - When the enlarged mobile artefact creates too much separation from its heading, move the narrative title and its decorative line upward together by about 25px while leaving the descriptive paragraph in its original layout position.
+- As the final structural spacing adjustment, the mobile descriptive paragraph may move upward by about 22px without changing the established artefact or title positions, creating a cohesive artefact-to-title-to-copy narrative group.
 
 ### Interaction
 
