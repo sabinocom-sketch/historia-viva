@@ -1549,7 +1549,7 @@
     --prehistory-text-size: clamp(1.05rem, 4.65vw, 1.34rem);
     --prehistory-copy-measure: min(34ch, calc(100vw - 56px));
     --prehistory-artifact-offset-x: 0px;
-    --prehistory-artifact-offset-y: clamp(74px, calc(5svh + 50px), 108px);
+    --prehistory-artifact-offset-y: clamp(104px, calc(5svh + 80px), 138px);
     --prehistory-actions-left: calc(14px + var(--safe-left));
     --prehistory-actions-bottom: 18px;
     align-content: start;
@@ -1687,7 +1687,7 @@
     body[data-view="lesson"] .storyblock-prehistory {
       --prehistory-title-size: clamp(0.88rem, 4.2vw, 1.12rem);
       --prehistory-text-size: clamp(0.87rem, 3.98vw, 1.1rem);
-      --prehistory-artifact-offset-y: clamp(68px, calc(4svh + 50px), 92px);
+      --prehistory-artifact-offset-y: clamp(98px, calc(4svh + 80px), 122px);
       gap: clamp(2px, 0.9svh, 8px);
       padding:
         calc(42px + var(--safe-top))
