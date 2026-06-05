@@ -4901,6 +4901,38 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   transform: translateX(-50%);
 }
 
+.lesson-next-progress.prehistory-progress .lesson-next-progress-meter,
+.lesson-next-progress.post-story-progress .lesson-next-progress-meter {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.lesson-next-progress.prehistory-progress .lesson-next-progress-label,
+.lesson-next-progress.post-story-progress .lesson-next-progress-label {
+  display: none;
+}
+
+.lesson-next-progress.prehistory-progress .lesson-next-progress-percent,
+.lesson-next-progress.post-story-progress .lesson-next-progress-percent {
+  display: inline-block;
+  min-width: 3ch;
+  color: rgba(255, 234, 190, 0.94);
+  font-size: clamp(0.68rem, 0.82vw, 0.8rem);
+  font-weight: 900;
+  line-height: 1;
+  text-align: right;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.78),
+    0 0 7px rgba(70, 34, 13, 0.58);
+}
+
+.lesson-next-progress.prehistory-progress .lesson-next-progress-scale,
+.lesson-next-progress.post-story-progress .lesson-next-progress-scale {
+  display: none;
+}
+
 .lesson-next-progress-label {
   width: fit-content;
   justify-self: center;
@@ -8666,9 +8698,28 @@ blockquote {
   }
 
   body[data-view="lesson"] .post-story-progress .lesson-next-progress-label,
-  body[data-view="lesson"] .post-story-progress .lesson-next-progress-percent,
   body[data-view="lesson"] .post-story-progress .lesson-next-progress-scale {
     display: none;
+  }
+
+  body[data-view="lesson"] .post-story-progress .lesson-next-progress-meter {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  body[data-view="lesson"] .post-story-progress .lesson-next-progress-percent {
+    display: inline-block;
+    min-width: 3ch;
+    color: rgba(255, 234, 190, 0.94);
+    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    font-weight: 900;
+    line-height: 1;
+    text-align: right;
+    text-shadow:
+      0 1px 3px rgba(0, 0, 0, 0.78),
+      0 0 7px rgba(70, 34, 13, 0.58);
   }
 
   body[data-view="lesson"] .post-story-actions {
