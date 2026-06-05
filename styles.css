@@ -3954,8 +3954,8 @@ body[data-view="lesson"] .lesson-experience {
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
   --prehistory-copy-measure: min(520px, 36ch);
   --prehistory-artifact-offset-y: clamp(28px, 6vh, 74px);
-  --prehistory-artifact-offset-x: clamp(22px, calc(80px - 4vw), 56px);
-  --prehistory-actions-left: min(59vw, calc(100vw - 470px));
+  --prehistory-artifact-offset-x: calc(clamp(22px, calc(80px - 4vw), 56px) + 20px);
+  --prehistory-actions-left: calc(min(59vw, calc(100vw - 470px)) - 30px);
   --prehistory-actions-bottom: clamp(64px, 8vh, 96px);
   --prehistory-reading-color: #d9c5a0;
   --cave-paint-speed: 980ms;
