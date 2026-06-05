@@ -580,7 +580,7 @@ body[data-view="lesson"] .lesson-experience {
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
   --prehistory-copy-measure: min(520px, 36ch);
   --prehistory-artifact-offset-y: clamp(28px, 6vh, 74px);
-  --prehistory-artifact-offset-x: clamp(-58px, -4vw, -24px);
+  --prehistory-artifact-offset-x: clamp(-8px, calc(50px - 4vw), 26px);
   --prehistory-actions-left: min(59vw, calc(100vw - 470px));
   --prehistory-actions-bottom: clamp(64px, 8vh, 96px);
   --prehistory-reading-color: #d9c5a0;
@@ -2094,7 +2094,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     --prehistory-text-size: clamp(1rem, 4.8vw, 1.42rem);
     --prehistory-copy-measure: min(34ch, calc(100vw - 56px));
     --prehistory-artifact-offset-x: 0px;
-    --prehistory-artifact-offset-y: clamp(22px, 5svh, 54px);
+    --prehistory-artifact-offset-y: clamp(72px, calc(5svh + 50px), 104px);
     --prehistory-actions-left: calc(var(--mobile-page-pad) + var(--safe-left));
     --prehistory-actions-bottom: 18px;
     grid-template-columns: 1fr;
