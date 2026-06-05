@@ -1623,6 +1623,10 @@
     transform: translateY(-25px);
   }
 
+  body[data-view="lesson"] .storyblock-prehistory .prehistory-narrative-title::after {
+    display: none;
+  }
+
   body[data-view="lesson"] .story-block[data-era="pre-historia"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,

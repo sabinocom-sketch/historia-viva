@@ -1201,7 +1201,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   position: relative;
   z-index: 2;
   max-width: 24ch;
-  margin: 16px 0 -6px;
+  margin: 16px 0 10px;
   font-family: "Amatic SC", cursive;
   font-weight: 800;
   font-size: clamp(1.76rem, 3.5vw, 3.96rem);
@@ -1656,8 +1656,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   --prehistory-button-texture-size: clamp(520px, 54vw, 760px) auto;
   --prehistory-button-texture-position: 48% 50%;
   position: absolute;
-  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
-  bottom: calc(clamp(24px, 5vw, 62px) + var(--safe-bottom));
+  right: calc(clamp(72px, 12vw, 168px) + var(--safe-right));
+  bottom: calc(clamp(12px, 2.4vw, 34px) + var(--safe-bottom));
   z-index: 8;
   justify-self: end;
   gap: 12px;
