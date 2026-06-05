@@ -4508,7 +4508,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   position: relative;
   isolation: isolate;
   display: grid;
-  justify-items: center;
+  justify-items: start;
   justify-self: start;
   transform: translateX(clamp(-118px, -7vw, -58px));
   gap: clamp(8px, 1.2vw, 14px);
@@ -4580,7 +4580,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
   position: relative;
   z-index: 2;
-  justify-self: center;
+  justify-self: start;
   width: var(--prehistory-copy-measure);
   max-width: 100%;
   margin: 16px 0 10px;
@@ -4589,7 +4589,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   font-size: clamp(1.76rem, 3.5vw, 3.96rem);
   line-height: 0.98;
   letter-spacing: 0;
-  text-align: center;
+  text-align: left;
   color: #743016;
   background-image:
     linear-gradient(180deg, rgba(131, 48, 20, 0.98), rgba(83, 28, 13, 0.96)),
@@ -4623,7 +4623,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   position: relative;
   z-index: 2;
   display: block;
-  justify-self: center;
+  justify-self: start;
   width: var(--prehistory-copy-measure);
   max-width: 100%;
   margin: 0;
@@ -4631,7 +4631,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   font-weight: 500;
   font-size: clamp(1rem, 1.25vw, 1.35rem);
   line-height: 1.4;
-  text-align: center;
+  text-align: left;
   white-space: normal;
   overflow-wrap: normal;
   word-break: normal;
@@ -4753,7 +4753,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 .storyblock-prehistory .prehistory-narrative-title::after {
   content: "";
   position: absolute;
-  left: -0.25em;
+  left: 0;
   bottom: -0.18em;
   width: min(16ch, 86%);
   height: 0.14em;
@@ -5503,7 +5503,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     width: min(100%, 34ch);
     max-width: 34ch;
     padding: clamp(12px, 3vw, 18px) clamp(8px, 3vw, 14px);
-    text-align: center;
+    text-align: left;
   }
 
   .story-block[data-era="pre-historia"] .cave-paint-text,
@@ -9218,12 +9218,12 @@ blockquote {
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-    justify-self: center;
+    justify-self: start;
     width: var(--prehistory-copy-measure);
     max-width: 100%;
     font-weight: 600;
     line-height: 1.4;
-    text-align: center;
+    text-align: left;
     transform: translateY(-12px);
   }
 

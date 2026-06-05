@@ -1636,12 +1636,12 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-    justify-self: center;
+    justify-self: start;
     width: var(--prehistory-copy-measure);
     max-width: 100%;
     font-weight: 600;
     line-height: 1.4;
-    text-align: center;
+    text-align: left;
     transform: translateY(-12px);
   }
 
