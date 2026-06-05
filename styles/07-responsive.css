@@ -1624,7 +1624,11 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .prehistory-narrative-title,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-narrative-title,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
+    justify-self: center;
     margin-bottom: clamp(12px, 2.2svh, 18px);
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
     transform: translateY(-12px);
   }
 
@@ -1636,12 +1640,14 @@
   body[data-view="lesson"] .story-block[data-section="paleolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .cave-paint-text,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
-    justify-self: start;
+    justify-self: center;
     width: var(--prehistory-copy-measure);
     max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
     font-weight: 600;
     line-height: 1.4;
-    text-align: left;
+    text-align: center;
     transform: translateY(-12px);
   }
 

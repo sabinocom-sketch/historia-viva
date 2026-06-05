@@ -580,9 +580,9 @@ body[data-view="lesson"] .lesson-experience {
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
   --prehistory-copy-measure: min(520px, 36ch);
   --prehistory-artifact-offset-y: clamp(28px, 6vh, 74px);
-  --prehistory-artifact-offset-x: calc(clamp(22px, calc(80px - 4vw), 56px) + 20px);
-  --prehistory-actions-left: calc(min(59vw, calc(100vw - 470px)) - 30px);
-  --prehistory-actions-bottom: clamp(64px, 8vh, 96px);
+  --prehistory-artifact-offset-x: calc(clamp(22px, calc(80px - 4vw), 56px) + 40px);
+  --prehistory-actions-left: calc(min(59vw, calc(100vw - 470px)) - 80px);
+  --prehistory-actions-bottom: calc(clamp(64px, 8vh, 96px) + 30px);
   --prehistory-reading-color: #d9c5a0;
   --cave-paint-speed: 980ms;
   --cave-hand-spacing: 0.018em;
@@ -2125,11 +2125,28 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   .story-block[data-section="mesolitico"] .prehistory-stone-panel,
   .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
     justify-self: center;
+    justify-items: center;
     transform: none;
     width: min(100%, 34ch);
     max-width: 34ch;
     padding: clamp(12px, 3vw, 18px) clamp(8px, 3vw, 14px);
-    text-align: left;
+    text-align: center;
+  }
+
+  .story-block[data-era="pre-historia"] .prehistory-narrative-title,
+  .story-block[data-section="paleolitico"] .prehistory-narrative-title,
+  .story-block[data-section="mesolitico"] .prehistory-narrative-title,
+  .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title,
+  .story-block[data-era="pre-historia"] .cave-paint-text,
+  .story-block[data-section="paleolitico"] .cave-paint-text,
+  .story-block[data-section="mesolitico"] .cave-paint-text,
+  .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
+    justify-self: center;
+    width: var(--prehistory-copy-measure);
+    max-width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
   }
 
   .story-block[data-era="pre-historia"] .cave-paint-text,
