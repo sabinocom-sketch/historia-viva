@@ -494,30 +494,46 @@ async function openRelatedTopic(topic) {
 async function renderCategorySections() {
   if (!categorySections) return;
   const eraKey = state.currentEra;
+  const viewKey = state.currentView;
+  const lessonKey = state.currentLessonId;
+  const modeKey = state.currentLessonMode;
+  const storyBlockKey = state.currentLessonStoryBlockIndex;
   const era = eras[eraKey];
-  if (state.currentView === "learn") {
+  const isStaleRender = () =>
+    state.currentView !== viewKey ||
+    state.currentEra !== eraKey ||
+    state.currentLessonId !== lessonKey ||
+    state.currentLessonMode !== modeKey ||
+    state.currentLessonStoryBlockIndex !== storyBlockKey;
+
+  if (viewKey === "learn") {
+    if (isStaleRender()) return;
     categorySections.innerHTML = "";
     return;
   }
-  if (state.currentView === "lesson") {
-    const lesson = getLessonById(state.currentLessonId) || getEraLessons(state.currentEra)[0];
+  if (viewKey === "lesson") {
+    const lesson = getLessonById(lessonKey) || getEraLessons(eraKey)[0];
     await waitForLessonBackgroundAssets(lesson?.sectionId, 700);
-    categorySections.innerHTML = await renderActiveLessonPanelHtml();
+    if (isStaleRender()) return;
+    const lessonHtml = await renderActiveLessonPanelHtml();
+    if (isStaleRender()) return;
+    categorySections.innerHTML = lessonHtml;
     return;
   }
-  if (state.currentView === "portal") {
+  if (isStaleRender()) return;
+  if (viewKey === "portal") {
     categorySections.innerHTML = renderEraPortal(eraKey);
     return;
   }
-  if (state.currentView === "subpath") {
+  if (viewKey === "subpath") {
     categorySections.innerHTML = renderSubpathPortal(eraKey);
     return;
   }
-  if (state.currentView === "timeline") {
+  if (viewKey === "timeline") {
     categorySections.innerHTML = renderTimelineView(eraKey);
     return;
   }
-  if (state.currentView === "journey") {
+  if (viewKey === "journey") {
     categorySections.innerHTML = renderGrandJourneyTimelineView();
     return;
   }
@@ -910,7 +926,7 @@ function getLessonStatus(lessonId) {
 function selectTimelineLesson(eraKey, lessonIndex) {
   const changedEra = state.currentEra !== eraKey;
   const lesson = getEraLessons(eraKey).find((item) => item.index === lessonIndex);
-  renderEra(eraKey);
+  renderEra(eraKey, { skipCategoryRender: true });
   state.currentTimelineLesson = lessonIndex;
   state.currentLessonId = lesson?.id || "";
   resetLessonEntryState();
@@ -1408,7 +1424,7 @@ async function navigateTo(view, params = {}, options = {}) {
   if (nextLessonId) {
     const lesson = getLessonById(nextLessonId);
     if (lesson) {
-      if (lesson.eraKey !== state.currentEra) renderEra(lesson.eraKey);
+      if (lesson.eraKey !== state.currentEra) renderEra(lesson.eraKey, { skipCategoryRender: true });
       state.currentTimelineLesson = lesson.index;
       state.currentLessonId = lesson.id;
       updateLessonProgress(lesson.id, { viewed: true });
