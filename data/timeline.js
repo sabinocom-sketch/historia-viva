@@ -78,7 +78,7 @@ function buildTimelineDetail(era, event, category) {
     cultura: "O impacto cultural aparece em identidades, educação, memória, linguagem simbólica e circulação de ideias.",
     religião: "O impacto religioso revela como crenças, instituições e poder social moldaram comunidades."
   };
-  return `${categoryContext[category]} Em ${era.title}, este momento deve ser lido pelo contexto e pelas consequências sociais, não como facto isolado.`;
+  return `${event} ${categoryContext[category]} Em ${era.title}, este momento deve ser lido pelo contexto e pelas consequências sociais, não como facto isolado.`;
 }
 
 function enrichTimelines() {

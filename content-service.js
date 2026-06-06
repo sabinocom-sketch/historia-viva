@@ -410,9 +410,58 @@ function buildStoryBlocksForLesson(lesson) {
   });
 
   return addLessonStoryBlockMetadata(
-    generatedBlocks.length ? generatedBlocks : defaultStoryBlockPattern,
+    generatedBlocks.length ? generatedBlocks : buildLessonSpecificStoryBlocks(lesson, visualPattern),
     lesson
   );
+}
+
+function buildLessonSpecificStoryBlocks(lesson = {}, visualPattern = defaultStoryBlockPattern) {
+  const title = lesson.title || "este momento histórico";
+  const date = lesson.date ? `Em ${lesson.date}, ` : "";
+  const eraTitle = getEra(lesson.eraKey)?.title || "este período";
+  const detail = lesson.detail || buildLessonQuestion(title, lesson.category);
+  const categoryFrame = getLessonCategoryFrame(lesson.category);
+  const related = ensureArray(lesson.related).filter(Boolean).slice(0, 2);
+  const relatedText = related.length ? ` Liga-se ainda a ${related.join(" e ")}, o que ajuda a comparar causas, efeitos e limites das fontes.` : "";
+  const sourceHint = getLessonSourceHint(lesson);
+  const pattern = visualPattern.length ? visualPattern : defaultStoryBlockPattern;
+
+  return [
+    {
+      id: "contexto",
+      visualType: pattern[0]?.visualType,
+      backgroundMood: pattern[0]?.backgroundMood,
+      text: `${date}${title} ganha sentido dentro de ${eraTitle}. ${detail} A primeira pergunta da lição é perceber que problema histórico estava em aberto e que pessoas, instituições ou comunidades foram tocadas por essa mudança.`
+    },
+    {
+      id: "evidencia",
+      visualType: pattern[1]?.visualType,
+      backgroundMood: pattern[1]?.backgroundMood,
+      text: `Para estudar ${title}, não basta decorar a data. ${sourceHint} ${categoryFrame} A lição deve cruzar vestígios, contexto e consequências para evitar uma leitura solta ou demasiado simples.`
+    },
+    {
+      id: "legado",
+      visualType: pattern[2]?.visualType,
+      backgroundMood: pattern[2]?.backgroundMood,
+      text: `O legado de ${title} aparece quando perguntamos quem ganhou poder, quem perdeu margem de ação e que marcas ficaram depois. ${relatedText || `Essa leitura aproxima ${eraTitle} do presente sem transformar o passado numa resposta única.`}`
+    }
+  ];
+}
+
+function getLessonCategoryFrame(category = "") {
+  if (category === "política") return "O foco está em autoridade, leis, legitimidade e participação.";
+  if (category === "guerra") return "O foco está em recursos, violência, alianças, medo e reorganização de poder.";
+  if (category === "ciência") return "O foco está em técnica, observação, instrumentos e mudanças práticas.";
+  if (category === "cultura") return "O foco está em memória, circulação de ideias, identidade e linguagem simbólica.";
+  if (category === "religião") return "O foco está em crenças, instituições, rituais e autoridade social.";
+  return "O foco está em causas, escolhas humanas, fontes e consequências.";
+}
+
+function getLessonSourceHint(lesson = {}) {
+  const sources = ensureArray(getEra(lesson.eraKey)?.source).filter(Boolean);
+  const source = sources[lesson.index % Math.max(1, sources.length)];
+  if (!source?.text) return "Os historiadores procuram documentos, objetos, imagens, lugares e testemunhos que possam ser comparados.";
+  return `Uma fonte possível é observar ${source.text}`;
 }
 
 function addLessonStoryBlockMetadata(blocks, lesson = {}) {
