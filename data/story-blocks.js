@@ -6,19 +6,19 @@ export const storyBlockRules = [
         id: "origem",
         visualType: "spark",
         backgroundMood: "cave-dark",
-        text: "Depois de um relâmpago, a paisagem ardia e alguém podia aproximar-se das brasas com cuidado. A chama queimava, mas dava luz, calor e defesa. Ossos queimados e cinzas sugerem que o fogo entrou devagar na vida humana. Uma brasa pequena podia mudar uma noite inteira."
+        text: "Depois de um relâmpago, a paisagem ardia. Alguém podia aproximar-se das brasas com cuidado, sentindo calor, medo e curiosidade ao mesmo tempo. A chama queimava, mas também iluminava e afastava animais. Ossos queimados e cinzas sugerem que o fogo entrou devagar na vida humana. Uma pequena brasa podia mudar uma noite inteira."
       },
       {
         id: "sobrevivencia",
         visualType: "charcoal",
         backgroundMood: "stone-warm",
-        text: "Numa noite fria, era preciso manter a fogueira viva. Se a última brasa se apagasse, o grupo perdia calor, luz e comida cozinhada. Os arqueólogos procuram cinzas, ossos queimados e sedimentos aquecidos. Nesses restos frágeis lemos uma grande descoberta feita de cuidado repetido."
+        text: "Manter a fogueira viva exigia atenção. Um descuido podia apagar a última brasa e deixar o grupo sem calor, luz ou comida cozinhada. Era preciso alimentar o fogo, protegê-lo do vento e aprender quando se podia chegar perto. Os arqueólogos procuram cinzas, ossos queimados e sedimentos aquecidos. Nesses restos frágeis vemos uma técnica feita de cuidado repetido."
       },
       {
         id: "comunidade",
         visualType: "embers",
         backgroundMood: "fire-circle",
-        text: "À volta das chamas, rostos antes escondidos ficavam visíveis. Ali podiam cozinhar, aquecer-se e contar perigos do dia. O fogo mudou o tempo social: a noite já não era só ameaça. Hoje dependemos de energia; aquela fogueira foi uma primeira forma de transformar o mundo."
+        text: "À volta das chamas, rostos antes escondidos ficavam visíveis. Ali podiam cozinhar, aquecer-se, vigiar a noite e contar perigos do dia. O fogo mudou o tempo social: a escuridão já não era apenas ameaça. Hoje dependemos de energia para viver. Aquela fogueira foi uma das primeiras formas humanas de transformar medo em abrigo."
       }
     ]
   },
@@ -29,19 +29,19 @@ export const storyBlockRules = [
         id: "materia",
         visualType: "stone",
         backgroundMood: "stone-cool",
-        text: "No chão, uma pedra comum podia esconder uma lâmina. Quem a escolhia observava peso, forma e fratura. Instrumentos muito antigos, como os de Lomekwi, indicam técnica antes das cidades. A mão humana começava a ver na matéria uma resposta possível para a sobrevivência."
+        text: "Para muitos, era apenas uma pedra no chão. Para um olhar treinado, podia esconder uma lâmina. Quem a escolhia observava o peso, a forma e a maneira como partia. Ferramentas muito antigas, como as de Lomekwi, mostram técnica muito antes das cidades. Pela primeira vez, uma pedra podia tornar-se muito mais do que uma pedra."
       },
       {
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
-        text: "Cada golpe exigia atenção. Força a mais destruía a peça; força a menos não abria fio. Lascas, núcleos e marcas de uso ajudam os arqueólogos a reconstruir gestos. A técnica passava de mão em mão, como uma aula silenciosa muito anterior à escrita."
+        text: "Fazer uma boa ferramenta exigia atenção. Um golpe demasiado forte podia destruir a peça. Um golpe demasiado fraco não criava um fio útil. As pedras partidas e os sinais de desgaste ajudam os arqueólogos a reconstruir esses gestos. Muito antes dos livros ou das escolas, a técnica passava de mão em mão, através da observação e da prática."
       },
       {
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
-        text: "Com uma pedra afiada, a mão ganhava novas capacidades: cortar, raspar, furar e preparar peles. Ferramentas antigas mostram aprendizagem e adaptação ao ambiente. Hoje usamos máquinas e computadores, mas a ideia continua parecida: criar algo fora do corpo para resolver um problema."
+        text: "Com uma pedra afiada, a mão ganhava novas capacidades. Era possível cortar carne, raspar peles, furar materiais e fabricar outros instrumentos. Cada nova ferramenta aumentava as hipóteses de sobrevivência. Milhões de anos depois, continuamos a fazer algo parecido: criamos objetos fora do corpo para ultrapassar os seus limites. Os computadores são descendentes distantes dessas primeiras pedras trabalhadas."
       }
     ]
   },
@@ -52,19 +52,19 @@ export const storyBlockRules = [
         id: "rastos",
         visualType: "tracks",
         backgroundMood: "earth-path",
-        text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e o vento eram pistas. Ossos com marcas de corte indicam caça, aproveitamento de carcaças e partilha. Ler bem o território podia significar regressar com alimento para todos."
+        text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e o vento eram pistas. Um animal podia estar perto, escondido entre árvores ou pedras. Ossos com marcas de corte indicam caça, aproveitamento de carcaças e partilha. Ler bem o território podia significar regressar com alimento para todos."
       },
       {
         id: "grupo",
         visualType: "spear",
         backgroundMood: "forest-dusk",
-        text: "Um ramo partido podia assustar a presa e transformar o dia em fome. Por isso, o grupo movia-se em silêncio, esperando o gesto certo. Pontas de pedra, lanças raras e restos de animais sugerem estratégias partilhadas. Sobreviver era também coordenar confiança."
+        text: "A caça podia falhar num segundo. Um ramo partido assustava a presa. Um gesto cedo demais punha todos em risco. Por isso, o grupo movia-se em silêncio, esperando o momento certo. Pontas de pedra, lanças raras e restos de animais sugerem estratégias partilhadas. Sobreviver não era só força; era coordenar confiança."
       },
       {
         id: "territorio",
         visualType: "map",
         backgroundMood: "river-cold",
-        text: "Rios, florestas e costas eram mapas vivos. Ossos de peixe e anzóis de concha sugerem pesca antiga e conhecimento das águas. Estes vestígios mostram técnica, paciência e leitura do ambiente. Hoje também usamos dados e previsões para decidir diante da natureza."
+        text: "Rios, florestas e costas eram mapas vivos. Ossos de peixe e anzóis de concha sugerem pesca antiga e conhecimento das águas. Quem conhecia estações, correntes e movimentos dos animais tinha mais hipóteses de alimentar o grupo. Hoje usamos dados e previsões para decidir diante da natureza. Eles liam o mundo com os olhos, os pés e a memória."
       }
     ]
   },
@@ -75,19 +75,19 @@ export const storyBlockRules = [
         id: "parede",
         visualType: "pigment",
         backgroundMood: "cave-dark",
-        text: "A luz tremia na gruta enquanto alguém misturava terra, carvão e gordura. Cavalos, mãos e sinais surgiam na rocha. Locais como Chauvet sugerem uma memória visual muito antiga. A parede não era apenas pedra; tornava-se lugar de presença."
+        text: "A luz tremia na gruta enquanto alguém misturava terra, carvão e gordura. Uma mão encostava-se à rocha. Depois surgiam animais, sinais e marcas de presença. Locais como Chauvet sugerem uma memória visual muito antiga. A parede deixava de ser apenas pedra. Passava a guardar gestos, imagens e talvez histórias partilhadas."
       },
       {
         id: "sinais",
         visualType: "hand",
         backgroundMood: "ochre-glow",
-        text: "Uma criança podia olhar para os animais pintados e aprender medo, força ou movimento. Mas as imagens também podem sugerir ritual, sonho ou aviso. Pigmentos, marcas de dedos e tochas dão pistas materiais. Sem a voz dos autores, interpretamos com prudência."
+        text: "Pintar no fundo de uma gruta não era simples. Era preciso levar luz, pigmentos e coragem para entrar longe do dia. Uma criança podia olhar para os animais pintados e aprender medo, força ou movimento. Mas as imagens também podem sugerir ritual, sonho ou aviso. Sem a voz dos autores, interpretamos sempre com prudência."
       },
       {
         id: "grupo",
         visualType: "symbol",
         backgroundMood: "fire-circle",
-        text: "Porque entrar fundo numa gruta para pintar? Talvez para ensinar, lembrar, proteger ou unir o grupo. A arte rupestre mostra uma vida simbólica complexa. Hoje continuamos a usar imagens para dizer quem somos; mudaram os ecrãs, não a necessidade de contar."
+        text: "Porque entrar fundo numa gruta para pintar? Talvez para ensinar, lembrar, proteger ou unir o grupo. A arte rupestre mostra que aquelas pessoas não viviam apenas para comer e fugir ao perigo. Também criavam sinais. Hoje continuamos a usar imagens para dizer quem somos. Mudaram os ecrãs, não a necessidade humana de contar."
       }
     ]
   },
@@ -98,19 +98,19 @@ export const storyBlockRules = [
         id: "perda",
         visualType: "bone",
         backgroundMood: "quiet-earth",
-        text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso. Em algumas sepulturas, vestígios de ocre e objetos sugerem cuidado. A morte já chamava memória, gesto e despedida."
+        text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso. Em algumas sepulturas, vestígios de ocre, adornos e objetos sugerem cuidado. Não sabemos tudo o que pensavam sobre a morte. Mas o gesto mostra que aquela pessoa continuava a importar."
       },
       {
         id: "memoria",
         visualType: "offering",
         backgroundMood: "stone-cool",
-        text: "Um adorno, uma ferramenta ou a posição do corpo pode dizer muito, mas nunca diz tudo. Enterros antigos levantam debates sobre cuidado, crença e memória. Os arqueólogos interpretam esses sinais com cautela. Ainda assim, parecem revelar que certas vidas continuavam a importar."
+        text: "Uma sepultura antiga pode parecer silenciosa, mas está cheia de perguntas. Porque foi escolhido aquele lugar? Porque ficou ali uma ferramenta, um adorno ou pigmento vermelho? Um objeto pode sugerir crença, afeto ou estatuto, mas nunca fala sozinho. Os arqueólogos comparam sinais e contexto. A prudência é parte do rigor."
       },
       {
         id: "mistério",
         visualType: "circle",
         backgroundMood: "cave-dark",
-        text: "A morte fazia perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como lembrar essa pessoa? As sepulturas não provam religião organizada, mas indicam significado social. Hoje também usamos rituais para atravessar a perda; essa proximidade impressiona."
+        text: "A morte fazia perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como lembrar essa pessoa? As sepulturas não provam religião organizada, mas indicam significado social. Hoje também usamos rituais para atravessar a perda. Milhares de anos depois, continuamos a proteger a memória de quem desaparece do nosso lado."
       }
     ]
   }

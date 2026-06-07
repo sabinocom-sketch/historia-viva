@@ -60,6 +60,66 @@ Cada story block deve conter pelo menos três destes elementos:
 - emoção;
 - imagem mental.
 
+## Princípios Narrativos Avançados
+
+### 1. Pessoas antes de conceitos
+
+Sempre que possível, transformar frases abstratas em ações humanas concretas.
+
+Mau:
+
+> As ferramentas mostram adaptação ao ambiente.
+
+Bom:
+
+> Cada nova ferramenta aumentava as hipóteses de encontrar alimento, preparar peles e sobreviver.
+
+### 2. Cada story block deve ter uma função narrativa clara
+
+Em conjuntos de 3 story blocks, aplicar esta estrutura:
+
+- Story block 1: descoberta, curiosidade ou objeto.
+- Story block 2: desafio, dificuldade ou técnica.
+- Story block 3: consequência, impacto ou ligação ao presente.
+
+### 3. Terminar com uma frase memorável
+
+O último ecrã de cada sequência deve fechar com uma ideia forte, simples e fácil de recordar.
+
+Exemplo:
+
+> Milhões de anos depois, ainda fazemos o mesmo: criamos ferramentas para ultrapassar os limites do nosso corpo.
+
+### 4. Evitar frases de ensaio académico
+
+Substituir frases bonitas mas abstratas por frases visuais e concretas.
+
+Mau:
+
+> A mão humana começava a ver na matéria uma resposta possível para a sobrevivência.
+
+Melhor:
+
+> Pela primeira vez, uma pedra podia tornar-se muito mais do que uma pedra.
+
+### 5. Mostrar consequências humanas
+
+Sempre que houver um facto histórico, acrescentar a consequência prática para a vida das pessoas.
+
+Mau:
+
+> A pedra servia para cortar e raspar.
+
+Bom:
+
+> Com uma pedra afiada, era possível cortar carne, preparar peles e fabricar novos instrumentos.
+
+### 6. A UI já está madura; não alterar layout
+
+Não mexer na interface, CSS, componentes visuais, posições, botões, imagens, barra de progresso, animações ou responsividade.
+
+Esta regra é editorial. Só se devem ajustar dados de conteúdo quando isso for necessário para melhorar o texto.
+
 ## Regras Editoriais
 
 ### 1. Mostrar Antes de Explicar
