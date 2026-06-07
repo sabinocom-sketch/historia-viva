@@ -6,19 +6,19 @@ export const storyBlockRules = [
         id: "origem",
         visualType: "spark",
         backgroundMood: "cave-dark",
-        text: "Depois de um relâmpago incendiar a paisagem, alguém podia aproximar-se das brasas com cuidado. A chama queimava, mas também dava luz, calor e proteção. Em sítios como Wonderwerk, na África do Sul, há vestígios de ossos queimados e cinzas com cerca de 1 milhão de anos. Esses sinais sugerem que o fogo começou a entrar, pouco a pouco, na vida humana."
+        text: "Depois de um relâmpago, a paisagem ardia e alguém podia aproximar-se das brasas com cuidado. A chama queimava, mas dava luz, calor e defesa. Ossos queimados e cinzas sugerem que o fogo entrou devagar na vida humana. Uma brasa pequena podia mudar uma noite inteira."
       },
       {
         id: "sobrevivencia",
         visualType: "charcoal",
         backgroundMood: "stone-warm",
-        text: "Durante a noite, era preciso juntar ramos secos antes que o brilho morresse. Se a última brasa se apagasse numa noite gelada, o grupo perdia calor, defesa e talvez alimento cozinhado. Como raramente sobrevivem objetos usados para acender fogo, os arqueólogos procuram cinzas, ossos queimados e sedimentos aquecidos. É nesses vestígios frágeis que se lê uma mudança enorme, feita de cuidado repetido."
+        text: "Numa noite fria, era preciso manter a fogueira viva. Se a última brasa se apagasse, o grupo perdia calor, luz e comida cozinhada. Os arqueólogos procuram cinzas, ossos queimados e sedimentos aquecidos. Nesses restos frágeis lemos uma grande descoberta feita de cuidado repetido."
       },
       {
         id: "comunidade",
         visualType: "embers",
         backgroundMood: "fire-circle",
-        text: "À volta das chamas, rostos antes escondidos pela escuridão ficavam visíveis. Ali podiam cozinhar, aquecer-se e repetir histórias sobre caçadas, caminhos e perigos. O fogo alterou o tempo social: a noite deixou de ser apenas ameaça. Hoje usamos energia em casas, hospitais e cidades, mas essa relação começou quando uma fogueira frágil ensinou que o ambiente podia ser transformado para sobreviver melhor."
+        text: "À volta das chamas, rostos antes escondidos ficavam visíveis. Ali podiam cozinhar, aquecer-se e contar perigos do dia. O fogo mudou o tempo social: a noite já não era só ameaça. Hoje dependemos de energia; aquela fogueira foi uma primeira forma de transformar o mundo."
       }
     ]
   },
@@ -29,19 +29,19 @@ export const storyBlockRules = [
         id: "materia",
         visualType: "stone",
         backgroundMood: "stone-cool",
-        text: "No chão frio, uma pedra comum podia esconder uma lâmina. Quem a escolhia observava o peso, a forma e o modo como partia. Em Lomekwi 3, no Quénia, foram encontrados instrumentos de pedra com cerca de 3,3 milhões de anos. Muito antes das cidades, estes objetos indicam que alguns hominíneos já transformavam matéria bruta em solução prática e planeada, com intenção."
+        text: "No chão, uma pedra comum podia esconder uma lâmina. Quem a escolhia observava peso, forma e fratura. Instrumentos muito antigos, como os de Lomekwi, indicam técnica antes das cidades. A mão humana começava a ver na matéria uma resposta possível para a sobrevivência."
       },
       {
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
-        text: "Cada golpe exigia atenção: força a mais podia destruir a peça; força a menos não abria fio nenhum. Ao lado, alguém mais novo podia observar em silêncio. Lascas, núcleos e marcas de uso ajudam os arqueólogos a perceber como as ferramentas eram feitas e utilizadas. A técnica passava de mão em mão, uma memória prática muito anterior à escrita e à escola."
+        text: "Cada golpe exigia atenção. Força a mais destruía a peça; força a menos não abria fio. Lascas, núcleos e marcas de uso ajudam os arqueólogos a reconstruir gestos. A técnica passava de mão em mão, como uma aula silenciosa muito anterior à escrita."
       },
       {
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
-        text: "Com uma pedra afiada, uma mão ganhava novas capacidades: cortar, furar, raspar, preparar alimentos ou trabalhar peles. Ferramentas Oldowan, conhecidas em vários sítios africanos com mais de 2 milhões de anos, mostram continuidade, aprendizagem e adaptação ao ambiente. Hoje usamos máquinas e computadores, mas a ideia essencial é antiga: criar algo exterior ao corpo para resolver um problema concreto e repetido."
+        text: "Com uma pedra afiada, a mão ganhava novas capacidades: cortar, raspar, furar e preparar peles. Ferramentas antigas mostram aprendizagem e adaptação ao ambiente. Hoje usamos máquinas e computadores, mas a ideia continua parecida: criar algo fora do corpo para resolver um problema."
       }
     ]
   },
@@ -52,19 +52,19 @@ export const storyBlockRules = [
         id: "rastos",
         visualType: "tracks",
         backgroundMood: "earth-path",
-        text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e a direção do vento diziam mais do que palavras. Ossos de animais com marcas de corte, encontrados em muitos sítios pré-históricos, indicam caça, aproveitamento de carcaças e partilha de alimento. Ler bem o território podia significar regressar ao acampamento com comida suficiente para todos nesse dia."
+        text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e o vento eram pistas. Ossos com marcas de corte indicam caça, aproveitamento de carcaças e partilha. Ler bem o território podia significar regressar com alimento para todos."
       },
       {
         id: "grupo",
         visualType: "spear",
         backgroundMood: "forest-dusk",
-        text: "Um ramo partido de repente podia assustar a presa e transformar o dia em fome. Por isso, o grupo movia-se em silêncio, esperando o gesto certo. Pontas de pedra, lanças preservadas em raros contextos e restos de animais ajudam a reconstruir estas estratégias. A sobrevivência dependia da coragem, mas também da coordenação entre pessoas que partilhavam o mesmo risco diário."
+        text: "Um ramo partido podia assustar a presa e transformar o dia em fome. Por isso, o grupo movia-se em silêncio, esperando o gesto certo. Pontas de pedra, lanças raras e restos de animais sugerem estratégias partilhadas. Sobreviver era também coordenar confiança."
       },
       {
         id: "territorio",
         visualType: "map",
         backgroundMood: "river-cold",
-        text: "Rios, florestas e costas eram lidos como um mapa vivo. Em Jerimalai, em Timor-Leste, milhares de ossos de peixe mostram pesca há dezenas de milhares de anos; em Lene Hara foram encontrados anzóis de concha mais recentes. Estes vestígios indicam conhecimento técnico e ambiental. Hoje ainda dependemos de mapas, previsões e dados para fazer escolhas semelhantes diante da natureza e dos seus ritmos."
+        text: "Rios, florestas e costas eram mapas vivos. Ossos de peixe e anzóis de concha sugerem pesca antiga e conhecimento das águas. Estes vestígios mostram técnica, paciência e leitura do ambiente. Hoje também usamos dados e previsões para decidir diante da natureza."
       }
     ]
   },
@@ -75,19 +75,19 @@ export const storyBlockRules = [
         id: "parede",
         visualType: "pigment",
         backgroundMood: "cave-dark",
-        text: "À luz instável de uma chama, alguém misturava terra, carvão e gordura para pintar na rocha. Em Chauvet, em França, há cavalos, leões e rinocerontes com cerca de 36 mil anos. Foram feitos muito antes das pirâmides do Egito. A gruta ficou selada por milhares de anos, preservando uma memória visual que ainda parece respirar diante de nós no presente."
+        text: "A luz tremia na gruta enquanto alguém misturava terra, carvão e gordura. Cavalos, mãos e sinais surgiam na rocha. Locais como Chauvet sugerem uma memória visual muito antiga. A parede não era apenas pedra; tornava-se lugar de presença."
       },
       {
         id: "sinais",
         visualType: "hand",
         backgroundMood: "ochre-glow",
-        text: "Uma criança podia olhar para os animais desenhados e aprender quais eram fortes, rápidos ou perigosos. Mas as imagens talvez fossem também ritual, memória, sonho ou aviso. Pigmentos, marcas de dedos, pegadas e tochas deixadas nas grutas dão pistas materiais. Mesmo assim, os arqueólogos interpretam estes símbolos com prudência, porque não temos a voz de quem os pintou na pedra."
+        text: "Uma criança podia olhar para os animais pintados e aprender medo, força ou movimento. Mas as imagens também podem sugerir ritual, sonho ou aviso. Pigmentos, marcas de dedos e tochas dão pistas materiais. Sem a voz dos autores, interpretamos com prudência."
       },
       {
         id: "grupo",
         visualType: "symbol",
         backgroundMood: "fire-circle",
-        text: "Porque razão alguém entraria tão fundo numa gruta apenas para pintar uma parede? Talvez para ensinar, lembrar, pedir proteção ou unir o grupo. Em Lascaux e Altamira, como em Chauvet, a arte mostra uma vida simbólica complexa. Hoje continuamos a usar imagens para contar quem somos; a diferença é que trocámos rocha, carvão e ocre por câmaras, ecrãs e redes."
+        text: "Porque entrar fundo numa gruta para pintar? Talvez para ensinar, lembrar, proteger ou unir o grupo. A arte rupestre mostra uma vida simbólica complexa. Hoje continuamos a usar imagens para dizer quem somos; mudaram os ecrãs, não a necessidade de contar."
       }
     ]
   },
@@ -98,19 +98,19 @@ export const storyBlockRules = [
         id: "perda",
         visualType: "bone",
         backgroundMood: "quiet-earth",
-        text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso: havia cuidado, silêncio e despedida. Em Qafzeh, no atual Israel, restos de Homo sapiens foram encontrados com ocre vermelho e ferramentas. Estes vestígios sugerem práticas funerárias há dezenas de milhares de anos, muito antes da escrita e das cidades."
+        text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso. Em algumas sepulturas, vestígios de ocre e objetos sugerem cuidado. A morte já chamava memória, gesto e despedida."
       },
       {
         id: "memoria",
         visualType: "offering",
         backgroundMood: "stone-cool",
-        text: "Em algumas sepulturas, os arqueólogos encontraram adornos, ferramentas, pigmentos ou ossos de animais junto dos mortos. Em Shanidar, no Iraque, restos de Neandertais levantaram debates sobre cuidado, enterro e memória. Nem todos os sinais têm uma interpretação segura. Ainda assim, cada objeto ou posição do corpo pode revelar que aquela vida continuava a importar para o grupo que ficou depois."
+        text: "Um adorno, uma ferramenta ou a posição do corpo pode dizer muito, mas nunca diz tudo. Enterros antigos levantam debates sobre cuidado, crença e memória. Os arqueólogos interpretam esses sinais com cautela. Ainda assim, parecem revelar que certas vidas continuavam a importar."
       },
       {
         id: "mistério",
         visualType: "circle",
         backgroundMood: "cave-dark",
-        text: "A morte levantava perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como devia o grupo lembrar essa pessoa? As sepulturas não provam automaticamente religião organizada, mas indicam cuidado e significado social. Ainda hoje fazemos rituais para atravessar a perda; nesses gestos antigos reconhecemos uma humanidade muito próxima da nossa experiência, mesmo sem conhecer todos os seus sentidos."
+        text: "A morte fazia perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como lembrar essa pessoa? As sepulturas não provam religião organizada, mas indicam significado social. Hoje também usamos rituais para atravessar a perda; essa proximidade impressiona."
       }
     ]
   }
@@ -121,19 +121,19 @@ export const defaultStoryBlockPattern = [
     id: "impacto",
     visualType: "spark",
     backgroundMood: "cave-dark",
-    text: "No início, podia parecer apenas uma cena pequena: uma decisão tomada à pressa, uma porta aberta, uma multidão inquieta, uma invenção ainda frágil. Para a estudar, os historiadores procuram datas, objetos, cartas, ruínas, leis ou testemunhos. A História ganha força quando uma cena humana encontra vestígios que ainda podem ser interrogados com perguntas novas, cuidadosas e comparadas. Nada fala sozinho."
+    text: "Tudo podia começar numa cena pequena: uma decisão, uma invenção frágil, uma multidão inquieta. Para a estudar, os historiadores procuram datas, objetos, cartas, ruínas ou leis. A História ganha força quando uma cena humana encontra vestígios. Nada fala sozinho."
   },
   {
     id: "mudanca",
     visualType: "fragment",
     backgroundMood: "stone-warm",
-    text: "Quando a novidade se espalhava, alguém ganhava esperança e alguém sentia ameaça. Havia medo, interesse, resistência e escolhas difíceis. As fontes raramente contam tudo: uma moeda mostra poder, uma ata mostra decisões, uma casa destruída mostra violência. É nessa tensão entre vestígio e interpretação que a História ganha movimento humano e exige prudência constante nas conclusões que fazemos hoje, sempre."
+    text: "Quando uma novidade se espalhava, alguém ganhava esperança e alguém sentia ameaça. Havia medo, interesse e resistência. As fontes raramente contam tudo. Uma moeda mostra poder; uma casa destruída mostra violência. Entre vestígio e interpretação, a História exige cuidado."
   },
   {
     id: "legado",
     visualType: "map",
     backgroundMood: "fire-circle",
-    text: "Depois do impacto, as consequências entravam na vida diária: no trabalho, na família, no poder ou na forma de imaginar o futuro. A pergunta decisiva não é só o que aconteceu. É quem ganhou, quem perdeu e que marcas ficaram em lugares, objetos e palavras que ainda usamos hoje sem reparar no seu passado e nas suas disputas. Essas marcas continuam ativas."
+    text: "Depois do impacto, as consequências entravam na vida diária: trabalho, família, poder e futuro. A pergunta não é só o que aconteceu. É quem ganhou, quem perdeu e que marcas ficaram. Muitas palavras e costumes de hoje ainda carregam disputas antigas."
   }
 ];
 
@@ -143,19 +143,19 @@ export const categoryStoryBlockPatterns = {
       id: "poder",
       visualType: "symbol",
       backgroundMood: "stone-warm",
-      text: "Numa praça, num palácio ou numa assembleia, alguém percebia que o poder já não funcionava como antes. Novas regras podiam trazer esperança, mas também impostos, vigilância ou obediência. Para estudar estas mudanças, os historiadores observam leis, inscrições, moedas, selos e atas. A política aparecia em decisões muito concretas, sentidas no quotidiano de famílias, trabalhadores e comunidades inteiras. O arquivo mostra isso."
+      text: "Numa praça, palácio ou assembleia, alguém percebia que o poder mudava. Novas regras podiam trazer esperança, mas também impostos ou obediência. Leis, moedas e atas ajudam a seguir essas mudanças. A política aparecia no quotidiano, não apenas nos grandes nomes."
     },
     {
       id: "tensao",
       visualType: "map",
       backgroundMood: "earth-path",
-      text: "Por trás de uma decisão política havia quase sempre vozes em conflito. Alguns queriam participar mais; outros protegiam privilégios antigos. Uma lei escrita pode revelar autoridade, mas também silêncio: quem não aparece no documento? Quem ficava à porta? Essas ausências ajudam a perceber os limites reais do poder em cada sociedade e época histórica. Também contam história, discretamente, hoje, quando fazemos perguntas."
+      text: "Por trás de uma decisão política havia vozes em conflito. Alguns queriam participar; outros protegiam privilégios. Uma lei pode revelar autoridade, mas também silêncio. Quem ficou de fora? Essa pergunta mostra os limites reais do poder em cada época."
     },
     {
       id: "consequencia",
       visualType: "circle",
       backgroundMood: "cave-dark",
-      text: "Quando uma nova ordem se instalava, prometia resolver problemas antigos. Mas podia criar leis duras, disputas e novas formas de controlo. Muitas marcas ficam em constituições, tribunais, fronteiras e impostos. Ainda hoje sentimos a política em direitos e deveres; por isso, estes conflitos antigos continuam próximos das nossas escolhas públicas e sociais. A herança não desaparece facilmente, nunca, por completo."
+      text: "Quando uma nova ordem se instalava, prometia resolver problemas antigos. Mas também podia criar controlo, disputas e exclusões. As marcas ficam em fronteiras, tribunais, impostos e direitos. Por isso, conflitos políticos antigos ainda conversam com escolhas públicas de hoje."
     }
   ],
   guerra: [
@@ -163,19 +163,19 @@ export const categoryStoryBlockPatterns = {
       id: "ameaça",
       visualType: "spear",
       backgroundMood: "forest-dusk",
-      text: "Antes da batalha, já há rumores, fronteiras tensas, medo e palavras que dividem. Uma família pode ouvir que soldados se aproximam antes de ver qualquer exército. A guerra deixa rastos materiais: muralhas reparadas, armas, valas, cartas, listas de mortos. Esses vestígios mostram que o conflito começa antes do choque visível das tropas em campo aberto. O medo também deixa sinais."
+      text: "Antes da batalha, já havia rumores, medo e fronteiras tensas. Uma família podia ouvir os soldados antes de ver o exército. Armas, muralhas reparadas e cartas ajudam a seguir o perigo. A guerra começa antes do choque visível."
     },
     {
       id: "choque",
       visualType: "strike",
       backgroundMood: "stone-warm",
-      text: "Quando a violência chega, não sofrem apenas os combatentes. Campos ficam vazios, famílias fogem e cidades esperam notícias que podem destruir uma casa inteira. Camadas de incêndio, ossadas com trauma e povoações abandonadas podem indicar ruptura. Uma escolha simples, ficar ou partir, torna-se uma decisão de sobrevivência imediata para civis sem proteção. Isso aproxima a guerra de nós, hoje, com dureza."
+      text: "Quando a violência chegava, não sofriam apenas os combatentes. Campos ficavam vazios, famílias fugiam e cidades esperavam notícias. Camadas de incêndio ou povoações abandonadas podem indicar ruptura. Ficar ou partir tornava-se uma decisão de sobrevivência."
     },
     {
       id: "marca",
       visualType: "fragment",
       backgroundMood: "quiet-earth",
-      text: "Quando a guerra termina, os vencedores podem redesenhar mapas e celebrar. Mas muitos regressam com fome, perdas ou memórias difíceis de contar. Tratados, monumentos e cemitérios contam uma parte; deslocações, ruínas e silêncios contam outra. O legado da guerra fica nas fronteiras, nos corpos e nas histórias familiares que sobrevivem por várias gerações. Mesmo depois da paz oficial, escrita, assinada."
+      text: "Quando a guerra terminava, vencedores celebravam e mapas mudavam. Mas muitos regressavam com fome, perdas ou memórias difíceis. Tratados contam uma parte; ruínas e cemitérios contam outra. Mesmo depois da paz oficial, a guerra continuava nas famílias."
     }
   ],
   ciência: [
@@ -183,19 +183,19 @@ export const categoryStoryBlockPatterns = {
       id: "observacao",
       visualType: "spark",
       backgroundMood: "river-cold",
-      text: "A ciência pode começar com alguém a reparar num detalhe que outros ignoraram: uma estrela que se move, uma febre que volta, uma planta que cura. Cadernos, instrumentos, tabelas e desenhos preservam parte desse olhar. A pergunta é simples e poderosa: será que compreender melhor permite agir de outro modo sobre o mundo material que habitamos? A dúvida abre caminho."
+      text: "A ciência pode começar com alguém a reparar num detalhe: uma estrela, uma febre, uma planta. Cadernos, instrumentos e desenhos guardam parte desse olhar. A pergunta é simples: compreender melhor permite agir melhor? A dúvida abre caminho."
     },
     {
       id: "tecnica",
       visualType: "stone",
       backgroundMood: "stone-cool",
-      text: "Uma ideia só ganhava força quando resistia ao teste. Era preciso repetir, medir, falhar e tentar de novo. Telescópios, balanças, mapas, frascos e máquinas também são fontes históricas, porque mostram como se investigava. Quando funcionava, o conhecimento deixava de ser apenas opinião e podia mudar práticas concretas de trabalho, navegação e saúde. O método tinha consequências reais, duradouras, visíveis, sociais."
+      text: "Uma ideia ganhava força quando resistia ao teste. Era preciso repetir, medir, falhar e tentar de novo. Telescópios, mapas e máquinas também são fontes históricas. Quando funcionava, o conhecimento mudava trabalho, navegação, saúde e poder."
     },
     {
       id: "transformacao",
       visualType: "map",
       backgroundMood: "fire-circle",
-      text: "Quando o conhecimento circulava, deixava de pertencer a uma só pessoa. Manuscritos, livros impressos, aulas, oficinas e laboratórios espalhavam métodos e dúvidas. Isso mudava ofícios, viagens, remédios, armas e escolas. Hoje vivemos rodeados por essa herança: cada tecnologia nova prolonga a antiga curiosidade de perguntar como o mundo funciona melhor para nós todos. E para quê, também, importa muito agora."
+      text: "Quando o conhecimento circulava, deixava de pertencer a uma só pessoa. Livros, aulas, oficinas e laboratórios espalhavam métodos. Isso mudava viagens, remédios, armas e escolas. Cada tecnologia nova prolonga uma pergunta antiga: como funciona o mundo?"
     }
   ],
   cultura: [
@@ -203,19 +203,19 @@ export const categoryStoryBlockPatterns = {
       id: "voz",
       visualType: "pigment",
       backgroundMood: "ochre-glow",
-      text: "A cultura nasce quando uma ideia ganha forma diante dos outros: uma canção numa festa, uma imagem num muro, uma história repetida à noite. Objetos, pinturas, cerâmicas, textos e edifícios guardam sinais dessas escolhas. Algo pessoal passa a circular e deixa de pertencer apenas a quem o criou primeiro em silêncio partilhado. Ganha vida coletiva própria e memória comum depois."
+      text: "A cultura nasce quando uma ideia ganha forma diante dos outros: uma canção, uma imagem, uma história. Objetos, pinturas, textos e edifícios guardam esses sinais. Algo pessoal passa a circular. Ganha vida coletiva e memória partilhada."
     },
     {
       id: "circulacao",
       visualType: "hand",
       backgroundMood: "stone-warm",
-      text: "Quando outras pessoas reconhecem essa forma, ela começa a viajar. Uma técnica de cerâmica, um motivo decorativo ou uma palavra pode aparecer longe do seu ponto de origem. Esses vestígios sugerem contacto, comércio, conquista ou imitação. Por isso a cultura nunca fica parada: muda sempre que alguém a recebe e transforma novamente noutro contexto social. Nada chega igual ao destino."
+      text: "Quando outras pessoas reconhecem uma forma, ela começa a viajar. Uma técnica, uma palavra ou um desenho pode aparecer longe da origem. Esses vestígios sugerem contacto, comércio, conquista ou imitação. Nada chega ao destino exatamente igual."
     },
     {
       id: "identidade",
       visualType: "symbol",
       backgroundMood: "cave-dark",
-      text: "Com o tempo, essas formas ajudam uma comunidade a dizer quem é. Mostram valores, medos, festas, memórias e maneiras de pertencer. O que se preserva num museu ou monumento é só parte da história; muito perdeu-se. Hoje também fazemos isso com músicas, filmes, memes e memoriais: cultura é identidade em movimento constante e disputado publicamente. Também no presente digital, diariamente."
+      text: "Com o tempo, essas formas ajudam uma comunidade a dizer quem é. Mostram valores, medos, festas e memórias. O que fica num museu é só parte da história. Hoje também fazemos identidade com músicas, filmes, memes e memoriais."
     }
   ],
   religião: [
@@ -223,19 +223,19 @@ export const categoryStoryBlockPatterns = {
       id: "crenca",
       visualType: "circle",
       backgroundMood: "cave-dark",
-      text: "Quando a tempestade destruía uma colheita ou a doença chegava sem aviso, a vida parecia depender de forças invisíveis. A religião dava linguagem a esses medos. Altares, templos, sepulturas, amuletos e textos sagrados são vestígios que sugerem crenças. Para muitos, oferecia esperança, ordem e consolo diante do incerto quotidiano e da morte. A dúvida permanecia viva, sempre, por dentro também."
+      text: "Quando a tempestade destruía a colheita ou a doença chegava sem aviso, a vida parecia depender de forças invisíveis. Altares, amuletos, templos e textos sugerem crenças. Para muitos, a religião dava consolo, ordem e linguagem ao medo."
     },
     {
       id: "ritual",
       visualType: "offering",
       backgroundMood: "fire-circle",
-      text: "Num ritual, a crença deixava de ser apenas interior. Cânticos, ofertas, festas e regras juntavam pessoas no mesmo gesto. Restos de alimentos, objetos votivos, inscrições ou espaços preparados podem indicar práticas religiosas. Esses momentos marcavam o ano, aproximavam famílias e davam ao grupo uma forma comum de enfrentar incertezas partilhadas em comunidade. O gesto unia pessoas presentes, ali, juntas, sempre."
+      text: "Num ritual, a crença deixava de ser apenas interior. Cânticos, ofertas e festas juntavam pessoas no mesmo gesto. Restos de alimentos, objetos votivos e inscrições podem indicar práticas religiosas. O gesto unia o grupo diante da incerteza."
     },
     {
       id: "poder",
       visualType: "symbol",
       backgroundMood: "quiet-earth",
-      text: "Quando a fé se aproximava do poder, podia orientar leis, reis e decisões públicas. Inscrições reais, moedas, templos e cerimónias públicas mostram como autoridade e crença podiam reforçar-se. Isso dava força a certas ideias, mas também podia excluir quem acreditava de outro modo. A religião influenciava a alma, a sociedade e debates atuais sobre convivência e liberdade. Ainda ecoa hoje."
+      text: "Quando a fé se aproximava do poder, podia orientar leis, reis e decisões públicas. Moedas, templos e cerimónias mostram essa ligação. Isso dava força a certas ideias, mas podia excluir outras. O debate sobre convivência ainda ecoa hoje."
     }
   ]
 };

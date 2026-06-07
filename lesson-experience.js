@@ -278,7 +278,7 @@ function splitStoryBlockForReading(block, maxWords) {
 }
 
 function getReadingStoryBlocks(lessonId) {
-  const maxWords = isMobilePortraitLessonScreen() ? 30 : 42;
+  const maxWords = isMobilePortraitLessonScreen() ? 50 : 60;
   return getLessonStoryBlocks(lessonId).flatMap((block) => splitStoryBlockForReading(block, maxWords));
 }
 

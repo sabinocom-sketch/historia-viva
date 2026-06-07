@@ -41,9 +41,9 @@ const lessonQuizRecommendationRules = {
 
 const storyBlockGenerationDefaults = {
   depth: "normal",
-  preferredWordsPerBlock: 75,
-  minWordsPerBlock: 50,
-  maxWordsPerBlock: 100,
+  preferredWordsPerBlock: 42,
+  minWordsPerBlock: 28,
+  maxWordsPerBlock: 50,
   hardLimit: 40,
   visualTypes: ["spark", "fragment", "map"],
   backgroundMoods: ["cave-dark", "stone-warm", "fire-circle"]
@@ -51,19 +51,19 @@ const storyBlockGenerationDefaults = {
 
 const storyBlockDepthPresets = {
   resumo: {
-    preferredWordsPerBlock: 100,
-    minWordsPerBlock: 60,
-    maxWordsPerBlock: 130
+    preferredWordsPerBlock: 45,
+    minWordsPerBlock: 30,
+    maxWordsPerBlock: 50
   },
   normal: {
-    preferredWordsPerBlock: 75,
-    minWordsPerBlock: 50,
-    maxWordsPerBlock: 100
+    preferredWordsPerBlock: 42,
+    minWordsPerBlock: 28,
+    maxWordsPerBlock: 50
   },
   aprofundado: {
-    preferredWordsPerBlock: 50,
-    minWordsPerBlock: 35,
-    maxWordsPerBlock: 70
+    preferredWordsPerBlock: 38,
+    minWordsPerBlock: 24,
+    maxWordsPerBlock: 50
   }
 };
 
@@ -567,7 +567,7 @@ function mergeShortStoryBlocks(blocks, config) {
     if (previous && words < config.minWordsPerBlock) {
       const combined = `${previous} ${block}`.trim();
       const combinedWords = countWords(combined);
-      if (combinedWords <= config.maxWordsPerBlock || countWords(previous) < config.minWordsPerBlock) {
+      if (combinedWords <= config.maxWordsPerBlock) {
         merged[merged.length - 1] = combined;
         return;
       }
@@ -576,7 +576,9 @@ function mergeShortStoryBlocks(blocks, config) {
   });
 
   if (merged.length > 1 && countWords(merged[0]) < config.minWordsPerBlock) {
-    merged[1] = `${merged[0]} ${merged[1]}`.trim();
+    const combined = `${merged[0]} ${merged[1]}`.trim();
+    if (countWords(combined) > config.maxWordsPerBlock) return merged;
+    merged[1] = combined;
     merged.shift();
   }
 
