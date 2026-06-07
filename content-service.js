@@ -41,29 +41,29 @@ const lessonQuizRecommendationRules = {
 
 const storyBlockGenerationDefaults = {
   depth: "normal",
-  preferredWordsPerBlock: 42,
-  minWordsPerBlock: 28,
-  maxWordsPerBlock: 50,
-  hardLimit: 40,
+  preferredWordsPerBlock: 62,
+  minWordsPerBlock: 50,
+  maxWordsPerBlock: 75,
+  hardLimit: 3,
   visualTypes: ["spark", "fragment", "map"],
   backgroundMoods: ["cave-dark", "stone-warm", "fire-circle"]
 };
 
 const storyBlockDepthPresets = {
   resumo: {
-    preferredWordsPerBlock: 45,
-    minWordsPerBlock: 30,
-    maxWordsPerBlock: 50
+    preferredWordsPerBlock: 58,
+    minWordsPerBlock: 50,
+    maxWordsPerBlock: 75
   },
   normal: {
-    preferredWordsPerBlock: 42,
-    minWordsPerBlock: 28,
-    maxWordsPerBlock: 50
+    preferredWordsPerBlock: 62,
+    minWordsPerBlock: 50,
+    maxWordsPerBlock: 75
   },
   aprofundado: {
-    preferredWordsPerBlock: 38,
-    minWordsPerBlock: 24,
-    maxWordsPerBlock: 50
+    preferredWordsPerBlock: 66,
+    minWordsPerBlock: 50,
+    maxWordsPerBlock: 75
   }
 };
 
@@ -81,6 +81,9 @@ export function getEraLessons(eraKey) {
     .map(([date, title, category, detail, extra], index) => {
       const lessonExtra = normalizeLessonExtra(extra);
       const storyText = lessonExtra.storyText || "";
+      const hasExplicitTextExperience = Boolean(
+        lessonExtra.textExperience || lessonExtra.lessonContent?.textExperience || lessonExtra.lessonContent
+      );
       const id = createContentId(eraKey, "lesson", title, index);
       const sectionId = resolveLessonSectionId(eraKey, title, detail, category);
       const textExperience = normalizeTextExperience(
@@ -105,6 +108,7 @@ export function getEraLessons(eraKey) {
         storyText,
         lessonContent,
         textExperience,
+        hasExplicitTextExperience,
         question: buildLessonQuestion(title, category),
         related: getRelatedTopics(eraKey, title, detail, category)
       };
@@ -385,7 +389,14 @@ function buildStoryBlocksForLesson(lesson) {
   const title = lesson?.title || "este momento histórico";
   const normalizedTitle = normalizeText(title);
   const visualPattern = categoryStoryBlockPatterns[lesson?.category] || defaultStoryBlockPattern;
-  const experienceSource = getTextExperienceStorySource(lesson);
+  const matchedRule = storyBlockRules.find((rule) =>
+    rule.match.some((keyword) => normalizedTitle.includes(normalizeText(keyword)))
+  );
+  if (matchedRule?.blocks) {
+    return addLessonStoryBlockMetadata(matchedRule.blocks, lesson);
+  }
+
+  const experienceSource = lesson?.hasExplicitTextExperience ? getTextExperienceStorySource(lesson) : "";
   if (experienceSource) {
     const generatedBlocks = generateStoryBlocksFromText(experienceSource, {
       maxBlocks: 3,
@@ -397,53 +408,39 @@ function buildStoryBlocksForLesson(lesson) {
     }
   }
 
-  const matchedRule = storyBlockRules.find((rule) =>
-    rule.match.some((keyword) => normalizedTitle.includes(normalizeText(keyword)))
-  );
-  if (matchedRule?.blocks) {
-    return addLessonStoryBlockMetadata(matchedRule.blocks, lesson);
-  }
-
-  const generatedBlocks = generateStoryBlocksFromText(getLessonStorySource(lesson), {
-    visualTypes: visualPattern.map((block) => block.visualType).filter(Boolean),
-    backgroundMoods: visualPattern.map((block) => block.backgroundMood).filter(Boolean)
-  });
-
-  return addLessonStoryBlockMetadata(
-    generatedBlocks.length ? generatedBlocks : buildLessonSpecificStoryBlocks(lesson, visualPattern),
-    lesson
-  );
+  return addLessonStoryBlockMetadata(buildLessonSpecificStoryBlocks(lesson, visualPattern), lesson);
 }
 
 function buildLessonSpecificStoryBlocks(lesson = {}, visualPattern = defaultStoryBlockPattern) {
   const title = lesson.title || "este momento histórico";
-  const date = lesson.date ? `Em ${lesson.date}, ` : "";
+  const titleText = limitWords(title, 10);
+  const date = lesson.date || "";
   const eraTitle = getEra(lesson.eraKey)?.title || "este período";
   const detail = lesson.detail || buildLessonQuestion(title, lesson.category);
-  const categoryFrame = getLessonCategoryFrame(lesson.category);
-  const related = ensureArray(lesson.related).filter(Boolean).slice(0, 2);
-  const relatedText = related.length ? ` Liga-se ainda a ${related.join(" e ")}, o que ajuda a comparar causas, efeitos e limites das fontes.` : "";
+  const detailText = limitWords(detail, 20);
+  const frame = getEditorialFrame(lesson);
   const sourceHint = getLessonSourceHint(lesson);
+  const presentBridge = getPresentBridge(lesson);
   const pattern = visualPattern.length ? visualPattern : defaultStoryBlockPattern;
 
   return [
     {
-      id: "contexto",
+      id: "descoberta",
       visualType: pattern[0]?.visualType,
       backgroundMood: pattern[0]?.backgroundMood,
-      text: `${date}${title} ganha sentido dentro de ${eraTitle}. ${detail} A primeira pergunta da lição é perceber que problema histórico estava em aberto e que pessoas, instituições ou comunidades foram tocadas por essa mudança.`
+      text: `${frame.actor} encontra ${frame.object} num momento de mudança. ${date ? `Em ${date}, ` : ""}${titleText} não era apenas uma data para decorar: era uma resposta a um problema vivido. ${detailText} A cena deve ser vista de perto, como alguém a tentar decidir o que fazer a seguir.`
     },
     {
-      id: "evidencia",
+      id: "desafio",
       visualType: pattern[1]?.visualType,
       backgroundMood: pattern[1]?.backgroundMood,
-      text: `Para estudar ${title}, não basta decorar a data. ${sourceHint} ${categoryFrame} A lição deve cruzar vestígios, contexto e consequências para evitar uma leitura solta ou demasiado simples.`
+      text: `Mas havia um problema. ${frame.challenge} Nem todos tinham a mesma força, voz ou segurança diante desta mudança. ${sourceHint} As fontes ajudam, mas não contam tudo. Por isso, a lição deve mostrar pessoas, escolhas e limites, não apenas nomes importantes.`
     },
     {
-      id: "legado",
+      id: "consequencia",
       visualType: pattern[2]?.visualType,
       backgroundMood: pattern[2]?.backgroundMood,
-      text: `O legado de ${title} aparece quando perguntamos quem ganhou poder, quem perdeu margem de ação e que marcas ficaram depois. ${relatedText || `Essa leitura aproxima ${eraTitle} do presente sem transformar o passado numa resposta única.`}`
+      text: `Depois, alguma coisa ficou diferente em ${eraTitle}. ${frame.consequence} A pergunta final é simples: quem ganhou possibilidades e quem pagou o preço? ${presentBridge} Assim, ${titleText} deixa de parecer uma linha de manual e passa a ser uma mudança imaginável.`
     }
   ];
 }
@@ -457,11 +454,78 @@ function getLessonCategoryFrame(category = "") {
   return "O foco está em causas, escolhas humanas, fontes e consequências.";
 }
 
+function getEditorialFrame(lesson = {}) {
+  const category = lesson.category || "";
+  const titleText = normalizeText(`${lesson.title || ""} ${lesson.detail || ""}`);
+  if (category === "guerra") {
+    return {
+      actor: "Uma família",
+      object: "rumores, armas e caminhos perigosos",
+      challenge: "Ficar podia ser arriscado, fugir podia significar perder casa, colheitas e vizinhos.",
+      consequence: "A guerra mexeu em mapas, impostos, alianças e memórias familiares."
+    };
+  }
+  if (category === "religião") {
+    return {
+      actor: "Uma comunidade",
+      object: "um altar, uma palavra sagrada ou um gesto repetido",
+      challenge: "A fé podia dar consolo, mas também aproximar-se do poder e excluir quem pensava de outro modo.",
+      consequence: "Crenças, rituais e instituições passaram a orientar decisões públicas e vidas privadas."
+    };
+  }
+  if (category === "ciência") {
+    return {
+      actor: "Alguém curioso",
+      object: "um instrumento ou uma pista",
+      challenge: "Era preciso testar, falhar e repetir até que a ideia funcionasse fora da cabeça de uma só pessoa.",
+      consequence: "O conhecimento mudou trabalho, viagens, saúde, comunicação ou controlo do ambiente."
+    };
+  }
+  if (category === "cultura") {
+    return {
+      actor: "Uma pessoa",
+      object: "uma imagem, uma palavra, uma canção ou um texto",
+      challenge: "Para circular, a ideia precisava de ser compreendida, copiada, ensinada ou defendida por outras pessoas.",
+      consequence: "Memórias, identidades e formas de contar o mundo passaram a ligar comunidades diferentes."
+    };
+  }
+  if (titleText.includes("agricultura") || titleText.includes("aldeia") || titleText.includes("sedentar")) {
+    return {
+      actor: "Uma família",
+      object: "sementes, campos e uma casa cada vez mais fixa",
+      challenge: "Produzir alimento exigia trabalho repetido, espera, risco de colheitas fracas e novas disputas por terra.",
+      consequence: "A vida tornou-se mais estável, mas também abriu caminho a excedentes, desigualdades e aldeias maiores."
+    };
+  }
+  return {
+    actor: "Alguém",
+    object: "uma regra ou notícia",
+    challenge: "A mudança prometia resolver um problema, mas também criava medo, resistência e novas desigualdades.",
+    consequence: "Poder, trabalho, crenças ou formas de viver ganharam outra direção."
+  };
+}
+
+function getPresentBridge(lesson = {}) {
+  const category = lesson.category || "";
+  if (category === "guerra") return "Hoje ainda vemos guerras a mudar famílias antes de mudarem mapas.";
+  if (category === "religião") return "Hoje continuamos a discutir como crenças, leis e convivência devem relacionar-se.";
+  if (category === "ciência") return "Hoje um telemóvel ou uma vacina também mostram como uma técnica muda a vida comum.";
+  if (category === "cultura") return "Hoje imagens, músicas e mensagens digitais continuam a criar pertença e memória.";
+  if (category === "política") return "Hoje cada lei, voto ou fronteira ainda mostra como o poder entra no quotidiano.";
+  return "Hoje continuamos a viver com efeitos de decisões antigas, mesmo quando já não reparamos nelas.";
+}
+
 function getLessonSourceHint(lesson = {}) {
   const sources = ensureArray(getEra(lesson.eraKey)?.source).filter(Boolean);
   const source = sources[lesson.index % Math.max(1, sources.length)];
   if (!source?.text) return "Os historiadores procuram documentos, objetos, imagens, lugares e testemunhos que possam ser comparados.";
-  return `Uma fonte possível é observar ${source.text}`;
+  return `Uma fonte possível é observar ${limitWords(source.text, 18)}`;
+}
+
+function limitWords(text = "", maxWords = 24) {
+  const words = String(text || "").trim().split(/\s+/).filter(Boolean);
+  if (words.length <= maxWords) return String(text || "").trim();
+  return `${words.slice(0, maxWords).join(" ")}...`;
 }
 
 function addLessonStoryBlockMetadata(blocks, lesson = {}) {
@@ -495,18 +559,53 @@ function normalizeLessonExtra(extra) {
 
 function normalizeTextExperience(source, fallback = {}) {
   const safeSource = source && typeof source === "object" && !Array.isArray(source) ? source : {};
+  const generated = buildGeneratedTextExperience(fallback, safeSource);
   return {
-    introduction: safeSource.introduction || fallback.storyText || fallback.detail || "",
-    scene: safeSource.scene || "",
-    narrative: ensureArray(safeSource.narrative).filter(Boolean),
-    whatHappened: safeSource.whatHappened || safeSource.explanation || fallback.detail || "",
-    evidence: ensureArray(safeSource.evidence).filter(Boolean),
-    archaeology: ensureArray(safeSource.archaeology).filter(Boolean),
-    whyItMatters: safeSource.whyItMatters || safeSource.significance || "",
-    presentConnection: safeSource.presentConnection || safeSource.bridge || "",
-    curiosity: safeSource.curiosity || "",
-    reflection: safeSource.reflection || "",
-    keyTakeaway: safeSource.keyTakeaway || safeSource.takeaway || ""
+    introduction: safeSource.introduction || generated.introduction,
+    scene: safeSource.scene || generated.scene,
+    narrative: ensureArray(safeSource.narrative).filter(Boolean).length
+      ? ensureArray(safeSource.narrative).filter(Boolean)
+      : generated.narrative,
+    whatHappened: safeSource.whatHappened || safeSource.explanation || generated.whatHappened,
+    evidence: ensureArray(safeSource.evidence).filter(Boolean).length
+      ? ensureArray(safeSource.evidence).filter(Boolean)
+      : generated.evidence,
+    archaeology: ensureArray(safeSource.archaeology).filter(Boolean).length
+      ? ensureArray(safeSource.archaeology).filter(Boolean)
+      : generated.archaeology,
+    whyItMatters: safeSource.whyItMatters || safeSource.significance || generated.whyItMatters,
+    presentConnection: safeSource.presentConnection || safeSource.bridge || generated.presentConnection,
+    curiosity: safeSource.curiosity || generated.curiosity,
+    reflection: safeSource.reflection || generated.reflection,
+    keyTakeaway: safeSource.keyTakeaway || safeSource.takeaway || generated.keyTakeaway
+  };
+}
+
+function buildGeneratedTextExperience(fallback = {}, source = {}) {
+  const title = fallback.title || "este momento histórico";
+  const detail = fallback.detail || source.explanation || source.whatHappened || "";
+  const category = fallback.category || "";
+  const frame = getEditorialFrame({ title, detail, category });
+  const presentConnection = getPresentBridge({ category });
+  return {
+    introduction: detail || `${title} mostra uma mudança importante quando visto através de pessoas, objetos e consequências.`,
+    scene: `${frame.actor} encontra ${frame.object}. A cena começa pequena, mas abre uma pergunta histórica: que problema estava a ser resolvido?`,
+    narrative: [
+      `Mas havia um problema. ${frame.challenge}`,
+      `A mudança não tocou todos da mesma maneira. Algumas pessoas ganharam possibilidades; outras perderam segurança, voz ou poder.`
+    ],
+    whatHappened: detail || `${title} alterou práticas, decisões e relações dentro do seu tempo.`,
+    evidence: [
+      "Para perceber a cena, os historiadores comparam fontes, objetos, vestígios e silêncios."
+    ],
+    archaeology: [
+      "Quando não há uma resposta direta, os vestígios sugerem caminhos, mas exigem prudência."
+    ],
+    whyItMatters: frame.consequence,
+    presentConnection,
+    curiosity: "Um bom facto histórico não fica sozinho: torna-se memorável quando mostra uma mudança concreta.",
+    reflection: `Que objeto, gesto ou decisão ajuda melhor a imaginar ${title}?`,
+    keyTakeaway: `${title} importa porque mostra uma passagem entre antes e depois, vista através de pessoas reais.`
   };
 }
 

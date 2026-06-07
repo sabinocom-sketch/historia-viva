@@ -50,6 +50,8 @@ Cada entrada da `timeline` pode receber um quinto argumento `extra` com `lessonC
 
 ## Regras Editoriais
 
+As regras completas de escrita estao em [BIBLIA_EDITORIAL_HISTORIA_VIVA.md](BIBLIA_EDITORIAL_HISTORIA_VIVA.md).
+
 - Escrever primeiro para a experiencia historica, nao para a UI final.
 - Separar cena, explicacao, evidencia, importancia e ligacao ao presente.
 - Usar linguagem prudente quando a interpretacao for debatida: `sugere`, `indica`, `pode revelar`, `ha indicios de`.
