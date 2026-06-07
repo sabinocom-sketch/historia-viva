@@ -123,16 +123,7 @@ function renderStoryBlock(block, index, total, lesson = {}) {
 }
 
 function getPrehistoryNarrativeTitle(block = {}, lesson = {}) {
-  const source = normalizeText(`${lesson.title || ""} ${block.text || ""} ${block.visualType || ""}`);
-  const titles = [
-    { keywords: ["fogo", "chama", "fogueira", "aquecer", "cozinhar"], title: "A Descoberta do Fogo" },
-    { keywords: ["pedra", "ferramenta", "silex", "raspador", "cortar"], title: "A Pedra que se Tornou Ferramenta" },
-    { keywords: ["caca", "pesca", "animal", "rasto", "lanca"], title: "A Caça Pintada na Rocha" },
-    { keywords: ["abrigo", "gruta", "caverna"], title: "O Primeiro Abrigo" },
-    { keywords: ["arte", "rupestre", "pintura", "pigmento", "mao"], title: "A Memória na Parede" },
-    { keywords: ["aldeia", "agricultura", "sementes", "cultivo"], title: "Quando a Terra Virou Casa" }
-  ];
-  return titles.find((item) => item.keywords.some((keyword) => source.includes(keyword)))?.title || getLessonDisplayTitle(lesson.title || "Marca na Pedra");
+  return getLessonDisplayTitle(lesson.title || block.title || "Marca na Pedra");
 }
 
 function getPrehistoryArtifactType(block = {}, lesson = {}) {
