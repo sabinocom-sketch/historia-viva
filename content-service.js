@@ -41,9 +41,9 @@ const lessonQuizRecommendationRules = {
 
 const storyBlockGenerationDefaults = {
   depth: "normal",
-  preferredWordsPerBlock: 62,
-  minWordsPerBlock: 50,
-  maxWordsPerBlock: 75,
+  preferredWordsPerBlock: 50,
+  minWordsPerBlock: 45,
+  maxWordsPerBlock: 55,
   hardLimit: 3,
   visualTypes: ["spark", "fragment", "map"],
   backgroundMoods: ["cave-dark", "stone-warm", "fire-circle"]
@@ -51,19 +51,19 @@ const storyBlockGenerationDefaults = {
 
 const storyBlockDepthPresets = {
   resumo: {
-    preferredWordsPerBlock: 58,
-    minWordsPerBlock: 50,
-    maxWordsPerBlock: 75
+    preferredWordsPerBlock: 48,
+    minWordsPerBlock: 45,
+    maxWordsPerBlock: 55
   },
   normal: {
-    preferredWordsPerBlock: 62,
-    minWordsPerBlock: 50,
-    maxWordsPerBlock: 75
+    preferredWordsPerBlock: 50,
+    minWordsPerBlock: 45,
+    maxWordsPerBlock: 55
   },
   aprofundado: {
-    preferredWordsPerBlock: 66,
-    minWordsPerBlock: 50,
-    maxWordsPerBlock: 75
+    preferredWordsPerBlock: 54,
+    minWordsPerBlock: 45,
+    maxWordsPerBlock: 55
   }
 };
 

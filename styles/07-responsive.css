@@ -1564,16 +1564,16 @@
   }
 
   body[data-view="lesson"] .storyblock-prehistory {
-    --prehistory-title-size: clamp(1rem, 4.8vw, 1.32rem);
-    --prehistory-text-size: clamp(1.05rem, 4.65vw, 1.34rem);
-    --prehistory-copy-measure: min(34ch, calc(100vw - 56px));
+    --prehistory-title-size: clamp(0.9rem, 4vw, 1.12rem);
+    --prehistory-text-size: clamp(0.9rem, 3.72vw, 1.04rem);
+    --prehistory-copy-measure: min(32ch, calc(100vw - 58px));
     --prehistory-artifact-offset-x: 0px;
-    --prehistory-artifact-offset-y: clamp(104px, calc(5svh + 80px), 138px);
+    --prehistory-artifact-offset-y: clamp(76px, calc(4svh + 58px), 108px);
     --prehistory-actions-left: calc(14px + var(--safe-left));
     --prehistory-actions-bottom: 18px;
     align-content: start;
     grid-template-rows: auto auto 1fr auto;
-    gap: clamp(4px, 1.6svh, 12px);
+    gap: clamp(4px, 1.25svh, 10px);
     padding:
       calc(52px + var(--safe-top))
       calc(14px + var(--safe-right))
@@ -1582,7 +1582,7 @@
   }
 
   body[data-view="lesson"] .lesson-next-progress.prehistory-progress {
-    --lesson-progress-track-height: 10px;
+    --lesson-progress-track-height: 8px;
     top: calc(18px + var(--safe-top));
     gap: 0;
     width: min(410px, calc(100vw - 48px - var(--safe-left) - var(--safe-right)));
@@ -1603,7 +1603,7 @@
     display: inline-block;
     min-width: 3ch;
     color: rgba(255, 234, 190, 0.94);
-    font-size: clamp(0.68rem, 3vw, 0.8rem);
+    font-size: clamp(0.64rem, 2.72vw, 0.76rem);
     font-weight: 900;
     line-height: 1;
     text-align: right;
@@ -1633,9 +1633,9 @@
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
     width: min(100%, calc(100vw - 56px));
-    max-width: min(48ch, calc(100vw - 56px));
-    margin-top: clamp(92px, 16svh, 138px);
-    padding: clamp(12px, 2.4svh, 18px) clamp(6px, 2.8vw, 12px);
+    max-width: min(34ch, calc(100vw - 56px));
+    margin-top: clamp(56px, 9.5svh, 88px);
+    padding: clamp(8px, 1.6svh, 12px) clamp(6px, 2.4vw, 10px);
     transform: none;
   }
 
@@ -1644,7 +1644,7 @@
   body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-narrative-title,
   body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
     justify-self: center;
-    margin-bottom: clamp(12px, 2.2svh, 18px);
+    margin-bottom: clamp(8px, 1.65svh, 14px);
     margin-right: auto;
     margin-left: auto;
     text-align: center;
@@ -1665,9 +1665,17 @@
     margin-right: auto;
     margin-left: auto;
     font-weight: 600;
-    line-height: 1.4;
+    font-size: var(--prehistory-text-size);
+    line-height: 1.44;
     text-align: center;
     transform: translateY(-12px);
+  }
+
+  body[data-view="lesson"] .storyblock-prehistory .story-block-copy p.cave-paint-text {
+    width: var(--prehistory-copy-measure);
+    max-width: 100%;
+    font-size: var(--prehistory-text-size);
+    line-height: 1.44;
   }
 
   body[data-view="lesson"] .storyblock-prehistory .cave-reveal-line {
@@ -1711,8 +1719,8 @@
 
     body[data-view="lesson"] .storyblock-prehistory {
       --prehistory-title-size: clamp(0.88rem, 4.2vw, 1.12rem);
-      --prehistory-text-size: clamp(0.87rem, 3.98vw, 1.1rem);
-      --prehistory-artifact-offset-y: clamp(98px, calc(4svh + 80px), 122px);
+      --prehistory-text-size: clamp(0.82rem, 3.48vw, 0.96rem);
+      --prehistory-artifact-offset-y: clamp(66px, calc(3.5svh + 54px), 92px);
       gap: clamp(2px, 0.9svh, 8px);
       padding:
         calc(42px + var(--safe-top))
@@ -1738,7 +1746,7 @@
     body[data-view="lesson"] .story-block[data-section="mesolitico"] .prehistory-stone-panel,
     body[data-view="lesson"] .story-block[data-section="revolucao-neolitica"] .prehistory-stone-panel {
       max-width: min(50ch, calc(100vw - 48px));
-      margin-top: clamp(104px, 17svh, 138px);
+      margin-top: clamp(48px, 8svh, 74px);
       padding: clamp(7px, 1.5svh, 12px) clamp(4px, 2vw, 8px);
       transform: none;
     }

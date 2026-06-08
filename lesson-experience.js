@@ -278,8 +278,8 @@ function splitStoryBlockForReading(block, maxWords) {
 }
 
 function getReadingStoryBlocks(lessonId) {
-  const maxWords = isMobilePortraitLessonScreen() ? 50 : 60;
-  return getLessonStoryBlocks(lessonId).flatMap((block) => splitStoryBlockForReading(block, maxWords));
+  const editorialMaxWords = 55;
+  return getLessonStoryBlocks(lessonId).flatMap((block) => splitStoryBlockForReading(block, editorialMaxWords));
 }
 
 function buildReflectionStep(lesson, insight = "", textExperience = {}) {

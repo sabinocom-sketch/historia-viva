@@ -458,6 +458,18 @@ Exemplos:
 
 A frase de ouro deve ser simples, concreta e ligada ao sentido da lição.
 
+### 28. Aplicar a Mesma Regra em Desktop e Mobile
+
+Desktop e mobile devem obedecer aos mesmos princípios editoriais: cena concreta, imagem mental, consequência clara e frase memorável.
+
+A diferença está na composição visual, não no rigor do texto.
+
+- No desktop, a imagem pode respirar em largura e criar ambiente.
+- No mobile, a UI deve retirar ruído: progresso compacto, botões simples, texto com medida curta e imagem diretamente ligada ao que se lê.
+- O texto canónico deve manter o ritmo de 45 a 55 palavras, salvo exceções justificadas.
+
+O objetivo é que cada ecrã pareça uma descoberta em qualquer formato.
+
 ## Checklist de Produção
 
 Usar antes de entregar uma lição.
@@ -476,6 +488,7 @@ Usar antes de entregar uma lição.
 - A pessoa consegue imaginar a cena.
 - Cada story block contém pelo menos uma cena imaginável.
 - A lição tem pelo menos uma frase de ouro.
+- A composição funciona como descoberta tanto em desktop como em mobile.
 
 ## Fórmula Rápida de Escrita
 

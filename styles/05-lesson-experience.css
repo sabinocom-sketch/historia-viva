@@ -578,9 +578,9 @@ body[data-view="lesson"] .lesson-experience {
   --cave-moment-edge: rgba(0, 0, 0, 0.24);
   --prehistory-title-size: clamp(1.14rem, 1.64vw, 1.62rem);
   --prehistory-text-size: clamp(1rem, 1.34vw, 1.42rem);
-  --prehistory-copy-measure: min(520px, 36ch);
+  --prehistory-copy-measure: min(480px, 34ch);
   --prehistory-artifact-offset-y: clamp(28px, 6vh, 74px);
-  --prehistory-artifact-offset-x: calc(clamp(22px, calc(80px - 4vw), 56px) + 40px);
+  --prehistory-artifact-offset-x: calc(clamp(12px, calc(56px - 3vw), 40px) + 24px);
   --prehistory-actions-left: calc(min(59vw, calc(100vw - 470px)) - 80px);
   --prehistory-actions-bottom: calc(clamp(64px, 8vh, 96px) + 30px);
   --prehistory-reading-color: #d9c5a0;
@@ -1004,7 +1004,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 .storyblock-prehistory[data-prehistory-artifact="flint"] .prehistory-artifact {
   isolation: isolate;
-  width: clamp(252px, 27.3vw, 421px);
+  width: clamp(240px, 24vw, 380px);
   aspect-ratio: 1.78;
   border-radius: 0;
   color: transparent;
@@ -1136,10 +1136,10 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   display: grid;
   justify-items: start;
   justify-self: start;
-  transform: translateX(clamp(-118px, -7vw, -58px));
+  transform: translateX(clamp(-60px, -4vw, -28px));
   gap: clamp(8px, 1.2vw, 14px);
-  width: min(520px, 100%);
-  max-width: min(520px, 100%);
+  width: min(500px, 100%);
+  max-width: min(500px, 100%);
   border: 0;
   border-radius: 0;
   padding: clamp(12px, 2.2vw, 24px) clamp(14px, 2.4vw, 30px);
@@ -1255,8 +1255,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   margin: 0;
   font-family: "Patrick Hand", cursive;
   font-weight: 500;
-  font-size: clamp(1rem, 1.25vw, 1.35rem);
-  line-height: 1.4;
+  font-size: clamp(1rem, 1.18vw, 1.28rem);
+  line-height: 1.46;
   text-align: left;
   white-space: normal;
   overflow-wrap: normal;
@@ -2122,11 +2122,11 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 @media (max-width: 768px) {
   .storyblock-prehistory {
-    --prehistory-title-size: clamp(1.08rem, 5.4vw, 1.44rem);
-    --prehistory-text-size: clamp(1rem, 4.8vw, 1.42rem);
-    --prehistory-copy-measure: min(34ch, calc(100vw - 56px));
+    --prehistory-title-size: clamp(0.9rem, 4vw, 1.12rem);
+    --prehistory-text-size: clamp(0.9rem, 3.72vw, 1.04rem);
+    --prehistory-copy-measure: min(32ch, calc(100vw - 58px));
     --prehistory-artifact-offset-x: 0px;
-    --prehistory-artifact-offset-y: clamp(102px, calc(5svh + 80px), 134px);
+    --prehistory-artifact-offset-y: clamp(76px, calc(4svh + 58px), 108px);
     --prehistory-actions-left: calc(var(--mobile-page-pad) + var(--safe-left));
     --prehistory-actions-bottom: 18px;
     grid-template-columns: 1fr;
@@ -2135,7 +2135,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
       "copy"
       "progress"
       "actions";
-    gap: clamp(12px, 4vw, 22px);
+    gap: clamp(10px, 3vw, 18px);
     justify-items: center;
   }
 
@@ -2160,8 +2160,8 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
     justify-items: center;
     transform: none;
     width: min(100%, 34ch);
-    max-width: 34ch;
-    padding: clamp(12px, 3vw, 18px) clamp(8px, 3vw, 14px);
+    max-width: 32ch;
+    padding: clamp(8px, 2vw, 14px) clamp(8px, 2.6vw, 12px);
     text-align: center;
   }
 
