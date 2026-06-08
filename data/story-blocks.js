@@ -29,19 +29,19 @@ export const storyBlockRules = [
         id: "materia",
         visualType: "stone",
         backgroundMood: "stone-cool",
-        text: "Para muitos, era apenas uma pedra no chão. Para um olhar treinado, podia esconder uma lâmina. Quem a escolhia observava o peso, a forma e a maneira como partia. Ferramentas muito antigas, como as de Lomekwi, mostram técnica muito antes das cidades. Pela primeira vez, uma pedra podia tornar-se muito mais do que uma pedra."
+        text: "Para muitos, era apenas uma pedra no chão. Para um olhar treinado, podia esconder uma lâmina. Quem a escolhia observava peso, forma e como partia. Ferramentas antigas, como as de Lomekwi, mostram técnica muito antes das cidades. Pela primeira vez, uma pedra podia tornar-se muito mais do que uma pedra."
       },
       {
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
-        text: "Talhar pedra exigia atenção. Um aprendiz podia estragar uma peça com um único golpe errado. Um golpe forte demais partia tudo; um golpe fraco não criava fio. Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência. As marcas nas lascas ajudam os arqueólogos a reconstruir esses gestos. Muito antes dos livros, o conhecimento passava de mão em mão."
+        text: "Talhar pedra exigia atenção. Um aprendiz podia estragar uma peça com um único golpe errado. Um golpe forte demais partia tudo; um golpe fraco não criava fio. Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência. Milhares de anos depois, as marcas nas pedras ainda revelam esses gestos."
       },
       {
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
-        text: "Com uma pedra afiada, a mão ganhava novas capacidades. Era possível cortar carne, raspar peles, furar materiais e fabricar outros instrumentos. Cada nova ferramenta aumentava as hipóteses de sobrevivência. Dos primeiros golpes numa pedra aos computadores modernos, a ideia continua a mesma: criar ferramentas para ir além dos limites do corpo humano."
+        text: "Com uma pedra afiada, um caçador podia cortar carne, preparar peles e fabricar novos instrumentos. Cada ferramenta aumentava as hipóteses de sobrevivência. A mão ganhava novas capacidades. Dos primeiros golpes numa pedra aos computadores modernos, a ideia continua a mesma: criar ferramentas para ir além dos limites do corpo humano."
       }
     ]
   },

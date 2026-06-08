@@ -33,7 +33,7 @@ E não:
 
 Cada story block deve ter:
 
-- 50 a 75 palavras.
+- 45 a 55 palavras.
 - Um único parágrafo.
 - 4 a 7 frases curtas.
 - No máximo 2 conceitos novos.
@@ -376,7 +376,7 @@ Story blocks devem manter ritmo semelhante entre si.
 
 Regras:
 
-- 50 a 75 palavras;
+- 45 a 55 palavras;
 - um único parágrafo;
 - 4 a 7 frases curtas;
 - máximo 2 conceitos novos;
@@ -437,6 +437,10 @@ Exemplos:
 - alguém corta uma pele;
 - alguém ensina outra pessoa;
 - alguém hesita antes de decidir.
+
+Exemplo de referência:
+
+> Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência.
 
 Se houver uma cena, o cérebro cria um filme mental.
 
