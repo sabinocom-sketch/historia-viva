@@ -426,6 +426,34 @@ E também:
 
 Se a resposta for não, o texto deve ser reescrito.
 
+### 26. Mostrar uma Cena
+
+Cada story block deve conter pelo menos uma cena que possa ser imaginada.
+
+Exemplos:
+
+- alguém escolhe uma pedra;
+- alguém desfere um golpe;
+- alguém corta uma pele;
+- alguém ensina outra pessoa;
+- alguém hesita antes de decidir.
+
+Se houver uma cena, o cérebro cria um filme mental.
+
+### 27. Criar uma Frase de Ouro
+
+Cada lição deve conter pelo menos uma frase memorável que o utilizador possa recordar horas depois.
+
+Exemplos:
+
+> Uma pedra podia tornar-se muito mais do que uma pedra.
+
+> Muito antes da escrita, o conhecimento passava de mão em mão.
+
+> Os computadores são descendentes distantes dessas primeiras ferramentas.
+
+A frase de ouro deve ser simples, concreta e ligada ao sentido da lição.
+
 ## Checklist de Produção
 
 Usar antes de entregar uma lição.
@@ -442,6 +470,8 @@ Usar antes de entregar uma lição.
 - O texto respeita a incerteza histórica.
 - O último ecrã fecha um ciclo.
 - A pessoa consegue imaginar a cena.
+- Cada story block contém pelo menos uma cena imaginável.
+- A lição tem pelo menos uma frase de ouro.
 
 ## Fórmula Rápida de Escrita
 

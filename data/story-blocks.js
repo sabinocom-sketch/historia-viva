@@ -35,13 +35,13 @@ export const storyBlockRules = [
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
-        text: "Fazer uma boa ferramenta exigia atenção. Um golpe demasiado forte podia destruir a peça. Um golpe demasiado fraco não criava um fio útil. As pedras partidas e os sinais de desgaste ajudam os arqueólogos a reconstruir esses gestos. Muito antes dos livros ou das escolas, a técnica passava de mão em mão, através da observação e da prática."
+        text: "Talhar pedra exigia atenção. Um aprendiz podia estragar uma peça com um único golpe errado. Um golpe forte demais partia tudo; um golpe fraco não criava fio. Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência. As marcas nas lascas ajudam os arqueólogos a reconstruir esses gestos. Muito antes dos livros, o conhecimento passava de mão em mão."
       },
       {
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
-        text: "Com uma pedra afiada, a mão ganhava novas capacidades. Era possível cortar carne, raspar peles, furar materiais e fabricar outros instrumentos. Cada nova ferramenta aumentava as hipóteses de sobrevivência. Milhões de anos depois, continuamos a fazer algo parecido: criamos objetos fora do corpo para ultrapassar os seus limites. Os computadores são descendentes distantes dessas primeiras pedras trabalhadas."
+        text: "Com uma pedra afiada, a mão ganhava novas capacidades. Era possível cortar carne, raspar peles, furar materiais e fabricar outros instrumentos. Cada nova ferramenta aumentava as hipóteses de sobrevivência. Dos primeiros golpes numa pedra aos computadores modernos, a ideia continua a mesma: criar ferramentas para ir além dos limites do corpo humano."
       }
     ]
   },
