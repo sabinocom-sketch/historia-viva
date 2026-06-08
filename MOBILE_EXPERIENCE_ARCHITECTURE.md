@@ -594,6 +594,8 @@ C. It replaced language.
 - Short explanation.
 - No punitive tone.
 - Return to the narrative after completion.
+- Editorial continuity with the story blocks: use the same scene, gesture, evidence and consequence instead of switching into encyclopedic summary.
+- On mobile, assimilation cards must not truncate essential text; shorten copy before hiding meaning.
 
 ## 16. Historical Chatbot
 

@@ -470,6 +470,35 @@ A diferença está na composição visual, não no rigor do texto.
 
 O objetivo é que cada ecrã pareça uma descoberta em qualquer formato.
 
+### 29. Manter Continuidade Entre Story Blocks e Post-Story Blocks
+
+Os post-story blocks não devem parecer um resumo separado da lição. Devem continuar a mesma experiência editorial dos story blocks.
+
+A sequência ideal é:
+
+- Story blocks: mostram a cena, o gesto, o problema e a consequência.
+- Reflexão: pergunta o que ficou diferente depois da cena.
+- Guia de assimilação: ajuda a ler as pistas deixadas por objetos, marcas, ossos, cinzas, paredes, caminhos ou ferramentas.
+- Ponte ao presente: mostra uma descendência distante do mesmo gesto humano.
+- Lente crítica: pergunta quem ganhou, quem perdeu, quem trabalhou, quem ficou de fora ou quem pagou o custo.
+- Desafio: obriga o utilizador a decidir pela cena, pelos vestígios e pela consequência.
+
+Regras:
+
+- Usar a mesma linguagem concreta dos story blocks.
+- Manter pelo menos uma imagem mental em cada post-story block.
+- Evitar tom de painel explicativo ou resumo de manual.
+- Preferir palavras como `gesto`, `pista`, `marca`, `cena`, `consequência`, `cuidado`, `risco` e `presente`.
+- Em mobile, nunca cortar texto essencial dos cartões de assimilação, realidade ou lente crítica.
+
+Exemplo:
+
+> Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência.
+
+Pode continuar depois como:
+
+> Milhares de anos depois, as marcas nas lascas ainda revelam esses gestos.
+
 ## Checklist de Produção
 
 Usar antes de entregar uma lição.
@@ -489,6 +518,8 @@ Usar antes de entregar uma lição.
 - Cada story block contém pelo menos uma cena imaginável.
 - A lição tem pelo menos uma frase de ouro.
 - A composição funciona como descoberta tanto em desktop como em mobile.
+- Os post-story blocks continuam a cena em vez de resumirem a lição.
+- Reflexão, assimilação, ponte ao presente, lente crítica e desafio usam a mesma linguagem visual dos story blocks.
 
 ## Fórmula Rápida de Escrita
 

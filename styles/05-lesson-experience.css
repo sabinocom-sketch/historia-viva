@@ -2514,8 +2514,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-story-copy {
   grid-area: copy;
   display: grid;
-  gap: 14px;
-  max-width: 62ch;
+  gap: 12px;
+  max-width: 52ch;
 }
 
 .post-story-kicker {
@@ -2528,10 +2528,10 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-story-copy h3 {
   margin: 0;
-  max-width: 11ch;
+  max-width: 13ch;
   color: #fff8ea;
-  font-size: clamp(2.4rem, 6vw, 6.3rem);
-  line-height: 0.94;
+  font-size: clamp(2.05rem, 4.8vw, 5.2rem);
+  line-height: 0.98;
   letter-spacing: 0;
   text-shadow: 0 20px 54px rgba(0, 0, 0, 0.38);
 }
@@ -2544,10 +2544,10 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-story-copy p {
   margin: 0;
-  max-width: 48ch;
+  max-width: 38ch;
   color: rgba(255, 248, 234, 0.86);
-  font-size: clamp(1.02rem, 1.8vw, 1.35rem);
-  line-height: 1.55;
+  font-size: clamp(1rem, 1.48vw, 1.24rem);
+  line-height: 1.48;
 }
 
 .post-story-copy small {
@@ -2629,16 +2629,16 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
 .mentor-panel {
   grid-area: visual;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: clamp(16px, 3vw, 34px);
-  width: min(920px, 100%);
+  grid-template-columns: minmax(0, 0.9fr) minmax(260px, 0.72fr);
+  gap: clamp(18px, 3.4vw, 42px);
+  width: min(980px, 100%);
   align-items: center;
   max-height: 72vh;
 }
 
 .assimilation-chatbot .post-story-copy h3 {
-  max-width: 16ch;
-  font-size: clamp(2rem, 4.4vw, 4.6rem);
+  max-width: 14ch;
+  font-size: clamp(1.9rem, 4vw, 4.2rem);
 }
 
 .mentor-orb {
@@ -2653,7 +2653,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
 .mentor-bubbles {
   grid-column: 2;
   display: grid;
-  gap: 10px;
+  gap: 9px;
   max-height: 34vh;
 }
 
@@ -2663,7 +2663,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
   margin: 0;
   border: 1px solid rgba(255, 248, 234, 0.16);
   border-radius: 8px;
-  padding: 14px 16px;
+  padding: 12px 14px;
   color: rgba(255, 248, 234, 0.84);
   background: rgba(8, 10, 10, 0.32);
   backdrop-filter: blur(14px);
@@ -2698,7 +2698,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .post-
 
 .challenge-screen .post-story-copy h3 {
   max-width: 15ch;
-  font-size: clamp(2rem, 4.8vw, 4.8rem);
+  font-size: clamp(1.8rem, 4.2vw, 4.3rem);
 }
 
 .challenge-options button {

@@ -83,6 +83,19 @@ As telas pos-story usam, quando disponivel:
 
 Se a licao ainda nao tiver `textExperience`, a app continua a usar `storyText`, `detail` e os Story Blocks existentes.
 
+## Uniformidade Entre Story e Post-Story
+
+Os Story Blocks e os post-story blocks pertencem ao mesmo arco editorial. A passagem entre eles nao deve mudar de micro-historia para resumo enciclopedico.
+
+- Story Blocks mostram descoberta, desafio e consequencia.
+- A reflexao pergunta o que mudou na vida humana depois da cena.
+- A assimilacao guia o utilizador pelas pistas materiais deixadas pela cena.
+- A ponte ao presente mostra uma descendencia distante do mesmo gesto humano.
+- A lente critica pergunta quem ganhou, quem perdeu, quem aprendeu ou quem ficou com o custo.
+- O desafio final deve pedir uma decisao baseada na cena, nos vestigios e na consequencia.
+
+Cada post-story block deve preservar pelo menos uma imagem mental: uma chama alimentada, uma pedra lascada, uma mao a ensinar, uma marca numa parede, um objeto gasto pelo uso. Quando isto nao acontece, o texto volta a parecer explicacao exterior a experiencia.
+
 ## Leitura Nos Story Blocks Pre-Historicos
 
 Os Story Blocks da Pre-Historia sao renderizados como micro-narrativas de parede de gruta em `lesson-experience.js`.

@@ -202,14 +202,14 @@ function buildPostStoryFlow(lesson, context = {}) {
     critical: buildCriticalLensStep(lesson, title, textExperience),
     challenge: buildChallengeStep(lesson),
     reward: {
-      kicker: "Artefacto desbloqueado",
+      kicker: "Memória da cena",
       title: "Memória guardada",
-      text: createSentencePreview(textExperience.keyTakeaway || `Guardaste uma chave de leitura sobre ${title}.`, 20),
+      text: createSentencePreview(textExperience.keyTakeaway || `Guardaste uma imagem mental sobre ${title}. Agora consegues lembrar o gesto e a consequência.`, 20),
       artifact: intro.preview?.[0] || "Artefacto narrativo desbloqueado",
       previous: "challenge"
     },
     nextTeaser: {
-      kicker: "Próxima porta temporal",
+      kicker: "Próxima cena",
       title: nextLesson ? getLessonDisplayTitle(nextLesson.title) : "Rever a jornada",
       text: nextLesson
         ? createSentencePreview(buildNextTeaserLine(title, getLessonDisplayTitle(nextLesson.title)), 20)
@@ -284,73 +284,127 @@ function getReadingStoryBlocks(lessonId) {
 
 function buildReflectionStep(lesson, insight = "", textExperience = {}) {
   const title = getLessonDisplayTitle(lesson.title);
-  const normalizedTitle = normalizeText(title);
-  const text = textExperience.reflection || (normalizedTitle.includes("fogo")
-    ? "O fogo nao mudou apenas a sobrevivencia. Mudou a forma como os humanos viviam juntos."
-    : createPreview(insight || lesson.detail || buildLessonHeroLine(lesson), 150));
+  const kit = getPostStoryEditorialKit(lesson, title);
+  const text = kit.reflectionText || textExperience.reflection || createPreview(insight || lesson.detail || buildLessonHeroLine(lesson), 150);
   return {
-    kicker: "Pausa de assimilação",
-    title: "O que isto mudou?",
+    kicker: "Depois da cena",
+    title: kit.reflectionTitle || "O que ficou diferente?",
     text: createSentencePreview(text, 24),
     previous: "story"
   };
 }
 
 function buildAssimilationStep(lesson, blocks, title, textExperience = {}) {
+  const kit = getPostStoryEditorialKit(lesson, title);
   const evidencePrompts = [
     ...(textExperience.evidence || []),
     ...(textExperience.archaeology || [])
   ];
-  const prompts = evidencePrompts.length ? evidencePrompts.slice(0, 2) : blocks.slice(0, 2).map((block) => block.text);
+  const prompts = kit.prompts || (evidencePrompts.length ? evidencePrompts.slice(0, 2) : blocks.slice(0, 2).map((block) => block.text));
   return {
-    kicker: "Guia histórico",
-    title: "O essencial",
-    text: createSentencePreview(textExperience.keyTakeaway || `${title} fica mais claro quando separas descoberta, escolha e consequencia.`, 22),
+    kicker: "Guia da cena",
+    title: kit.assimilationTitle || "Seguir as pistas",
+    text: createSentencePreview(kit.assimilationText || textExperience.keyTakeaway || `${title} ganha sentido quando vemos pessoas, objetos, escolhas e consequências.`, 22),
     prompts: (prompts.length ? prompts : [
-      "Que problema humano aparece aqui?",
-      "Que consequencia veio depois?"
+      "Que gesto humano aparece aqui?",
+      "Que consequência veio depois?"
     ]).map((prompt) => createSentencePreview(prompt, 14)),
     previous: "reflection"
   };
 }
 
 function buildRealityBridgeStep(lesson, title, textExperience = {}) {
-  const normalized = normalizeText(title);
-  const cards = normalized.includes("fogo")
-    ? [
-      ["Energia", "Hoje continuamos dependentes de energia para viver, trabalhar e comunicar."],
-      ["Tecnologia", "Uma ferramenta simples pode reorganizar uma comunidade inteira."],
-      ["Seguranca", "Proteger recursos importantes continua a ser uma decisao coletiva."]
-    ]
-    : [
-      ["Tecnologia", "Mudancas tecnicas alteram rotinas, trabalho e relacoes sociais."],
-      ["Comunidade", "O que uma sociedade aprende muda a forma como coopera."],
-      ["Escolhas", "Cada avancar tambem cria dependencias e novos custos."]
-    ];
+  const kit = getPostStoryEditorialKit(lesson, title);
+  const cards = kit.realityCards || [
+    ["Gesto", "Uma técnica pequena podia mudar o que uma mão conseguia fazer."],
+    ["Presente", "As ferramentas de hoje continuam a prolongar o corpo humano."]
+  ];
   return {
     kicker: "Ponte ao presente",
-    title: "Do passado para hoje",
-    text: createSentencePreview(textExperience.presentConnection || `${title} nao ficou preso ao passado. A mesma logica ainda aparece no presente.`, 22),
+    title: kit.realityTitle || "A marca no presente",
+    text: createSentencePreview(kit.realityText || textExperience.presentConnection || `${title} ainda importa quando ajuda a perceber uma escolha humana reconhecível.`, 22),
     cards: cards.slice(0, 2).map(([label, text]) => [label, createSentencePreview(text, 14)]),
     previous: "assimilation"
   };
 }
 
 function buildCriticalLensStep(lesson, title, textExperience = {}) {
-  const normalized = normalizeText(title);
-  const question = normalized.includes("fogo")
-    ? "O dominio do fogo foi apenas progresso?"
-    : "Esta mudanca trouxe so beneficios?";
+  const kit = getPostStoryEditorialKit(lesson, title);
   return {
     kicker: "Lente crítica",
-    title: textExperience.reflection || question,
-    text: createSentencePreview(textExperience.curiosity || "Olha para o mesmo momento por lentes diferentes.", 20),
-    perspectives: [
-      ["Sobrevivencia", "Ajudou pessoas a resistir melhor ao mundo."],
-      ["Vida social", "Mudou a forma como grupos se organizavam."],
-      ["Custo", "Tambem criou novas pressoes sobre recursos e ambiente."]
-    ].slice(0, 2).map(([label, text]) => [label, createSentencePreview(text, 14)]),
+    title: kit.criticalTitle || textExperience.reflection || "Quem ganhou e quem perdeu?",
+    text: createSentencePreview(kit.criticalText || textExperience.curiosity || "Uma boa leitura histórica pergunta que possibilidades se abriram e que custos apareceram.", 20),
+    perspectives: (kit.perspectives || [
+      ["Possibilidade", "Algumas pessoas ganharam novas formas de agir."],
+      ["Limite", "Outras enfrentaram riscos, silêncio ou dependência."]
+    ]).slice(0, 2).map(([label, text]) => [label, createSentencePreview(text, 14)]),
     previous: "reality"
+  };
+}
+
+function getPostStoryEditorialKit(lesson = {}, title = "") {
+  const source = normalizeText(`${title} ${lesson.title || ""} ${lesson.detail || ""}`);
+  if (source.includes("fogo")) {
+    return {
+      reflectionTitle: "A noite mudou",
+      reflectionText: "Quando a chama ficava acesa, a noite deixava de ser só ameaça. Havia calor, luz e rostos reunidos.",
+      assimilationTitle: "Ler as cinzas",
+      assimilationText: "Cinzas e ossos queimados não falam sozinhos. Deixam pistas de cuidado repetido e de noites protegidas.",
+      prompts: [
+        "Quem alimentava a fogueira quando todos tinham sono?",
+        "Que restos provariam que aquele fogo foi usado por humanos?"
+      ],
+      realityTitle: "Ainda guardamos energia",
+      realityText: "Hoje carregamos baterias; antes, alguém protegia brasas. A ideia continua próxima: guardar energia para viver melhor.",
+      realityCards: [
+        ["Luz", "A energia ainda organiza trabalho, descanso e segurança."],
+        ["Cuidado", "Guardar uma fonte vital continua a exigir atenção coletiva."]
+      ],
+      criticalTitle: "Quem ficava de vigia?",
+      criticalText: "O fogo ajudava, mas também exigia trabalho. Progresso quase nunca chega sem novas responsabilidades.",
+      perspectives: [
+        ["Ganho", "Mais calor, mais luz e alimento mais seguro."],
+        ["Custo", "Era preciso vigiar, alimentar e proteger a chama."]
+      ]
+    };
+  }
+  if (source.includes("ferramentas de pedra") || source.includes("pedra")) {
+    return {
+      reflectionTitle: "A mão ganhou alcance",
+      reflectionText: "Depois do golpe certo, a pedra deixava de ser paisagem. Podia cortar, raspar e abrir novas possibilidades.",
+      assimilationTitle: "Ler as lascas",
+      assimilationText: "Uma lasca guarda escolhas: força, ângulo e paciência. Nela vemos técnica, erro e aprendizagem.",
+      prompts: [
+        "Que gesto humano ficou marcado na pedra?",
+        "O que uma lasca revela sobre quem aprendeu a talhar?"
+      ],
+      realityTitle: "Ferramentas prolongam o corpo",
+      realityText: "Do sílex ao computador, uma ferramenta faz a mesma pergunta: que limite do corpo queremos ultrapassar?",
+      realityCards: [
+        ["Gesto", "Uma técnica pequena podia mudar o alcance da mão."],
+        ["Presente", "As ferramentas de hoje continuam essa mesma ideia."]
+      ],
+      criticalTitle: "Quem dominava a técnica?",
+      criticalText: "A ferramenta ajudava o grupo, mas o saber precisava de ser ensinado. Sem aprendizagem, a pedra voltava a ser só pedra.",
+      perspectives: [
+        ["Ganho", "Cortar, raspar e fabricar ficou mais fácil."],
+        ["Risco", "Um golpe errado podia destruir a peça."]
+      ]
+    };
+  }
+  return {
+    reflectionTitle: "O que ficou diferente?",
+    reflectionText: createPreview(lesson.detail || `${title} mudou a vida de pessoas concretas.`, 140),
+    assimilationTitle: "Seguir as pistas",
+    assimilationText: `${title} ganha sentido quando vemos pessoas, objetos, escolhas e consequências.`,
+    realityTitle: "A marca no presente",
+    realityText: `${title} ainda importa quando ajuda a perceber uma escolha humana que continua reconhecível.`,
+    criticalTitle: "Quem ganhou e quem perdeu?",
+    criticalText: "Uma boa leitura histórica pergunta sempre que possibilidades se abriram e que custos apareceram.",
+    perspectives: [
+      ["Possibilidade", "Algumas pessoas ganharam novas formas de agir."],
+      ["Limite", "Outras enfrentaram riscos, silêncio ou dependência."]
+    ]
   };
 }
 
@@ -358,7 +412,7 @@ function buildChallengeStep(lesson) {
   const quizBank = getEraQuiz(lesson.eraKey);
   const quiz = quizBank[getRecommendedQuizIndex(lesson.eraKey, lesson.id)] || quizBank[0];
   return {
-    kicker: "Desafio",
+    kicker: "Decisão rápida",
     title: quiz?.question || "Que escolha ajudaria melhor o grupo?",
     quiz,
     previous: "critical"
@@ -511,7 +565,7 @@ function renderChallengeScreen(step, lesson, index, total) {
       <div class="post-story-copy">
         <span class="post-story-kicker">${escapeHtml(step.kicker)}</span>
         <h3>${escapeHtml(step.title)}</h3>
-        <p>${escapeHtml(answered ? `${correct ? "Boa leitura." : "Quase."} ${quiz.explanation}` : "Escolhe pelo contexto, não pela memória.")}</p>
+        <p>${escapeHtml(answered ? `${correct ? "Boa leitura." : "Quase."} ${quiz.explanation}` : "Escolhe pela cena, pelos vestígios e pela consequência.")}</p>
       </div>
       <div class="lesson-quiz-options challenge-options">
         ${quiz.options.map((option, optionIndex) => `
