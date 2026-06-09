@@ -5951,7 +5951,9 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .lesson-summary-screen {
   grid-template-columns: minmax(520px, 0.86fr) minmax(300px, 0.48fr);
-  gap: clamp(20px, 3vw, 42px);
+  align-items: start;
+  gap: clamp(18px, 2.6vw, 36px);
+  padding-top: calc(clamp(86px, 8vw, 112px) + var(--safe-top));
 }
 
 .lesson-summary-screen::before {
@@ -5973,13 +5975,14 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .lesson-summary-screen .post-story-copy {
-  gap: clamp(16px, 2vw, 24px);
+  gap: clamp(12px, 1.55vw, 18px);
   max-width: min(760px, 54vw);
 }
 
 .lesson-summary-screen .post-story-copy h3 {
   max-width: 11ch;
-  font-size: clamp(1.8rem, 4.05vw, 4.45rem);
+  font-size: clamp(1.72rem, 3.55vw, 3.9rem);
+  line-height: 1;
 }
 
 .post-lesson-summary-list,
@@ -5994,6 +5997,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-summary-list {
   width: min(720px, 100%);
   max-width: none;
+  gap: 10px;
 }
 
 .post-lesson-summary-list li {
@@ -6003,8 +6007,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   align-items: start;
   border: 1px solid rgba(255, 248, 234, 0.16);
   border-radius: 8px;
-  min-height: 104px;
-  padding: 18px 20px;
+  min-height: 86px;
+  padding: 14px 18px;
   background:
     linear-gradient(135deg, rgba(241, 199, 121, 0.18), rgba(8, 10, 10, 0.38) 42%, rgba(8, 10, 10, 0.5)),
     rgba(8, 10, 10, 0.34);
@@ -6030,8 +6034,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-lesson-summary-list p {
   max-width: none;
-  font-size: clamp(0.98rem, 1.28vw, 1.12rem);
-  line-height: 1.46;
+  font-size: clamp(0.96rem, 1.18vw, 1.06rem);
+  line-height: 1.4;
 }
 
 .post-lesson-reflection-input {
@@ -8244,6 +8248,7 @@ blockquote {
 
   .lesson-summary-screen {
     grid-template-columns: 1fr;
+    padding-top: calc(58px + var(--safe-top));
   }
 
   .lesson-summary-screen::before {
@@ -8255,7 +8260,7 @@ blockquote {
   }
 
   .lesson-summary-screen .post-story-copy h3 {
-    font-size: clamp(1.7rem, 8.8vw, 3.25rem);
+    font-size: clamp(1.55rem, 7.6vw, 2.8rem);
   }
 
   .post-story-copy h3 {
@@ -8318,7 +8323,7 @@ blockquote {
 
   .post-lesson-summary-list li {
     grid-template-columns: 30px minmax(0, 1fr);
-    min-height: 82px;
+    min-height: 74px;
     padding: 10px 11px;
     text-align: left;
   }

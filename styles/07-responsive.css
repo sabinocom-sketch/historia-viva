@@ -398,6 +398,7 @@
 
   .lesson-summary-screen {
     grid-template-columns: 1fr;
+    padding-top: calc(58px + var(--safe-top));
   }
 
   .lesson-summary-screen::before {
@@ -409,7 +410,7 @@
   }
 
   .lesson-summary-screen .post-story-copy h3 {
-    font-size: clamp(1.7rem, 8.8vw, 3.25rem);
+    font-size: clamp(1.55rem, 7.6vw, 2.8rem);
   }
 
   .post-story-copy h3 {
@@ -472,7 +473,7 @@
 
   .post-lesson-summary-list li {
     grid-template-columns: 30px minmax(0, 1fr);
-    min-height: 82px;
+    min-height: 74px;
     padding: 10px 11px;
     text-align: left;
   }

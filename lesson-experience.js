@@ -242,11 +242,11 @@ function buildLessonSummaryPoints(lesson, blocks = [], textExperience = {}) {
     .map((point) => expandShortSummaryPoint(createSentencePreview(point, 15), lesson))
     .filter(Boolean)
     .filter((point, index, list) => list.findIndex((item) => normalizeText(item) === normalizeText(point)) === index)
-    .slice(0, 5);
+    .slice(0, 4);
   while (points.length < 3) {
     points.push(createSentencePreview(`${getLessonDisplayTitle(lesson.title)} ajuda a perceber causas, escolhas humanas e consequencias.`, 14));
   }
-  return points.slice(0, 5);
+  return points.slice(0, 4);
 }
 
 function expandShortSummaryPoint(point = "", lesson = {}) {
@@ -612,7 +612,7 @@ function renderPostStoryActions(previous, nextLabel = "Continuar", disabled = fa
 }
 
 function LessonSummaryScreen(step, lesson, index, total) {
-  const points = (step.summary || []).slice(0, 5);
+  const points = (step.summary || []).slice(0, 4);
   return `
     <article class="post-story-screen lesson-summary-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
