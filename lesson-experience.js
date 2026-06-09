@@ -239,7 +239,7 @@ function buildLessonSummaryPoints(lesson, blocks = [], textExperience = {}) {
     lesson.detail
   ].filter(Boolean);
   const points = candidates
-    .map((point) => createSentencePreview(point, 15))
+    .map((point) => expandShortSummaryPoint(createSentencePreview(point, 15), lesson))
     .filter(Boolean)
     .filter((point, index, list) => list.findIndex((item) => normalizeText(item) === normalizeText(point)) === index)
     .slice(0, 5);
@@ -247,6 +247,18 @@ function buildLessonSummaryPoints(lesson, blocks = [], textExperience = {}) {
     points.push(createSentencePreview(`${getLessonDisplayTitle(lesson.title)} ajuda a perceber causas, escolhas humanas e consequencias.`, 14));
   }
   return points.slice(0, 5);
+}
+
+function expandShortSummaryPoint(point = "", lesson = {}) {
+  if (!point || countTextWords(point) >= 9) return point;
+  const source = normalizeText(`${lesson.title || ""} ${lesson.detail || ""}`);
+  if (source.includes("pedra") || source.includes("ferramenta")) {
+    return `${point} O gesto humano dava-lhe funcao e sentido.`;
+  }
+  if (source.includes("fogo")) {
+    return `${point} O uso repetido transformava seguranca, alimento e convivio.`;
+  }
+  return `${point} O contexto historico ajuda a perceber a mudanca.`;
 }
 
 function buildLessonDebate(lesson, title, textExperience = {}) {

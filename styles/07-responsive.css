@@ -396,6 +396,22 @@
     gap: 10px;
   }
 
+  .lesson-summary-screen {
+    grid-template-columns: 1fr;
+  }
+
+  .lesson-summary-screen::before {
+    display: none;
+  }
+
+  .lesson-summary-screen .post-story-copy {
+    max-width: 100%;
+  }
+
+  .lesson-summary-screen .post-story-copy h3 {
+    font-size: clamp(1.7rem, 8.8vw, 3.25rem);
+  }
+
   .post-story-copy h3 {
     max-width: 12ch;
     font-size: clamp(2rem, 10.6vw, 3.8rem);
@@ -456,8 +472,13 @@
 
   .post-lesson-summary-list li {
     grid-template-columns: 30px minmax(0, 1fr);
+    min-height: 82px;
     padding: 10px 11px;
     text-align: left;
+  }
+
+  .post-lesson-summary-list span {
+    width: 30px;
   }
 
   .post-lesson-summary-list p,

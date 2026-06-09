@@ -2442,6 +2442,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(260px, 0.72fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   grid-template-areas:
     "copy visual"
     "progress actions";
@@ -2452,7 +2453,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   padding:
     calc(clamp(24px, 5vw, 62px) + var(--safe-top))
     calc(clamp(24px, 5vw, 62px) + var(--safe-right))
-    calc(clamp(24px, 5vw, 62px) + var(--safe-bottom))
+    calc(clamp(92px, 9vw, 124px) + var(--safe-bottom))
     calc(clamp(24px, 5vw, 62px) + var(--safe-left));
   animation: story-block-reveal 420ms ease both;
 }
@@ -2565,6 +2566,46 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-story-actions {
   grid-area: actions;
+  position: fixed;
+  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
+  bottom: calc(24px + var(--safe-bottom));
+  z-index: 20;
+  justify-content: end;
+  width: min(440px, calc(100vw - 48px));
+  pointer-events: auto;
+}
+
+.lesson-summary-screen {
+  grid-template-columns: minmax(520px, 0.86fr) minmax(300px, 0.48fr);
+  gap: clamp(20px, 3vw, 42px);
+}
+
+.lesson-summary-screen::before {
+  content: "";
+  grid-area: visual;
+  justify-self: center;
+  align-self: center;
+  width: min(330px, 24vw);
+  aspect-ratio: 0.74;
+  opacity: 0.46;
+  background:
+    radial-gradient(circle at 48% 18%, rgba(83, 38, 15, 0.58) 0 5px, transparent 6px),
+    radial-gradient(circle at 42% 30%, transparent 0 34px, rgba(83, 38, 15, 0.5) 35px 40px, transparent 41px),
+    linear-gradient(48deg, transparent 44%, rgba(83, 38, 15, 0.52) 45% 50%, transparent 51%),
+    linear-gradient(132deg, transparent 44%, rgba(83, 38, 15, 0.48) 45% 50%, transparent 51%),
+    radial-gradient(ellipse at 50% 78%, transparent 0 58px, rgba(83, 38, 15, 0.42) 59px 64px, transparent 65px);
+  filter: blur(0.2px) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.18));
+  pointer-events: none;
+}
+
+.lesson-summary-screen .post-story-copy {
+  gap: clamp(16px, 2vw, 24px);
+  max-width: min(760px, 54vw);
+}
+
+.lesson-summary-screen .post-story-copy h3 {
+  max-width: 11ch;
+  font-size: clamp(1.8rem, 4.05vw, 4.45rem);
 }
 
 .post-lesson-summary-list,
@@ -2577,35 +2618,46 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .post-lesson-summary-list {
-  max-width: min(520px, 100%);
+  width: min(720px, 100%);
+  max-width: none;
 }
 
 .post-lesson-summary-list li {
   display: grid;
-  grid-template-columns: 34px minmax(0, 1fr);
-  gap: 11px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 14px;
   align-items: start;
   border: 1px solid rgba(255, 248, 234, 0.16);
   border-radius: 8px;
-  padding: 12px 14px;
-  background: rgba(8, 10, 10, 0.34);
+  min-height: 104px;
+  padding: 18px 20px;
+  background:
+    linear-gradient(135deg, rgba(241, 199, 121, 0.18), rgba(8, 10, 10, 0.38) 42%, rgba(8, 10, 10, 0.5)),
+    rgba(8, 10, 10, 0.34);
   backdrop-filter: blur(14px);
 }
 
 .post-lesson-summary-list span {
   display: grid;
   place-items: center;
-  width: 28px;
+  width: 42px;
   aspect-ratio: 1;
   border-radius: 999px;
-  color: #1b1713;
+  color: #24150b;
   font-weight: 900;
-  background: var(--lesson-accent, #f1c779);
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 242, 186, 0.92), transparent 18%),
+    linear-gradient(145deg, #f4ce78, #a86f32 68%, #5a3219);
+  box-shadow:
+    inset 0 2px 3px rgba(255, 246, 209, 0.48),
+    inset 0 -4px 7px rgba(60, 28, 10, 0.34),
+    0 5px 12px rgba(0, 0, 0, 0.28);
 }
 
 .post-lesson-summary-list p {
   max-width: none;
-  font-size: clamp(0.94rem, 1.25vw, 1.06rem);
+  font-size: clamp(0.98rem, 1.28vw, 1.12rem);
+  line-height: 1.46;
 }
 
 .post-lesson-reflection-input {
