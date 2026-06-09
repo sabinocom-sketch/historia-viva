@@ -2567,6 +2567,169 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   grid-area: actions;
 }
 
+.post-lesson-summary-list,
+.post-lesson-quiz-list {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.post-lesson-summary-list {
+  max-width: min(520px, 100%);
+}
+
+.post-lesson-summary-list li {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  gap: 11px;
+  align-items: start;
+  border: 1px solid rgba(255, 248, 234, 0.16);
+  border-radius: 8px;
+  padding: 12px 14px;
+  background: rgba(8, 10, 10, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.post-lesson-summary-list span {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  aspect-ratio: 1;
+  border-radius: 999px;
+  color: #1b1713;
+  font-weight: 900;
+  background: var(--lesson-accent, #f1c779);
+}
+
+.post-lesson-summary-list p {
+  max-width: none;
+  font-size: clamp(0.94rem, 1.25vw, 1.06rem);
+}
+
+.post-lesson-reflection-input {
+  width: min(560px, 100%);
+  min-height: 138px;
+  resize: vertical;
+  border: 1px solid rgba(255, 248, 234, 0.24);
+  border-radius: 8px;
+  padding: 14px 15px;
+  color: #fff8ea;
+  background:
+    linear-gradient(135deg, rgba(255, 248, 234, 0.08), rgba(255, 248, 234, 0.03)),
+    rgba(8, 10, 10, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 248, 234, 0.12);
+  font: inherit;
+  line-height: 1.45;
+}
+
+.post-lesson-reflection-input::placeholder {
+  color: rgba(255, 248, 234, 0.52);
+}
+
+.post-lesson-reflection-input:focus-visible {
+  outline: 3px solid rgba(241, 199, 121, 0.32);
+  outline-offset: 2px;
+}
+
+.post-lesson-debate-options,
+.post-lesson-debate-feedback,
+.post-lesson-quiz-list,
+.post-lesson-quiz-result {
+  grid-area: visual;
+  width: min(560px, 100%);
+  justify-self: end;
+}
+
+.post-lesson-debate-options {
+  display: grid;
+  gap: 12px;
+}
+
+.post-lesson-debate-options button,
+.post-lesson-quiz-result,
+.post-lesson-quiz-question {
+  border: 1px solid rgba(255, 248, 234, 0.16);
+  border-radius: 8px;
+  background: rgba(8, 10, 10, 0.38);
+  backdrop-filter: blur(14px);
+}
+
+.post-lesson-debate-options button {
+  min-height: 76px;
+  padding: 16px;
+  color: #fff8ea;
+  font-weight: 900;
+  text-align: left;
+}
+
+.post-lesson-debate-options button.is-selected {
+  border-color: rgba(241, 199, 121, 0.72);
+  background:
+    linear-gradient(135deg, rgba(241, 199, 121, 0.2), rgba(255, 248, 234, 0.05)),
+    rgba(8, 10, 10, 0.42);
+}
+
+.post-lesson-debate-feedback {
+  align-self: end;
+  margin-top: 14px;
+  border: 1px solid rgba(241, 199, 121, 0.34);
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: rgba(8, 10, 10, 0.52);
+}
+
+.post-lesson-debate-feedback strong,
+.post-lesson-quiz-result strong {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--lesson-accent, #f1c779);
+}
+
+.post-lesson-debate-feedback p,
+.post-lesson-quiz-result p {
+  margin: 0;
+  color: rgba(255, 248, 234, 0.82);
+}
+
+.post-lesson-quiz-list {
+  max-height: 58vh;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.post-lesson-quiz-question {
+  display: grid;
+  gap: 10px;
+  padding: 14px;
+}
+
+.post-lesson-quiz-question h4 {
+  margin: 0;
+  color: #fff8ea;
+  font-size: clamp(0.98rem, 1.4vw, 1.18rem);
+  line-height: 1.32;
+}
+
+.post-lesson-quiz-question .challenge-options {
+  grid-area: auto;
+  width: 100%;
+  max-height: none;
+}
+
+.post-lesson-quiz-question .lesson-feedback {
+  margin: 0;
+  color: rgba(255, 248, 234, 0.78);
+  font-size: 0.95rem;
+  line-height: 1.38;
+}
+
+.post-lesson-quiz-result {
+  align-self: end;
+  padding: 14px 16px;
+}
+
 .lesson-experience[data-section="paleolitico"] .post-story-background,
 .post-story-screen[data-section="paleolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {

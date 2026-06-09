@@ -14,15 +14,19 @@ import {
   getRecommendedSourceIndex
 } from './content-service.js';
 
-const postStoryStepOrder = ["reflection", "assimilation", "reality", "critical", "challenge", "reward", "nextTeaser"];
+const postStoryStepOrder = ["summary", "reflection", "debate", "quiz"];
 const postStoryModeAliases = {
+  assimilation: "reflection",
+  reality: "debate",
+  critical: "debate",
+  challenge: "quiz",
+  reward: "quiz",
+  nextTeaser: "quiz",
   interaction: "reflection",
   source: "reflection",
   insight: "reflection",
-  recap: "reality",
-  debate: "critical",
-  quiz: "challenge",
-  consolidate: "reward"
+  recap: "summary",
+  consolidate: "quiz"
 };
 
 function getCurrentLessonMood() {
@@ -38,7 +42,11 @@ export function renderActiveLessonPanel() {
     state.currentLessonEntryId = lesson.id;
     state.currentLessonMode = "intro";
     state.currentLessonStoryBlockIndex = 0;
-    state.currentPostStoryStep = "reflection";
+    state.currentPostStoryStep = "summary";
+    const savedLessonProgress = getSavedLessonProgress(lesson.id);
+    state.currentLessonReflectionText = savedLessonProgress.reflectionAnswer || "";
+    state.currentLessonDebateChoice = savedLessonProgress.debateChoice || "";
+    state.currentLessonQuizAnswers = savedLessonProgress.quizAnswers || {};
     state.currentLessonQuizChoice = null;
   }
   const isSelected = state.currentLessonId === lesson.id;
@@ -167,15 +175,12 @@ function renderPostStoryLessonFlow(lesson, context = {}) {
   state.currentPostStoryStep = stepKey;
 
   const renderers = {
-    reflection: renderReflectionMoment,
-    assimilation: renderAssimilationChatbot,
-    reality: renderRealityBridge,
-    critical: renderCriticalLens,
-    challenge: renderChallengeScreen,
-    reward: renderRewardScreen,
-    nextTeaser: renderNextLessonTeaser
+    summary: LessonSummaryScreen,
+    reflection: ReflectionScreen,
+    debate: DebateScreen,
+    quiz: QuizScreen
   };
-  const renderer = renderers[stepKey] || renderReflectionMoment;
+  const renderer = renderers[stepKey] || LessonSummaryScreen;
 
   return `
     <div class="lesson-experience lesson-experience-screen post-story-flow" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-post-story-step="${escapeHtml(stepKey)}" aria-label="ContinuaÃ§Ã£o narrativa da liÃ§Ã£o">
@@ -185,11 +190,132 @@ function renderPostStoryLessonFlow(lesson, context = {}) {
 }
 
 function getPostStoryStepKey(mode) {
-  const step = postStoryModeAliases[mode] || mode || state.currentPostStoryStep || "reflection";
-  return postStoryStepOrder.includes(step) ? step : "reflection";
+  const step = postStoryModeAliases[mode] || mode || state.currentPostStoryStep || "summary";
+  return postStoryStepOrder.includes(step) ? step : "summary";
 }
 
 function buildPostStoryFlow(lesson, context = {}) {
+  const postLesson = buildPostLessonContent(lesson, context);
+  return {
+    summary: { summary: postLesson.summary, previous: "story" },
+    reflection: { ...postLesson.reflection, previous: "summary" },
+    debate: { ...postLesson.debate, previous: "reflection" },
+    quiz: { quiz: postLesson.quiz, previous: "debate", nextLessonId: getNextLesson(lesson.eraKey, lesson.id)?.id || "" }
+  };
+}
+
+function getSavedLessonProgress(lessonId = "") {
+  if (typeof localStorage === "undefined" || !lessonId) return {};
+  try {
+    return JSON.parse(localStorage.getItem("historiaVivaProgress"))?.lessonProgress?.[lessonId] || {};
+  } catch {
+    return {};
+  }
+}
+
+function buildPostLessonContent(lesson, context = {}) {
+  if (lesson.postLesson) return lesson.postLesson;
+  const title = getLessonDisplayTitle(lesson.title);
+  const blocks = getLessonStoryBlocks(lesson.id);
+  const textExperience = getLessonTextExperience(lesson);
+  const summary = buildLessonSummaryPoints(lesson, blocks, textExperience);
+  return {
+    summary,
+    reflection: {
+      question: textExperience.reflection || context.insight || `Que mudanca historica te parece mais importante em ${title}?`
+    },
+    debate: buildLessonDebate(lesson, title, textExperience),
+    quiz: buildPostLessonQuiz(lesson, summary)
+  };
+}
+
+function buildLessonSummaryPoints(lesson, blocks = [], textExperience = {}) {
+  const candidates = [
+    textExperience.keyTakeaway,
+    ...(textExperience.evidence || []),
+    ...(textExperience.archaeology || []),
+    ...(textExperience.consequences || []),
+    ...blocks.map((block) => block.text),
+    lesson.detail
+  ].filter(Boolean);
+  const points = candidates
+    .map((point) => createSentencePreview(point, 15))
+    .filter(Boolean)
+    .filter((point, index, list) => list.findIndex((item) => normalizeText(item) === normalizeText(point)) === index)
+    .slice(0, 5);
+  while (points.length < 3) {
+    points.push(createSentencePreview(`${getLessonDisplayTitle(lesson.title)} ajuda a perceber causas, escolhas humanas e consequencias.`, 14));
+  }
+  return points.slice(0, 5);
+}
+
+function buildLessonDebate(lesson, title, textExperience = {}) {
+  const focus = createSentencePreview(textExperience.keyTakeaway || lesson.detail || title, 18);
+  return {
+    question: `Como devemos interpretar ${title}: sobretudo como progresso ou como mudanca complexa?`,
+    options: [
+      {
+        id: "optionA",
+        label: "Foi sobretudo progresso",
+        feedback: `Esta posicao pode indicar que ${focus.toLowerCase()} abriu possibilidades importantes. Ainda assim, muitos historiadores defendem que ganhos materiais tambem trouxeram novos custos.`
+      },
+      {
+        id: "optionB",
+        label: "Foi uma mudanca complexa",
+        feedback: `Esta posicao sugere que ${focus.toLowerCase()} deve ser lido com cautela. Ha debate sobre o peso dos beneficios e dos limites em diferentes grupos sociais.`
+      }
+    ]
+  };
+}
+
+function buildPostLessonQuiz(lesson, summary = []) {
+  const quizBank = getEraQuiz(lesson.eraKey);
+  const startIndex = getRecommendedQuizIndex(lesson.eraKey, lesson.id);
+  const selected = quizBank.length
+    ? Array.from({ length: Math.min(3, quizBank.length) }, (_, offset) => quizBank[(startIndex + offset) % quizBank.length])
+    : [];
+  const normalized = selected.map((quiz) => normalizePostLessonQuizQuestion(quiz));
+  while (normalized.length < 3) {
+    const point = summary[normalized.length % Math.max(1, summary.length)] || lesson.detail || lesson.title;
+    normalized.push({
+      question: "Que ideia resume melhor esta licao?",
+      options: [
+        createSentencePreview(point, 12),
+        "Aconteceu sem causas historicas.",
+        "Teve apenas uma consequencia simples.",
+        "Nao pode ser estudada por vestigios."
+      ],
+      correctIndex: 0,
+      explanation: "A melhor resposta liga a licao a causas, evidencias e consequencias."
+    });
+  }
+  return normalized.slice(0, 5);
+}
+
+function normalizePostLessonQuizQuestion(quiz = {}) {
+  return {
+    question: quiz.question || "Que ideia fica desta licao?",
+    options: ensureFourOptions(quiz.options || []),
+    correctIndex: Number.isInteger(quiz.correctIndex) ? quiz.correctIndex : Math.min(Math.max(quiz.answer || 0, 0), 3),
+    explanation: quiz.explanation || "Esta resposta enquadra melhor o contexto historico da licao."
+  };
+}
+
+function ensureFourOptions(options = []) {
+  const fillers = [
+    "Foi um processo sem contexto.",
+    "Aconteceu da mesma forma em todo o lado.",
+    "Teve apenas uma causa.",
+    "Deve ser lido com fontes e consequencias."
+  ];
+  const nextOptions = options.slice(0, 4);
+  fillers.forEach((filler) => {
+    if (nextOptions.length < 4 && !nextOptions.includes(filler)) nextOptions.push(filler);
+  });
+  return nextOptions.slice(0, 4);
+}
+
+function buildLegacyPostStoryFlow(lesson, context = {}) {
   const intro = buildLessonIntroFrame(lesson);
   const title = getLessonDisplayTitle(lesson.title);
   const blocks = getLessonStoryBlocks(lesson.id);
@@ -473,6 +599,127 @@ function renderPostStoryActions(previous, nextLabel = "Continuar", disabled = fa
   `;
 }
 
+function LessonSummaryScreen(step, lesson, index, total) {
+  const points = (step.summary || []).slice(0, 5);
+  return `
+    <article class="post-story-screen lesson-summary-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
+      <span class="post-story-background" aria-hidden="true"></span>
+      <div class="post-story-copy">
+        <span class="post-story-kicker">Resumo da licao</span>
+        <h3>O que aprendeste?</h3>
+        <ul class="post-lesson-summary-list" aria-label="Pontos principais da licao">
+          ${points.map((point, pointIndex) => `
+            <li>
+              <span aria-hidden="true">${pointIndex + 1}</span>
+              <p>${escapeHtml(point)}</p>
+            </li>
+          `).join("")}
+        </ul>
+      </div>
+      ${renderScreenProgress(index, total, lesson)}
+      ${renderPostStoryActions(step.previous, "Continuar")}
+    </article>
+  `;
+}
+
+function ReflectionScreen(step, lesson, index, total) {
+  return `
+    <article class="post-story-screen reflection-moment reflection-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
+      <span class="post-story-background" aria-hidden="true"></span>
+      <div class="post-story-copy">
+        <span class="post-story-kicker">Reflexao</span>
+        <h3>Pensa sobre isto</h3>
+        <p>${escapeHtml(step.question)}</p>
+        <textarea class="post-lesson-reflection-input" data-lesson-reflection rows="5" placeholder="Escreve a tua resposta...">${escapeHtml(state.currentLessonReflectionText || "")}</textarea>
+      </div>
+      ${renderScreenProgress(index, total, lesson)}
+      ${renderPostStoryActions(step.previous, "Continuar")}
+    </article>
+  `;
+}
+
+function DebateScreen(step, lesson, index, total) {
+  const selectedOption = (step.options || []).find((option) => option.id === state.currentLessonDebateChoice);
+  return `
+    <article class="post-story-screen critical-lens debate-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
+      <span class="post-story-background" aria-hidden="true"></span>
+      <div class="post-story-copy">
+        <span class="post-story-kicker">Debate historico</span>
+        <h3>Escolhe uma posicao</h3>
+        <p>${escapeHtml(step.question)}</p>
+      </div>
+      <div class="post-lesson-debate-options" aria-label="Opcoes de debate">
+        ${(step.options || []).map((option) => `
+          <button class="${state.currentLessonDebateChoice === option.id ? "is-selected" : ""}" type="button" data-lesson-debate-option="${escapeHtml(option.id)}">
+            ${escapeHtml(option.label)}
+          </button>
+        `).join("")}
+      </div>
+      ${selectedOption ? `
+        <section class="post-lesson-debate-feedback" aria-live="polite">
+          <strong>Leitura equilibrada</strong>
+          <p>${escapeHtml(selectedOption.feedback)}</p>
+        </section>
+      ` : ""}
+      ${renderScreenProgress(index, total, lesson)}
+      ${renderPostStoryActions(step.previous, "Continuar")}
+    </article>
+  `;
+}
+
+function QuizScreen(step, lesson, index, total) {
+  const quiz = step.quiz || [];
+  const answers = state.currentLessonQuizAnswers || {};
+  const correctCount = quiz.reduce((totalCorrect, question, questionIndex) => {
+    return totalCorrect + (answers[questionIndex] === question.correctIndex ? 1 : 0);
+  }, 0);
+  const answeredCount = quiz.filter((_, questionIndex) => answers[questionIndex] !== undefined).length;
+  const isComplete = quiz.length > 0 && answeredCount === quiz.length;
+  return `
+    <article class="post-story-screen challenge-screen quiz-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
+      <span class="post-story-background" aria-hidden="true"></span>
+      <div class="post-story-copy">
+        <span class="post-story-kicker">Quiz</span>
+        <h3>Verifica o que aprendeste</h3>
+      </div>
+      <div class="post-lesson-quiz-list">
+        ${quiz.map((question, questionIndex) => renderPostLessonQuizQuestion(question, questionIndex, answers[questionIndex])).join("")}
+      </div>
+      ${isComplete ? `
+        <section class="post-lesson-quiz-result" aria-live="polite">
+          <strong>${correctCount}/${quiz.length} respostas corretas</strong>
+          <p>${escapeHtml(correctCount === quiz.length ? "Excelente leitura. A licao ficou bem consolidada." : "Bom trabalho. Reveste as explicacoes e avanca com mais contexto.")}</p>
+        </section>
+      ` : ""}
+      ${renderScreenProgress(index, total, lesson)}
+      <div class="story-block-actions lesson-screen-actions post-story-actions">
+        <button type="button" data-lesson-action="${escapeHtml(step.previous)}">Voltar</button>
+        ${step.nextLessonId
+          ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}" ${isComplete ? "" : "disabled"}>Avancar para a proxima licao</button>`
+          : `<button type="button" data-lesson-action="complete" ${isComplete ? "" : "disabled"}>Concluir licao</button>`}
+      </div>
+    </article>
+  `;
+}
+
+function renderPostLessonQuizQuestion(question, questionIndex, selectedIndex) {
+  const answered = selectedIndex !== undefined;
+  const correct = answered && selectedIndex === question.correctIndex;
+  return `
+    <section class="post-lesson-quiz-question">
+      <h4>${escapeHtml(question.question)}</h4>
+      <div class="lesson-quiz-options challenge-options">
+        ${question.options.map((option, optionIndex) => `
+          <button class="${answered && optionIndex === question.correctIndex ? "correct" : ""} ${answered && optionIndex === selectedIndex && optionIndex !== question.correctIndex ? "wrong" : ""}" type="button" data-post-lesson-quiz-question="${questionIndex}" data-post-lesson-quiz-option="${optionIndex}" ${answered ? "disabled" : ""}>
+            ${escapeHtml(option)}
+          </button>
+        `).join("")}
+      </div>
+      ${answered ? `<p class="lesson-feedback">${correct ? "Correto." : "Incorreto."} ${escapeHtml(question.explanation)}</p>` : ""}
+    </section>
+  `;
+}
+
 function renderReflectionMoment(step, lesson, index, total) {
   return `
     <article class="post-story-screen reflection-moment" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
@@ -670,8 +917,8 @@ export async function goToNextStoryBlock({ updateLessonProgress, renderCategoryS
     await renderCategorySections();
     return;
   }
-  state.currentLessonMode = "reflection";
-  state.currentPostStoryStep = "reflection";
+  state.currentLessonMode = "summary";
+  state.currentPostStoryStep = "summary";
   state.currentLessonStoryBlockIndex = 0;
   updateLessonProgress(state.currentLessonId, { viewed: true, storyCompleted: true });
   await renderCategorySections();

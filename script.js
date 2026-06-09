@@ -393,6 +393,28 @@ const lessonModeAliases = {
 };
 
 const postStoryModes = ["reflection", "assimilation", "reality", "critical", "challenge", "reward", "nextTeaser"];
+lessonFlow.splice(
+  0,
+  lessonFlow.length,
+  { mode: "story", label: "Descoberta", next: "Resumo" },
+  { mode: "summary", label: "Resumo", next: "Reflexao" },
+  { mode: "reflection", label: "Reflexao", next: "Debate" },
+  { mode: "debate", label: "Debate", next: "Quiz" },
+  { mode: "quiz", label: "Quiz", next: "Terminar" }
+);
+Object.assign(lessonModeAliases, {
+  assimilation: "reflection",
+  reality: "debate",
+  critical: "debate",
+  challenge: "quiz",
+  reward: "quiz",
+  nextTeaser: "quiz",
+  recap: "summary",
+  debate: "debate",
+  quiz: "quiz",
+  consolidate: "quiz"
+});
+postStoryModes.splice(0, postStoryModes.length, "summary", "reflection", "debate", "quiz");
 
 function normalizeView(view) {
   const canonical = viewAliases[view] || view;
@@ -955,8 +977,7 @@ async function runLessonAction(action, nextLessonId = "") {
     state.currentLessonMode = action;
     if (state.currentLessonMode === "story") state.currentLessonStoryBlockIndex = 0;
     if (postStoryModes.includes(state.currentLessonMode)) state.currentPostStoryStep = state.currentLessonMode;
-    if (action === "challenge") state.currentLessonQuizChoice = null;
-    if (state.currentLessonMode === "reflection") updateLessonProgress(lesson.id, { viewed: true, storyCompleted: true });
+    if (state.currentLessonMode === "summary") updateLessonProgress(lesson.id, { viewed: true, storyCompleted: true });
     await renderCategorySections();
     addXp(state.currentLessonMode === "story" ? 2 : 6, `Abriste ${state.currentLessonMode === "story" ? "a descoberta" : "uma etapa"} da lição ativa.`);
     return;
@@ -1017,7 +1038,6 @@ async function runLessonAction(action, nextLessonId = "") {
       if (state.currentView === "lesson" && nextMode) {
         state.currentLessonMode = nextMode;
         if (postStoryModes.includes(nextMode)) state.currentPostStoryStep = nextMode;
-        if (nextMode === "challenge") state.currentLessonQuizChoice = null;
         await renderCategorySections();
         return;
       }
@@ -1028,7 +1048,6 @@ async function runLessonAction(action, nextLessonId = "") {
     if (nextMode) {
       state.currentLessonMode = nextMode;
       if (postStoryModes.includes(nextMode)) state.currentPostStoryStep = nextMode;
-      if (nextMode === "challenge") state.currentLessonQuizChoice = null;
       await renderCategorySections();
       if (nextMode === "mission") navigateTo("mission", { era: lesson.eraKey });
       if (nextMode === "reward") navigateTo("lesson", { lessonId: lesson.id });
@@ -1052,7 +1071,10 @@ function resetLessonEntryState(mode = "intro") {
   state.currentLessonEntryId = state.currentLessonId || "";
   state.currentLessonMode = mode;
   state.currentLessonStoryBlockIndex = 0;
-  state.currentPostStoryStep = "reflection";
+  state.currentPostStoryStep = "summary";
+  state.currentLessonReflectionText = "";
+  state.currentLessonDebateChoice = "";
+  state.currentLessonQuizAnswers = {};
   state.currentLessonQuizChoice = null;
 }
 
@@ -1939,6 +1961,18 @@ document.addEventListener("wheel", (event) => {
   }
 }, { passive: false });
 
+document.addEventListener("input", (event) => {
+  const reflectionInput = event.target.closest("[data-lesson-reflection]");
+  if (!reflectionInput) return;
+  state.currentLessonReflectionText = reflectionInput.value;
+  if (state.currentLessonId) {
+    updateLessonProgress(state.currentLessonId, {
+      viewed: true,
+      reflectionAnswer: state.currentLessonReflectionText
+    });
+  }
+});
+
 document.addEventListener("click", async (event) => {
   const revealAllButton = event.target.closest("[data-story-reveal-all]");
   if (revealAllButton) {
@@ -1982,6 +2016,47 @@ document.addEventListener("click", async (event) => {
     if (state.currentLessonId) updateLessonProgress(state.currentLessonId, { viewed: true, quizCompleted: true });
     renderCategorySections();
     addXp(10, "Respondeste ao mini quiz da lição ativa.");
+    markXpMotion();
+    return;
+  }
+
+  const lessonDebateOption = event.target.closest("[data-lesson-debate-option]");
+  if (lessonDebateOption) {
+    state.currentLessonDebateChoice = lessonDebateOption.dataset.lessonDebateOption;
+    if (state.currentLessonId) {
+      updateLessonProgress(state.currentLessonId, {
+        viewed: true,
+        debated: true,
+        debateChoice: state.currentLessonDebateChoice
+      });
+    }
+    await renderCategorySections();
+    addXp(8, "Escolheste uma posicao no debate da licao.");
+    markXpMotion();
+    return;
+  }
+
+  const postLessonQuizOption = event.target.closest("[data-post-lesson-quiz-option]");
+  if (postLessonQuizOption) {
+    const questionIndex = Number(postLessonQuizOption.dataset.postLessonQuizQuestion);
+    const optionIndex = Number(postLessonQuizOption.dataset.postLessonQuizOption);
+    state.currentLessonQuizAnswers = {
+      ...(state.currentLessonQuizAnswers || {}),
+      [questionIndex]: optionIndex
+    };
+    const postLessonQuestionCount = document.querySelectorAll(".post-lesson-quiz-question").length;
+    const postLessonQuizCompleted = postLessonQuestionCount > 0
+      && Object.keys(state.currentLessonQuizAnswers).length >= postLessonQuestionCount;
+    if (state.currentLessonId) {
+      updateLessonProgress(state.currentLessonId, {
+        viewed: true,
+        quizCompleted: postLessonQuizCompleted,
+        quizAnswers: state.currentLessonQuizAnswers
+      });
+    }
+    postLessonQuizOption.classList.add("is-being-selected");
+    await renderCategorySections();
+    addXp(6, "Respondeste a uma pergunta do quiz da licao.");
     markXpMotion();
     return;
   }

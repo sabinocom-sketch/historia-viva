@@ -440,10 +440,52 @@
 
   .reality-bridge-grid,
   .critical-perspectives,
-  .challenge-options {
+  .challenge-options,
+  .post-lesson-debate-options,
+  .post-lesson-debate-feedback,
+  .post-lesson-quiz-list,
+  .post-lesson-quiz-result {
     justify-self: stretch;
     gap: 8px;
     width: 100%;
+  }
+
+  .post-lesson-summary-list {
+    width: 100%;
+  }
+
+  .post-lesson-summary-list li {
+    grid-template-columns: 30px minmax(0, 1fr);
+    padding: 10px 11px;
+    text-align: left;
+  }
+
+  .post-lesson-summary-list p,
+  .post-lesson-debate-feedback p,
+  .post-lesson-quiz-result p {
+    font-size: 0.9rem;
+    line-height: 1.36;
+  }
+
+  .post-lesson-reflection-input {
+    min-height: 118px;
+    text-align: left;
+    font-size: 0.96rem;
+  }
+
+  .post-lesson-debate-options button {
+    min-height: 62px;
+    padding: 13px;
+    text-align: left;
+  }
+
+  .post-lesson-quiz-list {
+    max-height: 42vh;
+  }
+
+  .post-lesson-quiz-question {
+    padding: 11px;
+    text-align: left;
   }
 
   .reality-bridge-grid p,
