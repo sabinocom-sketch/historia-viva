@@ -398,7 +398,13 @@
 
   .lesson-summary-screen {
     grid-template-columns: 1fr;
-    padding-top: calc(58px + var(--safe-top));
+    align-content: start;
+    gap: 9px;
+    padding:
+      calc(44px + var(--safe-top))
+      calc(14px + var(--safe-right))
+      calc(14px + var(--safe-bottom))
+      calc(14px + var(--safe-left));
   }
 
   .lesson-summary-screen::before {
@@ -406,11 +412,13 @@
   }
 
   .lesson-summary-screen .post-story-copy {
+    gap: 7px;
     max-width: 100%;
   }
 
   .lesson-summary-screen .post-story-copy h3 {
-    font-size: clamp(1.55rem, 7.6vw, 2.8rem);
+    font-size: clamp(1.28rem, 6.2vw, 2.18rem);
+    line-height: 1;
   }
 
   .post-story-copy h3 {
@@ -468,25 +476,28 @@
   }
 
   .post-lesson-summary-list {
+    gap: 7px;
     width: 100%;
   }
 
   .post-lesson-summary-list li {
-    grid-template-columns: 30px minmax(0, 1fr);
-    min-height: 74px;
-    padding: 10px 11px;
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 8px;
+    min-height: 0;
+    padding: 8px 10px;
     text-align: left;
   }
 
   .post-lesson-summary-list span {
-    width: 30px;
+    width: 26px;
+    font-size: 0.82rem;
   }
 
   .post-lesson-summary-list p,
   .post-lesson-debate-feedback p,
   .post-lesson-quiz-result p {
-    font-size: 0.9rem;
-    line-height: 1.36;
+    font-size: 0.8rem;
+    line-height: 1.28;
   }
 
   .post-lesson-reflection-input {

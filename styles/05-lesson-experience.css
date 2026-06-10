@@ -2577,9 +2577,15 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .lesson-summary-screen {
   grid-template-columns: minmax(520px, 0.86fr) minmax(300px, 0.48fr);
+  grid-template-rows: minmax(0, 1fr) auto;
   align-items: start;
-  gap: clamp(18px, 2.6vw, 36px);
-  padding-top: calc(clamp(86px, 8vw, 112px) + var(--safe-top));
+  align-content: start;
+  gap: clamp(12px, 2.1vw, 28px);
+  padding:
+    calc(clamp(52px, 6.2vw, 82px) + var(--safe-top))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-right))
+    calc(clamp(72px, 7vw, 96px) + var(--safe-bottom))
+    calc(clamp(24px, 5vw, 62px) + var(--safe-left));
 }
 
 .lesson-summary-screen::before {
@@ -2601,14 +2607,14 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .lesson-summary-screen .post-story-copy {
-  gap: clamp(12px, 1.55vw, 18px);
+  gap: clamp(8px, 1.15vw, 13px);
   max-width: min(760px, 54vw);
 }
 
 .lesson-summary-screen .post-story-copy h3 {
-  max-width: 11ch;
-  font-size: clamp(1.72rem, 3.55vw, 3.9rem);
-  line-height: 1;
+  max-width: 12ch;
+  font-size: clamp(1.5rem, 3vw, 3.2rem);
+  line-height: 0.98;
 }
 
 .post-lesson-summary-list,
@@ -2623,18 +2629,18 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-summary-list {
   width: min(720px, 100%);
   max-width: none;
-  gap: 10px;
+  gap: clamp(7px, 1.05vh, 10px);
 }
 
 .post-lesson-summary-list li {
   display: grid;
-  grid-template-columns: 42px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px;
   align-items: start;
   border: 1px solid rgba(255, 248, 234, 0.16);
   border-radius: 8px;
-  min-height: 86px;
-  padding: 14px 18px;
+  min-height: clamp(62px, 10vh, 78px);
+  padding: clamp(9px, 1.35vh, 12px) clamp(12px, 1.5vw, 16px);
   background:
     linear-gradient(135deg, rgba(241, 199, 121, 0.18), rgba(8, 10, 10, 0.38) 42%, rgba(8, 10, 10, 0.5)),
     rgba(8, 10, 10, 0.34);
@@ -2644,7 +2650,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-summary-list span {
   display: grid;
   place-items: center;
-  width: 42px;
+  width: 36px;
   aspect-ratio: 1;
   border-radius: 999px;
   color: #24150b;
@@ -2660,8 +2666,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-lesson-summary-list p {
   max-width: none;
-  font-size: clamp(0.96rem, 1.18vw, 1.06rem);
-  line-height: 1.4;
+  font-size: clamp(0.84rem, 1.02vw, 0.98rem);
+  line-height: 1.32;
 }
 
 .post-lesson-reflection-input {
