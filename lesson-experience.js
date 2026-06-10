@@ -660,19 +660,21 @@ function DebateScreen(step, lesson, index, total) {
         <h3>Escolhe uma posicao</h3>
         <p>${escapeHtml(step.question)}</p>
       </div>
-      <div class="post-lesson-debate-options" aria-label="Opcoes de debate">
-        ${(step.options || []).map((option) => `
-          <button class="${state.currentLessonDebateChoice === option.id ? "is-selected" : ""}" type="button" data-lesson-debate-option="${escapeHtml(option.id)}">
-            ${escapeHtml(option.label)}
-          </button>
-        `).join("")}
+      <div class="post-lesson-debate-panel">
+        <div class="post-lesson-debate-options" aria-label="Opcoes de debate">
+          ${(step.options || []).map((option) => `
+            <button class="${state.currentLessonDebateChoice === option.id ? "is-selected" : ""}" type="button" data-lesson-debate-option="${escapeHtml(option.id)}">
+              ${escapeHtml(option.label)}
+            </button>
+          `).join("")}
+        </div>
+        ${selectedOption ? `
+          <section class="post-lesson-debate-feedback" aria-live="polite">
+            <strong>Leitura equilibrada</strong>
+            <p>${escapeHtml(selectedOption.feedback)}</p>
+          </section>
+        ` : ""}
       </div>
-      ${selectedOption ? `
-        <section class="post-lesson-debate-feedback" aria-live="polite">
-          <strong>Leitura equilibrada</strong>
-          <p>${escapeHtml(selectedOption.feedback)}</p>
-        </section>
-      ` : ""}
       ${renderScreenProgress(index, total, lesson)}
       ${renderPostStoryActions(step.previous, "Continuar")}
     </article>
