@@ -1057,6 +1057,11 @@ async function runLessonAction(action, nextLessonId = "") {
     resetLessonEntryState("story");
     openLessonById(nextLessonId || getNextLesson(lesson.eraKey, lesson.id)?.id);
   }
+
+  if (action === "quiz-next") {
+    state.currentPostLessonQuizIndex += 1;
+    await renderCategorySections();
+  }
 }
 
 function getNextLessonMode(mode) {
@@ -1075,6 +1080,7 @@ function resetLessonEntryState(mode = "intro") {
   state.currentLessonReflectionText = "";
   state.currentLessonDebateChoice = "";
   state.currentLessonQuizAnswers = {};
+  state.currentPostLessonQuizIndex = 0;
   state.currentLessonQuizChoice = null;
 }
 
@@ -2044,7 +2050,7 @@ document.addEventListener("click", async (event) => {
       ...(state.currentLessonQuizAnswers || {}),
       [questionIndex]: optionIndex
     };
-    const postLessonQuestionCount = document.querySelectorAll(".post-lesson-quiz-question").length;
+    const postLessonQuestionCount = Number(postLessonQuizOption.closest(".quiz-screen")?.dataset.quizTotal || 0);
     const postLessonQuizCompleted = postLessonQuestionCount > 0
       && Object.keys(state.currentLessonQuizAnswers).length >= postLessonQuestionCount;
     if (state.currentLessonId) {

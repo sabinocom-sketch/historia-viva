@@ -18,6 +18,7 @@ export const state = {
   currentLessonReflectionText: "",
   currentLessonDebateChoice: "",
   currentLessonQuizAnswers: {},
+  currentPostLessonQuizIndex: 0,
   currentLessonQuizChoice: null,
   currentQuizIndex: 0,
   currentSourceIndex: 0,

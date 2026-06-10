@@ -467,7 +467,7 @@
   .critical-perspectives,
   .challenge-options,
   .post-lesson-debate-panel,
-  .post-lesson-quiz-list,
+  .post-lesson-quiz-panel,
   .post-lesson-quiz-result {
     justify-self: stretch;
     gap: 8px;
@@ -513,10 +513,6 @@
 
   .post-lesson-debate-feedback {
     padding: 10px 12px;
-  }
-
-  .post-lesson-quiz-list {
-    max-height: 42vh;
   }
 
   .post-lesson-quiz-question {

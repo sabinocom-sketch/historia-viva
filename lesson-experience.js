@@ -47,6 +47,7 @@ export function renderActiveLessonPanel() {
     state.currentLessonReflectionText = savedLessonProgress.reflectionAnswer || "";
     state.currentLessonDebateChoice = savedLessonProgress.debateChoice || "";
     state.currentLessonQuizAnswers = savedLessonProgress.quizAnswers || {};
+    state.currentPostLessonQuizIndex = 0;
     state.currentLessonQuizChoice = null;
   }
   const isSelected = state.currentLessonId === lesson.id;
@@ -689,28 +690,40 @@ function QuizScreen(step, lesson, index, total) {
   }, 0);
   const answeredCount = quiz.filter((_, questionIndex) => answers[questionIndex] !== undefined).length;
   const isComplete = quiz.length > 0 && answeredCount === quiz.length;
+  const activeQuestionIndex = isComplete
+    ? Math.max(0, quiz.length - 1)
+    : Math.min(Math.max(Number(state.currentPostLessonQuizIndex) || 0, 0), Math.max(0, quiz.length - 1));
+  const activeQuestion = quiz[activeQuestionIndex];
+  const activeAnswered = activeQuestion && answers[activeQuestionIndex] !== undefined;
+  const hasNextQuestion = activeQuestionIndex < quiz.length - 1;
+  const primaryAction = !activeAnswered && !isComplete
+    ? `<button type="button" disabled>Responde para continuar</button>`
+    : activeAnswered && !isComplete && hasNextQuestion
+      ? `<button type="button" data-lesson-action="quiz-next">Proxima pergunta</button>`
+      : step.nextLessonId
+        ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}" ${isComplete ? "" : "disabled"}>Avancar para a proxima licao</button>`
+        : `<button type="button" data-lesson-action="complete" ${isComplete ? "" : "disabled"}>Concluir licao</button>`;
   return `
-    <article class="post-story-screen challenge-screen quiz-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
+    <article class="post-story-screen challenge-screen quiz-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}" data-quiz-total="${quiz.length}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">Quiz</span>
         <h3>Verifica o que aprendeste</h3>
+        ${quiz.length ? `<p>Pergunta ${Math.min(activeQuestionIndex + 1, quiz.length)} de ${quiz.length}</p>` : ""}
       </div>
-      <div class="post-lesson-quiz-list">
-        ${quiz.map((question, questionIndex) => renderPostLessonQuizQuestion(question, questionIndex, answers[questionIndex])).join("")}
+      <div class="post-lesson-quiz-panel">
+        ${activeQuestion ? renderPostLessonQuizQuestion(activeQuestion, activeQuestionIndex, answers[activeQuestionIndex]) : ""}
+        ${isComplete ? `
+          <section class="post-lesson-quiz-result" aria-live="polite">
+            <strong>${correctCount}/${quiz.length} respostas corretas</strong>
+            <p>${escapeHtml(correctCount === quiz.length ? "Excelente leitura. A licao ficou bem consolidada." : "Bom trabalho. Reveste as explicacoes e avanca com mais contexto.")}</p>
+          </section>
+        ` : ""}
       </div>
-      ${isComplete ? `
-        <section class="post-lesson-quiz-result" aria-live="polite">
-          <strong>${correctCount}/${quiz.length} respostas corretas</strong>
-          <p>${escapeHtml(correctCount === quiz.length ? "Excelente leitura. A licao ficou bem consolidada." : "Bom trabalho. Reveste as explicacoes e avanca com mais contexto.")}</p>
-        </section>
-      ` : ""}
       ${renderScreenProgress(index, total, lesson)}
       <div class="story-block-actions lesson-screen-actions post-story-actions">
         <button type="button" data-lesson-action="${escapeHtml(step.previous)}">Voltar</button>
-        ${step.nextLessonId
-          ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}" ${isComplete ? "" : "disabled"}>Avancar para a proxima licao</button>`
-          : `<button type="button" data-lesson-action="complete" ${isComplete ? "" : "disabled"}>Concluir licao</button>`}
+        ${primaryAction}
       </div>
     </article>
   `;
