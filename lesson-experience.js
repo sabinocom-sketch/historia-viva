@@ -4,13 +4,11 @@ import { createPreview, escapeHtml, normalizeText, pickFrom } from './utils.js';
 import {
   getEraCurriculumSections,
   getEraLessons,
-  getEraQuiz,
   getEraSources,
   getLessonById,
   getLessonStoryBlocks,
   getLessonTextExperience,
   getNextLesson,
-  getRecommendedQuizIndex,
   getRecommendedSourceIndex
 } from './content-service.js';
 
@@ -282,27 +280,51 @@ function buildLessonDebate(lesson, title, textExperience = {}) {
 }
 
 function buildPostLessonQuiz(lesson, summary = []) {
-  const quizBank = getEraQuiz(lesson.eraKey);
-  const startIndex = getRecommendedQuizIndex(lesson.eraKey, lesson.id);
-  const selected = quizBank.length
-    ? Array.from({ length: Math.min(3, quizBank.length) }, (_, offset) => quizBank[(startIndex + offset) % quizBank.length])
-    : [];
-  const normalized = selected.map((quiz) => normalizePostLessonQuizQuestion(quiz));
-  while (normalized.length < 3) {
-    const point = summary[normalized.length % Math.max(1, summary.length)] || lesson.detail || lesson.title;
-    normalized.push({
-      question: "Que ideia resume melhor esta licao?",
+  return buildLessonSpecificQuizQuestions(lesson, summary).slice(0, 5);
+}
+
+function buildLessonSpecificQuizQuestions(lesson = {}, summary = []) {
+  const title = getLessonDisplayTitle(lesson.title || "esta licao");
+  const detail = createSentencePreview(lesson.detail || summary[0] || title, 18);
+  const firstPoint = createSentencePreview(summary[0] || lesson.detail || title, 16);
+  const secondPoint = createSentencePreview(summary[1] || lesson.question || lesson.detail || title, 16);
+  const thirdPoint = createSentencePreview(summary[2] || "comparar vestigios, contexto e consequencias", 16);
+
+  return [
+    {
+      question: `Qual e a ideia central da licao "${title}"?`,
       options: [
-        createSentencePreview(point, 12),
-        "Aconteceu sem causas historicas.",
-        "Teve apenas uma consequencia simples.",
-        "Nao pode ser estudada por vestigios."
+        firstPoint,
+        "Foi um acontecimento isolado, sem relacao com o contexto.",
+        "Serve apenas para memorizar uma data, sem interpretar causas.",
+        "Nao deixou pistas que possam ser estudadas historicamente."
       ],
       correctIndex: 0,
-      explanation: "A melhor resposta liga a licao a causas, evidencias e consequencias."
-    });
-  }
-  return normalized.slice(0, 5);
+      explanation: `A resposta correta retoma diretamente o foco da licao "${title}".`
+    },
+    {
+      question: `Que pista ajuda melhor a explicar "${title}"?`,
+      options: [
+        secondPoint,
+        "Ignorar os grupos humanos envolvidos.",
+        "Separar o acontecimento das suas consequencias.",
+        "Escolher uma resposta que podia servir para qualquer licao."
+      ],
+      correctIndex: 0,
+      explanation: "A melhor pista nasce do conteudo trabalhado nesta licao, nao de outro tema da era."
+    },
+    {
+      question: `Como devemos estudar historicamente "${title}"?`,
+      options: [
+        `Ligando ${thirdPoint.toLowerCase()} ao contexto da licao.`,
+        "Decorando uma frase sem analisar fontes ou consequencias.",
+        "Trocando o tema por outro acontecimento da mesma era.",
+        "Assumindo que todos os grupos viveram a mudanca da mesma forma."
+      ],
+      correctIndex: 0,
+      explanation: `Esta leitura mantem a resposta dentro da licao: ${detail}`
+    }
+  ].map(normalizePostLessonQuizQuestion);
 }
 
 function normalizePostLessonQuizQuestion(quiz = {}) {
@@ -548,8 +570,8 @@ function getPostStoryEditorialKit(lesson = {}, title = "") {
 }
 
 function buildChallengeStep(lesson) {
-  const quizBank = getEraQuiz(lesson.eraKey);
-  const quiz = quizBank[getRecommendedQuizIndex(lesson.eraKey, lesson.id)] || quizBank[0];
+  const summary = buildLessonSummaryPoints(lesson, getLessonStoryBlocks(lesson.id), getLessonTextExperience(lesson));
+  const quiz = adaptPostLessonQuizForLegacyScreens(buildPostLessonQuiz(lesson, summary)[0]);
   return {
     kicker: "Decisão rápida",
     title: quiz?.question || "Que escolha ajudaria melhor o grupo?",
@@ -560,6 +582,13 @@ function buildChallengeStep(lesson) {
 
 function buildNextTeaserLine(currentTitle, nextTitle) {
   return `${currentTitle} abriu uma porta. A próxima lição mostra o que mudou a seguir: ${nextTitle}.`;
+}
+
+function adaptPostLessonQuizForLegacyScreens(quiz = {}) {
+  return {
+    ...quiz,
+    answer: Number.isInteger(quiz.answer) ? quiz.answer : quiz.correctIndex
+  };
 }
 
 function renderLessonProgress(lesson, currentStepIndex, extraClass = "") {
@@ -1118,8 +1147,8 @@ function renderLessonSource(lesson) {
 }
 
 function renderLessonQuiz(lesson) {
-  const quizBank = getEraQuiz(lesson.eraKey);
-  const quiz = quizBank[getRecommendedQuizIndex(lesson.eraKey, lesson.id)] || quizBank[0];
+  const summary = buildLessonSummaryPoints(lesson, getLessonStoryBlocks(lesson.id), getLessonTextExperience(lesson));
+  const quiz = adaptPostLessonQuizForLegacyScreens(buildPostLessonQuiz(lesson, summary)[0]);
   const answered = state.currentLessonQuizChoice !== null;
   const correct = answered && state.currentLessonQuizChoice === quiz.answer;
   return `
