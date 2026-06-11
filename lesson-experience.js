@@ -12,19 +12,19 @@ import {
   getRecommendedSourceIndex
 } from './content-service.js';
 
-const postStoryStepOrder = ["summary", "reflection", "debate", "quiz"];
+const postStoryStepOrder = ["summary", "reflection", "debate", "quiz", "reward", "nextTeaser"];
 const postStoryModeAliases = {
   assimilation: "reflection",
   reality: "debate",
   critical: "debate",
   challenge: "quiz",
-  reward: "quiz",
-  nextTeaser: "quiz",
+  reward: "reward",
+  nextTeaser: "nextTeaser",
   interaction: "reflection",
   source: "reflection",
   insight: "reflection",
   recap: "summary",
-  consolidate: "quiz"
+  consolidate: "reward"
 };
 
 function getCurrentLessonMood() {
@@ -177,7 +177,9 @@ function renderPostStoryLessonFlow(lesson, context = {}) {
     summary: LessonSummaryScreen,
     reflection: ReflectionScreen,
     debate: DebateScreen,
-    quiz: QuizScreen
+    quiz: QuizScreen,
+    reward: renderRewardScreen,
+    nextTeaser: renderNextLessonTeaser
   };
   const renderer = renderers[stepKey] || LessonSummaryScreen;
 
@@ -195,11 +197,14 @@ function getPostStoryStepKey(mode) {
 
 function buildPostStoryFlow(lesson, context = {}) {
   const postLesson = buildPostLessonContent(lesson, context);
+  const legacyFlow = buildLegacyPostStoryFlow(lesson, context);
   return {
     summary: { summary: postLesson.summary, previous: "story" },
     reflection: { ...postLesson.reflection, previous: "summary" },
     debate: { ...postLesson.debate, previous: "reflection" },
-    quiz: { quiz: postLesson.quiz, previous: "debate", nextLessonId: getNextLesson(lesson.eraKey, lesson.id)?.id || "" }
+    quiz: { quiz: postLesson.quiz, previous: "debate" },
+    reward: legacyFlow.reward,
+    nextTeaser: legacyFlow.nextTeaser
   };
 }
 
@@ -729,9 +734,7 @@ function QuizScreen(step, lesson, index, total) {
     ? `<button type="button" disabled>Responde para continuar</button>`
     : activeAnswered && !isComplete && hasNextQuestion
       ? `<button type="button" data-lesson-action="quiz-next">Proxima pergunta</button>`
-      : step.nextLessonId
-        ? `<button type="button" data-lesson-action="next-lesson" data-next-lesson="${escapeHtml(step.nextLessonId)}" ${isComplete ? "" : "disabled"}>Avancar para a proxima licao</button>`
-        : `<button type="button" data-lesson-action="complete" ${isComplete ? "" : "disabled"}>Concluir licao</button>`;
+      : `<button type="button" data-lesson-action="next" ${isComplete ? "" : "disabled"}>Ver recompensa</button>`;
   return `
     <article class="post-story-screen challenge-screen quiz-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}" data-quiz-total="${quiz.length}">
       <span class="post-story-background" aria-hidden="true"></span>

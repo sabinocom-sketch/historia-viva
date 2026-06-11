@@ -400,21 +400,23 @@ lessonFlow.splice(
   { mode: "summary", label: "Resumo", next: "Reflexao" },
   { mode: "reflection", label: "Reflexao", next: "Debate" },
   { mode: "debate", label: "Debate", next: "Quiz" },
-  { mode: "quiz", label: "Quiz", next: "Terminar" }
+  { mode: "quiz", label: "Quiz", next: "Recompensa" },
+  { mode: "reward", label: "Recompensa", next: "Proxima" },
+  { mode: "nextTeaser", label: "Proxima", next: "Terminar" }
 );
 Object.assign(lessonModeAliases, {
   assimilation: "reflection",
   reality: "debate",
   critical: "debate",
   challenge: "quiz",
-  reward: "quiz",
-  nextTeaser: "quiz",
+  reward: "reward",
+  nextTeaser: "nextTeaser",
   recap: "summary",
   debate: "debate",
   quiz: "quiz",
-  consolidate: "quiz"
+  consolidate: "reward"
 });
-postStoryModes.splice(0, postStoryModes.length, "summary", "reflection", "debate", "quiz");
+postStoryModes.splice(0, postStoryModes.length, "summary", "reflection", "debate", "quiz", "reward", "nextTeaser");
 
 function normalizeView(view) {
   const canonical = viewAliases[view] || view;
