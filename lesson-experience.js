@@ -736,7 +736,7 @@ function QuizScreen(step, lesson, index, total) {
       ? `<button type="button" data-lesson-action="quiz-next">Proxima pergunta</button>`
       : `<button type="button" data-lesson-action="next" ${isComplete ? "" : "disabled"}>Ver recompensa</button>`;
   return `
-    <article class="post-story-screen challenge-screen quiz-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}" data-quiz-total="${quiz.length}">
+    <article class="post-story-screen challenge-screen quiz-screen ${isComplete ? "is-complete" : ""}" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}" data-quiz-total="${quiz.length}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
         <span class="post-story-kicker">Quiz</span>

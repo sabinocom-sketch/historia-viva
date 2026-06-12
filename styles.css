@@ -6174,6 +6174,51 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   padding: clamp(10px, 1.45vh, 13px) 16px;
 }
 
+.quiz-screen.is-complete .post-lesson-quiz-panel {
+  gap: clamp(8px, 1.1vh, 11px);
+  max-height: calc(100dvh - 210px - var(--safe-top) - var(--safe-bottom));
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-question {
+  gap: clamp(8px, 1.1vh, 11px);
+  padding: clamp(10px, 1.35vh, 13px);
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-question h4 {
+  font-size: clamp(0.88rem, 1.04vw, 1rem);
+  line-height: 1.24;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-question .challenge-options {
+  gap: 7px;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-question .challenge-options button {
+  min-height: clamp(44px, 6.2vh, 58px);
+  padding: 8px 10px;
+  font-size: clamp(0.78rem, 0.95vw, 0.9rem);
+  line-height: 1.18;
+  overflow-wrap: anywhere;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-question .lesson-feedback {
+  display: -webkit-box;
+  font-size: clamp(0.8rem, 0.94vw, 0.88rem);
+  line-height: 1.28;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-result {
+  padding: 10px 14px;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-result p {
+  font-size: clamp(0.82rem, 0.96vw, 0.9rem);
+  line-height: 1.3;
+}
+
 .lesson-experience[data-section="paleolitico"] .post-story-background,
 .post-story-screen[data-section="paleolitico"] .post-story-background,
 body[data-view="lesson"] .lesson-view[data-section="paleolitico"] .post-story-background {
