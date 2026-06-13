@@ -25,3 +25,4 @@ npm run build:css
 - Lesson summary screens must keep all summary cards and fixed actions inside the fullscreen viewport. Adjust the summary-specific title scale, card height, gaps, and safe-area padding before allowing vertical overflow.
 - Lesson debate screens should stack options and feedback inside `.post-lesson-debate-panel`; do not place both as independent children in the same `grid-area`, or the selected feedback can overlap the option cards.
 - Post-lesson quizzes show one question at a time. Keep the active question, feedback, and action buttons in a single viewport; do not reintroduce multi-question scroll panels.
+- Completed post-lesson quiz panels should keep the same two-column answer grid as unanswered questions. Avoid shrinking `.quiz-screen.is-complete` option cards or clamping feedback text, because long answers can become uneven and hard to read.
