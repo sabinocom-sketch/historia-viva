@@ -6141,13 +6141,17 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-quiz-panel {
   display: grid;
   align-self: center;
+  align-content: start;
   gap: clamp(10px, 1.6vh, 14px);
+  min-height: clamp(420px, 54vh, 560px);
 }
 
 .post-lesson-quiz-question {
   display: grid;
   gap: clamp(10px, 1.5vh, 14px);
+  align-content: start;
   padding: clamp(13px, 1.8vh, 18px);
+  min-height: clamp(330px, 42vh, 430px);
 }
 
 .post-lesson-quiz-question h4 {
@@ -6182,6 +6186,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .post-lesson-quiz-result {
   padding: clamp(10px, 1.45vh, 13px) 16px;
+  min-height: 72px;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-panel {
