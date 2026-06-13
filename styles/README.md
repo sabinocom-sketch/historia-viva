@@ -21,6 +21,7 @@ npm run build:css
 
 - Prehistory story-next buttons start hidden while cave text reveals. Keep their hover and focus-visible states explicitly visible and clickable (`opacity: 1`, `pointer-events: auto`) so disabling the reveal animation on hover does not hide the Continue action.
 - Prehistory narrative titles should stay slightly smaller than hero-scale text but visually heavier than body copy. Use ochre texture, dark handmade shadowing, and tighter vertical spacing so the title reads as pigment painted into cave stone.
+- Post-story titles reuse the same ochre pigment texture and dark handmade shadow treatment as lesson narrative titles; keep size overrides separate from the shared color/texture treatment.
 - For the refined cave title treatment, keep the current title scale and tune presence with weight/shadow first; body copy should use warmer cave-stone contrast (`#d9c5a0`), `font-weight: 500`, and a slight negative top margin instead of near-white spacing.
 - Lesson summary screens must keep all summary cards and fixed actions inside the fullscreen viewport. Adjust the summary-specific title scale, card height, gaps, and safe-area padding before allowing vertical overflow.
 - Lesson debate screens should stack options and feedback inside `.post-lesson-debate-panel`; do not place both as independent children in the same `grid-area`, or the selected feedback can overlap the option cards.
