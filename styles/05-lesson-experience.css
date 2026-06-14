@@ -2615,6 +2615,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   background-clip: text;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 0.28px rgba(68, 28, 12, 0.36);
+  font-family: "Amatic SC", cursive;
+  font-weight: 800;
   font-size: clamp(2.05rem, 4.8vw, 5.2rem);
   line-height: 0.98;
   letter-spacing: 0;
@@ -3046,6 +3048,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-quiz-question h4 {
   margin: 0;
   color: var(--post-archive-gold);
+  font-family: "Patrick Hand", cursive;
+  font-weight: 500;
   font-size: clamp(0.98rem, 1.22vw, 1.14rem);
   line-height: 1.24;
 }
