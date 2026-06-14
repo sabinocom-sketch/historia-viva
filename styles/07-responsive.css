@@ -609,6 +609,11 @@
     overflow: hidden;
   }
 
+  body[data-view="lesson"] .quiz-screen:not(.is-complete) .post-lesson-quiz-panel,
+  body[data-view="lesson"] .quiz-screen:not(.is-complete) .post-story-actions {
+    transform: translateY(100px);
+  }
+
   .overview-view h2,
   .era-portal-content h2,
   .subpath-portal-content h2,
