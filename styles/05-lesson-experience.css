@@ -2919,6 +2919,20 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   min-height: clamp(420px, 54vh, 560px);
 }
 
+.quiz-screen .post-lesson-quiz-panel {
+  width: min(640px, 100%);
+}
+
+.quiz-screen .post-story-actions {
+  position: relative;
+  right: auto;
+  bottom: auto;
+  width: min(520px, 100%);
+  justify-self: end;
+  align-self: start;
+  transform: none;
+}
+
 .post-lesson-quiz-question {
   display: grid;
   gap: clamp(10px, 1.5vh, 14px);
@@ -2930,8 +2944,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-quiz-question h4 {
   margin: 0;
   color: var(--post-archive-gold);
-  font-size: clamp(1.02rem, 1.44vw, 1.24rem);
-  line-height: 1.32;
+  font-size: clamp(0.98rem, 1.22vw, 1.14rem);
+  line-height: 1.24;
 }
 
 .post-lesson-quiz-question .challenge-options {
@@ -2945,7 +2959,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-lesson-quiz-question .challenge-options button {
   min-height: clamp(72px, 10vh, 118px);
   height: 100%;
-  padding: clamp(10px, 1.4vw, 16px);
+  padding: clamp(9px, 1.15vw, 13px);
   overflow-wrap: anywhere;
   white-space: normal;
   border-color: var(--post-archive-line);
@@ -2954,8 +2968,9 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
     var(--post-archive-surface);
   color: var(--post-archive-ink);
   font-family: "Patrick Hand", cursive;
-  font-size: clamp(1rem, 1.16vw, 1.16rem);
+  font-size: clamp(0.88rem, 1vw, 1rem);
   font-weight: 900;
+  line-height: 1.16;
   box-shadow:
     inset 0 1px 0 rgba(255, 248, 234, 0.08),
     0 10px 26px rgba(0, 0, 0, 0.22);
@@ -2965,8 +2980,8 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   margin: 0;
   color: var(--post-archive-ink);
   font-family: "Patrick Hand", cursive;
-  font-size: 0.95rem;
-  line-height: 1.38;
+  font-size: clamp(0.82rem, 0.94vw, 0.9rem);
+  line-height: 1.28;
 }
 
 .post-lesson-quiz-result {
@@ -2975,44 +2990,71 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-panel {
-  gap: clamp(10px, 1.5vh, 14px);
-  max-height: none;
+  gap: clamp(9px, 1.2vh, 12px);
+  min-height: 0;
+  max-height: calc(100dvh - 190px - var(--safe-top) - var(--safe-bottom));
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-question {
-  gap: clamp(10px, 1.5vh, 14px);
-  padding: clamp(13px, 1.8vh, 18px);
+  gap: clamp(9px, 1.2vh, 12px);
+  min-height: 0;
+  padding: clamp(12px, 1.5vh, 16px);
+  overflow: hidden;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-question h4 {
-  font-size: clamp(0.98rem, 1.4vw, 1.18rem);
-  line-height: 1.32;
+  font-size: clamp(0.9rem, 1.04vw, 1rem);
+  line-height: 1.18;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-question .challenge-options {
-  gap: 8px;
+  gap: clamp(7px, 1vh, 9px);
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-question .challenge-options button {
-  min-height: clamp(72px, 10vh, 118px);
-  padding: clamp(10px, 1.4vw, 16px);
-  font-size: clamp(0.9rem, 1.1vw, 1rem);
-  line-height: 1.22;
+  min-height: clamp(58px, 7.4vh, 82px);
+  padding: clamp(7px, 0.92vw, 10px);
+  font-size: clamp(0.78rem, 0.86vw, 0.88rem);
+  line-height: 1.12;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-question .lesson-feedback {
-  font-size: clamp(0.86rem, 1vw, 0.95rem);
-  line-height: 1.34;
-  overflow: visible;
+  max-height: 4.4em;
+  font-size: clamp(0.82rem, 0.94vw, 0.9rem);
+  line-height: 1.28;
+  overflow: hidden;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-result {
+  position: absolute;
+  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
+  bottom: calc(24px + var(--safe-bottom));
+  width: min(320px, calc(100vw - 48px));
+  min-height: 0;
   padding: 10px 14px;
+}
+
+.quiz-screen.is-complete .post-lesson-quiz-result strong {
+  font-size: clamp(1rem, 1.3vw, 1.24rem);
+  line-height: 1.15;
 }
 
 .quiz-screen.is-complete .post-lesson-quiz-result p {
   font-size: clamp(0.82rem, 0.96vw, 0.9rem);
   line-height: 1.3;
+}
+
+.quiz-screen.is-complete .post-story-actions {
+  margin-top: clamp(8px, 1.4vh, 14px);
+}
+
+.quiz-screen.is-complete .post-story-actions button {
+  min-height: 46px;
+  padding-inline: clamp(16px, 2vw, 24px);
+}
+
+.quiz-screen.is-complete .post-story-actions button:last-child {
+  min-width: min(240px, 100%);
 }
 
 .lesson-experience[data-section="paleolitico"] .post-story-background,
@@ -3395,8 +3437,9 @@ body[data-view="lesson"] .lesson-mode-panel p {
     var(--post-archive-surface);
   color: var(--post-archive-ink);
   font-family: "Patrick Hand", cursive;
-  font-size: clamp(1rem, 1.16vw, 1.16rem);
+  font-size: clamp(0.88rem, 1vw, 1rem);
   font-weight: 900;
+  line-height: 1.16;
   box-shadow:
     inset 0 1px 0 rgba(255, 248, 234, 0.08),
     0 10px 26px rgba(0, 0, 0, 0.22);
