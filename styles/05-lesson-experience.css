@@ -2605,32 +2605,29 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 .post-story-copy h3 {
   margin: 0;
   max-width: 13ch;
-  color: #d9843e;
+  color: #f2c779;
   background-image:
-    linear-gradient(180deg, rgba(242, 199, 121, 0.96), rgba(184, 90, 44, 0.98) 54%, rgba(102, 36, 17, 0.98)),
+    linear-gradient(180deg, rgba(255, 226, 151, 0.98), rgba(219, 140, 59, 0.98) 62%, rgba(146, 70, 31, 0.96)),
     url("assets/textures/ochre-texture.webp");
   background-size: 100% 100%, cover;
-  background-blend-mode: multiply;
+  background-blend-mode: screen, multiply;
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  -webkit-text-stroke: 0.46px rgba(64, 19, 8, 0.54);
+  -webkit-text-stroke: 0.28px rgba(68, 28, 12, 0.36);
   font-size: clamp(2.05rem, 4.8vw, 5.2rem);
   line-height: 0.98;
   letter-spacing: 0;
   text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.35),
-    0.018em 0 rgba(80, 25, 10, 0.42),
-    -0.018em 0 rgba(80, 25, 10, 0.3),
-    0 0.02em rgba(80, 25, 10, 0.36),
-    0 2px 2px rgba(12, 6, 3, 0.5),
-    0 5px 12px rgba(12, 6, 3, 0.28),
-    0 0 24px rgba(232, 115, 47, 0.18);
+    0 1px 0 rgba(255, 221, 145, 0.24),
+    0 2px 2px rgba(52, 24, 10, 0.58),
+    0 6px 14px rgba(12, 6, 3, 0.34),
+    0 0 18px rgba(232, 115, 47, 0.14);
   filter:
-    brightness(0.98)
-    saturate(1.24)
-    contrast(1.28)
-    drop-shadow(0 20px 54px rgba(0, 0, 0, 0.38));
+    brightness(1.08)
+    saturate(1.12)
+    contrast(1.12)
+    drop-shadow(0 16px 38px rgba(0, 0, 0, 0.34));
 }
 
 .post-story-screen[data-theme="ciência"] .post-story-copy h3,
@@ -2665,6 +2662,10 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .post-story-actions {
+  --prehistory-button-stone-texture: url("../assets/textures/progress-bar-texture.jpg");
+  --prehistory-button-radius: 44% 38% 47% 42% / 46% 52% 43% 50%;
+  --prehistory-button-texture-size: clamp(520px, 54vw, 760px) auto;
+  --prehistory-button-texture-position: 48% 50%;
   grid-area: actions;
   position: fixed;
   right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
@@ -2676,25 +2677,126 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .post-story-actions button {
-  border-color: var(--post-archive-line);
-  background:
-    radial-gradient(circle at 16% 48%, rgba(231, 126, 51, 0.16) 0 1px, transparent 2px),
-    var(--post-archive-surface);
-  color: rgba(246, 214, 160, 0.94);
+  --prehistory-button-ink: rgba(255, 244, 220, 0.98);
+  --prehistory-button-edge: rgba(211, 190, 150, 0.36);
+  --prehistory-button-fire-glow: rgba(150, 96, 52, 0.08);
+  --prehistory-button-polish: rgba(255, 240, 196, 0.1);
+  --prehistory-button-face:
+    radial-gradient(ellipse at 26% 18%, rgba(255, 238, 198, 0.15), transparent 34%),
+    radial-gradient(ellipse at 80% 78%, rgba(12, 9, 7, 0.25), transparent 42%),
+    linear-gradient(108deg, rgba(104, 99, 89, 0.96), rgba(57, 54, 49, 0.96) 55%, rgba(112, 105, 91, 0.92)),
+    var(--prehistory-button-stone-texture);
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 52px;
+  border-color: var(--prehistory-button-edge);
+  border-radius: var(--prehistory-button-radius);
+  background: var(--prehistory-button-face);
+  background-repeat: no-repeat;
+  background-position: center, center, center, var(--prehistory-button-texture-position);
+  background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
+  background-blend-mode: screen, multiply, normal, soft-light;
+  color: var(--prehistory-button-ink);
   box-shadow:
-    inset 0 1px 0 rgba(255, 248, 234, 0.08),
-    0 10px 28px rgba(0, 0, 0, 0.24);
-  backdrop-filter: blur(8px);
+    inset 0 1px 0 rgba(255, 246, 216, 0.2),
+    inset 0 5px 9px rgba(255, 239, 202, 0.06),
+    inset 0 -9px 13px rgba(12, 9, 7, 0.28),
+    inset 6px 0 10px rgba(255, 236, 198, 0.04),
+    inset -7px 0 12px rgba(12, 9, 7, 0.18),
+    0 1px 0 rgba(35, 29, 23, 0.8),
+    0 8px 15px rgba(0, 0, 0, 0.25),
+    0 0 10px var(--prehistory-button-fire-glow);
+  font-weight: 980;
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.86),
+    0 0 5px rgba(255, 226, 178, 0.16);
+  -webkit-text-stroke: 0.12px rgba(20, 14, 9, 0.48);
+  backdrop-filter: none;
+}
+
+.post-story-actions button::before,
+.post-story-actions button::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  content: "";
+  pointer-events: none;
+}
+
+.post-story-actions button::before {
+  background:
+    linear-gradient(180deg, rgba(255, 242, 190, 0.26) 0 2px, transparent 8px, transparent 69%, rgba(45, 22, 9, 0.23)),
+    radial-gradient(ellipse at 42% 28%, var(--prehistory-button-polish), transparent 48%),
+    radial-gradient(circle at 31% 43%, rgba(255, 232, 166, 0.12) 0 1px, transparent 2px),
+    radial-gradient(circle at 67% 58%, rgba(72, 33, 11, 0.14) 0 1px, transparent 2px);
+  background-size: 100% 100%, 100% 100%, 34px 29px, 46px 39px;
+  mix-blend-mode: screen;
+  opacity: 0.7;
+}
+
+.post-story-actions button::after {
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 226, 159, 0.13),
+    inset 0 2px 2px rgba(255, 246, 205, 0.24),
+    inset 0 7px 11px rgba(255, 225, 162, 0.08),
+    inset 0 -7px 11px rgba(36, 18, 8, 0.36),
+    inset 8px 0 13px rgba(255, 225, 160, 0.06),
+    inset -9px 0 13px rgba(33, 18, 10, 0.22);
+  opacity: 0.96;
 }
 
 .post-story-actions button:last-child {
-  border-color: rgba(241, 199, 121, 0.56);
-  background:
-    linear-gradient(90deg, var(--post-archive-gold), #b85a2c);
-  color: #24150b;
+  --prehistory-button-ink: #1b0b02;
+  --prehistory-button-edge: rgba(119, 61, 19, 0.84);
+  --prehistory-button-fire-glow: rgba(247, 145, 34, 0.36);
+  --prehistory-button-polish: rgba(255, 236, 166, 0.28);
+  --prehistory-button-face:
+    radial-gradient(ellipse at 30% 22%, rgba(255, 244, 184, 0.34), transparent 34%),
+    radial-gradient(ellipse at 78% 82%, rgba(94, 38, 8, 0.24), transparent 42%),
+    linear-gradient(112deg, rgba(255, 213, 107, 0.98), rgba(211, 121, 44, 0.98) 58%, rgba(151, 68, 24, 0.96)),
+    var(--prehistory-button-stone-texture);
+  border-color: var(--prehistory-button-edge);
+  background: var(--prehistory-button-face);
+  background-repeat: no-repeat;
+  background-position: center, center, center, var(--prehistory-button-texture-position);
+  background-size: 100% 100%, 100% 100%, 100% 100%, var(--prehistory-button-texture-size);
+  background-blend-mode: screen, multiply, normal, soft-light;
+  color: var(--prehistory-button-ink);
+  filter: brightness(1.14) contrast(1.08) saturate(1.08);
+  text-shadow:
+    0 1px 0 rgba(255, 235, 169, 0.56),
+    0 -1px 0 rgba(70, 29, 7, 0.32),
+    0 2px 4px rgba(55, 22, 5, 0.2),
+    0 0 7px rgba(255, 214, 118, 0.24);
+}
+
+.post-story-actions button:not(:disabled):hover,
+.post-story-actions button:not(:disabled):focus-visible {
+  filter: brightness(1.12) contrast(1.08) saturate(1.04);
   box-shadow:
-    0 0 18px rgba(232, 115, 47, 0.28),
-    0 12px 30px rgba(0, 0, 0, 0.28);
+    inset 0 1px 0 rgba(255, 248, 209, 0.48),
+    inset 0 6px 11px rgba(255, 226, 154, 0.12),
+    inset 0 -10px 15px rgba(55, 26, 9, 0.24),
+    inset 6px 0 11px rgba(255, 224, 149, 0.1),
+    inset -8px 0 13px rgba(54, 27, 12, 0.16),
+    0 3px 0 rgba(65, 36, 19, 0.82),
+    0 14px 24px rgba(0, 0, 0, 0.34),
+    0 0 20px var(--prehistory-button-fire-glow);
+  transform: translateY(-1px) scale(1.01);
+}
+
+.post-story-actions button:not(:disabled):active {
+  filter: brightness(0.94) contrast(1.04) saturate(1.01);
+  box-shadow:
+    inset 0 5px 10px rgba(20, 10, 5, 0.5),
+    inset 0 -2px 5px rgba(255, 219, 151, 0.06),
+    inset 6px 0 10px rgba(24, 13, 7, 0.16),
+    inset -6px 0 10px rgba(24, 13, 7, 0.18),
+    0 3px 8px rgba(0, 0, 0, 0.24),
+    0 0 8px rgba(211, 109, 36, 0.1);
+  transform: translateY(2px) scale(0.992);
 }
 
 .lesson-summary-screen {
