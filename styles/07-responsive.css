@@ -472,6 +472,7 @@
     justify-self: stretch;
     gap: 8px;
     width: 100%;
+    transform: none;
   }
 
   .post-lesson-summary-list {

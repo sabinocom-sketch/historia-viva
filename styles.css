@@ -6473,6 +6473,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .quiz-screen .post-lesson-quiz-panel {
   width: min(640px, 100%);
+  transform: translateX(-300px);
 }
 
 .quiz-screen .post-story-actions {
@@ -8840,6 +8841,7 @@ blockquote {
     justify-self: stretch;
     gap: 8px;
     width: 100%;
+    transform: none;
   }
 
   .post-lesson-summary-list {
