@@ -173,6 +173,8 @@ Duracao aproximada da camada de saida: 420-520ms.
 
 Comportamento visual: o ecran novo fica acima da camada anterior; a camada anterior faz fade curto e e removida depois da transicao. Em `prefers-reduced-motion`, a saida deve ser praticamente imediata, mantendo apenas a proteccao contra fundo vazio.
 
+Aplicacao nas licoes: `story-block`, `post-story-screen` e hero da licao tambem seguem esta regra. Como estes momentos sao trocados por render interno e nao por rota principal, a experiencia da licao deve criar uma camada temporaria do bloco anterior e manter um fundo proprio quente/cinematico enquanto o proximo bloco monta.
+
 ### Missao -> recompensa
 
 Sensacao desejada: conclusao reconhecida e progresso conquistado.

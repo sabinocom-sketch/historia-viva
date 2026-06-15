@@ -515,6 +515,34 @@ async function openRelatedTopic(topic) {
   questionInput.focus();
 }
 
+function prepareLessonContentTransition() {
+  if (!categorySections || state.currentView !== "lesson") return () => {};
+
+  const previousPanel = categorySections.querySelector(".active-lesson-panel");
+  const previousScreen = previousPanel?.querySelector(".story-block, .post-story-screen, .lesson-hero");
+  if (!previousPanel || !previousScreen) return () => {};
+
+  const transitionLayer = previousScreen.cloneNode(true);
+  transitionLayer.classList.add("lesson-screen-transition-layer", "is-lesson-screen-leaving");
+  transitionLayer.setAttribute("aria-hidden", "true");
+  transitionLayer.querySelectorAll("[id]").forEach((element) => element.removeAttribute("id"));
+  transitionLayer.querySelectorAll("button, input, textarea, select, a").forEach((element) => {
+    element.setAttribute("tabindex", "-1");
+    element.setAttribute("disabled", "");
+  });
+
+  return () => {
+    const nextPanel = categorySections.querySelector(".active-lesson-panel");
+    const transitionHost = nextPanel?.querySelector(".lesson-experience") || nextPanel;
+    if (!transitionHost) return;
+
+    transitionHost.append(transitionLayer);
+    nextPanel.classList.add("is-lesson-screen-entering");
+    afterNextPaint().then(() => nextPanel.classList.remove("is-lesson-screen-entering"));
+    window.setTimeout(() => transitionLayer.remove(), 560);
+  };
+}
+
 async function renderCategorySections() {
   if (!categorySections) return;
   const eraKey = state.currentEra;
@@ -537,11 +565,13 @@ async function renderCategorySections() {
   }
   if (viewKey === "lesson") {
     const lesson = getLessonById(lessonKey) || getEraLessons(eraKey)[0];
+    const finishLessonTransition = prepareLessonContentTransition();
     await waitForLessonBackgroundAssets(lesson?.sectionId, 700);
     if (isStaleRender()) return;
     const lessonHtml = await renderActiveLessonPanelHtml();
     if (isStaleRender()) return;
     categorySections.innerHTML = lessonHtml;
+    finishLessonTransition();
     return;
   }
   if (isStaleRender()) return;
