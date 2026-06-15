@@ -6472,8 +6472,9 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .quiz-screen .post-lesson-quiz-panel {
+  position: relative;
+  right: 300px;
   width: min(640px, 100%);
-  margin-right: 300px;
 }
 
 .quiz-screen .post-story-actions {
@@ -8840,6 +8841,7 @@ blockquote {
   .post-lesson-quiz-result {
     justify-self: stretch;
     gap: 8px;
+    right: auto;
     width: 100%;
     margin-right: 0;
     transform: none;
