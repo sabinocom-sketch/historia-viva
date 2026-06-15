@@ -6495,6 +6495,11 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   min-height: clamp(330px, 42vh, 430px);
 }
 
+.quiz-screen .post-lesson-quiz-question {
+  position: relative;
+  right: 300px;
+}
+
 .post-lesson-quiz-question h4 {
   margin: 0;
   color: var(--post-archive-gold);
@@ -8890,6 +8895,7 @@ blockquote {
 
   .post-lesson-quiz-question {
     padding: 11px;
+    right: auto;
     text-align: left;
   }
 

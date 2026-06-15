@@ -520,6 +520,7 @@
 
   .post-lesson-quiz-question {
     padding: 11px;
+    right: auto;
     text-align: left;
   }
 
