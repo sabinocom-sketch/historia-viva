@@ -6581,7 +6581,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .quiz-screen.is-complete .post-lesson-quiz-result {
   position: absolute;
-  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right));
+  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right) + 200px);
   bottom: calc(24px + var(--safe-bottom));
   width: min(320px, calc(100vw - 48px));
   min-height: 0;

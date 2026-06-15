@@ -175,6 +175,8 @@ Comportamento visual: o ecran novo fica acima da camada anterior; a camada anter
 
 Aplicacao nas licoes: `story-block`, `post-story-screen` e hero da licao tambem seguem esta regra. Como estes momentos sao trocados por render interno e nao por rota principal, a experiencia da licao deve criar uma camada temporaria do bloco anterior e manter um fundo proprio quente/cinematico enquanto o proximo bloco monta.
 
+No quiz final da licao, o painel de resultado deve ficar visualmente afastado do bordo direito e das respostas. Quando o quiz esta completo, o painel de resultado pode ser ancorado em baixo, mas deve recuar cerca de 200px para a esquerda para respirar melhor dentro da composicao.
+
 ### Missao -> recompensa
 
 Sensacao desejada: conclusao reconhecida e progresso conquistado.
