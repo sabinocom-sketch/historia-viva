@@ -177,7 +177,7 @@ Aplicacao nas licoes: `story-block`, `post-story-screen` e hero da licao tambem 
 
 No quiz final da licao, o painel de resultado deve ficar visualmente afastado do bordo direito e das respostas. Quando o quiz esta completo, o painel de resultado pode ser ancorado em baixo, mas deve recuar cerca de 200px para a esquerda para respirar melhor dentro da composicao.
 
-O painel das perguntas do quiz da licao tambem deve recuar cerca de 300px para a esquerda em desktop, mantendo a leitura mais central e evitando excesso de peso visual no lado direito. Este recuo deve ser aplicado no cartao interno visivel da pergunta (`.post-lesson-quiz-question`) com posicionamento relativo (`right: 300px`), nao apenas no wrapper do painel, e nao com `transform`, porque alguns estados do quiz usam `transform` para ajustes verticais. Em layouts pequenos ou mobile, este recuo deve ser removido para preservar largura util e evitar overflow. Sempre que este posicionamento visual mudar, o link de `styles.css` deve receber um cache-buster para evitar CSS antigo em deploys estaticos.
+O painel das perguntas do quiz da licao tambem deve recuar cerca de 300px para a esquerda em desktop, mantendo a leitura mais central e evitando excesso de peso visual no lado direito. Este recuo deve posicionar o wrapper do painel de forma absoluta dentro do ecra do quiz, usando `right: calc(... + 300px)`, para nao depender da grelha interna nem de `transform`. Em layouts pequenos ou mobile, este recuo deve ser removido para preservar largura util e evitar overflow. Sempre que este posicionamento visual mudar, o link de `styles.css` deve receber um cache-buster para evitar CSS antigo em deploys estaticos.
 
 ### Missao -> recompensa
 

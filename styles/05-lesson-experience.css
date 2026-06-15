@@ -3068,9 +3068,11 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .quiz-screen .post-lesson-quiz-panel {
-  position: relative;
-  right: 300px;
-  width: min(640px, 100%);
+  position: absolute;
+  top: calc(clamp(72px, 11vh, 132px) + var(--safe-top));
+  right: calc(clamp(24px, 5vw, 62px) + var(--safe-right) + 300px);
+  z-index: 4;
+  width: min(720px, calc(100vw - 48px));
 }
 
 .quiz-screen .post-story-actions {
@@ -3093,7 +3095,6 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .quiz-screen .post-lesson-quiz-question {
   position: relative;
-  right: 300px;
 }
 
 .post-lesson-quiz-question h4 {
