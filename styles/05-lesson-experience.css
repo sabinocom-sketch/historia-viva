@@ -3069,7 +3069,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 
 .quiz-screen .post-lesson-quiz-panel {
   width: min(640px, 100%);
-  transform: translateX(-300px);
+  transform: translateX(-250px);
 }
 
 .quiz-screen .post-story-actions {

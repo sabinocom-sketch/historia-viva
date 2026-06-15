@@ -620,7 +620,7 @@
   }
 
   body[data-view="lesson"] .quiz-screen:not(.is-complete) .post-lesson-quiz-panel {
-    transform: translate(-300px, 100px);
+    transform: translate(-250px, 100px);
   }
 
   .overview-view h2,
