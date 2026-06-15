@@ -163,6 +163,16 @@ Comportamento visual: o conteudo de licao faz fade parcial, mantendo continuidad
 
 Entram primeiro: etiqueta ou titulo do modo. Entram por ultimo: controlos interactivos.
 
+### Continuidade entre ecrans
+
+Sensacao desejada: a app nunca deve parecer desligar entre dois momentos. Uma transicao deve preservar a atmosfera historica, mesmo quando o proximo ecran ainda esta a montar conteudo ou imagens.
+
+Regra de implementacao: o shell principal deve ter sempre um fundo visual proprio, alinhado com a paleta da app, para evitar qualquer intervalo vazio ou preto. Quando possivel, o ecran anterior deve permanecer brevemente como camada de saida sem interaccao enquanto o novo ecran entra.
+
+Duracao aproximada da camada de saida: 420-520ms.
+
+Comportamento visual: o ecran novo fica acima da camada anterior; a camada anterior faz fade curto e e removida depois da transicao. Em `prefers-reduced-motion`, a saida deve ser praticamente imediata, mantendo apenas a proteccao contra fundo vazio.
+
 ### Missao -> recompensa
 
 Sensacao desejada: conclusao reconhecida e progresso conquistado.
