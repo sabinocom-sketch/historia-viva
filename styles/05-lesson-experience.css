@@ -2446,6 +2446,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .post-story-screen {
+  --post-story-screen-top: clamp(52px, 6.2vw, 82px);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -2460,7 +2461,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   min-height: 100dvh;
   height: 100dvh;
   padding:
-    calc(clamp(24px, 5vw, 62px) + var(--safe-top))
+    calc(var(--post-story-screen-top) + var(--safe-top))
     calc(clamp(24px, 5vw, 62px) + var(--safe-right))
     calc(clamp(92px, 9vw, 124px) + var(--safe-bottom))
     calc(clamp(24px, 5vw, 62px) + var(--safe-left));
@@ -2555,6 +2556,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   grid-area: copy;
   position: relative;
   isolation: isolate;
+  align-self: start;
   display: grid;
   gap: 12px;
   max-width: 52ch;
@@ -2817,7 +2819,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   align-content: start;
   gap: clamp(12px, 2.1vw, 28px);
   padding:
-    calc(clamp(52px, 6.2vw, 82px) + var(--safe-top))
+    calc(var(--post-story-screen-top) + var(--safe-top))
     calc(clamp(24px, 5vw, 62px) + var(--safe-right))
     calc(clamp(72px, 7vw, 96px) + var(--safe-bottom))
     calc(clamp(24px, 5vw, 62px) + var(--safe-left));
@@ -2842,7 +2844,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .lesson-summary-screen .post-story-copy {
-  gap: clamp(8px, 1.15vw, 13px);
+  gap: 12px;
   max-width: min(760px, 54vw);
 }
 

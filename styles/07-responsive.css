@@ -374,6 +374,7 @@
   }
 
   .post-story-screen {
+    --post-story-screen-top: 44px;
     grid-template-areas:
       "copy"
       "visual"
@@ -384,7 +385,7 @@
     height: 100dvh;
     min-height: 100dvh;
     padding:
-      calc(22px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(18px + var(--safe-right))
       calc(18px + var(--safe-bottom))
       calc(18px + var(--safe-left));
@@ -401,7 +402,7 @@
     align-content: start;
     gap: 9px;
     padding:
-      calc(44px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(14px + var(--safe-right))
       calc(14px + var(--safe-bottom))
       calc(14px + var(--safe-left));
@@ -1090,12 +1091,13 @@
   }
 
   .post-story-screen {
+    --post-story-screen-top: 70px;
     height: auto;
     min-height: var(--story-screen);
     align-content: center;
     gap: clamp(10px, 2svh, 16px);
     padding:
-      calc(70px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(var(--mobile-page-pad) + var(--safe-right))
       calc(28px + var(--safe-bottom))
       calc(var(--mobile-page-pad) + var(--safe-left));

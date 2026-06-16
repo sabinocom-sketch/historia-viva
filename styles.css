@@ -5850,6 +5850,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .post-story-screen {
+  --post-story-screen-top: clamp(52px, 6.2vw, 82px);
   position: relative;
   isolation: isolate;
   overflow: hidden;
@@ -5864,7 +5865,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   min-height: 100dvh;
   height: 100dvh;
   padding:
-    calc(clamp(24px, 5vw, 62px) + var(--safe-top))
+    calc(var(--post-story-screen-top) + var(--safe-top))
     calc(clamp(24px, 5vw, 62px) + var(--safe-right))
     calc(clamp(92px, 9vw, 124px) + var(--safe-bottom))
     calc(clamp(24px, 5vw, 62px) + var(--safe-left));
@@ -5959,6 +5960,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   grid-area: copy;
   position: relative;
   isolation: isolate;
+  align-self: start;
   display: grid;
   gap: 12px;
   max-width: 52ch;
@@ -6221,7 +6223,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
   align-content: start;
   gap: clamp(12px, 2.1vw, 28px);
   padding:
-    calc(clamp(52px, 6.2vw, 82px) + var(--safe-top))
+    calc(var(--post-story-screen-top) + var(--safe-top))
     calc(clamp(24px, 5vw, 62px) + var(--safe-right))
     calc(clamp(72px, 7vw, 96px) + var(--safe-bottom))
     calc(clamp(24px, 5vw, 62px) + var(--safe-left));
@@ -6246,7 +6248,7 @@ body[data-view="lesson"]:has(.lesson-experience .story-block-actions button[data
 }
 
 .lesson-summary-screen .post-story-copy {
-  gap: clamp(8px, 1.15vw, 13px);
+  gap: 12px;
   max-width: min(760px, 54vw);
 }
 
@@ -8716,6 +8718,7 @@ blockquote {
   }
 
   .post-story-screen {
+    --post-story-screen-top: 44px;
     grid-template-areas:
       "copy"
       "visual"
@@ -8726,7 +8729,7 @@ blockquote {
     height: 100dvh;
     min-height: 100dvh;
     padding:
-      calc(22px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(18px + var(--safe-right))
       calc(18px + var(--safe-bottom))
       calc(18px + var(--safe-left));
@@ -8743,7 +8746,7 @@ blockquote {
     align-content: start;
     gap: 9px;
     padding:
-      calc(44px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(14px + var(--safe-right))
       calc(14px + var(--safe-bottom))
       calc(14px + var(--safe-left));
@@ -9432,12 +9435,13 @@ blockquote {
   }
 
   .post-story-screen {
+    --post-story-screen-top: 70px;
     height: auto;
     min-height: var(--story-screen);
     align-content: center;
     gap: clamp(10px, 2svh, 16px);
     padding:
-      calc(70px + var(--safe-top))
+      calc(var(--post-story-screen-top) + var(--safe-top))
       calc(var(--mobile-page-pad) + var(--safe-right))
       calc(28px + var(--safe-bottom))
       calc(var(--mobile-page-pad) + var(--safe-left));
