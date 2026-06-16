@@ -111,8 +111,12 @@ async function captureLessonFlow(page, outputDir) {
   while ((await currentMode(page)) === "story") {
     await page.waitForTimeout(350);
     await save(`${String(storyStep).padStart(2, "0")}-story-${storyStep}`);
-    await page.evaluate(() => document.querySelector("[data-story-reveal-all]")?.click());
-    await page.waitForTimeout(120);
+    await page.waitForFunction(() => {
+      const next = document.querySelector("[data-lesson-action=\"story-next\"]");
+      if (!next) return false;
+      const style = window.getComputedStyle(next);
+      return style.pointerEvents !== "none" && Number.parseFloat(style.opacity || "0") > 0.9;
+    }, { timeout: 8000 });
     await click(page, "[data-lesson-action=\"story-next\"]");
     await page.waitForTimeout(500);
     storyStep += 1;

@@ -105,5 +105,6 @@ Os Story Blocks da Pre-Historia sao renderizados como micro-narrativas de parede
 - No mobile, os ecras narrativos preservam a mesma unidade editorial de 45 a 55 palavras; a adaptacao acontece na composicao visual, na medida do texto e no chrome reduzido.
 - A animacao pode continuar a revelar frase a frase, mas os fragmentos fluem inline e formam um unico paragrafo com `line-height: 1.4`.
 - Cada bloco recebe `data-story-index` para variar subtilmente luz, pigmento e intensidade entre Momento 1, 2 e 3.
+- A leitura nao deve mostrar atalhos como "Mostrar tudo" antes de o texto aparecer por completo. O CTA de continuar so deve ficar disponivel quando a revelacao terminar.
 - A largura do texto fica controlada no CSS para evitar paredes compactas, especialmente em telemovel.
 - O artefacto visual deve parecer integrado na cena com sombra, reflexo quente e movimento lento, nao como objeto flutuante isolado.

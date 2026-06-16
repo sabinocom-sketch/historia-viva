@@ -118,7 +118,6 @@ function renderStoryBlock(block, index, total, lesson = {}) {
           ${renderCaveRevealText(readingText)}
         </p>
         <span class="pigment-particles cave-pigment-particles" aria-hidden="true"></span>
-        <button class="cave-reveal-skip" type="button" data-story-reveal-all>Mostrar tudo</button>
       </div>
       ${renderLessonProgress(lesson, index, "prehistory-progress")}
       <div class="story-block-actions prehistory-actions">
