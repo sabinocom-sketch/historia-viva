@@ -6,6 +6,14 @@ Edit the modular source files in this directory, then run:
 npm run build:css
 ```
 
+For full lesson-screen QA captures, run:
+
+```sh
+npm run screenshot:lesson
+```
+
+This walks one lesson from intro through next-teaser, capturing desktop and mobile screens into `screenshots/lesson-flow/<lesson-slug>/`.
+
 `styles.css` is the generated browser-facing stylesheet linked from `index.html`.
 
 - `00-tokens.css`: design tokens, image variables, era variables, safe-area sizing.

@@ -1,5 +1,7 @@
 node_modules/
 screenshots/
+server.out.log
+server.err.log
 assets/*.png
 !assets/history-study.png
 !assets/silex-original.png

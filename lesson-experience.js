@@ -226,7 +226,7 @@ function buildPostLessonContent(lesson, context = {}) {
   return {
     summary,
     reflection: {
-      question: textExperience.reflection || context.insight || `Que mudanca historica te parece mais importante em ${title}?`
+      question: normalizeQuestionText(textExperience.reflection || context.insight || `Que mudança histórica te parece mais importante em ${title}?`)
     },
     debate: buildLessonDebate(lesson, title, textExperience),
     quiz: buildPostLessonQuiz(lesson, summary)
@@ -248,7 +248,7 @@ function buildLessonSummaryPoints(lesson, blocks = [], textExperience = {}) {
     .filter((point, index, list) => list.findIndex((item) => normalizeText(item) === normalizeText(point)) === index)
     .slice(0, 4);
   while (points.length < 3) {
-    points.push(createSentencePreview(`${getLessonDisplayTitle(lesson.title)} ajuda a perceber causas, escolhas humanas e consequencias.`, 14));
+    points.push(createSentencePreview(`${getLessonDisplayTitle(lesson.title)} ajuda a perceber causas, escolhas humanas e consequências.`, 14));
   }
   return points.slice(0, 4);
 }
@@ -257,31 +257,36 @@ function expandShortSummaryPoint(point = "", lesson = {}) {
   if (!point || countTextWords(point) >= 9) return point;
   const source = normalizeText(`${lesson.title || ""} ${lesson.detail || ""}`);
   if (source.includes("pedra") || source.includes("ferramenta")) {
-    return `${point} O gesto humano dava-lhe funcao e sentido.`;
+    return `${point} O gesto humano dava-lhe função e sentido.`;
   }
   if (source.includes("fogo")) {
-    return `${point} O uso repetido transformava seguranca, alimento e convivio.`;
+    return `${point} O uso repetido transformava segurança, alimento e convívio.`;
   }
-  return `${point} O contexto historico ajuda a perceber a mudanca.`;
+  return `${point} O contexto histórico ajuda a perceber a mudança.`;
 }
 
 function buildLessonDebate(lesson, title, textExperience = {}) {
   const focus = createSentencePreview(textExperience.keyTakeaway || lesson.detail || title, 18);
   return {
-    question: `Como devemos interpretar ${title}: sobretudo como progresso ou como mudanca complexa?`,
+    question: `Como devemos interpretar ${title}: sobretudo como progresso ou como mudança complexa?`,
     options: [
       {
         id: "optionA",
         label: "Foi sobretudo progresso",
-        feedback: `Esta posicao pode indicar que ${focus.toLowerCase()} abriu possibilidades importantes. Ainda assim, muitos historiadores defendem que ganhos materiais tambem trouxeram novos custos.`
+        feedback: `Esta posição pode indicar que ${focus.toLowerCase()} abriu possibilidades importantes. Ainda assim, muitos historiadores defendem que ganhos materiais também trouxeram novos custos.`
       },
       {
         id: "optionB",
-        label: "Foi uma mudanca complexa",
-        feedback: `Esta posicao sugere que ${focus.toLowerCase()} deve ser lido com cautela. Ha debate sobre o peso dos beneficios e dos limites em diferentes grupos sociais.`
+        label: "Foi uma mudança complexa",
+        feedback: `Esta posição sugere que ${focus.toLowerCase()} deve ser lido com cautela. Há debate sobre o peso dos benefícios e dos limites em diferentes grupos sociais.`
       }
     ]
   };
+}
+
+function normalizeQuestionText(text = "") {
+  const normalized = String(text).trim().replace(/[.?!]+$/, "");
+  return normalized ? `${normalized}?` : "";
 }
 
 function buildPostLessonQuiz(lesson, summary = []) {
@@ -289,55 +294,55 @@ function buildPostLessonQuiz(lesson, summary = []) {
 }
 
 function buildLessonSpecificQuizQuestions(lesson = {}, summary = []) {
-  const title = getLessonDisplayTitle(lesson.title || "esta licao");
+  const title = getLessonDisplayTitle(lesson.title || "esta lição");
   const detail = createSentencePreview(lesson.detail || summary[0] || title, 18);
   const firstPoint = createSentencePreview(summary[0] || lesson.detail || title, 16);
   const secondPoint = createSentencePreview(summary[1] || lesson.question || lesson.detail || title, 16);
-  const thirdPoint = createSentencePreview(summary[2] || "comparar vestigios, contexto e consequencias", 16);
+  const thirdPoint = createSentencePreview(summary[2] || "comparar vestígios, contexto e consequências", 16);
 
   return [
     {
-      question: `Qual e a ideia central da licao "${title}"?`,
+      question: `Qual é a ideia central da lição "${title}"?`,
       options: [
         firstPoint,
-        "Foi um acontecimento isolado, sem relacao com o contexto.",
+        "Foi um acontecimento isolado, sem relação com o contexto.",
         "Serve apenas para memorizar uma data, sem interpretar causas.",
-        "Nao deixou pistas que possam ser estudadas historicamente."
+        "Não deixou pistas que possam ser estudadas historicamente."
       ],
       correctIndex: 0,
-      explanation: `A resposta correta retoma diretamente o foco da licao "${title}".`
+      explanation: `A resposta correta retoma diretamente o foco da lição "${title}".`
     },
     {
       question: `Que pista ajuda melhor a explicar "${title}"?`,
       options: [
         secondPoint,
         "Ignorar os grupos humanos envolvidos.",
-        "Separar o acontecimento das suas consequencias.",
-        "Escolher uma resposta que podia servir para qualquer licao."
+        "Separar o acontecimento das suas consequências.",
+        "Escolher uma resposta que podia servir para qualquer lição."
       ],
       correctIndex: 0,
-      explanation: "A melhor pista nasce do conteudo trabalhado nesta licao, nao de outro tema da era."
+      explanation: "A melhor pista nasce do conteúdo trabalhado nesta lição, não de outro tema da era."
     },
     {
       question: `Como devemos estudar historicamente "${title}"?`,
       options: [
-        `Ligando ${thirdPoint.toLowerCase()} ao contexto da licao.`,
-        "Decorando uma frase sem analisar fontes ou consequencias.",
+        `Ligando ${thirdPoint.toLowerCase()} ao contexto da lição.`,
+        "Decorando uma frase sem analisar fontes ou consequências.",
         "Trocando o tema por outro acontecimento da mesma era.",
-        "Assumindo que todos os grupos viveram a mudanca da mesma forma."
+        "Assumindo que todos os grupos viveram a mudança da mesma forma."
       ],
       correctIndex: 0,
-      explanation: `Esta leitura mantem a resposta dentro da licao: ${detail}`
+      explanation: `Esta leitura mantém a resposta dentro da lição: ${detail}`
     }
   ].map(normalizePostLessonQuizQuestion);
 }
 
 function normalizePostLessonQuizQuestion(quiz = {}) {
   return {
-    question: quiz.question || "Que ideia fica desta licao?",
+    question: quiz.question || "Que ideia fica desta lição?",
     options: ensureFourOptions(quiz.options || []),
     correctIndex: Number.isInteger(quiz.correctIndex) ? quiz.correctIndex : Math.min(Math.max(quiz.answer || 0, 0), 3),
-    explanation: quiz.explanation || "Esta resposta enquadra melhor o contexto historico da licao."
+    explanation: quiz.explanation || "Esta resposta enquadra melhor o contexto histórico da lição."
   };
 }
 
@@ -346,7 +351,7 @@ function ensureFourOptions(options = []) {
     "Foi um processo sem contexto.",
     "Aconteceu da mesma forma em todo o lado.",
     "Teve apenas uma causa.",
-    "Deve ser lido com fontes e consequencias."
+    "Deve ser lido com fontes e consequências."
   ];
   const nextOptions = options.slice(0, 4);
   fillers.forEach((filler) => {
@@ -652,9 +657,9 @@ function LessonSummaryScreen(step, lesson, index, total) {
     <article class="post-story-screen lesson-summary-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
-        <span class="post-story-kicker">Resumo da licao</span>
+        <span class="post-story-kicker">Resumo da lição</span>
         <h3>O que aprendeste?</h3>
-        <ul class="post-lesson-summary-list" aria-label="Pontos principais da licao">
+        <ul class="post-lesson-summary-list" aria-label="Pontos principais da lição">
           ${points.map((point, pointIndex) => `
             <li>
               <span aria-hidden="true">${pointIndex + 1}</span>
@@ -691,8 +696,8 @@ function DebateScreen(step, lesson, index, total) {
     <article class="post-story-screen critical-lens debate-screen" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}">
       <span class="post-story-background" aria-hidden="true"></span>
       <div class="post-story-copy">
-        <span class="post-story-kicker">Debate historico</span>
-        <h3>Escolhe uma posicao</h3>
+        <span class="post-story-kicker">Debate histórico</span>
+        <h3>Escolhe uma posição</h3>
         <p>${escapeHtml(step.question)}</p>
       </div>
       <div class="post-lesson-debate-panel">
@@ -733,7 +738,7 @@ function QuizScreen(step, lesson, index, total) {
   const primaryAction = !activeAnswered && !isComplete
     ? `<button type="button" disabled>Responde para continuar</button>`
     : activeAnswered && !isComplete && hasNextQuestion
-      ? `<button type="button" data-lesson-action="quiz-next">Proxima pergunta</button>`
+      ? `<button type="button" data-lesson-action="quiz-next">Próxima pergunta</button>`
       : `<button type="button" data-lesson-action="next" ${isComplete ? "" : "disabled"}>Ver recompensa</button>`;
   return `
     <article class="post-story-screen challenge-screen quiz-screen ${isComplete ? "is-complete" : ""}" data-era="${escapeHtml(lesson.eraKey || "")}" data-section="${escapeHtml(lesson.sectionId || "")}" data-theme="${escapeHtml(lesson.category)}" data-quiz-total="${quiz.length}">
@@ -748,7 +753,7 @@ function QuizScreen(step, lesson, index, total) {
         ${isComplete ? `
           <section class="post-lesson-quiz-result" aria-live="polite">
             <strong>${correctCount}/${quiz.length} respostas corretas</strong>
-            <p>${escapeHtml(correctCount === quiz.length ? "Excelente leitura. A licao ficou bem consolidada." : "Bom trabalho. Reveste as explicacoes e avanca com mais contexto.")}</p>
+            <p>${escapeHtml(correctCount === quiz.length ? "Excelente leitura. A lição ficou bem consolidada." : "Bom trabalho. Revê as explicações e avança com mais contexto.")}</p>
           </section>
         ` : ""}
       </div>
