@@ -530,6 +530,7 @@ function limitWords(text = "", maxWords = 24) {
 
 function addLessonStoryBlockMetadata(blocks, lesson = {}) {
   return blocks.map((block, index) => ({
+    ...block,
     id: block.id || `block-${index + 1}`,
     visualType: block.visualType || storyBlockGenerationDefaults.visualTypes[index % storyBlockGenerationDefaults.visualTypes.length],
     backgroundMood: block.backgroundMood || storyBlockGenerationDefaults.backgroundMoods[index % storyBlockGenerationDefaults.backgroundMoods.length],

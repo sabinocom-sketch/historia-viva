@@ -100,16 +100,14 @@ function renderStoryBlock(block, index, total, lesson = {}) {
   const narrativeTitle = isPrehistory ? getPrehistoryNarrativeTitle(safeBlock, lesson) : "";
   const readingText = safeBlock.text;
   const caveRevealLineCount = getCaveRevealLineCount(readingText);
+  const hasPrehistoryBlockImage = Boolean(safeBlock.image?.desktop || safeBlock.image?.mobile);
   const flintLoading = index === 0 ? "eager" : "lazy";
   const flintFetchPriority = index === 0 ? "high" : "auto";
   return `
-    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}">
+    <article class="story-block ${isPrehistory ? "storyblock-prehistory cave-firelight" : ""}" style="--cave-line-count: ${caveRevealLineCount}" data-story-block="${escapeHtml(safeBlock.id)}" data-story-index="${index % 3}" data-visual="${escapeHtml(safeBlock.visualType)}" data-background="${escapeHtml(safeBlock.backgroundMood)}" data-mood="${escapeHtml(getCurrentLessonMood())}" data-era="${escapeHtml(eraKey)}" data-section="${escapeHtml(sectionId)}" data-prehistory-artifact="${escapeHtml(prehistoryArtifact)}" data-prehistory-block-image="${hasPrehistoryBlockImage ? "true" : "false"}">
       <span class="story-block-background cave-ambient-light" aria-hidden="true"></span>
       <span class="story-block-visual cave-visual-artifact prehistory-artifact" aria-hidden="true">
-        ${prehistoryArtifact === "flint" ? `<picture class="prehistory-flint-picture">
-          <source type="image/png" srcset="assets/silex-mobile.png?v=20260528 512w, assets/silex-desktop.png?v=20260528 1024w" sizes="(max-width: 768px) 70vw, min(34vw, 506px)" />
-          <img class="prehistory-flint-sprite" src="assets/silex-desktop.png?v=20260528" alt="" width="1024" height="1024" loading="${flintLoading}" decoding="async" fetchpriority="${flintFetchPriority}" />
-        </picture>` : ""}
+        ${renderPrehistoryArtifactMedia(safeBlock, prehistoryArtifact, flintLoading, flintFetchPriority)}
       </span>
       <div class="story-block-copy prehistory-stone-panel prehistory-cave-text-area prehistory-narrative-layout cave-pigment-reveal" style="--cave-line-count: ${caveRevealLineCount}">
         ${isPrehistory ? "" : `<span class="prehistory-moment-label">Momento ${index + 1} de ${total}</span>`}
@@ -126,6 +124,36 @@ function renderStoryBlock(block, index, total, lesson = {}) {
       </div>
     </article>
   `;
+}
+
+function renderPrehistoryArtifactMedia(block = {}, artifactType = "", loading = "lazy", fetchPriority = "auto") {
+  const image = block.image || {};
+  const desktopSrc = image.desktop || image.src || "";
+  const mobileSrc = image.mobile || desktopSrc;
+  if (desktopSrc) {
+    const fit = sanitizeCssKeyword(image.fit, ["contain", "cover", "fill", "none", "scale-down"], "contain");
+    const position = sanitizeCssPosition(image.position, "center");
+    return `<picture class="prehistory-block-picture" style="--prehistory-block-fit: ${fit}; --prehistory-block-position: ${position};">
+      ${mobileSrc && mobileSrc !== desktopSrc ? `<source type="image/webp" media="(max-width: 768px)" srcset="${escapeHtml(mobileSrc)}" />` : ""}
+      <img class="prehistory-block-image" src="${escapeHtml(desktopSrc)}" alt="" width="1200" height="900" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}" onerror="this.hidden=true" />
+    </picture>`;
+  }
+
+  if (artifactType !== "flint") return "";
+  return `<picture class="prehistory-flint-picture">
+    <source type="image/png" srcset="assets/silex-mobile.png?v=20260528 512w, assets/silex-desktop.png?v=20260528 1024w" sizes="(max-width: 768px) 70vw, min(34vw, 506px)" />
+    <img class="prehistory-flint-sprite" src="assets/silex-desktop.png?v=20260528" alt="" width="1024" height="1024" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}" />
+  </picture>`;
+}
+
+function sanitizeCssKeyword(value = "", allowed = [], fallback = "") {
+  const normalized = String(value || "").trim().toLowerCase();
+  return allowed.includes(normalized) ? normalized : fallback;
+}
+
+function sanitizeCssPosition(value = "", fallback = "center") {
+  const normalized = String(value || "").trim().toLowerCase();
+  return /^[a-z0-9%.\-\s]+$/.test(normalized) ? normalized : fallback;
 }
 
 function getPrehistoryNarrativeTitle(block = {}, lesson = {}) {

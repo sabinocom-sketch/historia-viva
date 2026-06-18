@@ -35,6 +35,12 @@ export const storyBlockRules = [
         id: "tecnica",
         visualType: "strike",
         backgroundMood: "stone-warm",
+        image: {
+          desktop: "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/blockimages/licao-ferramentas-de-pedra-bloco2.webp",
+          mobile: "https://wvxomznvbebwtxfsvfiv.supabase.co/storage/v1/object/public/Imagens%20App%20Historia/blockimages/licao-ferramentas-de-pedra-bloco2.webp",
+          fit: "contain",
+          position: "center"
+        },
         text: "Talhar pedra exigia atenção. Um aprendiz podia estragar uma peça com um único golpe errado. Um golpe forte demais partia tudo; um golpe fraco não criava fio. Ao lado, alguém mais experiente mostrava o ângulo, o ritmo e a paciência. Milhares de anos depois, as marcas nas pedras ainda revelam esses gestos."
       },
       {
