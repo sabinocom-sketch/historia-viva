@@ -6,18 +6,36 @@ export const storyBlockRules = [
         id: "origem",
         visualType: "spark",
         backgroundMood: "cave-dark",
+        image: {
+          desktop: "assets/licao-descoberta-fogo-bloco1-desktop.png?v=20260619",
+          mobile: "assets/licao-descoberta-fogo-bloco1-mobile.png?v=20260619",
+          fit: "contain",
+          position: "center"
+        },
         text: "Depois de um relâmpago, a paisagem ardia. Alguém podia aproximar-se das brasas com cuidado, sentindo calor, medo e curiosidade ao mesmo tempo. A chama queimava, mas também iluminava e afastava animais. Ossos queimados e cinzas sugerem que o fogo entrou devagar na vida humana. Uma pequena brasa podia mudar uma noite inteira."
       },
       {
         id: "sobrevivencia",
         visualType: "charcoal",
         backgroundMood: "stone-warm",
+        image: {
+          desktop: "assets/licao-descoberta-fogo-bloco2-desktop.png?v=20260619",
+          mobile: "assets/licao-descoberta-fogo-bloco2-mobile.png?v=20260619",
+          fit: "contain",
+          position: "center"
+        },
         text: "Manter a fogueira viva exigia atenção. Um descuido podia apagar a última brasa e deixar o grupo sem calor, luz ou comida cozinhada. Era preciso alimentar o fogo, protegê-lo do vento e aprender quando se podia chegar perto. Os arqueólogos procuram cinzas, ossos queimados e sedimentos aquecidos. Nesses restos frágeis vemos uma técnica feita de cuidado repetido."
       },
       {
         id: "comunidade",
         visualType: "embers",
         backgroundMood: "fire-circle",
+        image: {
+          desktop: "assets/licao-descoberta-fogo-bloco3-desktop.png?v=20260619",
+          mobile: "assets/licao-descoberta-fogo-bloco3-mobile.png?v=20260619",
+          fit: "contain",
+          position: "center"
+        },
         text: "À volta das chamas, rostos antes escondidos ficavam visíveis. Ali podiam cozinhar, aquecer-se, vigiar a noite e contar perigos do dia. O fogo mudou o tempo social: a escuridão já não era apenas ameaça. Hoje dependemos de energia para viver. Aquela fogueira foi uma das primeiras formas humanas de transformar medo em abrigo."
       }
     ]

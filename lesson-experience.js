@@ -134,7 +134,7 @@ function renderPrehistoryArtifactMedia(block = {}, artifactType = "", loading = 
     const fit = sanitizeCssKeyword(image.fit, ["contain", "cover", "fill", "none", "scale-down"], "contain");
     const position = sanitizeCssPosition(image.position, "center");
     return `<picture class="prehistory-block-picture" style="--prehistory-block-fit: ${fit}; --prehistory-block-position: ${position};">
-      ${mobileSrc && mobileSrc !== desktopSrc ? `<source type="image/webp" media="(max-width: 768px)" srcset="${escapeHtml(mobileSrc)}" />` : ""}
+      ${mobileSrc && mobileSrc !== desktopSrc ? `<source media="(max-width: 768px)" srcset="${escapeHtml(mobileSrc)}" />` : ""}
       <img class="prehistory-block-image" src="${escapeHtml(desktopSrc)}" alt="" width="1200" height="900" loading="${loading}" decoding="async" fetchpriority="${fetchPriority}" onerror="this.hidden=true" />
     </picture>`;
   }
