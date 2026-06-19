@@ -44,3 +44,5 @@ assets/licao-descoberta-fogo-bloco<N>-mobile.png
 ```
 
 O `picture` em `lesson-experience.js` seleciona a versao mobile ate 768 px e a versao desktop nos restantes tamanhos. Ao adicionar novos sprites, inclua-os no controlo de versoes, mesmo que a regra geral de `.gitignore` ignore PNGs em `assets/`.
+
+Os sprites de um story block nao usam imagens de reserva no respetivo contentor. Assim, cada ilustracao e mostrada isoladamente e nao recebe, por baixo, o sprite de silex usado na licao de ferramentas de pedra.
