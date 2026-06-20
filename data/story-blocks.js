@@ -48,8 +48,8 @@ export const storyBlockRules = [
         visualType: "stone",
         backgroundMood: "stone-cool",
         image: {
-          desktop: "assets/licao-ferramentas-de-pedra-desktop.png?v=20260620",
-          mobile: "assets/licao-ferramentas-de-pedra-mobile.png?v=20260620",
+          desktop: "assets/silex-desktop.png?v=20260620",
+          mobile: "assets/silex-mobile.png?v=20260620",
           fit: "contain",
           position: "center"
         },

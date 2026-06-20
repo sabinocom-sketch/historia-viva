@@ -1123,6 +1123,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   animation: prehistory-block-image-reveal 960ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
+.storyblock-prehistory[data-prehistory-block-image="true"] .prehistory-artifact::before,
+.storyblock-prehistory[data-prehistory-block-image="true"] .prehistory-artifact::after {
+  content: none;
+  display: none;
+}
+
 .prehistory-block-picture {
   position: relative;
   z-index: 2;
