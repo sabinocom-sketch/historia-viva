@@ -47,6 +47,12 @@ export const storyBlockRules = [
         id: "materia",
         visualType: "stone",
         backgroundMood: "stone-cool",
+        image: {
+          desktop: "assets/licao-ferramentas-de-pedra-desktop.png?v=20260620",
+          mobile: "assets/licao-ferramentas-de-pedra-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Para muitos, era apenas uma pedra no chão. Para um olhar treinado, podia esconder uma lâmina. Quem a escolhia observava peso, forma e como partia. Ferramentas antigas, como as de Lomekwi, mostram técnica muito antes das cidades. Pela primeira vez, uma pedra podia tornar-se muito mais do que uma pedra."
       },
       {
@@ -65,6 +71,12 @@ export const storyBlockRules = [
         id: "poder",
         visualType: "fragment",
         backgroundMood: "cave-dark",
+        image: {
+          desktop: "assets/licao-ferramentas-de-pedra-desktop.png?v=20260620",
+          mobile: "assets/licao-ferramentas-de-pedra-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Com uma pedra afiada, um caçador podia cortar carne, preparar peles e fabricar novos instrumentos. Cada ferramenta aumentava as hipóteses de sobrevivência. A mão ganhava novas capacidades. Dos primeiros golpes numa pedra aos computadores modernos, a ideia continua a mesma: criar ferramentas para ir além dos limites do corpo humano."
       }
     ]
