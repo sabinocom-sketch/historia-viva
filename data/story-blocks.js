@@ -76,18 +76,36 @@ export const storyBlockRules = [
         id: "rastos",
         visualType: "tracks",
         backgroundMood: "earth-path",
+        image: {
+          desktop: "assets/licao-caca-e-pesca-bloco1-desktop.png?v=20260620",
+          mobile: "assets/licao-caca-e-pesca-bloco1-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Antes do amanhecer, alguém seguia pegadas frescas junto ao rio. A lama, o cheiro e o vento eram pistas. Um animal podia estar perto, escondido entre árvores ou pedras. Ossos com marcas de corte indicam caça, aproveitamento de carcaças e partilha. Ler bem o território podia significar regressar com alimento para todos."
       },
       {
         id: "grupo",
         visualType: "spear",
         backgroundMood: "forest-dusk",
+        image: {
+          desktop: "assets/licao-caca-e-pesca-bloco2-desktop.png?v=20260620",
+          mobile: "assets/licao-caca-e-pesca-bloco2-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "A caça podia falhar num segundo. Um ramo partido assustava a presa. Um gesto cedo demais punha todos em risco. Por isso, o grupo movia-se em silêncio, esperando o momento certo. Pontas de pedra, lanças raras e restos de animais sugerem estratégias partilhadas. Sobreviver não era só força; era coordenar confiança."
       },
       {
         id: "territorio",
         visualType: "map",
         backgroundMood: "river-cold",
+        image: {
+          desktop: "assets/licao-caca-e-pesca-bloco3-desktop.png?v=20260620",
+          mobile: "assets/licao-caca-e-pesca-bloco3-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Rios, florestas e costas eram mapas vivos. Ossos de peixe e anzóis de concha sugerem pesca antiga e conhecimento das águas. Quem conhecia estações, correntes e movimentos dos animais tinha mais hipóteses de alimentar o grupo. Hoje usamos dados e previsões para decidir diante da natureza. Eles liam o mundo com os olhos, os pés e a memória."
       }
     ]
