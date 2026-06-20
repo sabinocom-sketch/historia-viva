@@ -72,8 +72,8 @@ export const storyBlockRules = [
         visualType: "fragment",
         backgroundMood: "cave-dark",
         image: {
-          desktop: "assets/licao-ferramentas-de-pedra-desktop.png?v=20260620",
-          mobile: "assets/licao-ferramentas-de-pedra-mobile.png?v=20260620",
+          desktop: "assets/licao-ferramentas-de-pedra-bloco3-desktop.png?v=20260620",
+          mobile: "assets/licao-ferramentas-de-pedra-bloco3-mobile.png?v=20260620",
           fit: "contain",
           position: "center"
         },
