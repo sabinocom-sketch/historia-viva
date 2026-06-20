@@ -117,18 +117,36 @@ export const storyBlockRules = [
         id: "parede",
         visualType: "pigment",
         backgroundMood: "cave-dark",
+        image: {
+          desktop: "assets/licao-arte-rupestre-bloco1-desktop.png?v=20260620",
+          mobile: "assets/licao-arte-rupestre-bloco1-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "A luz tremia na gruta enquanto alguém misturava terra, carvão e gordura. Uma mão encostava-se à rocha. Depois surgiam animais, sinais e marcas de presença. Locais como Chauvet sugerem uma memória visual muito antiga. A parede deixava de ser apenas pedra. Passava a guardar gestos, imagens e talvez histórias partilhadas."
       },
       {
         id: "sinais",
         visualType: "hand",
         backgroundMood: "ochre-glow",
+        image: {
+          desktop: "assets/licao-arte-rupestre-bloco2-desktop.png?v=20260620",
+          mobile: "assets/licao-arte-rupestre-bloco2-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Pintar no fundo de uma gruta não era simples. Era preciso levar luz, pigmentos e coragem para entrar longe do dia. Uma criança podia olhar para os animais pintados e aprender medo, força ou movimento. Mas as imagens também podem sugerir ritual, sonho ou aviso. Sem a voz dos autores, interpretamos sempre com prudência."
       },
       {
         id: "grupo",
         visualType: "symbol",
         backgroundMood: "fire-circle",
+        image: {
+          desktop: "assets/licao-arte-rupestre-bloco3-desktop.png?v=20260620",
+          mobile: "assets/licao-arte-rupestre-bloco3-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Porque entrar fundo numa gruta para pintar? Talvez para ensinar, lembrar, proteger ou unir o grupo. A arte rupestre mostra que aquelas pessoas não viviam apenas para comer e fugir ao perigo. Também criavam sinais. Hoje continuamos a usar imagens para dizer quem somos. Mudaram os ecrãs, não a necessidade humana de contar."
       }
     ]
@@ -140,18 +158,36 @@ export const storyBlockRules = [
         id: "perda",
         visualType: "bone",
         backgroundMood: "quiet-earth",
+        image: {
+          desktop: "assets/licao-ritos-funerarios-bloco1-desktop.png?v=20260620",
+          mobile: "assets/licao-ritos-funerarios-bloco1-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Quando alguém morria, o grupo podia parar a marcha e escolher um lugar na terra. O corpo não era deixado ao acaso. Em algumas sepulturas, vestígios de ocre, adornos e objetos sugerem cuidado. Não sabemos tudo o que pensavam sobre a morte. Mas o gesto mostra que aquela pessoa continuava a importar."
       },
       {
         id: "memoria",
         visualType: "offering",
         backgroundMood: "stone-cool",
+        image: {
+          desktop: "assets/licao-ritos-funerarios-bloco2-desktop.png?v=20260620",
+          mobile: "assets/licao-ritos-funerarios-bloco2-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "Uma sepultura antiga pode parecer silenciosa, mas está cheia de perguntas. Porque foi escolhido aquele lugar? Porque ficou ali uma ferramenta, um adorno ou pigmento vermelho? Um objeto pode sugerir crença, afeto ou estatuto, mas nunca fala sozinho. Os arqueólogos comparam sinais e contexto. A prudência é parte do rigor."
       },
       {
         id: "mistério",
         visualType: "circle",
         backgroundMood: "cave-dark",
+        image: {
+          desktop: "assets/licao-ritos-funerarios-bloco3-desktop.png?v=20260620",
+          mobile: "assets/licao-ritos-funerarios-bloco3-mobile.png?v=20260620",
+          fit: "contain",
+          position: "center"
+        },
         text: "A morte fazia perguntas que nenhuma ferramenta resolvia. O que acontecia a quem partia? Como lembrar essa pessoa? As sepulturas não provam religião organizada, mas indicam significado social. Hoje também usamos rituais para atravessar a perda. Milhares de anos depois, continuamos a proteger a memória de quem desaparece do nosso lado."
       }
     ]
