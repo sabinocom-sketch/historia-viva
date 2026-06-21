@@ -130,8 +130,8 @@ export const storyBlockRules = [
         visualType: "tracks",
         backgroundMood: "earth-path",
         image: {
-          desktop: "assets/licao-domesticacao-animais-bloco1-desktop.png?v=20260621-transparent",
-          mobile: "assets/licao-domesticacao-animais-bloco1-mobile.png?v=20260621-transparent",
+          desktop: "assets/licao-domesticacao-animais-bloco1-desktop.png?v=20260621-normalized",
+          mobile: "assets/licao-domesticacao-animais-bloco1-mobile.png?v=20260621-normalized",
           fit: "contain",
           position: "center"
         },
@@ -142,8 +142,8 @@ export const storyBlockRules = [
         visualType: "shelter",
         backgroundMood: "stone-warm",
         image: {
-          desktop: "assets/licao-domesticacao-animais-bloco2-desktop.png?v=20260621-transparent",
-          mobile: "assets/licao-domesticacao-animais-bloco2-mobile.png?v=20260621-transparent",
+          desktop: "assets/licao-domesticacao-animais-bloco2-desktop.png?v=20260621-normalized",
+          mobile: "assets/licao-domesticacao-animais-bloco2-mobile.png?v=20260621-normalized",
           fit: "contain",
           position: "center"
         },
@@ -154,8 +154,8 @@ export const storyBlockRules = [
         visualType: "map",
         backgroundMood: "fire-circle",
         image: {
-          desktop: "assets/licao-domesticacao-animais-bloco3-desktop.png?v=20260621-transparent",
-          mobile: "assets/licao-domesticacao-animais-bloco3-mobile.png?v=20260621-transparent",
+          desktop: "assets/licao-domesticacao-animais-bloco3-desktop.png?v=20260621-normalized",
+          mobile: "assets/licao-domesticacao-animais-bloco3-mobile.png?v=20260621-normalized",
           fit: "contain",
           position: "center"
         },
