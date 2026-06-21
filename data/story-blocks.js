@@ -123,6 +123,47 @@ export const storyBlockRules = [
     ]
   },
   {
+    match: ["domesticação de animais", "domesticacao de animais", "animais domesticados"],
+    blocks: [
+      {
+        id: "aproximacao",
+        visualType: "tracks",
+        backgroundMood: "earth-path",
+        image: {
+          desktop: "assets/licao-domesticacao-animais-bloco1-desktop.png?v=20260621",
+          mobile: "assets/licao-domesticacao-animais-bloco1-mobile.png?v=20260621",
+          fit: "contain",
+          position: "center"
+        },
+        text: "Durante muitas gerações, humanos e animais observaram-se à distância. Alguns grupos passaram a acompanhar manadas, reconhecer percursos e deixar restos de alimento perto dos acampamentos. A aproximação não aconteceu de um dia para o outro: foi uma relação construída com tempo, repetição e confiança. Vestígios de ossos e dentes ajudam os arqueólogos a seguir esse encontro antigo."
+      },
+      {
+        id: "cuidado",
+        visualType: "shelter",
+        backgroundMood: "stone-warm",
+        image: {
+          desktop: "assets/licao-domesticacao-animais-bloco2-desktop.png?v=20260621",
+          mobile: "assets/licao-domesticacao-animais-bloco2-mobile.png?v=20260621",
+          fit: "contain",
+          position: "center"
+        },
+        text: "Cuidar de um animal exigia comida, abrigo e atenção aos seus ritmos. Em troca, cães podiam alertar para perigos; outros animais davam alimento, pele, força ou companhia. Esta relação mudou a rotina das comunidades e também a vida dos próprios animais. Domesticar não era apenas possuir: era reorganizar o trabalho e o espaço de todos os dias."
+      },
+      {
+        id: "mudanca",
+        visualType: "map",
+        backgroundMood: "fire-circle",
+        image: {
+          desktop: "assets/licao-domesticacao-animais-bloco3-desktop.png?v=20260621",
+          mobile: "assets/licao-domesticacao-animais-bloco3-mobile.png?v=20260621",
+          fit: "contain",
+          position: "center"
+        },
+        text: "Com animais domesticados, mudaram as formas de viajar, produzir alimento e proteger um acampamento. Mas também surgiram novas dependências, doenças e impactos no ambiente. A domesticação mostra que a História não é feita apenas por invenções isoladas: nasce de relações duradouras entre pessoas, outros seres vivos e os lugares que partilham."
+      }
+    ]
+  },
+  {
     match: ["arte rupestre", "arte"],
     blocks: [
       {
