@@ -1762,6 +1762,13 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 }
 
 @media (min-width: 769px) {
+  .story-block[data-era="pre-historia"] .prehistory-narrative-title,
+  .story-block[data-section="paleolitico"] .prehistory-narrative-title,
+  .story-block[data-section="mesolitico"] .prehistory-narrative-title,
+  .story-block[data-section="revolucao-neolitica"] .prehistory-narrative-title {
+    transform: translateX(-50px);
+  }
+
   .storyblock-prehistory[data-prehistory-block-image="true"] .prehistory-artifact {
     width: clamp(270.75px, 27.075vw, 451.25px);
     transform: translate3d(calc(var(--prehistory-artifact-offset-x) + 127px), calc(var(--prehistory-artifact-offset-y) + 24px), 0) scale(1.02);
