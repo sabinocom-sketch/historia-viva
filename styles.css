@@ -7138,6 +7138,27 @@ body[data-view="lesson"] .lesson-mode-panel p {
     --lesson-desktop-progress-width: min(520px, calc(100vw - 32px - var(--safe-left) - var(--safe-right)));
   }
 
+  .storyblock-prehistory {
+    --lesson-desktop-title-width: 480px;
+    --lesson-desktop-title-size: 3.96rem;
+    --lesson-desktop-title-offset-x: -50px;
+    --lesson-desktop-text-width: 480px;
+    --lesson-desktop-text-size: 1.42rem;
+    --lesson-desktop-text-offset-x: 70px;
+  }
+
+  .storyblock-prehistory .prehistory-narrative-title {
+    width: var(--lesson-desktop-title-width);
+    font-size: var(--lesson-desktop-title-size);
+    transform: translateX(var(--lesson-desktop-title-offset-x));
+  }
+
+  .storyblock-prehistory .cave-paint-text {
+    width: var(--lesson-desktop-text-width);
+    font-size: var(--lesson-desktop-text-size);
+    transform: translateX(var(--lesson-desktop-text-offset-x));
+  }
+
   .storyblock-prehistory .prehistory-actions,
   .post-story-screen .post-story-actions {
     position: fixed;
