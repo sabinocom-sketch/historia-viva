@@ -5167,6 +5167,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
 
 @media (min-width: 769px) {
   .storyblock-prehistory[data-prehistory-block-image="true"] .prehistory-artifact {
+    width: clamp(285px, 28.5vw, 475px);
     transform: translate3d(calc(var(--prehistory-artifact-offset-x) + 92px), calc(var(--prehistory-artifact-offset-y) + 4px), 0) scale(1.02);
   }
 
@@ -5178,7 +5179,7 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   }
 
   .storyblock-prehistory .prehistory-actions {
-    transform: translate(175px, 130px);
+    transform: translate(190px, 130px);
   }
 }
 
