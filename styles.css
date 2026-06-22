@@ -7128,6 +7128,36 @@ body[data-view="lesson"] .lesson-mode-panel p {
   padding-left: 10px;
 }
 
+@media (min-width: 769px) {
+  .storyblock-prehistory,
+  .post-story-screen {
+    --lesson-desktop-actions-left: calc(min(59vw, calc(100vw - 470px)) - 80px);
+    --lesson-desktop-actions-bottom: calc(clamp(64px, 8vh, 96px) + 30px);
+    --lesson-desktop-actions-transform: translate(230px, 130px);
+    --lesson-desktop-progress-top: calc(16px + var(--safe-top));
+    --lesson-desktop-progress-width: min(520px, calc(100vw - 32px - var(--safe-left) - var(--safe-right)));
+  }
+
+  .storyblock-prehistory .prehistory-actions,
+  .post-story-screen .post-story-actions {
+    position: fixed;
+    right: auto;
+    bottom: calc(var(--lesson-desktop-actions-bottom) + var(--safe-bottom));
+    left: calc(var(--lesson-desktop-actions-left) + var(--safe-left));
+    width: fit-content;
+    justify-content: start;
+    transform: var(--lesson-desktop-actions-transform);
+  }
+
+  .storyblock-prehistory .lesson-next-progress.prehistory-progress,
+  .post-story-screen .lesson-next-progress.post-story-progress {
+    top: var(--lesson-desktop-progress-top);
+    left: 50%;
+    width: var(--lesson-desktop-progress-width);
+    transform: translateX(-50%);
+  }
+}
+
 .category-section {
   padding: 18px;
   border: 1px solid var(--line);
