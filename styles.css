@@ -5183,6 +5183,12 @@ body[data-view="lesson"] .lesson-view[data-section="revolucao-neolitica"] .story
   .story-block[data-section="mesolitico"] .cave-paint-text,
   .story-block[data-section="revolucao-neolitica"] .cave-paint-text {
     transform: translateX(70px);
+    font-weight: 525;
+  }
+
+  .storyblock-prehistory .story-progress-segment {
+    width: 59.4px;
+    height: 7.7px;
   }
 
   .storyblock-prehistory .prehistory-actions {
