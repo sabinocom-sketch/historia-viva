@@ -3741,6 +3741,9 @@ body[data-view="lesson"] .lesson-mode-panel p {
     --lesson-desktop-text-width: 480px;
     --lesson-desktop-text-size: 1.42rem;
     --lesson-desktop-text-offset-x: 70px;
+    --lesson-desktop-image-width: 270.75px;
+    --lesson-desktop-image-offset-x: 127px;
+    --lesson-desktop-image-offset-y: 24px;
   }
 
   .storyblock-prehistory .prehistory-narrative-title {
@@ -3753,6 +3756,15 @@ body[data-view="lesson"] .lesson-mode-panel p {
     width: var(--lesson-desktop-text-width);
     font-size: var(--lesson-desktop-text-size);
     transform: translateX(var(--lesson-desktop-text-offset-x));
+  }
+
+  .storyblock-prehistory[data-prehistory-block-image="true"] .prehistory-artifact {
+    width: var(--lesson-desktop-image-width);
+    transform: translate3d(
+      calc(var(--prehistory-artifact-offset-x) + var(--lesson-desktop-image-offset-x)),
+      calc(var(--prehistory-artifact-offset-y) + var(--lesson-desktop-image-offset-y)),
+      0
+    ) scale(1.02);
   }
 
   .storyblock-prehistory .prehistory-actions,
