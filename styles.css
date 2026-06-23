@@ -1522,7 +1522,7 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .era-portal-screen[data-era-world="prehistoria"] {
-  --era-portal-image: var(--asset-background-prehistoria-era);
+  --era-portal-image: var(--asset-pre-historia);
 }
 
 .era-portal-screen[data-era-world="antiga"] {

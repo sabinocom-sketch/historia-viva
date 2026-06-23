@@ -39,6 +39,10 @@ O percurso **Antigo Egipto**, dentro de **Civilizacoes Antigas**, apresenta nove
 
 O conteudo vive em `data/eras/antiga.js`. Cada licao inclui contexto historico, categorias para a experiencia narrativa, e o percurso recebe ainda fontes, conceitos, perguntas de reflexao e quizzes de consolidacao.
 
+## Imagens dos portais de era
+
+As imagens dos portais de era sao definidas em `styles/03-cinematic-routes.css` e compiladas em `styles.css`. Sempre que uma era tambem aparece na timeline, o portal deve reutilizar o respetivo asset canonico da timeline. Na Pre-Historia, este asset e `--asset-pre-historia`; assim evita-se apresentar o fundo alternativo `background-prehistoria-era-*` no ecran do portal.
+
 ## Imagens dos story blocks
 
 As regras narrativas vivem em `data/story-blocks.js`. Um bloco pode definir uma imagem responsiva desta forma:
