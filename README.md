@@ -23,6 +23,22 @@ npm run screenshot:lesson
 
 `build:js` gera os ficheiros do browser em `bundle.js` e `chunks/`. As capturas de verificacao da licao sao guardadas em `screenshots/lesson-flow/`.
 
+## Percurso: Antigo Egipto
+
+O percurso **Antigo Egipto**, dentro de **Civilizacoes Antigas**, apresenta nove licoes cronologicas:
+
+- Origens do Antigo Egipto
+- O Nilo
+- Os faraos
+- As piramides e a arquitectura egipcia
+- A religiao egipcia
+- O quotidiano
+- A casa egipcia
+- Invasoes assirias, persas e helenicas
+- O fim do Antigo Egipto
+
+O conteudo vive em `data/eras/antiga.js`. Cada licao inclui contexto historico, categorias para a experiencia narrativa, e o percurso recebe ainda fontes, conceitos, perguntas de reflexao e quizzes de consolidacao.
+
 ## Imagens dos story blocks
 
 As regras narrativas vivem em `data/story-blocks.js`. Um bloco pode definir uma imagem responsiva desta forma:

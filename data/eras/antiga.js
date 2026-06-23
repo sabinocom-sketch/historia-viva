@@ -132,6 +132,61 @@ const era = {
     ]
   };
 
+const egyptPremiumContent = {
+  timeline: [
+    ["c. 6000-3100 a.C.", "Origens do Antigo Egipto: comunidades agrícolas aproximam-se do Nilo e formam reinos.", "política", "O cultivo, a criação de animais, as trocas e o controlo da água favoreceram aldeias cada vez mais complexas. No final do período pré-dinástico, o Alto e o Baixo Egipto foram unificados: não foi um nascimento súbito, mas o resultado de alianças, conflitos e administração crescente."],
+    ["c. 3100 a.C.", "O Nilo: o rio que organizava a vida egípcia.", "ciência", "A cheia anual depositava lodo fértil nas margens e tornava possível a agricultura num território maioritariamente desértico. O Nilo era também estrada, fonte de alimento e referência para o calendário; por isso, gerir terras, canais e colheitas era uma questão de sobrevivência e de poder."],
+    ["c. 3100-30 a.C.", "Os faraós: governar em nome da ordem e dos deuses.", "política", "O faraó concentrava autoridade militar, religiosa e administrativa, mas não governava sozinho. Escribas, sacerdotes, oficiais e chefes locais cobravam impostos, registavam recursos e aplicavam decisões. A imagem de poder divino legitimava o governo, embora crises e disputas dinásticas mostrassem os seus limites."],
+    ["c. 2686-2181 a.C.", "As pirâmides e a arquitectura egípcia: construir para a eternidade e para o poder.", "cultura", "Pirâmides, templos, túmulos escavados e monumentos alinhavam técnica, religião e propaganda régia. A construção mobilizava trabalhadores especializados, camponeses em períodos de menor trabalho agrícola, pedra, alimentos e uma administração muito organizada. Não foram simplesmente obra de escravizados."],
+    ["c. 2600 a.C.-séc. IV", "A religião egípcia: deuses, rituais e a esperança de continuar a viver após a morte.", "religião", "Os egípcios cultuavam muitas divindades ligadas à natureza, às cidades e à realeza. A ideia de maat — ordem, justiça e equilíbrio — unia o mundo dos deuses ao dever de governar bem. Túmulos, oferendas e textos funerários revelam a importância da vida após a morte, mas variavam conforme a época e os recursos de cada pessoa."],
+    ["c. 2000-1000 a.C.", "O quotidiano no Antigo Egipto: trabalho, alimento e desigualdades.", "cultura", "A maioria da população trabalhava nos campos, na pesca, em oficinas ou em serviços domésticos. Pão e cerveja eram alimentos básicos, e a vida seguia o ritmo do rio e das estações agrícolas. Mulheres podiam possuir bens e celebrar contratos em certas situações, mas a sociedade mantinha fortes diferenças de riqueza, estatuto e trabalho."],
+    ["c. 2000-1000 a.C.", "A casa egípcia: viver entre o calor, a família e o trabalho.", "cultura", "Muitas casas eram feitas de tijolos de barro seco, com poucos vãos para reduzir o calor e espaços de armazenamento, cozinha e convívio. As habitações das elites podiam ser maiores e ter jardins; as mais modestas eram compactas. Restos arqueológicos e pinturas ajudam-nos a reconstruir o dia a dia, mas raramente preservam a voz direta das pessoas comuns."],
+    ["671-332 a.C.", "Invasões assírias, persas e helénicas: o Egipto entre impérios.", "guerra", "Em 671 a.C., os assírios conquistaram o Egipto por um período curto. Em 525 a.C., Cambises II incorporou-o no Império Persa; depois de fases de autonomia, Alexandre Magno entrou no país em 332 a.C. Estas conquistas não apagaram a cultura egípcia: criaram administrações e elites novas, ao lado de tradições locais persistentes."],
+    ["30 a.C.", "O fim do Antigo Egipto: de reino independente a província romana.", "política", "Depois da conquista de Alexandre, a dinastia ptolemaica governou o Egipto durante quase três séculos. A derrota de Cleópatra VII e Marco António perante Otaviano, em 31 a.C., abriu caminho à anexação romana em 30 a.C. O reino faraónico independente terminou, mas a língua, a religião e as práticas egípcias continuaram vivas durante séculos." ]
+  ],
+  quiz: [
+    { type: "causas_consequências", difficulty: "média", question: "Porque era o Nilo essencial para o Antigo Egipto?", options: ["As cheias fertilizavam os campos e o rio facilitava transporte e comunicações", "Impediam toda a agricultura", "Era apenas uma fronteira militar"], answer: 0, explanation: "As cheias traziam lodo fértil e o rio unia regiões, pessoas, produtos e decisões administrativas." },
+    { type: "escolha_múltipla", difficulty: "média", question: "Qual descrição dos faraós é mais rigorosa?", options: ["Eram governantes com autoridade religiosa, militar e administrativa, apoiados por muitos funcionários", "Governavam sem administração nem impostos", "Eram apenas sacerdotes sem poder político"], answer: 0, explanation: "A autoridade faraónica dependia de redes de escribas, sacerdotes, oficiais e comunidades locais." },
+    { type: "verdadeiro_falso", difficulty: "média", question: "Verdadeiro ou falso: as pirâmides foram construídas exclusivamente por pessoas escravizadas.", options: ["Verdadeiro", "Falso"], answer: 1, explanation: "A evidência aponta para equipas organizadas de trabalhadores, incluindo especialistas e população mobilizada em épocas específicas." },
+    { type: "cronológica", difficulty: "difícil", question: "Qual é a ordem cronológica correta destas conquistas do Egipto?", options: ["Assíria > Persa > Alexandre Magno > Roma", "Roma > Persa > Assíria > Alexandre Magno", "Alexandre Magno > Assíria > Roma > Persa"], answer: 0, explanation: "Os assírios chegaram em 671 a.C., os persas em 525 a.C., Alexandre em 332 a.C. e Roma anexou o Egipto em 30 a.C." }
+  ],
+  source: [
+    {
+      text: "A cheia do rio cobre os campos; quando a água recua, a terra escura recebe sementes.",
+      origin: "Síntese baseada em fontes egípcias e evidência arqueológica sobre o ciclo do Nilo.",
+      purpose: "Ajuda a relacionar ambiente, agricultura, calendário e organização política.",
+      limits: "As cheias variavam e esta síntese não mostra, por si só, a experiência de todos os grupos sociais."
+    },
+    {
+      text: "O faraó preserva a maat, oferece aos deuses e protege a terra do caos.",
+      origin: "Síntese inspirada em inscrições reais egípcias.",
+      purpose: "Permite estudar como religião e propaganda legitimavam a autoridade faraónica.",
+      limits: "É uma visão oficial; não revela diretamente críticas, conflitos ou a vida dos trabalhadores."
+    }
+  ],
+  concepts: [
+    ["Alto e Baixo Egipto", "As duas grandes regiões do vale do Nilo que foram unificadas no início da história dinástica."],
+    ["Faraó", "Título moderno para o governante egípcio, associado a autoridade política, religiosa e militar."],
+    ["Maat", "Princípio egípcio de ordem, justiça e equilíbrio que devia orientar o cosmos e o governo."],
+    ["Hieróglifos", "Sistema de escrita egípcio usado em monumentos e textos religiosos, ao lado de escritas administrativas mais rápidas."],
+    ["Mumificação", "Conjunto de práticas funerárias destinado a preservar o corpo para a vida após a morte."],
+    ["Período Ptolemaico", "Época iniciada após Alexandre Magno, quando uma dinastia de origem macedónica governou o Egipto." ]
+  ],
+  prompts: [
+    "Explica como o Nilo ligava ambiente, economia e poder no Antigo Egipto.",
+    "Porque é impreciso imaginar o faraó como alguém que governava sozinho?",
+    "Como é que pirâmides e templos funcionavam também como mensagens políticas?",
+    "Compara a vida numa casa modesta com a vida numa residência de elite no Antigo Egipto.",
+    "As invasões estrangeiras acabaram com a cultura egípcia? Fundamenta a resposta.",
+    "Que limites têm as fontes oficiais para conhecermos o quotidiano de camponeses e trabalhadores?"
+  ],
+  curiosities: [
+    "Os tijolos de barro seco ao sol eram um material comum nas casas egípcias, mas conservam-se pior do que a pedra dos templos e túmulos.",
+    "A palavra ‘faraó’ vem da expressão egípcia para ‘grande casa’, ligada inicialmente ao palácio real.",
+    "Cleópatra VII viveu mais perto no tempo da construção do iPhone do que da construção das grandes pirâmides de Gizé."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -266,10 +321,20 @@ const romanPremiumContent = {
   ]
 };
 
+function applyEgyptPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...egyptPremiumContent.timeline];
+  ancient.quiz = [...ancient.quiz, ...egyptPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...egyptPremiumContent.source];
+  ancient.concepts = [...ancient.concepts, ...egyptPremiumContent.concepts];
+  ancient.prompts = [...ancient.prompts, ...egyptPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...egyptPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
-  ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, com Roma como laboratório central de cidadania, guerra, urbanismo, propaganda e transformação imperial.";
-  ancient.stats = ["30 eventos", "10 fontes", "30 quizzes"];
+  ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
+  ancient.stats = ["45 eventos", "12 fontes", "19 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -280,6 +345,7 @@ function applyRomanPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...romanPremiumContent.curiosities];
 }
 
+applyEgyptPremiumContent();
 applyRomanPremiumContent();
 
 export default era;
