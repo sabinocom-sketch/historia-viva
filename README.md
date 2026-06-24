@@ -39,6 +39,20 @@ O percurso **Antigo Egipto**, dentro de **Civilizacoes Antigas**, apresenta nove
 
 O conteudo vive em `data/eras/antiga.js`. Cada licao inclui contexto historico, categorias para a experiencia narrativa, e o percurso recebe ainda fontes, conceitos, perguntas de reflexao e quizzes de consolidacao.
 
+## Percurso: Suméria
+
+O percurso **Suméria**, dentro de **Civilizações Antigas**, apresenta sete lições cronológicas:
+
+- Origens entre os rios Tigre e Eufrates
+- Primeiras cidades: Uruk, Ur e Lagash
+- Escrita cuneiforme
+- Quotidiano sumério
+- Religião suméria
+- Zigurates
+- Sociedade suméria
+
+Tal como os restantes percursos, o conteúdo está em `data/eras/antiga.js`. As lições são acompanhadas por fontes comentadas, conceitos, perguntas de reflexão, curiosidades e cinco quizzes de consolidação.
+
 ## Imagens dos portais de era
 
 As imagens dos portais de era sao definidas em `styles/03-cinematic-routes.css` e compiladas em `styles.css`. Sempre que uma era tambem aparece na timeline, o portal deve reutilizar o respetivo asset canonico da timeline. Na Pre-Historia, este asset e `--asset-pre-historia`; assim evita-se apresentar o fundo alternativo `background-prehistoria-era-*` no ecran do portal.

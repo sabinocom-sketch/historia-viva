@@ -187,6 +187,61 @@ const egyptPremiumContent = {
   ]
 };
 
+const sumerianPremiumContent = {
+  timeline: [
+    ["c. 6500-3500 a.C.", "A Suméria: origens entre os rios Tigre e Eufrates.", "política", "No sul da Mesopotâmia, comunidades agrícolas instalaram-se numa planície fértil, mas exposta a cheias irregulares e à seca. Canais, diques e trabalho coletivo permitiram cultivar cereais e criar animais. A Suméria não nasceu de um único povo ou dia: foi o resultado gradual de aldeias, migrações, trocas e novas formas de organizar recursos."],
+    ["c. 4000-3000 a.C.", "As primeiras cidades: Uruk, Ur e Lagash.", "política", "Algumas aldeias cresceram até se tornarem cidades-Estado, cada uma com os seus campos, canais, divindade protetora e governo. Uruk foi uma das maiores, com bairros, oficinas e grandes edifícios de templo. Estas cidades cooperavam no comércio, mas também disputavam água, terras e rotas, por isso a Mesopotâmia não era um reino unificado."],
+    ["c. 3400-3000 a.C.", "A escrita cuneiforme: quando a argila começou a guardar memória.", "cultura", "A escrita começou sobretudo para registar cereais, animais, trabalhadores e entregas aos templos. Os escribas pressionavam uma cana em tabuinhas de argila húmida, formando sinais em cunha: daí o nome cuneiforme. Com o tempo, a escrita serviu também para cartas, leis, hinos, histórias e contas, mas poucos sabiam ler e escrever."],
+    ["c. 3000-2000 a.C.", "O quotidiano sumério: campos, oficinas, mercados e casas de barro.", "cultura", "A maior parte da população cultivava cevada, tâmaras e legumes, ou criava ovelhas e cabras. Trabalhava-se também na cerâmica, na tecelagem e no metal; mercadores traziam madeira, pedra e metais, escassos na planície. As casas eram habitualmente de tijolo de barro e organizavam-se em torno de um pátio. A vida diária dependia das estações, dos canais e do estatuto social."],
+    ["c. 3000-2000 a.C.", "A religião suméria: deuses, cidades e rituais.", "religião", "Os sumérios cultuavam muitas divindades ligadas ao céu, à fertilidade, às tempestades e a cada cidade. Inanna, Enlil e Enki figuravam entre as mais importantes. Imaginava-se que os deuses sustentavam a ordem do mundo e que os seres humanos lhes deviam alimento, trabalho e culto. Sacerdotes e governantes usavam os rituais para reforçar a autoridade, mas as crenças variavam entre cidades e épocas."],
+    ["c. 3000-2000 a.C.", "Os zigurates: escadas monumentais entre a cidade e o sagrado.", "religião", "Um zigurate era uma torre em terraços, construída com tijolos de barro, que elevava o recinto do templo acima da cidade. Não era simplesmente uma pirâmide: fazia parte de um complexo religioso, administrativo e económico, onde se guardavam produtos, se organizava trabalho e se realizavam cerimónias. A sua imponência tornava visível a ligação entre divindade, riqueza e poder urbano."],
+    ["c. 3000-2000 a.C.", "A sociedade suméria: poder, trabalho e desigualdade.", "política", "Reis e governantes locais, sacerdotes e grandes administradores ocupavam posições de prestígio. Escribas, mercadores, artesãos, camponeses e trabalhadores dependentes tinham papéis distintos, enquanto pessoas escravizadas podiam resultar de guerras, dívidas ou nascimento. As categorias não eram imóveis e há documentos que mostram mulheres a possuir bens ou trabalhar em instituições, mas a riqueza e o poder estavam distribuídos de forma muito desigual." ]
+  ],
+  quiz: [
+    { type: "causas_consequências", difficulty: "média", question: "Porque exigia a agricultura suméria cooperação entre muitas pessoas?", options: ["Porque era necessário construir e manter canais, diques e sistemas de irrigação", "Porque chovia regularmente todo o ano", "Porque a agricultura dispensava trabalho"], answer: 0, explanation: "As águas dos rios podiam fertilizar os campos, mas também causar cheias; gerir os canais era essencial para produzir alimentos." },
+    { type: "escolha_múltipla", difficulty: "média", question: "O que distingue uma cidade-Estado suméria de um império unificado?", options: ["Cada cidade tinha governo, território e divindade protetora próprios", "Todas obedeciam sempre ao mesmo rei", "Não existiam campos fora das cidades"], answer: 0, explanation: "Uruk, Ur e Lagash eram centros políticos autónomos, embora ligados por comércio, guerra e cultura." },
+    { type: "escolha_múltipla", difficulty: "média", question: "Para que serviram os primeiros registos em escrita cuneiforme?", options: ["Para administrar produtos, trabalho e entregas", "Para imprimir livros", "Para criar mapas digitais"], answer: 0, explanation: "As tabuinhas mais antigas estão ligadas à contabilidade de cereais, animais, bens e pessoas." },
+    { type: "verdadeiro_falso", difficulty: "média", question: "Verdadeiro ou falso: um zigurate era apenas um túmulo real.", options: ["Verdadeiro", "Falso"], answer: 1, explanation: "Era parte de um recinto de templo e de administração, associado ao culto da divindade da cidade." },
+    { type: "causas_consequências", difficulty: "difícil", question: "Como é que os templos podiam reforçar o poder numa cidade suméria?", options: ["Controlavam rituais e concentravam produtos, trabalho e registos", "Impediam qualquer comércio", "Eliminavam diferenças sociais"], answer: 0, explanation: "A atividade religiosa, económica e administrativa cruzava-se nos complexos de templo." }
+  ],
+  source: [
+    {
+      text: "Entrega de cevada: registam-se quantidades, trabalhadores e destinos numa tabuinha de argila.",
+      origin: "Síntese baseada em tabuinhas administrativas sumérias do fim do IV e III milénios a.C.",
+      purpose: "Permite compreender que a escrita nasceu ligada à administração de bens, pessoas e trabalho.",
+      limits: "Os registos preservam sobretudo a visão das instituições, não a voz direta de quem trabalhava nos campos."
+    },
+    {
+      text: "O governante construiu o templo do deus da cidade e apresentou a obra como sinal de ordem e prosperidade.",
+      origin: "Síntese inspirada em inscrições reais mesopotâmicas.",
+      purpose: "Ajuda a relacionar construção, religião, autoridade política e propaganda.",
+      limits: "É uma representação oficial; não mostra todos os custos do trabalho nem possíveis conflitos sociais."
+    }
+  ],
+  concepts: [
+    ["Mesopotâmia", "Região entre os rios Tigre e Eufrates, onde se desenvolveram várias sociedades urbanas antigas."],
+    ["Cidade-Estado", "Cidade politicamente autónoma, com território rural, instituições próprias e, muitas vezes, uma divindade protetora."],
+    ["Irrigação", "Condução controlada de água por canais para tornar possível a agricultura em zonas secas."],
+    ["Escrita cuneiforme", "Sistema de sinais em forma de cunha, impressos em tabuinhas de argila com uma cana."],
+    ["Zigurate", "Torre em terraços ligada ao recinto religioso e administrativo de uma cidade mesopotâmica."],
+    ["Escriba", "Pessoa treinada para escrever e administrar documentos, uma competência rara e valorizada." ]
+  ],
+  prompts: [
+    "Explica como a irrigação ajudou a criar cidades na Suméria, mas também novas formas de poder.",
+    "Porque é mais rigoroso falar em cidades-Estado sumérias do que num único reino da Suméria?",
+    "Como é que a escrita cuneiforme transformou a memória e a administração?",
+    "Reconstrói um dia na vida de uma família suméria, distinguindo o que sabemos do que apenas inferimos.",
+    "De que forma um zigurate comunicava poder religioso, económico e político?",
+    "Que limites têm as tabuinhas administrativas para conhecermos trabalhadores, mulheres e pessoas escravizadas?"
+  ],
+  curiosities: [
+    "A argila era tão abundante na Mesopotâmia que servia para casas, tabuinhas de escrita, recipientes e grandes construções.",
+    "Muitas tabuinhas cuneiformes sobreviveram porque a argila seca ou cozida resiste muito melhor do que papiro ou madeira.",
+    "A cevada era um alimento central e também podia ser usada como unidade de cálculo em pagamentos e rações.",
+    "Os zigurates eram feitos sobretudo de tijolo de barro; por isso, a chuva e o tempo obrigavam a reparações constantes."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -331,10 +386,20 @@ function applyEgyptPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...egyptPremiumContent.curiosities];
 }
 
+function applySumerianPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...sumerianPremiumContent.timeline];
+  ancient.quiz = [...ancient.quiz, ...sumerianPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...sumerianPremiumContent.source];
+  ancient.concepts = [...ancient.concepts, ...sumerianPremiumContent.concepts];
+  ancient.prompts = [...ancient.prompts, ...sumerianPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...sumerianPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["45 eventos", "12 fontes", "19 quizzes"];
+  ancient.stats = ["52 eventos", "14 fontes", "24 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -346,6 +411,7 @@ function applyRomanPremiumContent() {
 }
 
 applyEgyptPremiumContent();
+applySumerianPremiumContent();
 applyRomanPremiumContent();
 
 export default era;
