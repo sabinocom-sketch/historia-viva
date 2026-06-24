@@ -1526,11 +1526,11 @@ body[data-view="lesson"] .categories-panel {
 }
 
 .era-portal-screen[data-era-world="antiga"] {
-  --era-portal-image: var(--asset-background-antiguidade-era);
+  --era-portal-image: var(--asset-idade-antiga);
 }
 
 .era-portal-screen[data-era-world="medieval"] {
-  --era-portal-image: var(--asset-background-idade-media-era);
+  --era-portal-image: var(--asset-idade-media);
 }
 
 .era-portal-screen[data-era-world="moderna"] {
