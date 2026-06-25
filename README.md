@@ -53,6 +53,20 @@ O percurso **Suméria**, dentro de **Civilizações Antigas**, apresenta sete li
 
 Tal como os restantes percursos, o conteúdo está em `data/eras/antiga.js`. As lições são acompanhadas por fontes comentadas, conceitos, perguntas de reflexão, curiosidades e cinco quizzes de consolidação.
 
+## Percurso: Antiga Babilonia
+
+O percurso **Antiga Babilonia**, dentro de **Civilizacoes Antigas**, apresenta sete licoes principais:
+
+- As origens da Babilonia
+- Os reis da Babilonia
+- Os Jardins Suspensos
+- A religiao babilonica
+- A sociedade babilonica
+- O Codigo de Hamurabi
+- A queda da Babilonia
+
+O conteudo vive em `data/eras/antiga.js` como `babylonianPremiumContent`. O pacote inclui licoes cronologicas, eventos, biografias, conceitos, fontes comentadas, perguntas de reflexao, curiosidades e quizzes de consolidacao. A licao dos Jardins Suspensos assinala explicitamente a diferenca entre fama literaria e evidencia arqueologica incerta.
+
 ## Imagens dos portais de era
 
 As imagens dos portais de era sao definidas em `styles/03-cinematic-routes.css` e compiladas em `styles.css`. Sempre que uma era tambem aparece na timeline, o portal deve reutilizar o respetivo asset canonico da timeline. Na Pre-Historia, este asset e `--asset-pre-historia`; assim evita-se apresentar o fundo alternativo `background-prehistoria-era-*` no ecran do portal.

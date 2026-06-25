@@ -242,6 +242,86 @@ const sumerianPremiumContent = {
   ]
 };
 
+const babylonianPremiumContent = {
+  timeline: [
+    ["c. 2000-1792 a.C.", "As origens da Babilonia: uma cidade entre rios, rotas e reinos.", "politica", "Babilonia cresceu na Mesopotamia central, numa regiao onde canais, campos de cevada, comercio e escrita administrativa eram essenciais. Antes de dominar a regiao, era uma cidade entre outras potencias; a sua importancia aumentou quando reis amoritas transformaram alianças, guerra e fiscalidade num poder mais centralizado. A cidade tornou-se simbolo de urbanismo, riqueza e autoridade porque controlava recursos e ligava rotas entre o Tigre, o Eufrates e o Golfo Persico."],
+    ["1792-1750 a.C.", "Os reis da Babilonia: Hamurabi e a construcao de um reino.", "politica", "Hamurabi expandiu o poder babilonico atraves de diplomacia, guerra, administracao e propaganda real. O rei apresentava-se como defensor da ordem e da justica, mas dependia de escribas, governadores, soldados, sacerdotes e comunidades locais. Mais tarde, no periodo neobabilonico, Nabopolassar e Nabucodonosor II voltaram a fazer da cidade uma potencia imperial, mostrando que a historia da Babilonia teve varios momentos de ascensao."],
+    ["c. 1750 a.C.", "O Codigo de Hamurabi: lei escrita, poder real e hierarquia social.", "politica", "O famoso codigo reuniu decisoes e normas numa estela publica, associando justica ao rei e aos deuses. As penas variavam conforme o estatuto social, distinguindo homens livres, dependentes e pessoas escravizadas. Por isso, o codigo nao deve ser lido como lei igual para todos: e uma fonte preciosa para estudar autoridade, propriedade, familia, trabalho, violencia e desigualdade numa sociedade urbana antiga."],
+    ["c. 1800-539 a.C.", "A religiao babilonica: deuses, templos e ordem do mundo.", "religiao", "Os babilonios eram politeistas e cultuavam divindades como Marduk, Ishtar, Shamash e Sin. O templo nao era apenas lugar de culto: guardava bens, organizava trabalho, recebia oferendas e reforcava a posicao das elites sacerdotais. Festas como o Akitu ligavam calendario, renovacao cosmica e legitimacao do rei, mostrando que politica e religiao estavam profundamente entrelacadas."],
+    ["c. 1800-539 a.C.", "A sociedade babilonica: cidade, campo, escribas, familias e trabalho.", "cultura", "A maioria da populacao trabalhava na agricultura, na criacao de animais, em oficinas, no comercio ou em servicos ligados a palacios e templos. Escribas tinham grande prestigio porque dominavam a escrita cuneiforme e tornavam possivel cobrar impostos, registar contratos e administrar recursos. A sociedade era hierarquica: elites, homens livres, dependentes, mulheres com direitos variaveis e pessoas escravizadas viviam sob regras e oportunidades muito diferentes."],
+    ["séc. VI a.C.", "Os Jardins Suspensos: maravilha famosa, evidencia incerta.", "cultura", "A tradicao antiga atribuiu os Jardins Suspensos da Babilonia ao reinado de Nabucodonosor II, imaginando terracos irrigados, plantas exoticas e engenharia capaz de criar uma montanha verde numa cidade de barro e tijolo. No entanto, os arqueologos nao encontraram prova direta segura em Babilonia, e alguns investigadores sugerem que a historia pode estar ligada a Ninive, na Assiria. A licao importante e distinguir fama literaria, memoria cultural e evidencia historica."],
+    ["539 a.C.", "A queda da Babilonia: conquista persa e transformacao imperial.", "guerra", "Em 539 a.C., Ciro II da Persia conquistou Babilonia e integrou a cidade no Imperio Aquemenida. A conquista nao significou destruicao imediata da cultura babilonica: templos, escribas, astronomia, comercio e tradicoes urbanas continuaram por muito tempo. A queda foi antes uma mudanca de soberania: a cidade perdeu independencia politica, mas permaneceu um centro simbolico e intelectual do mundo antigo." ]
+  ],
+  events: [
+    ["Ascensao amorita da Babilonia", "A cidade ganhou peso politico quando dinastias amoritas transformaram alianças locais e controlo de recursos num reino regional."],
+    ["Reinado de Hamurabi", "Hamurabi consolidou poder atraves de guerra, diplomacia, administracao e uma imagem publica de rei justo."],
+    ["Codigo de Hamurabi", "A estela legal mostra como lei, desigualdade social, propriedade e autoridade divina se cruzavam na Babilonia antiga."],
+    ["Predominio de Marduk", "A importancia religiosa de Marduk cresceu com o prestigio politico da cidade, ligando culto urbano e poder imperial."],
+    ["Imperio Neobabilonico", "Nabopolassar e Nabucodonosor II fizeram da Babilonia uma potencia no Proximo Oriente dos seculos VII e VI a.C."],
+    ["Conquista persa de 539 a.C.", "Ciro II incorporou Babilonia num imperio maior, preservando parte das instituicoes locais enquanto mudava o centro do poder." ]
+  ],
+  biographies: [
+    ["Hamurabi", "Rei da Babilonia entre 1792 e 1750 a.C., conhecido pela expansao do reino e pela famosa compilacao legal associada ao seu nome."],
+    ["Nabucodonosor II", "Rei neobabilonico ligado a grandes obras urbanas, campanhas militares e ao prestigio monumental da cidade."],
+    ["Ciro II", "Fundador do Imperio Persa Aquemenida, conquistou Babilonia em 539 a.C. e integrou-a numa estrutura imperial mais ampla."],
+    ["Marduk", "Divindade principal de Babilonia, cuja centralidade religiosa acompanhou o crescimento politico da cidade." ]
+  ],
+  concepts: [
+    ["Babilonia", "Cidade mesopotamica que se tornou centro politico, religioso e cultural em diferentes periodos da Antiguidade."],
+    ["Codigo de Hamurabi", "Compilacao legal inscrita em pedra, importante para estudar justica, estatuto social e autoridade real."],
+    ["Estela", "Pedra vertical com inscricoes ou imagens publicas, usada para comunicar memoria, poder e normas."],
+    ["Marduk", "Deus principal de Babilonia, associado a soberania, ordem e legitimidade da cidade."],
+    ["Imperio Neobabilonico", "Poder babilonico dos seculos VII e VI a.C., especialmente forte sob Nabopolassar e Nabucodonosor II."],
+    ["Akitu", "Festival religioso de Ano Novo ligado a renovacao da ordem, culto de Marduk e legitimacao do rei." ],
+    ["Cuneiforme", "Escrita em sinais de cunha usada em tabuinhas de argila para contratos, contas, cartas, literatura e leis." ]
+  ],
+  quiz: [
+    { type: "causas_consequencias", difficulty: "media", question: "Porque e que Babilonia conseguiu tornar-se uma cidade poderosa?", options: ["Porque articulava irrigacao, comercio, escrita, administracao e poder militar", "Porque vivia isolada sem rotas comerciais", "Porque nao precisava de agricultura"], answer: 0, explanation: "A posicao mesopotamica, o controlo de recursos e a administracao escrita ajudaram a transformar a cidade num centro regional." },
+    { type: "escolha_multipla", difficulty: "media", question: "Qual leitura do Codigo de Hamurabi e mais rigorosa?", options: ["Mostra lei publica e hierarquias sociais, com penas diferentes conforme o estatuto", "Prova que todos tinham direitos iguais", "E um texto religioso sem ligacao a poder politico"], answer: 0, explanation: "O codigo associa justica ao rei, mas distingue grupos sociais e revela desigualdade juridica." },
+    { type: "verdadeiro_falso", difficulty: "media", question: "Verdadeiro ou falso: os Jardins Suspensos da Babilonia sao conhecidos por fontes antigas, mas a evidencia arqueologica direta e incerta.", options: ["Verdadeiro", "Falso"], answer: 0, explanation: "A tradicao literaria e forte, mas a localizacao e a existencia material dos jardins continuam debatidas." },
+    { type: "associacao", difficulty: "media", question: "Associa corretamente: Marduk era...", options: ["Uma divindade central da Babilonia", "Um rio da Mesopotamia", "Um codigo de leis persa"], answer: 0, explanation: "Marduk ganhou destaque como deus principal da cidade e simbolo da sua autoridade religiosa." },
+    { type: "cronologica", difficulty: "dificil", question: "Qual sequencia esta correta?", options: ["Hamurabi > Imperio Neobabilonico > conquista persa de Ciro II", "Ciro II > Hamurabi > Nabucodonosor II", "Jardins Suspensos > Codigo de Hamurabi > origem da Babilonia"], answer: 0, explanation: "Hamurabi pertence ao seculo XVIII a.C.; o Imperio Neobabilonico floresceu nos seculos VII-VI a.C.; Ciro conquistou Babilonia em 539 a.C." },
+    { type: "causas_consequencias", difficulty: "dificil", question: "Porque a queda de Babilonia em 539 a.C. nao deve ser entendida como desaparecimento imediato da cultura babilonica?", options: ["Porque a cidade perdeu independencia, mas muitas praticas religiosas, administrativas e intelectuais continuaram", "Porque a cidade nunca foi conquistada", "Porque todos os seus habitantes foram substituidos no mesmo dia"], answer: 0, explanation: "A conquista persa mudou a soberania politica, mas preservou e aproveitou varias estruturas locais." }
+  ],
+  source: [
+    {
+      text: "O rei apresenta-se diante do deus da justica e manda gravar normas para ordenar a terra.",
+      origin: "Sintese inspirada na estela do Codigo de Hamurabi.",
+      purpose: "Permite analisar a ligacao entre lei, religiao, propaganda real e hierarquia social.",
+      limits: "E uma representacao oficial do poder; nao mostra como todos os conflitos eram resolvidos na pratica."
+    },
+    {
+      text: "Num contrato em tabuinha, campos, dividas, testemunhas e selos transformam promessas em registo publico.",
+      origin: "Sintese baseada em documentos cuneiformes mesopotamicos de carater administrativo e juridico.",
+      purpose: "Ajuda a compreender o papel da escrita na economia, na propriedade e nas relacoes sociais.",
+      limits: "Preserva sobretudo transacoes formais e grupos com acesso a escribas, deixando muitas experiencias quotidianas invisiveis."
+    },
+    {
+      text: "A cidade e conquistada, mas os templos continuam a receber oferendas e os escribas continuam a escrever.",
+      origin: "Sintese historica sobre Babilonia apos a conquista persa de 539 a.C.",
+      purpose: "Mostra que queda politica nao significa necessariamente destruicao cultural imediata.",
+      limits: "Resume processos longos e variados; diferentes grupos viveram a mudanca de formas desiguais."
+    }
+  ],
+  prompts: [
+    "Explica como irrigacao, comercio e escrita ajudaram Babilonia a crescer.",
+    "Compara Hamurabi e Nabucodonosor II: que formas de poder aparecem em cada reinado?",
+    "O Codigo de Hamurabi era justica igual para todos? Justifica com exemplos de estatuto social.",
+    "Porque os templos babilonicos eram centros religiosos, economicos e politicos ao mesmo tempo?",
+    "Reconstrói a sociedade babilonica a partir de profissões, estatutos, genero e trabalho.",
+    "Os Jardins Suspensos devem ser ensinados como facto, lenda ou problema historico? Defende a tua resposta.",
+    "A queda de Babilonia em 539 a.C. foi fim, continuidade ou transformacao? Usa argumentos."
+  ],
+  curiosities: [
+    "Babilonia tornou-se tao famosa que o seu nome continuou a aparecer em textos religiosos, politicos e literarios muito depois da perda de independencia.",
+    "A escrita cuneiforme era feita em argila humida; quando secava ou era cozida, podia sobreviver durante milenios.",
+    "O Codigo de Hamurabi nao foi o primeiro conjunto de leis da Mesopotamia, mas tornou-se o mais celebre.",
+    "A Porta de Ishtar, do periodo neobabilonico, usava tijolos vidrados azuis e figuras de animais sagrados para impressionar quem entrava na cidade.",
+    "Astronomos babilonicos registaram observacoes do ceu com grande rigor, influenciando calendarios e tradicoes cientificas posteriores.",
+    "Os Jardins Suspensos sao uma das Sete Maravilhas antigas, mas talvez sejam a mais dificil de confirmar arqueologicamente."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -396,10 +476,22 @@ function applySumerianPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...sumerianPremiumContent.curiosities];
 }
 
+function applyBabylonianPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...babylonianPremiumContent.timeline];
+  ancient.events = [...ancient.events, ...babylonianPremiumContent.events];
+  ancient.biographies = [...ancient.biographies, ...babylonianPremiumContent.biographies];
+  ancient.concepts = [...ancient.concepts, ...babylonianPremiumContent.concepts];
+  ancient.quiz = [...ancient.quiz, ...babylonianPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...babylonianPremiumContent.source];
+  ancient.prompts = [...ancient.prompts, ...babylonianPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...babylonianPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["52 eventos", "14 fontes", "24 quizzes"];
+  ancient.stats = ["65 eventos", "17 fontes", "30 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -412,6 +504,7 @@ function applyRomanPremiumContent() {
 
 applyEgyptPremiumContent();
 applySumerianPremiumContent();
+applyBabylonianPremiumContent();
 applyRomanPremiumContent();
 
 export default era;
