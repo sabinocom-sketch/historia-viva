@@ -479,6 +479,93 @@ const persianPremiumContent = {
   ]
 };
 
+const greekPremiumContent = {
+  timeline: [
+    ["c. 800-500 a.C.", "A Idade Arcaica: polis, colonizacao e novas formas de comunidade.", "politica", "Depois de transformacoes profundas no mundo egeu, comunidades gregas organizaram-se em polis, cidades-Estado com leis, cultos, territorio e identidade propria. A populacao cresceu, o comercio aumentou e muitos gregos fundaram colonias no Mediterraneo e no mar Negro. A escrita alfabetica, os poemas homericos, os santuarios pan-helenicos e a moeda ajudaram a criar uma cultura partilhada, mas a Grecia continuou politicamente dividida."],
+    ["c. 700-404 a.C.", "Atenas e Esparta: dois modelos de polis.", "politica", "Atenas tornou-se conhecida pela participacao civica masculina, comercio maritimo, debate politico e poder naval. Esparta construiu uma sociedade militarizada, sustentada pelo dominio sobre os hilotas e por uma educacao orientada para disciplina, obediencia e guerra. Nenhuma das duas representa toda a Grecia: cada polis tinha instituicoes proprias, alianças, conflitos e formas diferentes de organizar cidadania, riqueza e poder."],
+    ["c. 500-323 a.C.", "A Idade Classica: guerras, democracia, imperio e crise das polis.", "guerra", "A Idade Classica foi marcada pelas Guerras Medicas contra o Imperio Persa, pelo apogeu de Atenas, pela Liga de Delos e pela Guerra do Peloponeso contra Esparta. Foi tambem tempo de tragedia, filosofia, historia, escultura e arquitectura monumental. Mas o brilho cultural conviveu com escravatura, exclusoes, imperialismo ateniense, rivalidades entre cidades e destruicoes causadas por guerras prolongadas."],
+    ["c. 500-323 a.C.", "As artes gregas: beleza, corpo, mito e cidade.", "cultura", "A arte grega classica procurou equilibrio, proporcao e movimento em esculturas, templos, ceramicas, teatro e arquitectura. O Partenon, dedicado a Atena, comunicava religiao, poder civico e riqueza imperial ateniense. A tragedia e a comedia transformavam mitos, conflitos familiares e problemas politicos em experiencia coletiva. A arte nao era apenas decoracao: participava da religiao, da memoria e da competicao entre cidades."],
+    ["c. 800-323 a.C.", "A religiao grega: deuses, santuarios, oraculos e festivais.", "religiao", "Os gregos eram politeistas e cultuavam deuses como Zeus, Hera, Atena, Apolo, Artemis, Poseidon, Demeter e Dioniso. Os rituais envolviam sacrificios, procissoes, jogos, festas, oraculos e oferendas. Santuarios como Delfos e Olimpia reuniam gregos de varias polis e reforcavam uma identidade comum. A religiao nao era separada da politica: protegia cidades, legitimava decisoes e organizava o calendario civico."],
+    ["508-322 a.C.", "A democracia ateniense: participacao direta e exclusoes.", "politica", "Em Atenas, reformas associadas a Clistenes abriram caminho para uma democracia direta em que cidadaos homens participavam na assembleia, sorteios, tribunais e cargos publicos. O sistema permitia debate e decisao coletiva, mas era profundamente limitado: mulheres, escravizados, metecos e muitos trabalhadores ficavam excluidos da cidadania plena. A democracia ateniense deve ser estudada como inovacao politica e como sociedade desigual ao mesmo tempo."],
+    ["sécs. VI-IV a.C.", "A filosofia grega: perguntar, argumentar e procurar explicacoes.", "cultura", "Filosofo significa amigo da sabedoria. Pensadores gregos procuraram explicar natureza, conhecimento, politica, etica e vida humana com argumentos e debate. Socrates questionava certezas em dialogo; Platao refletiu sobre justica, alma e governo; Aristoteles classificou saberes, estudou logica, politica, biologia e retorica. A filosofia nasceu em contacto com religiao, ciencia, matematica, retorica e vida civica, nao num mundo isolado de ideias puras."],
+    ["c. 500-323 a.C.", "A sociedade ateniense: cidadaos, mulheres, metecos e escravizados.", "cultura", "Atenas dependia de uma sociedade hierarquica. Cidadaos homens livres tinham direitos politicos; mulheres cidadaes eram fundamentais para familia, religiao e transmissao da cidadania, mas sem participacao politica formal; metecos eram estrangeiros residentes, importantes no comercio e nos oficios; pessoas escravizadas trabalhavam em casas, oficinas, minas e servicos publicos. A vida ateniense combinava liberdade civica para alguns e dependencia para muitos."],
+    ["336-323 a.C.", "Alexandre o Grande: conquista e mundo helenistico.", "guerra", "Alexandre, rei da Macedonia, aproveitou a fraqueza das polis gregas e a organizacao militar herdada de Filipe II para conquistar o Imperio Persa. As campanhas levaram exercitos gregos e macedonios ate ao Egito, Mesopotamia, Persia e India. Depois da sua morte em 323 a.C., o imperio fragmentou-se em reinos helenisticos. A cultura grega espalhou-se e misturou-se com tradicoes locais, criando novas cidades, cortes, bibliotecas e formas de poder." ]
+  ],
+  events: [
+    ["Formacao das polis", "As cidades-Estado gregas articularam cidadania, territorio, culto e instituicoes proprias."],
+    ["Colonizacao grega", "A fundacao de colonias espalhou lingua, comercio e contactos gregos pelo Mediterraneo e pelo mar Negro."],
+    ["Reformas de Clistenes", "As reformas de 508 a.C. reorganizaram a participacao civica ateniense e abriram caminho para a democracia direta."],
+    ["Guerras Medicas", "A resistencia contra a Persia reforcou identidades gregas e o prestigio de Atenas."],
+    ["Liga de Delos", "A alianca liderada por Atenas transformou defesa comum em poder imperial ateniense."],
+    ["Guerra do Peloponeso", "O conflito entre Atenas e Esparta enfraqueceu as polis e expos tensoes entre democracia, imperio e oligarquia."],
+    ["Conquistas de Alexandre", "A expansao macedonica destruiu o Imperio Persa e criou as bases do mundo helenistico." ]
+  ],
+  biographies: [
+    ["Clistenes", "Politico ateniense associado a reformas que reorganizaram tribos, participacao civica e bases da democracia."],
+    ["Pericles", "Lider ateniense ligado ao apogeu democratico, ao imperialismo maritimo e as grandes obras da Acropole."],
+    ["Aspasia", "Mulher culta ligada ao circulo de Pericles, importante para discutir genero, estatuto estrangeiro e vida intelectual em Atenas."],
+    ["Socrates", "Filosofo ateniense conhecido pelo dialogo critico e pelo julgamento que terminou na sua condenacao a morte."],
+    ["Platao", "Discipulo de Socrates e autor de dialogos sobre justica, conhecimento, politica e educacao."],
+    ["Aristoteles", "Filosofo que estudou logica, etica, politica, biologia e retorica, e foi tutor de Alexandre."],
+    ["Alexandre Magno", "Rei macedonico que conquistou o Imperio Persa e impulsionou a formacao do mundo helenistico." ]
+  ],
+  concepts: [
+    ["Polis", "Cidade-Estado grega com instituicoes, territorio, cultos e identidade civica propria."],
+    ["Cidadania ateniense", "Estatuto politico restrito a homens livres filhos de cidadaos, com direitos e deveres civicos."],
+    ["Democracia direta", "Sistema em que cidadaos participavam diretamente em assembleias, tribunais e decisoes politicas."],
+    ["Meteco", "Estrangeiro residente em Atenas, livre e economicamente ativo, mas sem cidadania plena."],
+    ["Hilota", "Populacao dependente dominada por Esparta, essencial para sustentar a sociedade militar espartana."],
+    ["Oligarquia", "Governo concentrado nas maos de poucos, frequentemente elites ricas ou aristocraticas."],
+    ["Helenismo", "Mundo cultural e politico formado apos Alexandre, marcado pela difusao e mistura da cultura grega com tradicoes locais."],
+    ["Oraculo", "Instituicao religiosa consultada para interpretar mensagens divinas, como o famoso oraculo de Delfos." ]
+  ],
+  quiz: [
+    { type: "escolha_multipla", difficulty: "media", question: "O que era uma polis grega?", options: ["Uma cidade-Estado com instituicoes, territorio e identidade propria", "Uma provincia romana", "Uma piramide funeraria"], answer: 0, explanation: "A polis articulava cidade, campo, cultos, leis e participacao civica de grupos definidos." },
+    { type: "associacao", difficulty: "media", question: "Associa corretamente: Esparta era conhecida sobretudo por...", options: ["Sociedade militarizada e dominio sobre os hilotas", "Democracia naval aberta a todos os habitantes", "Imperio industrial mecanizado"], answer: 0, explanation: "A ordem espartana dependia da disciplina militar cidada e da exploracao dos hilotas." },
+    { type: "verdadeiro_falso", difficulty: "media", question: "Verdadeiro ou falso: a democracia ateniense excluia mulheres, escravizados e metecos.", options: ["Verdadeiro", "Falso"], answer: 0, explanation: "A participacao politica plena estava limitada a cidadaos homens, apesar da importancia social de outros grupos." },
+    { type: "causas_consequencias", difficulty: "dificil", question: "Porque a Liga de Delos se tornou controversa?", options: ["Porque a lideranca ateniense transformou defesa comum em dominio imperial", "Porque aboliu o poder naval de Atenas", "Porque entregou Atenas a Esparta desde o inicio"], answer: 0, explanation: "Tributos, frota e decisoes passaram a reforcar a supremacia ateniense sobre aliados." },
+    { type: "cronologica", difficulty: "dificil", question: "Qual sequencia esta correta?", options: ["Idade Arcaica > Guerras Medicas > Guerra do Peloponeso > Alexandre", "Alexandre > Idade Arcaica > Clistenes > Guerras Medicas", "Guerra do Peloponeso > colonizacao arcaica > Alexandre > Clistenes"], answer: 0, explanation: "A sequencia geral passa pela formacao arcaica das polis, apogeu classico, crise entre cidades e conquista macedonica." },
+    { type: "escolha_multipla", difficulty: "media", question: "Porque Alexandre e importante para a historia grega?", options: ["Porque conquistou o Imperio Persa e abriu caminho ao mundo helenistico", "Porque fundou a democracia ateniense", "Porque escreveu o Codigo de Hamurabi"], answer: 0, explanation: "As suas conquistas difundiram a cultura grega e criaram reinos helenisticos apos 323 a.C." }
+  ],
+  source: [
+    {
+      text: "Na assembleia, os cidadaos discutem guerra, impostos e leis; fora dela, muitos habitantes nao podem votar.",
+      origin: "Sintese baseada nas praticas politicas da democracia ateniense.",
+      purpose: "Permite analisar participacao direta, cidadania e exclusoes sociais.",
+      limits: "Resume um sistema que variou no tempo e nao representa todas as polis gregas."
+    },
+    {
+      text: "No teatro, mitos antigos mostram reis, familias, deuses e cidades em conflito diante dos cidadaos.",
+      origin: "Sintese inspirada na tragedia ateniense do seculo V a.C.",
+      purpose: "Ajuda a relacionar arte, religiao, politica, memoria e debate civico.",
+      limits: "As pecas preservadas pertencem sobretudo ao contexto ateniense e a autores masculinos de elite."
+    },
+    {
+      text: "As campanhas de Alexandre fundam cidades, deslocam exercitos e cruzam costumes gregos com tradicoes locais.",
+      origin: "Sintese baseada em narrativas antigas sobre Alexandre e no contexto helenistico.",
+      purpose: "Mostra conquista militar, circulacao cultural e transformacao politica apos a queda persa.",
+      limits: "Muitas fontes sobre Alexandre foram escritas depois dos acontecimentos e misturam historia, propaganda e lenda."
+    }
+  ],
+  prompts: [
+    "Compara Atenas e Esparta: que modelo de cidadania, educacao e poder aparece em cada polis?",
+    "A democracia ateniense deve ser celebrada, criticada ou as duas coisas? Justifica.",
+    "Como a arte grega comunicava valores religiosos, politicos e civicos?",
+    "Porque a religiao era uma parte da vida publica e nao apenas uma crenca privada?",
+    "Que limites tinha a liberdade ateniense quando observamos mulheres, metecos e escravizados?",
+    "Como a filosofia grega mudou formas de perguntar sobre natureza, politica e etica?",
+    "Alexandre espalhou cultura grega ou criou misturas culturais novas? Usa exemplos."
+  ],
+  curiosities: [
+    "Os Jogos Olimpicos antigos eram festivais religiosos dedicados a Zeus, nao apenas competicoes desportivas.",
+    "A palavra democracia vem de demos e kratos, mas o demos politico ateniense nao incluia todos os habitantes.",
+    "O teatro ateniense fazia parte de festivais religiosos e podia discutir problemas politicos de forma indireta.",
+    "Esparta tinha dois reis ao mesmo tempo, alem de conselhos e magistrados que limitavam o poder real.",
+    "Muitas esculturas gregas eram pintadas com cores vivas; o marmore branco e sobretudo efeito da passagem do tempo.",
+    "Alexandre fundou varias cidades chamadas Alexandria, mas a do Egito tornou-se a mais famosa."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -669,10 +756,22 @@ function applyPersianPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...persianPremiumContent.curiosities];
 }
 
+function applyGreekPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...greekPremiumContent.timeline];
+  ancient.events = [...ancient.events, ...greekPremiumContent.events];
+  ancient.biographies = [...ancient.biographies, ...greekPremiumContent.biographies];
+  ancient.concepts = [...ancient.concepts, ...greekPremiumContent.concepts];
+  ancient.quiz = [...ancient.quiz, ...greekPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...greekPremiumContent.source];
+  ancient.prompts = [...ancient.prompts, ...greekPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...greekPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["90 eventos", "23 fontes", "40 quizzes"];
+  ancient.stats = ["106 eventos", "26 fontes", "46 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -688,6 +787,7 @@ applySumerianPremiumContent();
 applyBabylonianPremiumContent();
 applyAssyrianPremiumContent();
 applyPersianPremiumContent();
+applyGreekPremiumContent();
 applyRomanPremiumContent();
 
 export default era;

@@ -94,6 +94,22 @@ O percurso **Antiga Persia**, dentro de **Civilizacoes Antigas**, apresenta sete
 
 O conteudo vive em `data/eras/antiga.js` como `persianPremiumContent`. O pacote inclui licoes cronologicas, eventos, biografias, conceitos, fontes comentadas, perguntas de reflexao, curiosidades e quizzes de consolidacao. As licoes destacam a formacao do Imperio Aquemenida, a administracao por satrapias, Persepolis como propaganda visual e a conquista macedonica entre 334 e 330 a.C.
 
+## Percurso: Antiga Grecia
+
+O percurso **Antiga Grecia**, dentro de **Civilizacoes Antigas**, apresenta nove licoes principais:
+
+- A Idade Arcaica
+- Atenas e Esparta
+- A Idade Classica
+- As artes gregas
+- A religiao grega
+- A democracia ateniense
+- A filosofia grega
+- A sociedade ateniense
+- Alexandre o Grande
+
+O conteudo vive em `data/eras/antiga.js` como `greekPremiumContent`. O pacote inclui licoes cronologicas, eventos, biografias, conceitos, fontes comentadas, perguntas de reflexao, curiosidades e quizzes de consolidacao. As licoes destacam a polis, as exclusoes da democracia ateniense, a cultura civica, a filosofia e a passagem para o mundo helenistico.
+
 ## Imagens dos portais de era
 
 As imagens dos portais de era sao definidas em `styles/03-cinematic-routes.css` e compiladas em `styles.css`. Sempre que uma era tambem aparece na timeline, o portal deve reutilizar o respetivo asset canonico da timeline. Na Pre-Historia, este asset e `--asset-pre-historia`; assim evita-se apresentar o fundo alternativo `background-prehistoria-era-*` no ecran do portal.
