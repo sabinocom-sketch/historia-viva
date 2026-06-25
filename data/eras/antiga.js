@@ -399,6 +399,86 @@ const assyrianPremiumContent = {
   ]
 };
 
+const persianPremiumContent = {
+  timeline: [
+    ["c. 1000-550 a.C.", "As origens da Persia: povos iranianos, montanhas e contactos imperiais.", "politica", "A Persia formou-se no planalto iraniano, uma regiao de montanhas, vales, pastagens e rotas que ligavam a Mesopotamia, a Asia Central e o Golfo Persico. Povos iranianos como medos e persas organizaram chefias, reinos e alianças antes de criarem um imperio. Os persas aprenderam com vizinhos poderosos, como elamitas, medos, assirios e babilonios, combinando tradicoes locais com modelos administrativos ja existentes."],
+    ["559-530 a.C.", "Ciro, o Grande: conquista, integracao e imagem de rei justo.", "politica", "Ciro II transformou o reino persa numa potencia ao derrotar medos, lidios e babilonios. Em vez de governar apenas pelo terror, apresentou-se muitas vezes como restaurador da ordem e protetor de templos e costumes locais. Essa imagem nao elimina a violencia da conquista, mas ajuda a perceber porque o imperio persa conseguiu integrar povos diversos, elites locais, tributos e rotas comerciais numa estrutura politica muito ampla."],
+    ["522-465 a.C.", "Os imperadores persas: Dario I, Xerxes e a organizacao do imperio.", "politica", "Dario I consolidou o Imperio Aquemenida com satrapias, impostos, estradas, correios, moeda e inscricoes reais. Xerxes manteve grande parte desta estrutura e ficou famoso pelas guerras contra cidades gregas. O imperador persa era apresentado como rei dos reis: governava muitos povos atraves de satrapas, escribas, soldados, funcionarios e elites regionais. A forca do sistema estava na combinacao entre centro imperial e administracao local."],
+    ["c. 550-330 a.C.", "A religiao persa: Ahura Mazda, ordem, rituais e diversidade.", "religiao", "A religiao persa aquemenida estava ligada ao culto de Ahura Mazda e a ideias de verdade, ordem e legitimidade real. Textos e inscricoes sugerem ligacoes ao zoroastrismo, embora seja preciso cuidado: as praticas religiosas variavam no tempo e entre regioes. O imperio tambem governava povos com muitos cultos diferentes, por isso a religiao imperial convivia com templos babilonios, cultos egipcios, tradicoes locais e rituais de corte."],
+    ["c. 550-330 a.C.", "As artes persas: palacios, relevos, jardins e mistura de influencias.", "cultura", "A arte persa aquemenida reuniu influencias mesopotamicas, egipcias, gregas, elamitas e iranianas. Em Pasargada e Persepolis, palacios, colunas, escadarias e relevos mostravam delegacoes de povos trazendo tributos ao rei. A mensagem era clara: diversidade organizada sob autoridade imperial. Jardins, metais trabalhados, selos, tecidos e ceramicas tambem revelam uma cultura visual sofisticada, feita de circulacao de artistas, tecnicas e simbolos."],
+    ["c. 550-330 a.C.", "A sociedade persa: satrapas, soldados, camponeses, artesãos e povos diversos.", "cultura", "O imperio persa reunia elites iranianas, familias nobres, satrapas, funcionarios, escribas, sacerdotes, soldados, camponeses, artesãos, mercadores e povos conquistados. A vida variava muito entre regioes: Babilonia, Egito, Anatolia e Persia tinham tradicoes proprias. Mulheres da elite podiam administrar bens e trabalhadores em certos contextos, como mostram documentos de Persepolis, mas a sociedade continuava hierarquica e marcada por impostos, trabalho obrigatorio e diferencas de estatuto."],
+    ["334-330 a.C.", "A queda do Imperio Persa: Alexandre, crises e conquista macedonica.", "guerra", "No seculo IV a.C., o Imperio Aquemenida enfrentava tensoes internas, disputas dinasticas e dificuldades para controlar territorios muito extensos. Alexandre da Macedonia invadiu em 334 a.C., venceu batalhas decisivas contra Dario III e tomou centros imperiais como Susa, Persepolis e Babilonia. A queda em 330 a.C. nao apagou a heranca persa: muitas praticas administrativas, simbolos reais e elites locais continuaram a influenciar os reinos helenisticos." ]
+  ],
+  events: [
+    ["Ascensao dos persas", "Chefias persas do planalto iraniano ganharam poder em contacto com medos, elamitas, assirios e babilonios."],
+    ["Conquistas de Ciro II", "Ciro derrotou medos, lidios e babilonios, criando a base territorial do Imperio Aquemenida."],
+    ["Reformas de Dario I", "Dario organizou satrapias, impostos, estradas, correios e propaganda real para consolidar o imperio."],
+    ["Guerras Medicas", "Os confrontos com cidades gregas revelaram a escala persa e tambem os limites da expansao no Egeu."],
+    ["Persepolis", "A capital cerimonial exibiu poder imperial atraves de arquitectura, relevos e delegacoes de povos submetidos."],
+    ["Conquista de Alexandre", "Entre 334 e 330 a.C., a invasao macedonica derrubou Dario III e encerrou o poder aquemenida." ]
+  ],
+  biographies: [
+    ["Ciro II, o Grande", "Fundador do Imperio Aquemenida, conhecido por conquistas amplas e por uma politica de integracao de elites locais."],
+    ["Dario I", "Imperador que consolidou administracao, fiscalidade, estradas e propaganda real no imperio persa."],
+    ["Xerxes I", "Imperador associado a grandes obras e as campanhas persas contra cidades gregas no inicio do seculo V a.C."],
+    ["Dario III", "Ultimo grande rei aquemenida, derrotado por Alexandre durante a conquista macedonica."],
+    ["Alexandre Magno", "Rei macedonico que conquistou o Imperio Persa e abriu caminho aos reinos helenisticos."],
+    ["Ahura Mazda", "Divindade central nas inscricoes reais persas, associada a verdade, ordem e legitimidade." ]
+  ],
+  concepts: [
+    ["Imperio Aquemenida", "Imperio persa fundado por Ciro II e governado por uma dinastia que dominou vastos territorios entre a Asia, Africa e Europa."],
+    ["Satrapia", "Provincia imperial administrada por um satrapa, responsavel por tributos, ordem e ligacao ao centro."],
+    ["Satrapa", "Governador provincial do imperio persa, muitas vezes vigiado por outros funcionarios e pelo poder real."],
+    ["Estrada Real", "Rede de comunicacao que facilitava correio, deslocacao de funcionarios, tropas e ordens imperiais."],
+    ["Zoroastrismo", "Tradicao religiosa iraniana associada a Ahura Mazda, verdade, ordem e conflito moral entre bem e mal."],
+    ["Persepolis", "Capital cerimonial persa com palacios, relevos e arquitectura monumental de propaganda imperial." ]
+  ],
+  quiz: [
+    { type: "causas_consequencias", difficulty: "media", question: "Porque as origens da Persia devem ser ligadas ao planalto iraniano e aos contactos regionais?", options: ["Porque os persas cresceram entre rotas, montanhas e vizinhos poderosos", "Porque viviam completamente isolados", "Porque surgiram diretamente em Atenas"], answer: 0, explanation: "A Persia formou-se em contacto com medos, elamitas, assirios, babilonios e rotas de comercio." },
+    { type: "escolha_multipla", difficulty: "media", question: "O que ajudou Ciro, o Grande, a integrar territorios conquistados?", options: ["Uso de elites locais, respeito seletivo por cultos e imagem de restaurador da ordem", "Destruicao de todas as administracoes locais", "Abolicao de impostos e funcionarios"], answer: 0, explanation: "A conquista foi violenta, mas a integracao de elites e instituicoes locais ajudou a estabilizar o imperio." },
+    { type: "associacao", difficulty: "media", question: "Associa corretamente: uma satrapia era...", options: ["Uma provincia do imperio persa", "Um templo grego", "Uma lei romana"], answer: 0, explanation: "As satrapias permitiam administrar regioes muito diferentes atraves de governadores e funcionarios." },
+    { type: "verdadeiro_falso", difficulty: "media", question: "Verdadeiro ou falso: a arte persa aquemenida combinou influencias de varios povos do imperio.", options: ["Verdadeiro", "Falso"], answer: 0, explanation: "Palacios e relevos persas integravam tecnicas e simbolos de tradicoes mesopotamicas, egipcias, gregas, elamitas e iranianas." },
+    { type: "cronologica", difficulty: "dificil", question: "Qual sequencia esta correta?", options: ["Ciro II > Dario I > Xerxes I > Alexandre conquista o imperio", "Alexandre > Ciro II > Dario I > Xerxes I", "Xerxes I > queda persa > Ciro II > satrapias"], answer: 0, explanation: "Ciro fundou o imperio, Dario consolidou, Xerxes governou depois e Alexandre conquistou o imperio no seculo IV a.C." }
+  ],
+  source: [
+    {
+      text: "O rei declara que Ahura Mazda lhe concedeu o reino e que a mentira deve ser vencida pela ordem.",
+      origin: "Sintese inspirada em inscricoes reais aquemenidas, como a inscricao de Behistun de Dario I.",
+      purpose: "Permite analisar legitimidade real, religiao, propaganda e ideia de ordem imperial.",
+      limits: "E uma versao oficial do poder; apresenta adversarios como rebeldes ou mentirosos e nao mostra todas as perspetivas."
+    },
+    {
+      text: "Nas escadarias, delegacoes de povos diferentes trazem presentes ao rei, cada uma com roupa, objetos e gestos proprios.",
+      origin: "Sintese baseada nos relevos de Persepolis.",
+      purpose: "Ajuda a estudar arte, diversidade imperial, tributo e propaganda visual.",
+      limits: "Mostra a diversidade como harmonia controlada, omitindo violencia, impostos pesados e resistencias."
+    },
+    {
+      text: "Registos de Persepolis enumeram racoes, trabalhadores, deslocacoes e recursos distribuidos pelo palacio.",
+      origin: "Sintese baseada nas tabuinhas administrativas de Persepolis.",
+      purpose: "Mostra a dimensao economica e burocratica do imperio, incluindo trabalho e abastecimento.",
+      limits: "Sao documentos administrativos, nao relatos pessoais completos dos trabalhadores."
+    }
+  ],
+  prompts: [
+    "Explica como a geografia e os contactos regionais ajudaram a formar a Persia antiga.",
+    "Ciro, o Grande, foi apenas conquistador ou tambem construtor de integracao imperial? Justifica.",
+    "Como as satrapias, estradas e impostos permitiam governar povos muito diferentes?",
+    "Que cuidados devemos ter ao falar de zoroastrismo e religiao persa no periodo aquemenida?",
+    "Analisa Persepolis como mensagem politica: que imagem do imperio aparece nos relevos?",
+    "Compara a sociedade persa com a assiria: que diferencas existem na administracao e no uso da diversidade?",
+    "A queda do Imperio Persa deve ser explicada mais por Alexandre ou por fragilidades internas? Defende uma posicao equilibrada."
+  ],
+  curiosities: [
+    "O Imperio Aquemenida foi um dos maiores imperios territoriais da Antiguidade.",
+    "A Estrada Real ajudava mensagens imperiais a circular com rapidez extraordinaria para a epoca.",
+    "Persepolis nao era apenas uma cidade: funcionava tambem como palco cerimonial da autoridade do rei dos reis.",
+    "As tabuinhas de Persepolis mostram mulheres da elite a gerir trabalhadores, racoes e propriedades em alguns contextos.",
+    "O chamado Cilindro de Ciro tornou-se famoso em debates modernos sobre governo e tolerancia, mas deve ser lido no contexto da propaganda real antiga.",
+    "Alexandre adotou alguns rituais, simbolos e praticas persas depois da conquista, sinal de que a queda politica nao apagou a influencia aquemenida."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -577,10 +657,22 @@ function applyAssyrianPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...assyrianPremiumContent.curiosities];
 }
 
+function applyPersianPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...persianPremiumContent.timeline];
+  ancient.events = [...ancient.events, ...persianPremiumContent.events];
+  ancient.biographies = [...ancient.biographies, ...persianPremiumContent.biographies];
+  ancient.concepts = [...ancient.concepts, ...persianPremiumContent.concepts];
+  ancient.quiz = [...ancient.quiz, ...persianPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...persianPremiumContent.source];
+  ancient.prompts = [...ancient.prompts, ...persianPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...persianPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["77 eventos", "20 fontes", "35 quizzes"];
+  ancient.stats = ["90 eventos", "23 fontes", "40 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -595,6 +687,7 @@ applyEgyptPremiumContent();
 applySumerianPremiumContent();
 applyBabylonianPremiumContent();
 applyAssyrianPremiumContent();
+applyPersianPremiumContent();
 applyRomanPremiumContent();
 
 export default era;

@@ -80,6 +80,20 @@ O percurso **Antiga Assiria**, dentro de **Civilizacoes Antigas**, apresenta sei
 
 O conteudo vive em `data/eras/antiga.js` como `assyrianPremiumContent`. O pacote inclui licoes cronologicas, eventos, biografias, conceitos, fontes comentadas, perguntas de reflexao, curiosidades e quizzes de consolidacao. As licoes destacam a passagem de Assur comercial a imperio militar, a propaganda dos reis, a funcao politica da arquitectura palacial e o colapso entre 614 e 609 a.C.
 
+## Percurso: Antiga Persia
+
+O percurso **Antiga Persia**, dentro de **Civilizacoes Antigas**, apresenta sete licoes principais:
+
+- As origens da Persia
+- Ciro, o Grande
+- Os imperadores persas
+- A religiao persa
+- As artes persas
+- A sociedade persa
+- A queda do Imperio Persa
+
+O conteudo vive em `data/eras/antiga.js` como `persianPremiumContent`. O pacote inclui licoes cronologicas, eventos, biografias, conceitos, fontes comentadas, perguntas de reflexao, curiosidades e quizzes de consolidacao. As licoes destacam a formacao do Imperio Aquemenida, a administracao por satrapias, Persepolis como propaganda visual e a conquista macedonica entre 334 e 330 a.C.
+
 ## Imagens dos portais de era
 
 As imagens dos portais de era sao definidas em `styles/03-cinematic-routes.css` e compiladas em `styles.css`. Sempre que uma era tambem aparece na timeline, o portal deve reutilizar o respetivo asset canonico da timeline. Na Pre-Historia, este asset e `--asset-pre-historia`; assim evita-se apresentar o fundo alternativo `background-prehistoria-era-*` no ecran do portal.
