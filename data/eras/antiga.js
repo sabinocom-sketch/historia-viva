@@ -322,6 +322,83 @@ const babylonianPremiumContent = {
   ]
 };
 
+const assyrianPremiumContent = {
+  timeline: [
+    ["c. 2500-1365 a.C.", "As origens da Assiria: Assur, comercio e poder no norte da Mesopotamia.", "politica", "A Assiria nasceu em torno da cidade de Assur, junto ao rio Tigre, numa zona que ligava planicies agricolas, montanhas, metais, madeira e rotas comerciais. Antes de ser um grande imperio, foi uma sociedade urbana e mercantil, com reis, assembleias locais, templos e comerciantes que mantinham redes ate a Anatolia. A sua posicao geografica ajudou a formar uma cultura marcada por comercio, escrita, guerra e adaptacao a vizinhos poderosos."],
+    ["c. 1365-609 a.C.", "Os reis assirios: conquista, administracao e propaganda.", "politica", "Reis como Assurubalit I, Tiglate-Pileser III, Sargao II, Senaquerib, Assaradão e Assurbanipal transformaram a Assiria numa potencia militar e administrativa. O rei apresentava-se como escolhido do deus Assur para proteger a ordem e vencer inimigos, mas dependia de oficiais, governadores, escribas, soldados e redes de abastecimento. A expansao assiria combinou campanhas anuais, tributos, deportacoes, provincias e uma propaganda visual muito forte nos palacios."],
+    ["c. 1300-612 a.C.", "A religiao assiria: Assur, Ishtar e a guerra como ordem sagrada.", "religiao", "A religiao assiria era politeista e partilhava muitas tradicoes mesopotamicas, mas dava destaque ao deus Assur, protetor da cidade e do reino. Ishtar, Shamash, Sin, Ninurta e outras divindades tambem eram cultuadas. A guerra podia ser apresentada como cumprimento da vontade divina, e rituais, pressagios, astrologia e oferendas orientavam decisoes politicas. Isto nao significa que todos pensassem igual, mas mostra como religiao e poder real se reforcavam."],
+    ["c. 900-612 a.C.", "A sociedade assiria: elites, soldados, escribas, camponeses e deportados.", "cultura", "A sociedade assiria era hierarquica e militarizada. Nobres, oficiais, sacerdotes e altos administradores ocupavam lugares de prestígio; escribas registavam impostos, listas de trabalhadores, cartas e ordens; camponeses sustentavam a producao agricola; artesãos e mercadores circulavam bens; pessoas escravizadas e populações deportadas trabalhavam em campos, obras e cidades. As deportacoes eram violentas, mas tambem serviam para redistribuir mao de obra e integrar territorios conquistados."],
+    ["c. 883-627 a.C.", "A arquitectura assiria: palacios, relevos, muralhas e cidades imperiais.", "cultura", "Os reis assirios construiram capitais monumentais como Kalhu, Dur-Sharrukin e Ninive, com palacios, templos, muralhas, canais e jardins. Os relevos em pedra mostravam campanhas militares, cacadas reais, tributos e cerimonias, funcionando como arte e propaganda. Portais com grandes figuras protetoras, como lamassu, impressionavam visitantes e comunicavam a ideia de um poder invencivel, ordenado e protegido pelos deuses."],
+    ["614-609 a.C.", "A queda do Imperio Assirio: revoltas, inimigos e esgotamento imperial.", "guerra", "No final do seculo VII a.C., o imperio assirio enfrentou revoltas internas, sucessoes instaveis, pressao fiscal, territorios extensos e inimigos poderosos. Medos e babilonios atacaram as principais cidades: Assur caiu em 614 a.C. e Ninive em 612 a.C.; em 609 a.C., os ultimos focos assirios foram derrotados. A queda nao apagou imediatamente todas as populacoes ou tradicoes, mas destruiu o centro politico de um dos maiores imperios da Antiguidade." ]
+  ],
+  events: [
+    ["Cidade de Assur", "Assur foi o nucleo religioso, comercial e politico a partir do qual se desenvolveu a identidade assiria."],
+    ["Rede comercial paleoassiria", "Mercadores assirios criaram postos comerciais na Anatolia, mostrando que a Assiria foi mercantil antes de ser imperial."],
+    ["Reformas de Tiglate-Pileser III", "A reorganizacao militar e provincial fortaleceu o imperio e tornou a conquista mais permanente."],
+    ["Capital em Dur-Sharrukin", "Sargao II construiu uma capital planeada para exibir autoridade, administracao e protecao divina."],
+    ["Biblioteca de Assurbanipal", "A recolha de tabuinhas em Ninive preservou textos literarios, religiosos, medicos e administrativos da Mesopotamia."],
+    ["Queda de Ninive", "Em 612 a.C., a destruicao de Ninive por medos e babilonios marcou o colapso do centro imperial assirio." ]
+  ],
+  biographies: [
+    ["Tiglate-Pileser III", "Rei assirio do seculo VIII a.C. associado a reformas militares, administrativas e fiscais que fortaleceram o imperio."],
+    ["Sargao II", "Rei que expandiu o poder assirio e mandou construir Dur-Sharrukin como capital monumental."],
+    ["Senaquerib", "Rei ligado a grandes obras em Ninive, campanhas militares e propaganda palacial."],
+    ["Assurbanipal", "Rei conhecido por campanhas militares e pela grande colecao de tabuinhas reunida em Ninive."],
+    ["Assur", "Deus principal e simbolo da identidade assiria, associado a protecao, realeza e expansao." ]
+  ],
+  concepts: [
+    ["Assiria", "Reino e depois imperio do norte da Mesopotamia, centrado inicialmente na cidade de Assur."],
+    ["Assur", "Cidade de origem da Assiria e divindade principal associada ao poder real assirio."],
+    ["Deportacao", "Transferencia forcada de populacoes conquistadas, usada para punir, controlar e redistribuir trabalho."],
+    ["Provincia assiria", "Territorio conquistado administrado por governadores, impostos, tropas e funcionarios imperiais."],
+    ["Lamassu", "Figura protetora monumental, geralmente com corpo de touro ou leao, asas e cabeca humana, colocada em entradas palaciais."],
+    ["Relevo palacial", "Escultura em pedra usada nos palacios para narrar conquistas, rituais, cacadas e mensagens de poder."]
+  ],
+  quiz: [
+    { type: "causas_consequencias", difficulty: "media", question: "Porque a posicao de Assur ajudou as origens da Assiria?", options: ["Porque ligava rotas comerciais, agricultura, rios e zonas de recursos", "Porque isolava totalmente a cidade", "Porque impedia qualquer comercio"], answer: 0, explanation: "Assur ficava numa area de ligacao entre o Tigre, rotas terrestres e regioes com recursos importantes." },
+    { type: "escolha_multipla", difficulty: "media", question: "O que caracterizou muitos reis assirios?", options: ["Conquista militar, administracao provincial e propaganda real", "Recusa absoluta da escrita", "Ausencia de exercito organizado"], answer: 0, explanation: "O poder assirio combinou exercito, burocracia, tributos, provincias e imagens de autoridade." },
+    { type: "associacao", difficulty: "media", question: "Associa corretamente: lamassu era...", options: ["Uma figura protetora monumental em entradas de palacios", "Uma lei babilonica", "Um rio da Anatolia"], answer: 0, explanation: "Os lamassu comunicavam protecao divina e grandeza real nos palacios assirios." },
+    { type: "verdadeiro_falso", difficulty: "media", question: "Verdadeiro ou falso: as deportacoes assirias tinham impacto politico, economico e social.", options: ["Verdadeiro", "Falso"], answer: 0, explanation: "Eram instrumentos violentos de controlo imperial, redistribuicao de mao de obra e enfraquecimento de resistencias." },
+    { type: "cronologica", difficulty: "dificil", question: "Qual sequencia esta correta?", options: ["Assur comercial > expansao imperial > queda de Ninive", "Queda de Ninive > origem de Assur > reformas imperiais", "Biblioteca de Assurbanipal > origem de Assur > rede paleoassiria"], answer: 0, explanation: "A Assiria comecou como centro urbano e comercial, tornou-se imperio militar e perdeu Ninive em 612 a.C." }
+  ],
+  source: [
+    {
+      text: "O rei marcha por ordem de Assur; os inimigos pagam tributo e as cidades rendidas aparecem nas paredes do palacio.",
+      origin: "Sintese inspirada em inscricoes reais e relevos palaciais assirios.",
+      purpose: "Ajuda a analisar propaganda, guerra, religiao e autoridade real.",
+      limits: "E uma visao oficial dos vencedores; exagera poder e silencia muitas experiencias das populacoes conquistadas."
+    },
+    {
+      text: "Listas de trabalhadores, cereais e animais permitem ao palacio calcular impostos, obras e abastecimento militar.",
+      origin: "Sintese baseada em documentos administrativos cuneiformes assirios.",
+      purpose: "Mostra o papel da escrita na organizacao economica e militar do imperio.",
+      limits: "Documenta sobretudo a administracao, nao a voz direta de camponeses, deportados ou soldados comuns."
+    },
+    {
+      text: "Tabuinhas reunidas em Ninive preservam pressagios, mitos, medicina, cartas e copias de textos antigos.",
+      origin: "Sintese sobre a biblioteca de Assurbanipal.",
+      purpose: "Permite estudar circulacao de conhecimento, escrita cuneiforme e memoria cultural mesopotamica.",
+      limits: "A colecao reflete prioridades palaciais e eruditas, nao todo o conhecimento existente na sociedade."
+    }
+  ],
+  prompts: [
+    "Explica como Assur passou de cidade comercial a centro de uma identidade imperial.",
+    "Compara a autoridade de um rei assirio com a de Hamurabi na Babilonia.",
+    "Como a religiao assiria legitimava guerra, conquista e governo?",
+    "Que grupos sociais sustentavam o imperio assirio e que desigualdades aparecem?",
+    "Analisa um palacio assirio como mensagem politica: arquitectura, relevo, muralha e lamassu.",
+    "A queda do Imperio Assirio resultou mais de inimigos externos ou de fragilidades internas? Defende com argumentos."
+  ],
+  curiosities: [
+    "Antes da fase imperial, comerciantes assirios mantinham colonias mercantis na Anatolia e escreviam cartas em tabuinhas de argila.",
+    "Os relevos assirios eram frequentemente pintados, embora hoje muitas vezes vejamos apenas a pedra.",
+    "A biblioteca de Assurbanipal preservou partes da Epopeia de Gilgamesh, um dos textos literarios mais antigos conhecidos.",
+    "Ninive tinha muralhas extensas, portas monumentais, canais e palacios que impressionavam visitantes e inimigos.",
+    "Os lamassu eram esculpidos para parecerem estaveis de frente e em movimento de lado, um efeito visual muito calculado.",
+    "A reputacao assiria de brutalidade fazia parte da propria propaganda de intimidacao imperial."
+  ]
+};
+
 const romanPremiumContent = {
   timeline: [
     ["753 a.C.", "Fundação tradicional de Roma.", "cultura", "O mito de Rómulo e Remo construiu uma memória de origem guerreira, sagrada e familiar que os romanos usaram para pensar identidade e destino político."],
@@ -488,10 +565,22 @@ function applyBabylonianPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...babylonianPremiumContent.curiosities];
 }
 
+function applyAssyrianPremiumContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...assyrianPremiumContent.timeline];
+  ancient.events = [...ancient.events, ...assyrianPremiumContent.events];
+  ancient.biographies = [...ancient.biographies, ...assyrianPremiumContent.biographies];
+  ancient.concepts = [...ancient.concepts, ...assyrianPremiumContent.concepts];
+  ancient.quiz = [...ancient.quiz, ...assyrianPremiumContent.quiz];
+  ancient.source = [...ancient.source, ...assyrianPremiumContent.source];
+  ancient.prompts = [...ancient.prompts, ...assyrianPremiumContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...assyrianPremiumContent.curiosities];
+}
+
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["65 eventos", "17 fontes", "30 quizzes"];
+  ancient.stats = ["77 eventos", "20 fontes", "35 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -505,6 +594,7 @@ function applyRomanPremiumContent() {
 applyEgyptPremiumContent();
 applySumerianPremiumContent();
 applyBabylonianPremiumContent();
+applyAssyrianPremiumContent();
 applyRomanPremiumContent();
 
 export default era;
