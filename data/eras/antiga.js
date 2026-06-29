@@ -700,6 +700,104 @@ const romanPremiumContent = {
   ]
 };
 
+const indicatedAncientLessonsContent = {
+  timeline: [
+    ["c. 753 a.C.-476", "Antiga Roma", "política", "Roma passou de pequena comunidade do Lácio a república, império mediterrânico e referência duradoura de direito, urbanismo, cidadania e poder militar. A lição introduz o percurso romano sem o reduzir a uma marcha inevitável de grandeza."],
+    ["c. 1000-509 a.C.", "As origens de Roma", "cultura", "As origens romanas misturam arqueologia, aldeias latinas, influência etrusca e narrativas míticas como Rómulo e Remo. Separar mito, memória política e vestígio material é essencial para compreender como Roma construiu uma identidade."],
+    ["509-27 a.C.", "A República romana", "política", "A República combinava Senado, magistraturas, assembleias e conflitos sociais entre patrícios e plebeus. A participação era limitada, mas as lutas por direitos mostram que a cidadania romana se formou através de disputa."],
+    ["27 a.C.-476", "O Império Romano", "política", "O Império reorganizou províncias, exército, impostos, cidades e redes de comunicação. A paz imperial dependia de autoridade central, colaboração de elites locais e desigualdades profundas."],
+    ["27 a.C.-305", "Os imperadores romanos", "política", "De Augusto a Diocleciano, os imperadores equilibraram propaganda, exército, administração e sucessão. O cargo podia trazer estabilidade, mas também guerras civis quando a legitimidade era contestada."],
+    ["c. 753 a.C.-séc. IV", "A religião romana", "religião", "A religião romana ligava deuses, rituais públicos, família, calendário e lealdade política. O culto imperial e a expansão do cristianismo mostram como crença e poder mudaram ao longo do império."],
+    ["séc. III a.C.-séc. IV", "As artes romanas", "cultura", "Arquitetura, escultura, mosaicos, pintura e literatura ajudaram Roma a representar poder, memória e estatuto social. A arte romana apropriou modelos gregos, mas adaptou-os a cidades, casas, fóruns e propaganda imperial."],
+    ["séc. III a.C.-séc. IV", "A sociedade romana", "política", "A sociedade romana era hierárquica: cidadãos, mulheres, libertos, estrangeiros, escravizados e elites tinham direitos e expectativas muito diferentes. Família, patronato e estatuto jurídico organizavam a vida social."],
+    ["séc. I a.C.-séc. II", "O quotidiano romano", "cultura", "O quotidiano romano incluía trabalho, mercados, termas, jogos, refeições, casas desiguais e vida nas ruas. Grafitos, objetos domésticos e ruínas de cidades ajudam a ver pessoas comuns para lá dos imperadores."],
+    ["séc. III-476", "A queda do Império Romano do Ocidente", "política", "A queda do Ocidente resultou de pressões militares, crises fiscais, disputas de sucessão, perda de províncias e transformação das elites. 476 é símbolo de um processo longo, não um colapso de um só dia."],
+    ["c. 2600 a.C.-séc. V", "Índia antiga", "cultura", "A Índia antiga reuniu urbanismo do Indo, tradições védicas, reinos, impérios, religiões e redes comerciais. O percurso deve ser lido como diversidade regional, não como uma história única e uniforme."],
+    ["c. 2600-1900 a.C.", "A civilização do vale do Indo", "ciência", "Harappa, Mohenjo-Daro e outras cidades revelam planeamento urbano, drenagem, pesos padronizados e comércio. Como a escrita ainda não está decifrada, a arqueologia é decisiva e exige prudência."],
+    ["c. 1500-600 a.C.", "O período védico", "religião", "O período védico formou tradições rituais, textos sagrados e novas formas de organização social no norte da Índia. A transmissão oral teve enorme importância para preservar hinos, normas e memória religiosa."],
+    ["c. 1000 a.C.-séc. V", "O sistema de castas", "política", "As hierarquias de varna e jati organizaram estatuto, trabalho, pureza ritual e exclusão social de formas variáveis no tempo. Estudar castas exige distinguir norma religiosa, prática local e desigualdade vivida na Índia antiga."],
+    ["c. 600 a.C.-séc. V", "As religiões da Índia antiga", "religião", "Hinduísmo, budismo e jainismo desenvolveram respostas diferentes sobre ritual, sofrimento, libertação, disciplina e vida moral. Estas tradições cruzaram poder político, comércio e circulação cultural."],
+    ["322-185 a.C.", "Império Maurya", "política", "O Império Maurya unificou grandes regiões do subcontinente indiano com administração, exército, impostos e estradas. Ashoka associou governo, budismo e mensagens públicas inscritas em pilares e rochas."],
+    ["c. 320-550", "A idade de ouro Gupta", "cultura", "A época Gupta é muitas vezes ligada a florescimento artístico, literário, científico e religioso na Índia antiga. A expressão idade de ouro deve ser usada criticamente, perguntando para quem esse brilho foi visível."],
+    ["séc. V a.C.-séc. V", "Ciência e filosofia na Índia antiga", "ciência", "Matemática, astronomia, medicina, gramática e reflexão filosófica desenvolveram-se em escolas e tradições diversas. O conhecimento circulava por textos, mestres, debates e contactos comerciais."],
+    ["c. 1600 a.C.-220", "China Antiga", "política", "A China antiga articulou dinastias, escrita, bronze, guerra, burocracia, filosofia e império. A ideia de Mandato do Céu ajudou a explicar legitimidade política e mudança dinástica."],
+    ["c. 7000-1600 a.C.", "As origens da civilização chinesa", "cultura", "Comunidades agrícolas ao longo do Huang He e do Yangzi desenvolveram aldeias, cerâmica, rituais e hierarquias antes das primeiras dinastias históricas. A civilização chinesa nasceu de múltiplos centros."],
+    ["c. 2070-771 a.C.", "As primeiras dinastias chinesas", "política", "Xia, Shang e Zhou representam tradições de realeza, bronze, escrita oracular, culto ancestral e poder territorial. A evidência é desigual, por isso convém cruzar texto, arqueologia e memória posterior."],
+    ["475-221 a.C.", "O período dos Reinos Combatentes", "guerra", "A competição entre estados chineses acelerou guerras, reformas administrativas, técnicas militares e pensamento político. O conflito foi destrutivo, mas também criou condições para a unificação imperial."],
+    ["séc. VI-III a.C.", "A filosofia chinesa", "cultura", "Confucionismo, daoismo, legalismo e outras escolas responderam a crises de ordem, governo e vida moral. A filosofia chinesa nasceu ligada a problemas práticos de autoridade, família e harmonia social."],
+    ["221-210 a.C.", "O primeiro imperador Qin", "política", "Qin Shi Huangdi unificou pesos, medidas, escrita administrativa e estruturas de governo, mas também usou coerção severa. O seu império curto deixou modelos fortes de centralização."],
+    ["206 a.C.-220", "A dinastia Han", "política", "A dinastia Han consolidou burocracia, expansão territorial, exames e prestígio confuciano. O período tornou-se referência de identidade política e cultural chinesa."],
+    ["séc. II a.C.-séc. II", "A Rota da Seda", "cultura", "A Rota da Seda ligou China, Ásia Central, Índia, Pérsia e Mediterrâneo por redes de mercadores, diplomatas e intermediários. Mais do que uma estrada única, foi um conjunto de contactos e trocas."],
+    ["c. 105-séc. II", "As invenções chinesas antigas", "ciência", "Papel, seda, metalurgia, bússola primitiva, técnicas agrícolas e outros conhecimentos mostram inovação acumulada. As invenções mudam a história quando encontram redes que as usam, adaptam e difundem."],
+    ["c. 2000 a.C.-séc. XVI", "Os Maias", "cultura", "Os Maias desenvolveram cidades, escrita, calendários, astronomia, dinastias e rituais na Mesoamérica. A sua história não terminou com a queda de cidades clássicas: povos maias continuam vivos."],
+    ["c. 2000-250 a.C.", "As origens dos Maias", "cultura", "As origens maias ligam aldeias agrícolas, cultivo do milho, centros cerimoniais e diferenciação social. A complexidade cresceu lentamente, através de redes regionais e adaptação a ambientes variados."],
+    ["c. 250-900", "As cidades maias", "política", "Tikal, Palenque, Copán e outras cidades eram centros de poder dinástico, ritual, comércio e guerra. Não formavam um império único: competiam, aliavam-se e disputavam prestígio."],
+    ["c. 300-900", "A escrita maia", "cultura", "A escrita maia combinava sinais fonéticos e logogramas para registar reis, datas, rituais e acontecimentos políticos. Estelas, códices e cerâmica permitem ouvir parte da voz das elites."],
+    ["c. 300-900", "Astronomia e calendário maia", "ciência", "Os Maias observaram ciclos do Sol, da Lua, de Vénus e organizaram calendários complexos. Este conhecimento servia agricultura, ritual, legitimidade política e memória histórica."],
+    ["c. 250-900", "A sociedade maia", "política", "A sociedade maia incluía governantes, nobres, sacerdotes, escribas, artesãos, camponeses e pessoas dependentes. O poder das elites apoiava-se em tributo, ritual, guerra e controlo simbólico."],
+    ["c. 250-900", "A religião maia", "religião", "A religião maia articulava deuses, antepassados, ciclos cósmicos, oferendas, sangue ritual e poder dinástico. Rituais ajudavam a explicar a ordem do mundo e a legitimar governantes."],
+    ["séc. VIII-X", "A queda das cidades maias clássicas", "política", "O abandono de várias cidades maias clássicas resultou de combinações regionais de seca, guerra, pressão ambiental, rivalidades e crise política. Não foi o fim dos povos maias, mas uma transformação profunda."]
+  ],
+  quiz: [
+    { type: "escolha_múltipla", difficulty: "fácil", question: "Porque é que as origens de Roma devem ser estudadas com cuidado?", options: ["Porque misturam mito, memória política e arqueologia", "Porque só existem fotografias antigas", "Porque não houve influência etrusca"], answer: 0, explanation: "As narrativas de fundação dizem muito sobre identidade romana, mas precisam de ser cruzadas com vestígios materiais." },
+    { type: "causas_consequências", difficulty: "média", question: "Que fator ajudou Roma a governar territórios muito diferentes?", options: ["Administração provincial, estradas, exército e colaboração de elites locais", "Ausência completa de impostos", "Fim de todas as hierarquias sociais"], answer: 0, explanation: "O poder romano dependia de logística, fiscalidade, elites locais, cidadania desigual e força militar." },
+    { type: "verdadeiro_falso", difficulty: "média", question: "Verdadeiro ou falso: 476 explica sozinho a queda do Império Romano do Ocidente.", options: ["Verdadeiro", "Falso"], answer: 1, explanation: "476 é uma data simbólica; a crise ocidental foi longa e resultou de vários fatores internos e externos." },
+    { type: "escolha_múltipla", difficulty: "média", question: "Porque sabemos menos sobre o vale do Indo do que sobre outras civilizações com escrita decifrada?", options: ["Porque a sua escrita ainda não foi decifrada", "Porque não tinha cidades", "Porque não fazia comércio"], answer: 0, explanation: "A arqueologia mostra cidades complexas, mas a escrita por decifrar limita o acesso direto a nomes, instituições e ideias." },
+    { type: "escolha_múltipla", difficulty: "difícil", question: "Qual leitura é mais rigorosa sobre o sistema de castas?", options: ["Variou no tempo e combinou norma, prática social e desigualdade", "Foi igual em todas as regiões e épocas", "Não teve relação com estatuto social"], answer: 0, explanation: "As castas não podem ser tratadas como bloco imóvel: havia variações regionais, mudanças históricas e forte impacto social." },
+    { type: "causas_consequências", difficulty: "média", question: "Qual foi a importância de Ashoka no Império Maurya?", options: ["Associou governo imperial, budismo e comunicação pública", "Aboliu toda a administração", "Fundou a escrita maia"], answer: 0, explanation: "Os éditos de Ashoka mostram uma tentativa de comunicar princípios de governo e moralidade em escala imperial." },
+    { type: "escolha_múltipla", difficulty: "média", question: "O Mandato do Céu ajudava a explicar...", options: ["A legitimidade e a queda de dinastias chinesas", "A democracia ateniense", "A navegação romana no Atlântico"], answer: 0, explanation: "Na tradição chinesa, uma dinastia podia perder legitimidade se fosse vista como incapaz de manter ordem e harmonia." },
+    { type: "cronológica", difficulty: "difícil", question: "Qual sequência chinesa está correta?", options: ["Shang/Zhou > Reinos Combatentes > Qin > Han", "Han > Qin > Shang/Zhou > Reinos Combatentes", "Qin > Han > Reinos Combatentes > Shang"], answer: 0, explanation: "A unificação Qin surgiu depois dos Reinos Combatentes e foi seguida pela consolidação Han." },
+    { type: "verdadeiro_falso", difficulty: "média", question: "Verdadeiro ou falso: a Rota da Seda era uma única estrada contínua controlada por um só império.", options: ["Verdadeiro", "Falso"], answer: 1, explanation: "Era uma rede de rotas e intermediários, com trocas comerciais, culturais e diplomáticas." },
+    { type: "escolha_múltipla", difficulty: "média", question: "O que caracteriza melhor as cidades maias clássicas?", options: ["Centros dinásticos que competiam e se aliavam entre si", "Capitais de um império maia único", "Cidades sem escrita nem calendário"], answer: 0, explanation: "As cidades maias tinham reinos próprios, relações diplomáticas, guerras e redes culturais comuns." },
+    { type: "causas_consequências", difficulty: "difícil", question: "A chamada queda maia clássica deve ser entendida como...", options: ["Transformação regional com causas ambientais, políticas e militares", "Desaparecimento total dos povos maias", "Resultado de uma única batalha"], answer: 0, explanation: "Várias cidades foram abandonadas ou perderam poder, mas as populações maias continuaram e a explicação é multifatorial." },
+    { type: "associação", difficulty: "fácil", question: "Associa corretamente: a escrita maia servia sobretudo para...", options: ["Registar datas, dinastias, rituais e poder político", "Imprimir jornais modernos", "Criar leis romanas"], answer: 0, explanation: "Grande parte da escrita preservada está ligada a elites, calendário, ritual e legitimação política." }
+  ],
+  source: [
+    {
+      text: "O magistrado entra no fórum; clientes, senadores e vendedores já disputam atenção.",
+      origin: "Síntese baseada em práticas urbanas e políticas romanas.",
+      purpose: "Ajuda a estudar como política, estatuto e quotidiano se cruzavam em Roma.",
+      limits: "É uma reconstrução geral e não representa todas as cidades ou grupos sociais romanos."
+    },
+    {
+      text: "Uma rua larga conduz a casas de tijolo, poços e canais de drenagem cuidadosamente alinhados.",
+      origin: "Síntese arqueológica inspirada em cidades do vale do Indo.",
+      purpose: "Permite relacionar urbanismo, técnica e organização social sem depender de textos decifrados.",
+      limits: "A escrita por decifrar impede conclusões seguras sobre governo, língua e crenças."
+    },
+    {
+      text: "O governante deve ordenar pesos, escrita e leis para que o território obedeça ao mesmo centro.",
+      origin: "Síntese inspirada na centralização Qin e em tradições administrativas chinesas.",
+      purpose: "Mostra como padronização técnica podia servir poder político.",
+      limits: "A visão administrativa tende a esconder coerção, resistência e diversidade local."
+    },
+    {
+      text: "Na estela, a data, o nome do governante e o ritual transformam pedra em memória pública.",
+      origin: "Síntese baseada em inscrições monumentais maias.",
+      purpose: "Ajuda a estudar escrita, calendário, poder dinástico e religião maia.",
+      limits: "As inscrições preservam sobretudo a voz das elites e não a experiência de toda a população."
+    }
+  ],
+  concepts: [
+    ["Mandato do Céu", "Ideia chinesa de legitimidade segundo a qual uma dinastia podia governar enquanto mantivesse ordem e harmonia."],
+    ["Varna e jati", "Categorias ligadas a hierarquia social, estatuto ritual e pertença comunitária na Índia antiga, com variações históricas."],
+    ["Estela maia", "Monumento de pedra com inscrições e imagens usado para registar datas, governantes, rituais e memória política."],
+    ["Fórum romano", "Espaço urbano central onde se cruzavam política, comércio, justiça, religião pública e sociabilidade."]
+  ],
+  prompts: [
+    "Compara República romana e Império romano: que instituições mudaram e que desigualdades continuaram?",
+    "Porque é que a expressão idade de ouro deve ser usada com cuidado na Índia Gupta?",
+    "Como é que a filosofia chinesa respondeu a problemas de guerra, ordem e governo?",
+    "Que fontes permitem estudar os Maias para além das narrativas de queda?"
+  ],
+  curiosities: [
+    "A cloaca, os aquedutos e as termas mostram que o quotidiano romano dependia de infraestruturas tanto como de imperadores.",
+    "Mohenjo-Daro tinha sistemas de drenagem urbanos que impressionam pela regularidade e planeamento.",
+    "O papel chinês tornou a escrita mais barata e móvel, alterando administração e transmissão cultural.",
+    "Os descendentes dos Maias continuam presentes na Mesoamérica, com línguas e identidades vivas."
+  ]
+};
+
 function applyEgyptPremiumContent() {
   const ancient = era;
   ancient.timeline = [...ancient.timeline, ...egyptPremiumContent.timeline];
@@ -771,7 +869,7 @@ function applyGreekPremiumContent() {
 function applyRomanPremiumContent() {
   const ancient = era;
   ancient.summary = "Cidades, impérios, leis, religião, comércio e cultura escrita criaram formas duradouras de autoridade e desigualdade, do vale do Nilo ao Mediterrâneo romano.";
-  ancient.stats = ["106 eventos", "26 fontes", "46 quizzes"];
+  ancient.stats = ["141 eventos", "30 fontes", "58 quizzes"];
   ancient.timeline = [...ancient.timeline, ...romanPremiumContent.timeline];
   ancient.events = [...ancient.events, ...romanPremiumContent.events];
   ancient.biographies = [...ancient.biographies, ...romanPremiumContent.biographies];
@@ -782,6 +880,16 @@ function applyRomanPremiumContent() {
   ancient.curiosities = [...ancient.curiosities, ...romanPremiumContent.curiosities];
 }
 
+function applyIndicatedAncientLessonsContent() {
+  const ancient = era;
+  ancient.timeline = [...ancient.timeline, ...indicatedAncientLessonsContent.timeline];
+  ancient.quiz = [...ancient.quiz, ...indicatedAncientLessonsContent.quiz];
+  ancient.source = [...ancient.source, ...indicatedAncientLessonsContent.source];
+  ancient.concepts = [...ancient.concepts, ...indicatedAncientLessonsContent.concepts];
+  ancient.prompts = [...ancient.prompts, ...indicatedAncientLessonsContent.prompts];
+  ancient.curiosities = [...ancient.curiosities, ...indicatedAncientLessonsContent.curiosities];
+}
+
 applyEgyptPremiumContent();
 applySumerianPremiumContent();
 applyBabylonianPremiumContent();
@@ -789,5 +897,6 @@ applyAssyrianPremiumContent();
 applyPersianPremiumContent();
 applyGreekPremiumContent();
 applyRomanPremiumContent();
+applyIndicatedAncientLessonsContent();
 
 export default era;
