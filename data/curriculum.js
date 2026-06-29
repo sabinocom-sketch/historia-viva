@@ -94,43 +94,43 @@ export const curriculum = {
         id: "invasoes-barbaras",
         title: "Invasões Bárbaras",
         summary: "Migrações, saques, reinos germânicos e transformação do Império Romano do Ocidente.",
-        match: ["invasões bárbaras", "invasoes barbaras", "germânicos", "germanicos", "visigodos", "ostrogodos", "vândalos", "vandalos", "hunos", "saque de roma", "reinos pós-romanos", "pos-romanos", "queda de roma"]
+        match: ["invasões bárbaras", "invasoes barbaras", "germânicos", "germanicos", "visigodos", "ostrogodos", "vândalos", "vandalos", "migrações", "migracoes", "hunos", "átila", "atila", "passagem do reno", "saque de roma", "reinos pós-romanos", "pos-romanos", "queda de roma"]
       },
       {
         id: "franca-medieval",
         title: "França medieval",
         summary: "Francos, Carlos Magno, feudalismo, monarquia capetíngia e Guerra dos Cem Anos.",
-        match: ["frança", "franca", "franco", "francos", "carlos magno", "poitiers", "capetíngia", "capetingia", "cem anos", "joana d'arc", "inovações agrícolas", "inovacoes agricolas", "crescimento demográfico", "crescimento demografico", "aldeias", "campos", "mercados"]
+        match: ["frança", "franca", "franco", "francos", "carlos magno", "carolíngio", "carolingio", "poitiers", "normandia", "feudalismo", "capetíngia", "capetingia", "cem anos", "joana d'arc", "nascimento da frança", "nascimento da franca", "inovações agrícolas", "inovacoes agricolas", "crescimento demográfico", "crescimento demografico", "aldeias", "campos", "mercados"]
       },
       {
         id: "inglaterra-medieval",
         title: "Inglaterra Medieval",
         summary: "Normandos, Magna Carta, Parlamento, poder régio e conflitos nobiliárquicos.",
-        match: ["inglaterra", "inglesa", "inglês", "ingles", "normando", "normanda", "magna carta", "parlamento"]
+        match: ["inglaterra", "inglesa", "inglês", "ingles", "anglo-saxónica", "anglo-saxonica", "normando", "normanda", "conquista normanda", "magna carta", "parlamento", "guerra das rosas"]
       },
       {
         id: "italia-medieval",
         title: "Itália Medieval",
         summary: "Mosteiros, papado, cidades comerciais, universidades e comunas urbanas.",
-        match: ["itália", "italia", "bento", "bolonha", "papado", "cidades italianas", "comunas", "universitário", "universitaria", "peste negra", "peste"]
+        match: ["itália", "italia", "génova", "genova", "veneza", "pisa", "florença", "florenca", "banqueiros", "bento", "bolonha", "papado", "estados papais", "cidades italianas", "comunas", "direito", "cultura medieval", "universitário", "universitaria", "peste negra", "peste"]
       },
       {
         id: "sacro-imperio",
         title: "Sacro Império Romano-Germânico",
         summary: "Imperadores, principados, cristandade latina e disputa entre poder imperial e papal.",
-        match: ["sacro império", "sacro imperio", "romano-germânico", "romano-germanico", "otão", "otao", "imperador germânico", "império cristão", "imperio cristao"]
+        match: ["sacro império", "sacro imperio", "romano-germânico", "romano-germanico", "otão", "otao", "canossa", "interregno", "muitos estados", "cidades imperiais", "liga hanseática", "liga hanseatica", "príncipes eleitores", "principes eleitores", "imperador germânico", "império cristão", "imperio cristao"]
       },
       {
         id: "russia-medieval",
         title: "Rússia Medieval",
         summary: "Rus de Kyiv, cristianização ortodoxa, principados eslavos e domínio mongol.",
-        match: ["rússia", "russia", "rus", "kyiv", "kiev", "eslavos", "mongóis", "mongois", "gengis khan", "horda"]
+        match: ["rússia", "russia", "rus", "kyiv", "kiev", "eslavos", "nómadas orientais", "nomadas orientais", "viquingues do leste", "varegues", "cristianismo ortodoxo", "mongóis", "mongois", "invasão mongol", "invasao mongol", "moscovo", "gengis khan", "horda"]
       },
       {
         id: "vikings",
         title: "Vikings",
         summary: "Navegação nórdica, ataques, comércio, colonização, sagas e integração cristã.",
-        match: ["vikings", "viking", "nórdico", "nordico", "nórdica", "nordica", "escandinávia", "escandinavia", "danelaw", "normandia", "knarr", "dracar"]
+        match: ["vikings", "viking", "viquingues", "nórdico", "nordico", "nórdica", "nordica", "escandinávia", "escandinavia", "danelaw", "normandia", "knarr", "dracar", "drakares", "erik", "vermelho", "religião nórdica", "religiao nordica"]
       },
       {
         id: "china-medieval",
@@ -160,7 +160,7 @@ export const curriculum = {
         id: "imperio-arabe",
         title: "Império Árabe",
         summary: "Islão, califados, Hégira, expansão, cidades, ciência e redes comerciais.",
-        match: ["árabe", "arabe", "islão", "islao", "islâmico", "islamico", "hégira", "hegira", "al-andalus", "muçulmana", "muculmana", "cruzada", "acre", "ceuta"]
+        match: ["árabe", "arabe", "islão", "islao", "islamismo", "islâmico", "islamico", "hégira", "hegira", "al-andalus", "muçulmana", "muculmana", "cruzada", "acre", "ceuta"]
       },
       {
         id: "aztecas",
